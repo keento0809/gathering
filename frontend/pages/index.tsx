@@ -6,7 +6,7 @@ import styles from "../styles/Home.module.css";
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
-      <h1>test</h1>
+      <h1 className="text-xl font-bold underline">test</h1>
     </div>
   );
 };
