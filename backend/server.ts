@@ -13,20 +13,21 @@ app.get("/", (req: Request, res: Response) => {
 // const express = require("express");
 // const app = express();
 // configure dotenv
-// require("dotenv").config();
-const userRoutes = require("./routes/UserRoutes");
-const gatheringRoutes = require("./routes/GatheringRoutes");
+
+// temporary
+// const userRoutes = require("./routes/UserRoutes.js");
+// const gatheringRoutes = require("./routes/GatheringRoutes");
 // const port = process.env.PORT || 8080;
-const cookieParser = require("cookie-parser");
+// const cookieParser = require("cookie-parser");
 
 app.use(express.json());
-app.use(cookieParser());
-app.use("/users", userRoutes);
-app.use("/gatherings", gatheringRoutes);
+// app.use(cookieParser());
+// app.use("/users", userRoutes);
+// app.use("/gatherings", gatheringRoutes);
 
 // test cookie
 app.get("/greet", (req, res) => {
-  console.log(req.cookies);
+  console.log("ooo");
   res.send("HEY THERE!");
 });
 
