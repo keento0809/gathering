@@ -11,7 +11,7 @@ module.exports = {
         common: "url('/bgImage.jpg')",
       },
       minHeight: {
-        400: "400px",
+        500: "500px",
       },
     },
   },
