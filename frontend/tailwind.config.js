@@ -10,6 +10,9 @@ module.exports = {
       backgroundImage: {
         common: "url('/bgImage.jpg')",
       },
+      minHeight: {
+        400: "400px",
+      },
     },
   },
   plugins: [require("flowbite/plugin")],
