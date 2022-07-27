@@ -1,4 +1,6 @@
 import React from "react";
+import MyGathering from "../../components/Gathering/MyGathering";
+import UpcomingGathering from "../../components/Gathering/UpcomingGathering";
 import Layout from "../../components/Layout/Layout";
 import SearchInput from "../../components/SearchInput/SearchInput";
 
@@ -10,6 +12,8 @@ const Home = () => {
           <h3 className="text-xl text-red-500 font-bold">Welcome user!</h3>
         </div>
         <SearchInput />
+        <MyGathering />
+        <UpcomingGathering />
       </div>
     </Layout>
   );

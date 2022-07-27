@@ -7,6 +7,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      width: {
+        180: "180px",
+      },
+      height: {
+        180: "180px",
+      },
       backgroundImage: {
         common: "url('/bgImage.jpg')",
       },
