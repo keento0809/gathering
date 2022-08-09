@@ -8,6 +8,7 @@ const gatheringRoutes = require("./routes/GatheringRoutes");
 const authRoutes = require("./routes/AuthRoutes");
 const port = process.env.PORT || 8080;
 const cookieParser = require("cookie-parser");
+const { createProxyMiddleware } = require("http-proxy-middleware");
 
 // Connect DB
 connectDB();

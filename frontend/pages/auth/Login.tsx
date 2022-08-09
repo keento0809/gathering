@@ -1,9 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import MainButton from "../../components/Button/MainButton";
 import Link from "next/link";
+import { LoginUserInputObj } from "../../models/model";
+import axios from "axios";
+import { useRouter } from "next/router";
 
 const Login = () => {
+  const [userInfo, setUserInfo] = useState<LoginUserInputObj>({
+    email: "",
+    password: "",
+  });
+
+  const router = useRouter();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUserInfo({
+      ...userInfo,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log("Logging in");
+
+    axios
+      .post("/login")
+      .then((res) => {
+        console.log(res.data);
+        router.replace("/home");
+      })
+      .catch((error) => {
+        console.log(error);
+        throw new Error("Invalid login");
+      });
+  };
+
   return (
     <Layout>
       <div className="fixed top-28 left-0 w-full px-5 text-red-500">
@@ -33,9 +66,11 @@ const Login = () => {
                 </div>
                 <input
                   type="email"
+                  name="email"
                   id="email-address-icon"
+                  onChange={handleChange}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="name@flowbite.com"
+                  placeholder="name@sample.com"
                   required={true}
                 />
               </div>
@@ -64,7 +99,9 @@ const Login = () => {
                 </div>
                 <input
                   type="password"
+                  name="password"
                   id="password"
+                  onChange={handleChange}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Password"
                   required={true}
