@@ -1,9 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import MainButton from "../../components/Button/MainButton";
+import AuthButton from "../../components/Button/AuthButton";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { SingupUserInputObj } from "../../models/model";
+import axios from "axios";
 
 const Signup = () => {
+  const [userInfo, setUserInfo] = useState<SingupUserInputObj>({
+    username: "",
+    email: "",
+    password: "",
+    passwordConfirm: "",
+  });
+
+  const router = useRouter();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUserInfo({
+      ...userInfo,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    axios
+      .post("/signup", userInfo)
+      .then((res) => {
+        console.log(res.data);
+        router.replace("/home");
+      })
+      .catch((error) => {
+        console.log(error);
+        throw new Error("Invalid signup");
+      });
+  };
   return (
     <Layout>
       <div className="fixed top-28 left-0 w-full px-5 text-red-500">
@@ -11,7 +44,37 @@ const Signup = () => {
           Sign up
         </h2>
         <section className="auth-form rounded-xl bg-slate-400 min-h-500 p-8 mt-6">
-          <form>
+          <form onSubmit={handleSubmit}>
+            <div className="mb-6">
+              <label
+                htmlFor="username"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                Your name
+              </label>
+              <div className="relative">
+                <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                  </svg>
+                </div>
+                <input
+                  type="text"
+                  name="username"
+                  onChange={handleChange}
+                  id="username"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Joe Doe"
+                  required={true}
+                />
+              </div>
+            </div>
             <div className="mb-6">
               <label
                 htmlFor="email-address-icon"
@@ -33,9 +96,11 @@ const Signup = () => {
                 </div>
                 <input
                   type="email"
+                  name="email"
+                  onChange={handleChange}
                   id="email-address-icon"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="name@flowbite.com"
+                  placeholder="name@sample.com"
                   required={true}
                 />
               </div>
@@ -65,6 +130,8 @@ const Signup = () => {
                 <input
                   type="password"
                   id="password"
+                  name="password"
+                  onChange={handleChange}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Password"
                   required={true}
@@ -96,13 +163,15 @@ const Signup = () => {
                 <input
                   type="password"
                   id="repeat-password"
+                  name="passwordConfirm"
+                  onChange={handleChange}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Password"
                   required={true}
                 />
               </div>
             </div>
-            <MainButton text="Register" linkUrl="/" />
+            <AuthButton text={"register"} />
             <div className="pt-8 text-white">
               Already have account?{" "}
               <span className="font-bold text-red-500 cursor-pointer">
