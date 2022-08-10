@@ -20,7 +20,7 @@ const Home: NextPage = () => {
             <p className="text-lg">Find and interact with new people</p>
             <p className="text-lg">Explore now to make your life better.</p>
           </div>
-          <MainButton text="Get started" linkUrl="/auth/login" />
+          <MainButton text="Get started" linkUrl="/auth" />
         </section>
       </div>
     </Layout>

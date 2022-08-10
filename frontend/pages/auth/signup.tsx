@@ -175,7 +175,7 @@ const Signup = () => {
             <div className="pt-8 text-white">
               Already have account?{" "}
               <span className="font-bold text-red-500 cursor-pointer">
-                <Link href="/auth/login">Login</Link>{" "}
+                <Link href="/auth">Login</Link>{" "}
               </span>
               Here!
             </div>
