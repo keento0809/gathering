@@ -4,5 +4,7 @@ export default function loginHandler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  res.status(200).json({ status: "Done!!" });
+  const { email, password } = req.body;
+  // validate if the user exists or not
+  res.status(200).json({ email });
 }
