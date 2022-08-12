@@ -1,7 +1,10 @@
-import React from "react";
+import type { NextApiRequest, NextApiResponse } from "next";
 
-const signup = () => {
-  return <div>signup</div>;
-};
-
-export default signup;
+export default function SignupHandler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  const userData = req.body;
+  const { username, email, password } = userData;
+  res.status(200).json({ username, email, password });
+}

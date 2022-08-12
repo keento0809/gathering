@@ -27,7 +27,7 @@ const Signup = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     axios
-      .post("/signup", userInfo)
+      .post("/api/auth/signup", userInfo)
       .then((res) => {
         console.log(res.data);
         router.replace("/home");

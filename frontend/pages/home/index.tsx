@@ -5,6 +5,9 @@ import Layout from "../../components/Layout/Layout";
 import SearchInput from "../../components/SearchInput/SearchInput";
 
 const Home = () => {
+  const handleLogout = () => {
+    console.log("logging out");
+  };
   return (
     <Layout>
       <div className="fixed top-28 left-0 w-full px-5">
@@ -14,6 +17,8 @@ const Home = () => {
         <SearchInput />
         <MyGathering />
         <UpcomingGathering />
+        {/* temporary */}
+        <button onClick={handleLogout}>Logout</button>
       </div>
     </Layout>
   );
