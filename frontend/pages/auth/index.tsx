@@ -5,13 +5,13 @@ import Link from "next/link";
 import { LoginUserInputObj } from "../../models/model";
 import axios from "axios";
 import { useRouter } from "next/router";
+import AuthButton from "../../components/Button/AuthButton";
 
 const Login = () => {
   const [userInfo, setUserInfo] = useState<LoginUserInputObj>({
     email: "",
     password: "",
   });
-
   const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,20 +21,33 @@ const Login = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Logging in");
+    const { email, password } = userInfo;
+    if (email === "" || password === "") {
+      alert("Invalid credentials");
+      return;
+    }
+    const submitInfo = {
+      email,
+      password,
+    };
 
-    axios
-      .post("/login")
-      .then((res) => {
-        console.log(res.data);
-        router.replace("/home");
-      })
-      .catch((error) => {
-        console.log(error);
-        throw new Error("Invalid login");
+    try {
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        body: JSON.stringify(submitInfo),
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
+      const data = await res.json();
+      console.log(data);
+      router.replace("/home");
+    } catch (error) {
+      console.log(error);
+      throw new Error("Invalid login");
+    }
   };
 
   return (
@@ -44,7 +57,7 @@ const Login = () => {
           Login
         </h2>
         <section className="auth-form rounded-xl bg-slate-400 min-h-500 p-8 mt-6">
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="mb-6">
               <label
                 htmlFor="email-address-icon"
@@ -108,7 +121,7 @@ const Login = () => {
                 />
               </div>
             </div>
-            <MainButton text="Login" linkUrl="/" />
+            <AuthButton text="Login" />
             <div className="pt-8 text-white">
               Need an account?{" "}
               <span className="font-bold text-red-500 cursor-pointer">
