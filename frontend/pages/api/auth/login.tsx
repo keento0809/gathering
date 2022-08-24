@@ -6,5 +6,5 @@ export default function loginHandler(
 ) {
   const { email, password } = req.body;
   // validate if the user exists or not
-  res.status(200).json({ email });
+  res.status(200).json({ email, password });
 }
