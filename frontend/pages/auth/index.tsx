@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import Layout from "../../components/Layout/Layout";
-import MainButton from "../../components/Button/MainButton";
 import Link from "next/link";
 import { LoginUserInputObj } from "../../models/model";
-import axios from "axios";
 import { useRouter } from "next/router";
 import AuthButton from "../../components/Button/AuthButton";
 
@@ -51,7 +48,7 @@ const Login = () => {
   };
 
   return (
-    <Layout>
+    <>
       <div className="fixed top-28 left-0 w-full px-5 text-red-500">
         <h2 className="text-2xl font-bold text-center tracking-tighter">
           Login
@@ -132,7 +129,7 @@ const Login = () => {
           </form>
         </section>
       </div>
-    </Layout>
+    </>
   );
 };
 

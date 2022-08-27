@@ -5,10 +5,10 @@ const GatheringCard = () => {
     <li>
       <div className="relative p-4 w-180 h-180 bg-red-500 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
         <h3 className="text-lg font-bold">MokuMoku Kai</h3>
-        <p className="text-sm font-normal">
-          test test test test test test test test test test test test test test
-          test
-        </p>
+        {/* date */}
+        <p className="text-sm font-normal">2022-09-01</p>
+        {/* place */}
+        <p className="pt-4 text-sm font-normal">Waves coffee</p>
         <div className="absolute bottom-5 right-6">
           <svg
             aria-hidden="true"

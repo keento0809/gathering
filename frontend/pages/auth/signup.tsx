@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import Layout from "../../components/Layout/Layout";
-import MainButton from "../../components/Button/MainButton";
 import AuthButton from "../../components/Button/AuthButton";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -38,7 +36,7 @@ const Signup = () => {
       });
   };
   return (
-    <Layout>
+    <>
       <div className="fixed top-28 left-0 w-full px-5 text-red-500">
         <h2 className="text-2xl font-bold text-center tracking-tighter">
           Sign up
@@ -182,7 +180,7 @@ const Signup = () => {
           </form>
         </section>
       </div>
-    </Layout>
+    </>
   );
 };
 

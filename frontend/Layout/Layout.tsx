@@ -1,10 +1,12 @@
 import React from "react";
-import Nav from "../nav/Nav";
-import { LayoutProps } from "../../models/model";
+import Meta from "../meta/Meta";
+import Nav from "../components/nav/Nav";
+import { LayoutProps } from "../models/model";
 
 const Layout = ({ children }: LayoutProps) => {
   return (
     <>
+      <Meta />
       <Nav />
       <div className="container">
         <section

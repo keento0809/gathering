@@ -1,13 +1,12 @@
 import type { NextPage } from "next";
 import Nav from "../components/nav/Nav";
 import { Fragment } from "react";
-import Layout from "../components/Layout/Layout";
 import Link from "next/link";
 import MainButton from "../components/Button/MainButton";
 
 const Home: NextPage = () => {
   return (
-    <Layout>
+    <>
       <div className="fixed top-96 left-0 w-full px-5">
         <section className="hero-body pt-6">
           <div className="hero-title">
@@ -23,7 +22,7 @@ const Home: NextPage = () => {
           <MainButton text="Get started" linkUrl="/auth" />
         </section>
       </div>
-    </Layout>
+    </>
   );
 };
 
