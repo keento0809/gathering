@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { LoginUserInputObj } from "../../models/model";
 import { useRouter } from "next/router";
+import { useUserContext } from "../../context/UserContext";
 import AuthButton from "../../components/Button/AuthButton";
 
 const Login = () => {
@@ -9,6 +10,8 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const { login } = useUserContext();
+
   const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -39,7 +42,7 @@ const Login = () => {
         },
       });
       const data = await res.json();
-      console.log(data);
+      login();
       router.replace("/home");
     } catch (error) {
       console.log(error);
