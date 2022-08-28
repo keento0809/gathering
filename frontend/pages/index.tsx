@@ -1,7 +1,4 @@
 import type { NextPage } from "next";
-import Nav from "../components/nav/Nav";
-import { Fragment } from "react";
-import Link from "next/link";
 import MainButton from "../components/Button/MainButton";
 
 const Home: NextPage = () => {

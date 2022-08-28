@@ -1,15 +1,11 @@
 import Head from "next/head";
 import React from "react";
+import Button from "../../components/Button/Button";
 import UpcomingGathering from "../../components/Gathering/UpcomingGathering";
-import { useRouter } from "next/router";
-import Carousel from "../../components/Carousel/Carousel";
 
 const Home = () => {
-  const router = useRouter();
-
-  const handleLogout = () => {
-    console.log("logging out");
-    router.replace("/");
+  const handleLoadMore = () => {
+    console.log("Loaded now");
   };
   return (
     <>
@@ -25,11 +21,15 @@ const Home = () => {
             Explore new gathering here
           </p>
         </div>
-        <div className="pt-10 pb-4">
+        <div className="pt-8 pb-4">
           <h3 className="text-2xl font-bold tracking-tight">Upcoming</h3>
           <UpcomingGathering />
         </div>
-        <button onClick={handleLogout}>Logout</button>
+        <div className="pt-6 text-center">
+          <div className="" onClick={handleLoadMore}>
+            <Button text="Load More" />
+          </div>
+        </div>
       </div>
     </>
   );
