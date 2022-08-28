@@ -1,14 +1,15 @@
 import React from "react";
-import GatheringCard from "../Card/GatheringCard";
+import Card from "../Card/Card";
 
 const UpcomingGathering = () => {
+  // const upcomingList = lists.map((gathering,index) => {
+  //   return <li key={index}></li>
+  // })
   return (
-    <div className="py-4">
-      <h3 className="text-xl font-bold">Upcoming Gathering</h3>
-      <ul className="text-xl pt-3">
-        <GatheringCard />
-      </ul>
-    </div>
+    <ul className="text-xl pt-3">
+      {/* {upcomingList} */}
+      <Card />
+    </ul>
   );
 };
 

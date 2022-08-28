@@ -12,6 +12,7 @@ module.exports = {
       },
       height: {
         180: "180px",
+        500: "500px",
       },
       backgroundImage: {
         common: "url('/bgImage.jpg')",

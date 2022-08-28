@@ -1,9 +1,8 @@
 import Head from "next/head";
 import React from "react";
-import MyGathering from "../../components/Gathering/MyGathering";
 import UpcomingGathering from "../../components/Gathering/UpcomingGathering";
-import SearchInput from "../../components/SearchInput/SearchInput";
 import { useRouter } from "next/router";
+import Carousel from "../../components/Carousel/Carousel";
 
 const Home = () => {
   const router = useRouter();
@@ -19,11 +18,17 @@ const Home = () => {
       </Head>
       <div className="fixed top-28 left-0 w-full px-5">
         <div className="home-title">
-          <h3 className="text-xl text-red-500 font-bold">Welcome user!</h3>
+          <h3 className="text-3xl text-red-500 font-bold tracking-tight">
+            Welcome to Gathering!
+          </h3>
+          <p className="font-normal text-md pt-1 tracking-tight">
+            Explore new gathering here
+          </p>
         </div>
-        <SearchInput />
-        <MyGathering />
-        <UpcomingGathering />
+        <div className="pt-10 pb-4">
+          <h3 className="text-2xl font-bold tracking-tight">Upcoming</h3>
+          <UpcomingGathering />
+        </div>
         <button onClick={handleLogout}>Logout</button>
       </div>
     </>
