@@ -8,10 +8,6 @@ const Meta = ({ title, keywords, description }: MetaDefaultPropsType) => {
       <title>{title}</title>
       <meta name="keyword" content={keywords} />
       <meta name="description" content={description} />
-      <link
-        rel="stylesheet"
-        href="https://unpkg.com/flowbite@1.5.1/dist/flowbite.min.css"
-      />
     </Head>
   );
 };

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { LoginUserInputObj } from "../../models/model";
 import { useRouter } from "next/router";
 import { useUserContext } from "../../context/UserContext";
-import AuthButton from "../../components/Button/AuthButton";
+import AuthButton from "../../components/Button/Button";
 
 const Login = () => {
   const [userInfo, setUserInfo] = useState<LoginUserInputObj>({
