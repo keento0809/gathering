@@ -11,7 +11,9 @@ const Nav = () => {
       <div className="header-container px-5 py-4 flex flex-row justify-between items-center">
         <section className="header-left">
           <Link href="/">
-            <span className="text-red-500 font-bold">Gathering</span>
+            <span className="text-red-500 font-bold tracking-tight">
+              Gathering
+            </span>
           </Link>
         </section>
         <section className="header-right" onClick={handleOpenMenu}>
