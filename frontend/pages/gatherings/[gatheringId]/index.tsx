@@ -1,11 +1,10 @@
 import Head from "next/head";
 import React from "react";
-import Button from "../../components/Button/Button";
-import MainButton from "../../components/Button/MainButton";
-import DetailCard from "../../components/Card/DetailCard";
-import Wrapper from "../../components/Wrapper/Wrapper";
-import { DUMMY_GATHERING_DATA } from "../../data/data";
-import { GatheringProps, GatheringType } from "../../models/model";
+import MainButton from "../../../components/Button/MainButton";
+import DetailCard from "../../../components/Card/DetailCard";
+import Wrapper from "../../../components/Wrapper/Wrapper";
+import { DUMMY_GATHERING_DATA } from "../../../data/data";
+import { GatheringProps, GatheringType } from "../../../models/model";
 
 const GatheringDetail = ({ gathering }: GatheringProps) => {
   return (
@@ -20,7 +19,10 @@ const GatheringDetail = ({ gathering }: GatheringProps) => {
         </h2>
         <DetailCard gathering={gathering} />
         <div className="text-center pt-6">
-          <MainButton text="Join" linkUrl="/application" />
+          <MainButton
+            text="Join"
+            linkUrl={`/gatherings/${gathering._id}/application`}
+          />
         </div>
       </Wrapper>
     </>
