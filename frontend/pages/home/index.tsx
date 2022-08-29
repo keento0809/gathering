@@ -1,13 +1,11 @@
 import Head from "next/head";
 import React from "react";
-import Button from "../../components/Button/Button";
-import UpcomingGathering from "../../components/Gathering/UpcomingGathering";
+import UpcomingGathering from "../../components/List/UpcomingGathering";
 import Wrapper from "../../components/Wrapper/Wrapper";
+import { DUMMY_GATHERING_DATA } from "../../data/data";
+import { GatheringsArrayType } from "../../models/model";
 
-const Home = () => {
-  const handleLoadMore = () => {
-    console.log("Loaded now");
-  };
+const Home = ({ data }: GatheringsArrayType) => {
   return (
     <>
       <Head>
@@ -23,17 +21,22 @@ const Home = () => {
           </p>
         </div>
         <div className="pt-8 pb-4">
-          <h3 className="text-2xl font-bold tracking-tight">Upcoming</h3>
-          <UpcomingGathering />
+          <h3 className="text-2xl font-bold tracking-tight overflow-y-scroll">
+            Upcoming
+          </h3>
+          <UpcomingGathering data={data} />
         </div>
-        {/* <div className="pt-6 text-center">
-          <div className="" onClick={handleLoadMore}>
-            <Button text="Load More" />
-          </div>
-        </div> */}
       </Wrapper>
     </>
   );
 };
 
 export default Home;
+
+export async function getStaticProps() {
+  return {
+    props: {
+      data: DUMMY_GATHERING_DATA,
+    },
+  };
+}
