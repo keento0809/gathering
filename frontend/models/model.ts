@@ -36,11 +36,6 @@ export interface LoginUserInputObj {
   password: String;
 }
 
-export interface timeScheduleObj {
-  time: string;
-  agenda: string;
-}
-
 export interface placeLatLngObj {
   lat: number;
   lng: number;
@@ -50,11 +45,12 @@ export interface GatheringType {
   _id: number;
   title: string;
   image: string;
+  headline: string;
   description: string;
   capacity: number;
   date: string;
   schedule: string;
-  timeSchedule: timeScheduleObj[];
+  timeSchedule: string;
   placeName: string;
   placeLatLng: placeLatLngObj;
   isFull: boolean;

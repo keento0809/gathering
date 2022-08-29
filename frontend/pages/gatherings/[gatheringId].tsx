@@ -15,10 +15,10 @@ const GatheringDetail = ({ gathering }: GatheringProps) => {
       </Head>
       <Wrapper>
         <h2 className="text-2xl pl-0.5 font-bold tracking-tighter text-left text-red-500">
-          Moku-Marketing
+          {gathering.title}
           {/* title of gathering */}
         </h2>
-        <DetailCard />
+        <DetailCard gathering={gathering} />
         <div className="text-center pt-6">
           <MainButton text="Join" linkUrl="/application" />
         </div>
@@ -30,11 +30,13 @@ const GatheringDetail = ({ gathering }: GatheringProps) => {
 export default GatheringDetail;
 
 export async function getStaticPaths() {
-  const paths = DUMMY_GATHERING_DATA.map((data) => ({
-    params: {
-      dataId: `${data._id}`,
-    },
-  }));
+  const paths = DUMMY_GATHERING_DATA.map((data) => {
+    return {
+      params: {
+        gatheringId: `${data._id}`,
+      },
+    };
+  });
   return {
     paths,
     fallback: false,
@@ -43,8 +45,11 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context: any) {
   const { params } = context;
-  const { dataId } = params;
-  const gathering = DUMMY_GATHERING_DATA.find((data) => data._id === dataId);
+  const { gatheringId } = params;
+
+  const gathering = DUMMY_GATHERING_DATA.find(
+    (data) => data._id.toString() === gatheringId
+  );
   return {
     props: {
       gathering,

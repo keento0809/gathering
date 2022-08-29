@@ -12,7 +12,10 @@ const UpcomingGathering = ({ data }: GatheringsArrayType) => {
     );
   });
   return (
-    <ul className="text-xl pt-3 max-h-590 overflow-scroll">
+    <ul
+      className="text-xl mt-3 max-h-590 overflow-scroll"
+      style={{ maxHeight: "590px" }}
+    >
       {upcomingList}
       {/* <GatheringCard gathering={gathering} /> */}
     </ul>

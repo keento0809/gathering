@@ -3,11 +3,13 @@ export const DUMMY_GATHERING_DATA = [
     _id: 1,
     title: "Moku-Marketing",
     image:
-      "https://images.unsplash.com/photo-1531545514256-b1400bc00f31?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
+      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+    headline:
+      "Learn programming, learn digital marketing! Here's a gathering coming true that!",
     description:
       "In this event, besides you can work on whatever you want, you can interact with digital marketing specialist who can give you lots of tips related to marketing fields.",
     capacity: 8,
-    date: "2022-09-01",
+    date: "2022/09/01",
     time: "09:00AM ~ 12:00AM",
     timeSchedule: [
       {
@@ -62,10 +64,12 @@ export const DUMMY_GATHERING_DATA = [
     title: "Developers' meetup",
     image:
       "https://images.unsplash.com/photo-1573164574511-73c773193279?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80",
+    headline:
+      "Enjoy conversations with various developers based around Vancouver!",
     description:
       "In this event, besides you can work on whatever you want, you can interact with digital marketing specialist who can give you lots of tips related to marketing fields.",
     capacity: 8,
-    date: "2022-09-14",
+    date: "2022/09/14",
     time: "09:00AM ~ 12:00AM",
     timeSchedule: [
       {
@@ -119,11 +123,12 @@ export const DUMMY_GATHERING_DATA = [
     _id: 3,
     title: "Mokumoku kai",
     image:
-      "https://images.unsplash.com/photo-1531545514256-b1400bc00f31?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
+      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+    headline: "Let's code together with excellent coffee at the chilling cafe.",
     description:
       "In this event, besides you can work on whatever you want, you can interact with digital marketing specialist who can give you lots of tips related to marketing fields.",
     capacity: 8,
-    date: "2022-09-01",
+    date: "2022/09/22",
     time: "09:00AM ~ 12:00AM",
     timeSchedule: [],
     placeName: "Devil Coffee - Waterfront -",
