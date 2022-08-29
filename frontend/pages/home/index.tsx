@@ -25,11 +25,11 @@ const Home = () => {
           <h3 className="text-2xl font-bold tracking-tight">Upcoming</h3>
           <UpcomingGathering />
         </div>
-        <div className="pt-6 text-center">
+        {/* <div className="pt-6 text-center">
           <div className="" onClick={handleLoadMore}>
             <Button text="Load More" />
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

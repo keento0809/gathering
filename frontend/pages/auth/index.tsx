@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { LoginUserInputObj } from "../../models/model";
 import { useRouter } from "next/router";
-import { useUserContext } from "../../context/UserContext";
+import { useAdminUserContext } from "../../context/AdminUserContext";
 import AuthButton from "../../components/Button/Button";
 
 const Login = () => {
@@ -10,7 +10,7 @@ const Login = () => {
     email: "",
     password: "",
   });
-  const { login } = useUserContext();
+  const { login } = useAdminUserContext();
 
   const router = useRouter();
 

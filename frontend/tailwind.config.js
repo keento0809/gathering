@@ -17,8 +17,16 @@ module.exports = {
       backgroundImage: {
         common: "url('/bgImage.jpg')",
       },
+      maxWidth: {
+        100: "100px",
+      },
       minHeight: {
         500: "500px",
+        600: "600px",
+      },
+      maxHeight: {
+        550: "550px",
+        580: "580px",
       },
     },
   },
