@@ -4,8 +4,10 @@ import Button from "../../components/Button/Button";
 import MainButton from "../../components/Button/MainButton";
 import DetailCard from "../../components/Card/DetailCard";
 import Wrapper from "../../components/Wrapper/Wrapper";
+import { DUMMY_GATHERING_DATA } from "../../data/data";
+import { GatheringProps, GatheringType } from "../../models/model";
 
-const GatheringDetail = () => {
+const GatheringDetail = ({ gathering }: GatheringProps) => {
   return (
     <>
       <Head>
@@ -26,3 +28,26 @@ const GatheringDetail = () => {
 };
 
 export default GatheringDetail;
+
+export async function getStaticPaths() {
+  const paths = DUMMY_GATHERING_DATA.map((data) => ({
+    params: {
+      dataId: `${data._id}`,
+    },
+  }));
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps(context: any) {
+  const { params } = context;
+  const { dataId } = params;
+  const gathering = DUMMY_GATHERING_DATA.find((data) => data._id === dataId);
+  return {
+    props: {
+      gathering,
+    },
+  };
+}

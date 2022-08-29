@@ -63,6 +63,14 @@ export interface GatheringType {
   organizer: adminUserInfoObjType;
 }
 
+export interface GatheringProps {
+  gathering: GatheringType;
+}
+
+export interface GatheringsArrayType {
+  data: GatheringType[];
+}
+
 export interface participantInfoObj {
   id: number;
   username: string;

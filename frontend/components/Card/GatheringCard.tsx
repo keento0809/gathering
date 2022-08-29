@@ -1,11 +1,12 @@
 import React from "react";
+import { GatheringProps, GatheringType } from "../../models/model";
 import ImageSrc from "../../public/static/bgImage.jpg";
 import Button from "../Button/Button";
 import MainButton from "../Button/MainButton";
 
-const Card = () => {
+const GatheringCard = ({ gathering }: GatheringProps) => {
   return (
-    <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+    <div className="max-w-sm w-full mb-4 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
       <a href="#">
         <img className="rounded-t-lg" src={ImageSrc.src} alt="" />
       </a>
@@ -25,4 +26,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+export default GatheringCard;
