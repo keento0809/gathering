@@ -1,12 +1,13 @@
 import React from "react";
 import Card from "./Card";
+import { GatheringProps } from "../../models/model";
 
-const DetailCard = () => {
+const DetailCard = ({ gathering }: GatheringProps) => {
   return (
     <Card>
       <section className="image">
         <img
-          src="https://images.unsplash.com/photo-1573164574511-73c773193279?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80"
+          src={gathering.image}
           alt=""
           width="100%"
           className="rounded-md mb-2"
@@ -15,59 +16,37 @@ const DetailCard = () => {
       <section className="description py-2">
         <h3 className="text-lg font-bold tracking-tight">Description</h3>
         <p className="text-base pt-2">
-          In this event, besides you can work on whatever you want, you can
+          {gathering.description}
+          {/* In this event, besides you can work on whatever you want, you can
           interact with digital marketing specialist who can give you lots of
-          tips related to marketing fields.
+          tips related to marketing fields. */}
         </p>
       </section>
       <section className="info py-2">
         <h3 className="text-lg font-bold tracking-tight">Info</h3>
         <ul className="pt-2 text-base">
-          <li className="pb-1">Date: 2022/09/01</li>
-          <li className="pb-1">Time: 09:00AM - 12:00AM</li>
-          <li className="pb-1">Place: Waves Coffee - Kingsway -</li>
+          <li className="pb-1">Date: {gathering.date}</li>
+          <li className="pb-1">Time: {gathering.schedule}</li>
+          <li className="pb-1">Place: {gathering.placeName}</li>
           <li className="pb-1">
-            Participants: <span className="text-red-500">5 members</span> coming
+            Participants:{" "}
+            <span className="text-red-500">
+              {gathering.participants.length} members
+            </span>{" "}
+            coming
           </li>
           <li className="pb-1">Organizer: Joe Doe</li>
         </ul>
       </section>
       <section className="schedule py-2">
         <h3 className="text-lg font-bold tracking-tight">Schedule</h3>
-        <table className="pt-2 text-base">
-          <th>
-            <td className="font-normal">Time</td>
-            <td className="font-normal">Agenda</td>
-          </th>
-          <tr className="">
-            <td>09:00</td>
-            <td>Start</td>
-          </tr>
-          <tr className="">
-            <td>09:00~10:00</td>
-            <td>First session</td>
-          </tr>
-          <tr className="">
-            <td>09:00~10:00</td>
-            <td>First session</td>
-          </tr>
-          <tr className="">
-            <td>10:00~10:20</td>
-            <td>Short break</td>
-          </tr>
-          <tr className="">
-            <td>10:20~11:40</td>
-            <td>Second session</td>
-          </tr>
-          <tr className="">
-            <td>11:40~12:00</td>
-            <td>QA session</td>
-          </tr>
-          <tr className="">
-            <td>12:00</td>
-            <td>Finish</td>
-          </tr>
-        </table>
+        <div className="pt-2">
+          <p className="pb-1">09:00 Start</p>
+          <p className="pb-1">09:00~10:30 First session</p>
+          <p className="pb-1">10:30~11:00 Break</p>
+          <p className="pb-1">11:00~12:00 Second session</p>
+          <p className="pb-1">12:00 Finish</p>
+        </div>
       </section>
       <section className="google-map py-2">
         <h3 className="text-lg font-bold tracking-tight">Map</h3>
@@ -85,8 +64,9 @@ const DetailCard = () => {
       <section className="specialNotes py-2">
         <h3 className="text-lg font-bold tracking-tight">Notes</h3>
         <p className="text-base py-2">
-          Please bring your own PC. Participants have to buy at least one drink
-          at the place.
+          {gathering.specialNotes}
+          {/* Please bring your own PC. Participants have to buy at least one drink
+          at the place. */}
         </p>
       </section>
     </Card>

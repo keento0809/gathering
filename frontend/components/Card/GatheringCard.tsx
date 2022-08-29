@@ -8,19 +8,19 @@ const GatheringCard = ({ gathering }: GatheringProps) => {
   return (
     <div className="max-w-sm w-full mb-4 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
       <a href="#">
-        <img className="rounded-t-lg" src={ImageSrc.src} alt="" />
+        <img className="rounded-t-lg" src={gathering.image} alt="" />
       </a>
       <div className="p-5">
         <a href="#">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            Moku-Marketing
+            {gathering.title}
           </h5>
         </a>
-        <p className="tracking-tight font-semibold text-base">2022/09/01</p>
+        <p className="font-semibold text-base">{gathering.date}</p>
         <p className="mb-4 mt-2 font-normal text-gray-700 dark:text-gray-400 text-base">
-          A moku-moku event with digital marketers to interact with each other
+          {gathering.headline}
         </p>
-        <MainButton text="More" linkUrl={`/gatherings/${2}`} />
+        <MainButton text="More" linkUrl={`/gatherings/${gathering._id}`} />
       </div>
     </div>
   );
