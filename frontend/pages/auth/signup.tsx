@@ -39,7 +39,7 @@ const Signup = () => {
   return (
     <>
       <Wrapper>
-        <h2 className="text-2xl font-bold text-center tracking-tighter">
+        <h2 className="text-2xl font-bold text-center tracking-tighter text-red-500 dark:text-red-400">
           Sign up
         </h2>
         <section className="auth-form rounded-xl bg-slate-400 min-h-500 p-8 mt-6">
@@ -55,7 +55,7 @@ const Signup = () => {
                 <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
+                    className="h-5 w-5 text-red-500 dark:text-red-400"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
@@ -85,7 +85,7 @@ const Signup = () => {
                 <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
+                    className="h-5 w-5 text-red-500 dark:text-red-400"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
@@ -115,7 +115,7 @@ const Signup = () => {
                 <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
+                    className="h-5 w-5 text-red-500 dark:text-red-400"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
@@ -148,7 +148,7 @@ const Signup = () => {
                 <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
+                    className="h-5 w-5 text-red-500 dark:text-red-400"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >

@@ -11,10 +11,14 @@ const ApplicationPage = () => {
         <title>Application</title>
       </Head>
       <Wrapper>
-        <h2 className="text-2xl pl-0.5 font-bold tracking-tighter text-center text-red-500">
-          Join gathering
+        <h2 className="text-2xl font-bold tracking-tighter text-center text-red-500">
+          Book gathering
           {/* title of gathering */}
         </h2>
+        <p className="text-sm pt-8 px-2">
+          Please fill out your information to join the gathering. After pushing
+          the confirm button, your booking will be secured immediately.
+        </p>
         <Card>
           <ApplicationForm />
         </Card>
