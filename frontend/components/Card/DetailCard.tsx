@@ -1,8 +1,9 @@
 import React from "react";
+import Card from "./Card";
 
 const DetailCard = () => {
   return (
-    <div className="rounded-xl bg-slate-400 max-h-580 p-6 mt-6 overflow-scroll">
+    <Card>
       <section className="image">
         <img
           src="https://images.unsplash.com/photo-1573164574511-73c773193279?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80"
@@ -88,7 +89,7 @@ const DetailCard = () => {
           at the place.
         </p>
       </section>
-    </div>
+    </Card>
   );
 };
 

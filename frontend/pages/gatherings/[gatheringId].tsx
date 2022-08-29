@@ -1,7 +1,9 @@
 import Head from "next/head";
 import React from "react";
 import Button from "../../components/Button/Button";
+import MainButton from "../../components/Button/MainButton";
 import DetailCard from "../../components/Card/DetailCard";
+import Wrapper from "../../components/Wrapper/Wrapper";
 
 const GatheringDetail = () => {
   return (
@@ -9,16 +11,16 @@ const GatheringDetail = () => {
       <Head>
         <title>Gathering Detail</title>
       </Head>
-      <div className="fixed top-28 left-0 w-full px-5">
+      <Wrapper>
         <h2 className="text-2xl pl-0.5 font-bold tracking-tighter text-left text-red-500">
           Moku-Marketing
           {/* title of gathering */}
         </h2>
         <DetailCard />
         <div className="text-center pt-6">
-          <Button text="Join" />
+          <MainButton text="Join" linkUrl="/application" />
         </div>
-      </div>
+      </Wrapper>
     </>
   );
 };

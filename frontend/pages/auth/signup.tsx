@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { SingupUserInputObj } from "../../models/model";
 import axios from "axios";
+import Wrapper from "../../components/Wrapper/Wrapper";
 
 const Signup = () => {
   const [userInfo, setUserInfo] = useState<SingupUserInputObj>({
@@ -37,7 +38,7 @@ const Signup = () => {
   };
   return (
     <>
-      <div className="fixed top-28 left-0 w-full px-5 text-red-500">
+      <Wrapper>
         <h2 className="text-2xl font-bold text-center tracking-tighter">
           Sign up
         </h2>
@@ -179,7 +180,7 @@ const Signup = () => {
             </div>
           </form>
         </section>
-      </div>
+      </Wrapper>
     </>
   );
 };
