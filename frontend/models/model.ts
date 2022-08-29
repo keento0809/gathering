@@ -36,25 +36,50 @@ export interface LoginUserInputObj {
   password: String;
 }
 
-export interface GatheringType {
-  title: string;
-  capacity: number;
-  date: string;
-  isFull: boolean;
-  participants: userInfoObjType[];
-  host: userInfoObjType;
+export interface timeScheduleObj {
+  time: string;
+  agenda: string;
 }
 
-export interface userInfoObjType {
+export interface placeLatLngObj {
+  lat: number;
+  lng: number;
+}
+
+export interface GatheringType {
+  _id: number;
+  title: string;
+  image: string;
+  description: string;
+  capacity: number;
+  date: string;
+  schedule: string;
+  timeSchedule: timeScheduleObj[];
+  placeName: string;
+  placeLatLng: placeLatLngObj;
+  isFull: boolean;
+  participants: string[];
+  specialNotes: string;
+  organizer: adminUserInfoObjType;
+}
+
+export interface participantInfoObj {
+  id: number;
   username: string;
   email: string;
-  joinGathering: GatheringType[];
+  twitterId: string;
+}
+
+export interface adminUserInfoObjType {
+  id: number | null;
+  username: string;
+  email: string;
   hostGathering: GatheringType[];
 }
 
 export interface userContextType {
   isLoggedIn: boolean;
-  userInfo: userInfoObjType;
+  userInfo: adminUserInfoObjType;
   login: () => void;
   logout: () => void;
 }

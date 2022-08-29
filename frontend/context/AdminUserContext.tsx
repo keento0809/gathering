@@ -1,16 +1,16 @@
 import {
   userContextType,
   ChildrenProps,
-  userInfoObjType,
+  adminUserInfoObjType,
 } from "../models/model";
 import { createContext, useContext, useState } from "react";
 
 const userContextValue: userContextType = {
   isLoggedIn: false,
   userInfo: {
+    id: null,
     username: "",
     email: "",
-    joinGathering: [],
     hostGathering: [],
   },
   login: () => {},
@@ -19,12 +19,12 @@ const userContextValue: userContextType = {
 
 const UserContext = createContext<userContextType>(userContextValue);
 
-const UserProvider = ({ children }: ChildrenProps) => {
+const AdminUserProvider = ({ children }: ChildrenProps) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const userInfo = {
+    id: null,
     username: "",
     email: "",
-    joinGathering: [],
     hostGathering: [],
   };
   const login = () => {
@@ -42,8 +42,8 @@ const UserProvider = ({ children }: ChildrenProps) => {
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
 
-export function useUserContext() {
+export function useAdminUserContext() {
   return useContext(UserContext);
 }
 
-export default UserProvider;
+export default AdminUserProvider;

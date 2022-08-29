@@ -1,5 +1,5 @@
 import Layout from "../Layout/Layout";
-import UserProvider from "../context/UserContext";
+import AdminUserProvider from "../context/AdminUserContext";
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Script from "next/script";
@@ -10,11 +10,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     strategy="beforeInteractive"
   />;
   return (
-    <UserProvider>
+    <AdminUserProvider>
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </UserProvider>
+    </AdminUserProvider>
   );
 }
 
