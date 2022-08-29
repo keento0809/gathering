@@ -137,14 +137,7 @@ export const DUMMY_GATHERING_DATA = [
       lng: 138,
     },
     isFull: false,
-    participants: [
-      {
-        id: 1,
-        username: "John",
-        email: "johnde@gmail.com",
-        twitterId: "JOHN1234",
-      },
-    ],
+    participants: [],
     specialNotes:
       "Please bring your own PC. All participants have to buy at least one drink at the place.",
     organizer: {

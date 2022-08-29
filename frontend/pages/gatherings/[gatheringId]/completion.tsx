@@ -1,8 +1,8 @@
 import Head from "next/head";
 import React from "react";
-import MainButton from "../../components/Button/MainButton";
-import Card from "../../components/Card/Card";
-import Wrapper from "../../components/Wrapper/Wrapper";
+import MainButton from "../../../components/Button/MainButton";
+import Card from "../../../components/Card/Card";
+import Wrapper from "../../../components/Wrapper/Wrapper";
 
 const Completion = () => {
   return (
@@ -11,7 +11,7 @@ const Completion = () => {
         <title>Complete</title>
       </Head>
       <Wrapper>
-        <h2 className="text-2xl pl-0.5 font-bold tracking-tighter text-left text-red-500">
+        <h2 className="text-2xl text-center font-bold tracking-tighter text-left text-red-500">
           Confirmed!
         </h2>
         <Card>
