@@ -2,6 +2,7 @@ import Head from "next/head";
 import React from "react";
 import Button from "../../components/Button/Button";
 import UpcomingGathering from "../../components/Gathering/UpcomingGathering";
+import Wrapper from "../../components/Wrapper/Wrapper";
 
 const Home = () => {
   const handleLoadMore = () => {
@@ -12,7 +13,7 @@ const Home = () => {
       <Head>
         <title>Home</title>
       </Head>
-      <div className="fixed top-28 left-0 w-full px-5">
+      <Wrapper>
         <div className="home-title">
           <h3 className="text-3xl text-red-500 font-bold tracking-tight">
             Welcome to Gathering!
@@ -30,7 +31,7 @@ const Home = () => {
             <Button text="Load More" />
           </div>
         </div> */}
-      </div>
+      </Wrapper>
     </>
   );
 };

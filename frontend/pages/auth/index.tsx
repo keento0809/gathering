@@ -4,6 +4,7 @@ import { LoginUserInputObj } from "../../models/model";
 import { useRouter } from "next/router";
 import { useAdminUserContext } from "../../context/AdminUserContext";
 import AuthButton from "../../components/Button/Button";
+import Wrapper from "../../components/Wrapper/Wrapper";
 
 const Login = () => {
   const [userInfo, setUserInfo] = useState<LoginUserInputObj>({
@@ -52,7 +53,7 @@ const Login = () => {
 
   return (
     <>
-      <div className="fixed top-28 left-0 w-full px-5 text-red-500">
+      <Wrapper>
         <h2 className="text-2xl font-bold text-center tracking-tighter">
           Login
         </h2>
@@ -131,7 +132,7 @@ const Login = () => {
             </div>
           </form>
         </section>
-      </div>
+      </Wrapper>
     </>
   );
 };
