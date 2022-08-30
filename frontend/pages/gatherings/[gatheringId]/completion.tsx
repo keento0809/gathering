@@ -26,7 +26,7 @@ const Completion = () => {
           {/* CompletionCard */}
         </Card>
         <div className="text-center pt-8">
-          <MainButton text="Home" linkUrl="/" />
+          <MainButton text="Home" linkUrl="/home" />
         </div>
       </Wrapper>
       ;
