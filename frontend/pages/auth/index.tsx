@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Link from "next/link";
 import { LoginUserInputObj } from "../../models/model";
 import { useRouter } from "next/router";
 import { useAdminUserContext } from "../../context/AdminUserContext";
 import AuthButton from "../../components/Button/Button";
 import Wrapper from "../../components/Wrapper/Wrapper";
+import Card from "../../components/Card/Card";
 
 const Login = () => {
   const [userInfo, setUserInfo] = useState<LoginUserInputObj>({
@@ -54,10 +54,10 @@ const Login = () => {
   return (
     <>
       <Wrapper>
-        <h2 className="text-2xl font-bold text-center tracking-tighter text-red-500 dark:text-red-400">
-          Login
+        <h2 className="text-2xl font-bold text-center tracking-tight text-red-500 dark:text-red-400">
+          Admin Login
         </h2>
-        <section className="auth-form rounded-xl bg-slate-400 min-h-500 p-8 mt-6">
+        <Card>
           <form onSubmit={handleSubmit}>
             <div className="mb-6">
               <label
@@ -83,7 +83,7 @@ const Login = () => {
                   name="email"
                   id="email-address-icon"
                   onChange={handleChange}
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
                   placeholder="name@sample.com"
                   required={true}
                 />
@@ -116,7 +116,7 @@ const Login = () => {
                   name="password"
                   id="password"
                   onChange={handleChange}
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
                   placeholder="Password"
                   required={true}
                 />
@@ -124,14 +124,15 @@ const Login = () => {
             </div>
             <AuthButton text="Login" />
             <div className="pt-8 text-white">
-              Need an account?{" "}
+              This page is the login page only for{" "}
               <span className="font-bold text-red-500 cursor-pointer">
-                <Link href="/auth/signup">Signup</Link>{" "}
+                admin
+                {/* <Link href="/auth/signup">Signup</Link>{" "} */}
               </span>
-              Here!
+              , so users cannot login in this application.
             </div>
           </form>
-        </section>
+        </Card>
       </Wrapper>
     </>
   );

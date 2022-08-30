@@ -5,8 +5,9 @@ import DetailCard from "../../../components/Card/DetailCard";
 import Wrapper from "../../../components/Wrapper/Wrapper";
 import { DUMMY_GATHERING_DATA } from "../../../data/data";
 import { GatheringProps, GatheringType } from "../../../models/model";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 
-const GatheringDetail = ({ gathering }: GatheringProps) => {
+const GatheringDetail: NextPage<GatheringProps> = ({ gathering }) => {
   return (
     <>
       <Head>
@@ -31,7 +32,21 @@ const GatheringDetail = ({ gathering }: GatheringProps) => {
 
 export default GatheringDetail;
 
-export async function getStaticPaths() {
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { params } = context;
+  const gatheringId = params!["gatheringId"];
+
+  const gathering = DUMMY_GATHERING_DATA.find(
+    (data) => data._id.toString() === gatheringId
+  );
+  return {
+    props: {
+      gathering,
+    },
+  };
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = DUMMY_GATHERING_DATA.map((data) => {
     return {
       params: {
@@ -43,18 +58,4 @@ export async function getStaticPaths() {
     paths,
     fallback: false,
   };
-}
-
-export async function getStaticProps(context: any) {
-  const { params } = context;
-  const { gatheringId } = params;
-
-  const gathering = DUMMY_GATHERING_DATA.find(
-    (data) => data._id.toString() === gatheringId
-  );
-  return {
-    props: {
-      gathering,
-    },
-  };
-}
+};

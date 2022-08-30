@@ -4,7 +4,7 @@ import Link from "next/link";
 const NavMenu = () => {
   return (
     <div
-      className={`fixed top-14 min-h-200 transition-all px-5 pt-4 left-0 z-20 w-full text-sm bg-red-200`}
+      className={`fixed top-14 min-h-200 transition-all px-5 py-4 left-0 z-20 w-full text-sm bg-red-200`}
       style={{ backgroundColor: "rgb(254 202 202)" }}
     >
       <ul>
