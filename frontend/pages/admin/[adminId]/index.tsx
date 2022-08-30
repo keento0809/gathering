@@ -21,13 +21,15 @@ const AdminHome = () => {
           </p> */}
         </div>
         <div className="pt-8 pb-4">
-          <h3 className="text-2xl font-bold tracking-tight overflow-y-scroll">
+          <h3 className="text-xl font-bold tracking-tight overflow-y-scroll">
             Gathering as Organizer
           </h3>
-          <MainButton
-            text="New Gathering"
-            linkUrl={`/admin/${1}/newGathering`}
-          />
+          <div className="py-6">
+            <MainButton
+              text="New Gathering"
+              linkUrl={`/admin/${1}/newGathering`}
+            />
+          </div>
         </div>
       </Wrapper>
     </>

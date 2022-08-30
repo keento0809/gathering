@@ -10,33 +10,8 @@ export const DUMMY_GATHERING_DATA = [
       "In this event, besides you can work on whatever you want, you can interact with digital marketing specialist who can give you lots of tips related to marketing fields.",
     capacity: 8,
     date: "2022/09/01",
-    time: "09:00AM ~ 12:00AM",
-    timeSchedule: [
-      {
-        time: "09:00",
-        admin: "Start",
-      },
-      {
-        time: "09:00~10:00",
-        admin: "First session",
-      },
-      {
-        time: "10:00~10:20",
-        admin: "Short break",
-      },
-      {
-        time: "10:20~11:40",
-        admin: "Second session",
-      },
-      {
-        time: "11:40~12:00",
-        admin: "QA session",
-      },
-      {
-        time: "12:00",
-        admin: "Finish",
-      },
-    ],
+    schedule: "09:00AM ~ 12:00AM",
+    timeSchedule: "09:00 Start 09:00~10:00 First session",
     placeName: "Waves Coffee - Kingsway -",
     placeLatLng: {
       lat: 49,
@@ -70,33 +45,8 @@ export const DUMMY_GATHERING_DATA = [
       "In this event, besides you can work on whatever you want, you can interact with digital marketing specialist who can give you lots of tips related to marketing fields.",
     capacity: 8,
     date: "2022/09/14",
-    time: "09:00AM ~ 12:00AM",
-    timeSchedule: [
-      {
-        time: "09:00",
-        admin: "Start",
-      },
-      {
-        time: "09:00~10:00",
-        admin: "First session",
-      },
-      {
-        time: "10:00~10:20",
-        admin: "Short break",
-      },
-      {
-        time: "10:20~11:40",
-        admin: "Second session",
-      },
-      {
-        time: "11:40~12:00",
-        admin: "QA session",
-      },
-      {
-        time: "12:00",
-        admin: "Finish",
-      },
-    ],
+    schedule: "09:00AM ~ 12:00AM",
+    timeSchedule: "09:00 Start 09:00~10:00 First session",
     placeName: "Waves Coffee - Howe -",
     placeLatLng: {
       lat: 49,
@@ -129,8 +79,8 @@ export const DUMMY_GATHERING_DATA = [
       "In this event, besides you can work on whatever you want, you can interact with digital marketing specialist who can give you lots of tips related to marketing fields.",
     capacity: 8,
     date: "2022/09/22",
-    time: "09:00AM ~ 12:00AM",
-    timeSchedule: [],
+    schedule: "09:00AM ~ 12:00AM",
+    timeSchedule: "09:00 Start 09:00~10:00 First session",
     placeName: "Devil Coffee - Waterfront -",
     placeLatLng: {
       lat: 49,

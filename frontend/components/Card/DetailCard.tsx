@@ -15,12 +15,7 @@ const DetailCard = ({ gathering }: GatheringProps) => {
       </section>
       <section className="description py-2">
         <h3 className="text-lg font-bold tracking-tight">Description</h3>
-        <p className="text-base pt-2">
-          {gathering.description}
-          {/* In this event, besides you can work on whatever you want, you can
-          interact with digital marketing specialist who can give you lots of
-          tips related to marketing fields. */}
-        </p>
+        <p className="text-base pt-2">{gathering.description}</p>
       </section>
       <section className="info py-2">
         <h3 className="text-lg font-bold tracking-tight">Info</h3>
@@ -28,6 +23,7 @@ const DetailCard = ({ gathering }: GatheringProps) => {
           <li className="pb-1">Date: {gathering.date}</li>
           <li className="pb-1">Time: {gathering.schedule}</li>
           <li className="pb-1">Place: {gathering.placeName}</li>
+          <li className="pb-1">Capacity: {gathering.capacity} members</li>
           <li className="pb-1">
             Participants:{" "}
             <span className="text-red-500">
@@ -41,11 +37,12 @@ const DetailCard = ({ gathering }: GatheringProps) => {
       <section className="schedule py-2">
         <h3 className="text-lg font-bold tracking-tight">Schedule</h3>
         <div className="pt-2">
-          <p className="pb-1">09:00 Start</p>
+          {gathering.timeSchedule}
+          {/* <p className="pb-1">09:00 Start</p>
           <p className="pb-1">09:00~10:30 First session</p>
           <p className="pb-1">10:30~11:00 Break</p>
           <p className="pb-1">11:00~12:00 Second session</p>
-          <p className="pb-1">12:00 Finish</p>
+          <p className="pb-1">12:00 Finish</p> */}
         </div>
       </section>
       <section className="google-map py-2">
