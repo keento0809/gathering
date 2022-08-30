@@ -1,6 +1,5 @@
 import React from "react";
 import GatheringCard from "../Card/GatheringCard";
-import { DUMMY_GATHERING_DATA } from "../../data/data";
 import { GatheringsArrayType } from "../../models/model";
 
 const UpcomingGathering = ({ data }: GatheringsArrayType) => {
