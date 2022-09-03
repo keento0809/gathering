@@ -34,17 +34,13 @@ const DetailCard = ({ gathering }: GatheringProps) => {
           <li className="pb-1">Organizer: Joe Doe</li>
         </ul>
       </section>
-      <section className="schedule py-2">
+      {/* temporary */}
+      {/* <section className="schedule py-2">
         <h3 className="text-lg font-bold tracking-tight">Schedule</h3>
         <div className="pt-2">
           {gathering.timeSchedule}
-          {/* <p className="pb-1">09:00 Start</p>
-          <p className="pb-1">09:00~10:30 First session</p>
-          <p className="pb-1">10:30~11:00 Break</p>
-          <p className="pb-1">11:00~12:00 Second session</p>
-          <p className="pb-1">12:00 Finish</p> */}
         </div>
-      </section>
+      </section> */}
       <section className="google-map py-2">
         <h3 className="text-lg font-bold tracking-tight">Map</h3>
         <iframe
