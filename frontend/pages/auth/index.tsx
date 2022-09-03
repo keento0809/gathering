@@ -5,6 +5,10 @@ import { useAdminUserContext } from "../../context/AdminUserContext";
 import AuthButton from "../../components/Button/Button";
 import Wrapper from "../../components/Wrapper/Wrapper";
 import Card from "../../components/Card/Card";
+import { signIn, signOut, useSession } from "next-auth/react";
+import Link from "next/link";
+import GithubAuthButton from "../../components/Button/GithubAuthButton";
+import MainButton from "../../components/Button/MainButton";
 
 const Login = () => {
   const [userInfo, setUserInfo] = useState<LoginUserInputObj>({
@@ -12,6 +16,8 @@ const Login = () => {
     password: "",
   });
   const { login } = useAdminUserContext();
+
+  const { data: session } = useSession();
 
   const router = useRouter();
 
@@ -55,10 +61,49 @@ const Login = () => {
     <>
       <Wrapper>
         <h2 className="text-2xl font-bold text-center tracking-tight text-red-500 dark:text-red-400">
-          Admin Login
+          Admin Authentication
         </h2>
         <Card>
-          <form onSubmit={handleSubmit}>
+          <div className="text-center pt-4">
+            {!session && (
+              <div className="text-center text-base">
+                <p>Please log in with GitHub below.</p>
+                <div className="text-center pt-6">
+                  <span
+                    onClick={() => {
+                      signIn("github");
+                    }}
+                  >
+                    <GithubAuthButton text="Login with GitHub" />
+                  </span>
+                </div>
+              </div>
+            )}
+            {session && (
+              <div className="text-based text-center">
+                <p>
+                  You've already logged in. Click the button below to jump to
+                  Admin User Page.
+                </p>
+                <p className="text-based text-left">
+                  You can sign out from the sign out button below as well.
+                </p>
+                <div className="text-center py-4">
+                  <MainButton text="Admin Page" linkUrl="/admin/1" />
+                </div>
+                <div className="text-center">
+                  <span
+                    onClick={() => {
+                      signOut();
+                    }}
+                  >
+                    <GithubAuthButton text="Sign out" />
+                  </span>
+                </div>
+              </div>
+            )}
+          </div>
+          {/* <form onSubmit={handleSubmit}>
             <div className="mb-6">
               <label
                 htmlFor="email-address-icon"
@@ -127,11 +172,10 @@ const Login = () => {
               This page is the login page only for{" "}
               <span className="font-bold text-red-500 cursor-pointer">
                 admin
-                {/* <Link href="/auth/signup">Signup</Link>{" "} */}
               </span>
               , so users cannot login in this application.
             </div>
-          </form>
+          </form> */}
         </Card>
       </Wrapper>
     </>
