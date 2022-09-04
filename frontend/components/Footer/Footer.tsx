@@ -41,7 +41,7 @@ const Footer = () => {
             </li>
           </ul>
         </div> */}
-        <hr className="my-4 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <hr className="mb-4 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
         <span className="block text-xs text-gray-500 sm:text-center dark:text-gray-400">
           © 2022 <span className="hover:underline">KENTO HONDA</span>. All
           Rights Reserved.
