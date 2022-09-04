@@ -7,14 +7,7 @@ import Card from "../../../../components/Card/Card";
 import CreateGatheringForm from "../../../../components/Form/CreateGatheringForm";
 import Wrapper from "../../../../components/Wrapper/Wrapper";
 
-interface DataType {
-  data: string;
-}
-
 const NewGathering = () => {
-  const { data: session } = useSession();
-  console.log({ session });
-
   return (
     <>
       <Head>
@@ -54,7 +47,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: {
       session,
-      data: session ? "ウェルダン" : "Not logged in",
+      data: session ? "Logged In" : "Not logged in",
     },
   };
 };
