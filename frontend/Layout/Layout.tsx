@@ -1,6 +1,6 @@
 import React from "react";
 import Meta from "../meta/Meta";
-import Nav from "../components/Nav/Nav";
+import Nav from "../components/navbar/NavBar";
 import { LayoutProps } from "../models/model";
 import Footer from "../components/Footer/Footer";
 
