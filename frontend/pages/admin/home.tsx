@@ -2,11 +2,12 @@ import Head from "next/head";
 import React from "react";
 import Wrapper from "../../components/Wrapper/Wrapper";
 import MainButton from "../../components/Button/MainButton";
-import { useSession } from "next-auth/react";
+import { getSession, useSession } from "next-auth/react";
 import GithubAuthButton from "../../components/Button/GithubAuthButton";
 import { signOut, signIn } from "next-auth/react";
 import Card from "../../components/Card/Card";
 import Link from "next/link";
+import { GetServerSideProps } from "next";
 
 const AdminHome = () => {
   const { data: session } = useSession();
@@ -49,7 +50,7 @@ const AdminHome = () => {
           {session && (
             <div>
               <h3 className="text-3xl text-red-500 font-bold tracking-tight">
-                Hello, Admin!
+                Hello, {session.user?.name}!
               </h3>
               <div className="pt-8 pb-4">
                 <h3 className="text-xl font-bold tracking-tight overflow-y-scroll">
@@ -83,3 +84,12 @@ const AdminHome = () => {
 };
 
 export default AdminHome;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const session = await getSession(context);
+  return {
+    props: {
+      session,
+    },
+  };
+};
