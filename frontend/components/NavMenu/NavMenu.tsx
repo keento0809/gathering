@@ -21,7 +21,7 @@ const NavMenu = () => {
         </li>
         <hr />
         <li className="py-3 pl-0.5">
-          <Link href={"/auth"}>Login for admin</Link>
+          <Link href={"/admin/home"}>Login for admin</Link>
         </li>
         <hr />
       </ul>

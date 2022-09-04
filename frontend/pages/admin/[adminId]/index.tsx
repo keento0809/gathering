@@ -4,6 +4,8 @@ import Wrapper from "../../../components/Wrapper/Wrapper";
 import { NextPage, GetStaticProps, GetStaticPaths } from "next";
 import Button from "../../../components/Button/Button";
 import MainButton from "../../../components/Button/MainButton";
+import GithubAuthButton from "../../../components/Button/GithubAuthButton";
+import { signOut } from "next-auth/react";
 
 const AdminHome = () => {
   return (
@@ -29,6 +31,15 @@ const AdminHome = () => {
               text="New Gathering"
               linkUrl={`/admin/${1}/newGathering`}
             />
+          </div>
+          <div className="">
+            <span
+              onClick={() => {
+                signOut();
+              }}
+            >
+              <GithubAuthButton text="Sign out" />
+            </span>
           </div>
         </div>
       </Wrapper>

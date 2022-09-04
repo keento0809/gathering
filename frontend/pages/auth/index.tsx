@@ -79,7 +79,7 @@ const Login = () => {
                 </div>
               </div>
             )}
-            {session && (
+            {/* {session && (
               <div className="text-based text-center">
                 <p>
                   You've already logged in. Click the button below to jump to
@@ -101,7 +101,7 @@ const Login = () => {
                   </span>
                 </div>
               </div>
-            )}
+            )} */}
           </div>
           {/* <form onSubmit={handleSubmit}>
             <div className="mb-6">
