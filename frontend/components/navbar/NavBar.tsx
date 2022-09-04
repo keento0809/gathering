@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import NavMenu from "../NavMenu/NavMenu";
 
-const Nav = () => {
+const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const { query } = useRouter();
@@ -68,4 +68,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default NavBar;
