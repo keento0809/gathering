@@ -1,3 +1,5 @@
+import { GetServerSideProps } from "next";
+import { getSession, useSession } from "next-auth/react";
 import Head from "next/head";
 import React from "react";
 import MainButton from "../../../../components/Button/MainButton";
@@ -5,7 +7,14 @@ import Card from "../../../../components/Card/Card";
 import CreateGatheringForm from "../../../../components/Form/CreateGatheringForm";
 import Wrapper from "../../../../components/Wrapper/Wrapper";
 
+interface DataType {
+  data: string;
+}
+
 const NewGathering = () => {
+  const { data: session } = useSession();
+  console.log({ session });
+
   return (
     <>
       <Head>
@@ -29,3 +38,23 @@ const NewGathering = () => {
 };
 
 export default NewGathering;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const session = await getSession(context);
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: `/admin/home?callbackUrl=${process.env.REDIRECT_URL}`,
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {
+      session,
+      data: session ? "ウェルダン" : "Not logged in",
+    },
+  };
+};
