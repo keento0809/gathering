@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import MainAlert from "../components/Alert/MainAlert";
 import MainButton from "../components/Button/MainButton";
 
 const Home: NextPage = () => {
@@ -18,6 +19,7 @@ const Home: NextPage = () => {
           </div>
           <MainButton text="Get started" linkUrl="/home" />
         </section>
+        <MainAlert text="This is a test alert" />
       </div>
     </>
   );

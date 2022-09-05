@@ -87,3 +87,7 @@ export interface userContextType {
   login: () => void;
   logout: () => void;
 }
+
+export interface MainAlertProps {
+  text: string;
+}
