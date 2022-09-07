@@ -1,8 +1,10 @@
 import type { NextPage } from "next";
+import { useState } from "react";
 import MainAlert from "../components/Alert/MainAlert";
 import MainButton from "../components/Button/MainButton";
 
 const Home: NextPage = () => {
+  const [isAlert, setIsAlert] = useState(false);
   return (
     <>
       <div className="fixed top-96 left-0 w-full px-5">
@@ -19,7 +21,13 @@ const Home: NextPage = () => {
           </div>
           <MainButton text="Get started" linkUrl="/home" />
         </section>
-        <MainAlert text="This is a test alert" />
+        {isAlert && (
+          <MainAlert
+            text="This is a test alert"
+            isAlert={isAlert}
+            setIsAlert={setIsAlert}
+          />
+        )}
       </div>
     </>
   );

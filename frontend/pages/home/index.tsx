@@ -1,9 +1,11 @@
+import { GetServerSideProps } from "next";
 import Head from "next/head";
 import React from "react";
 import UpcomingGathering from "../../components/List/UpcomingGathering";
 import Wrapper from "../../components/Wrapper/Wrapper";
 import { DUMMY_GATHERING_DATA } from "../../data/data";
 import { GatheringsArrayType } from "../../models/model";
+import { server } from "../../config/index";
 
 const Home = ({ data }: GatheringsArrayType) => {
   return (
@@ -40,3 +42,18 @@ export async function getStaticProps() {
     },
   };
 }
+
+// export const getServerSideProps: GetServerSideProps = async (context) => {
+//   const res = await fetch(`${server}/api/gatherings`, {
+//     method: "GET",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//   });
+//   const allGatherings = await res.json();
+//   return {
+//     props: {
+//       data: allGatherings,
+//     },
+//   };
+// };

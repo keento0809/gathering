@@ -42,7 +42,7 @@ export interface placeLatLngObj {
 }
 
 export interface GatheringType {
-  _id: number;
+  _id: number | null;
   title: string;
   image: string;
   headline: string;
@@ -78,7 +78,7 @@ export interface adminUserInfoObjType {
   id: number | null;
   username: string;
   email: string;
-  hostGathering: GatheringType[];
+  hostGathering: [] | never[];
 }
 
 export interface userContextType {
@@ -90,4 +90,6 @@ export interface userContextType {
 
 export interface MainAlertProps {
   text: string;
+  isAlert: boolean;
+  setIsAlert: Function;
 }

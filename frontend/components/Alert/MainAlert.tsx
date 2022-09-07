@@ -1,7 +1,7 @@
 import React from "react";
 import { MainAlertProps } from "../../models/model";
 
-const MainAlert = ({ text }: MainAlertProps) => {
+const MainAlert = ({ text, isAlert, setIsAlert }: MainAlertProps) => {
   return (
     <div
       id="alert-3"
