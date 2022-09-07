@@ -78,7 +78,6 @@ export interface adminUserInfoObjType {
   id: number | null;
   username: string;
   email: string;
-  hostGathering: GatheringType[];
 }
 
 export interface userContextType {
@@ -90,4 +89,6 @@ export interface userContextType {
 
 export interface MainAlertProps {
   text: string;
+  isAlert: boolean;
+  setIsAlert: Function;
 }

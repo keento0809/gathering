@@ -1,33 +1,29 @@
-const mongoDB = () => {
-  return "aaa";
-};
+import { MongoClient } from "mongodb";
 
-export default mongoDB;
+const MONGODB_URI = process.env.MONGODB_URI;
 
-// import { MongoClient } from "mongodb";
+if (!MONGODB_URI) {
+  throw new Error("Define the MONGODB_URI environmental variable");
+}
 
-// const uri = process.env.MONGODB_URI;
-// const options = {
-//   useUnifiedTopology: true,
-//   useNewUrlParser: true,
-// };
+let client: MongoClient;
+let clientPromise: Promise<MongoClient>;
 
-// let client;
-// let clientPromise;
+if (process.env.NODE_ENV === "development") {
+  // In development mode, use a global variable so that the value
+  let globalWithMongoClientPromise = global as typeof globalThis & {
+    _mongoClientPromise: Promise<MongoClient>;
+  };
 
-// if (!process.env.MONGO_URI) {
-//   throw new Error("Add Mongo URI to file.");
-// }
+  if (!globalWithMongoClientPromise._mongoClientPromise) {
+    client = new MongoClient(MONGODB_URI);
+    globalWithMongoClientPromise._mongoClientPromise = client.connect();
+  }
+  clientPromise = globalWithMongoClientPromise._mongoClientPromise;
+} else {
+  // In production mode, it's best to not use a global variable.
+  client = new MongoClient(MONGODB_URI);
+  clientPromise = client.connect();
+}
 
-// if (process.env.NODE_ENV === "development") {
-//   if (!global._mongoClientPromise) {
-//     client = new MongoClient(uri!, options);
-//     global._mongoClientPromise = client.connect();
-//   }
-//   clientPromise = client?.connect();
-// } else {
-//   client = new MongoClient(uri, options);
-//   clientPromise = client.connect();
-// }
-
-// export default clientPromise;
+export default clientPromise;
