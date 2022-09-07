@@ -78,6 +78,7 @@ export interface adminUserInfoObjType {
   id: number | null;
   username: string;
   email: string;
+  hostGathering: [] | never[];
 }
 
 export interface userContextType {
