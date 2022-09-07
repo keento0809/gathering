@@ -1,12 +1,57 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../Button/Button";
+import { server } from "../../config/index";
+import { GatheringType } from "../../models/model";
 
 const CreateGatheringForm = () => {
-  const handleChange = () => {
-    console.log("change!");
+  const [wordCount, setWordCount] = useState(140);
+  const [gatheringInfo, setGatheringInfo] = useState<GatheringType>({
+    _id: null,
+    title: "",
+    image: "",
+    headline: "",
+    description: "",
+    capacity: 0,
+    date: "",
+    schedule: "",
+    timeSchedule: "",
+    placeName: "",
+    placeLatLng: {
+      lat: 0,
+      lng: 0,
+    },
+    isFull: false,
+    participants: [],
+    specialNotes: "",
+    organizer: {
+      id: null,
+      username: "",
+      email: "",
+      hostGathering: [],
+    },
+  });
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    if (e.target.name === "headline") {
+      setWordCount(140 - e.target.value.length);
+    }
+    setGatheringInfo({
+      ...gatheringInfo,
+      [e.target.name]: e.target.value,
+    });
   };
-  const handleSubmit = () => {
-    console.log("submit!");
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const bodyObj = gatheringInfo;
+    console.log(bodyObj);
+
+    const res = await fetch(`${server}/api/gatherings`, {
+      method: "POST",
+      body: JSON.stringify(bodyObj),
+    });
+    const data = await res.json();
+    console.log("submit!", data);
   };
   return (
     <>
@@ -77,13 +122,13 @@ const CreateGatheringForm = () => {
             >
               Headline (in 140 words)
             </label>
-            <span className="text-sm">140 words</span>
+            <span className="text-sm">{wordCount} words left</span>
           </div>
 
           <div className="relative">
             <textarea
               rows={3}
-              name="date"
+              name="headline"
               id="headline-icon"
               onChange={handleChange}
               className="bg-gray-50 border resize-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"

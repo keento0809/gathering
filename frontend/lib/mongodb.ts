@@ -10,11 +10,10 @@ let client: MongoClient;
 let clientPromise: Promise<MongoClient>;
 
 if (process.env.NODE_ENV === "development") {
-  // In development mode, use a global variable so that the value
+  // In development mode, use a global variable
   let globalWithMongoClientPromise = global as typeof globalThis & {
     _mongoClientPromise: Promise<MongoClient>;
   };
-
   if (!globalWithMongoClientPromise._mongoClientPromise) {
     client = new MongoClient(MONGODB_URI);
     globalWithMongoClientPromise._mongoClientPromise = client.connect();

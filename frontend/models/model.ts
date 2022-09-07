@@ -42,7 +42,7 @@ export interface placeLatLngObj {
 }
 
 export interface GatheringType {
-  _id: number;
+  _id: number | null;
   title: string;
   image: string;
   headline: string;
