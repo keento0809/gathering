@@ -1,11 +1,12 @@
 import { GetServerSideProps } from "next";
-import { getSession, useSession } from "next-auth/react";
+import { getSession } from "next-auth/react";
 import Head from "next/head";
-import React from "react";
+import React, { useEffect } from "react";
 import MainButton from "../../../../components/Button/MainButton";
 import Card from "../../../../components/Card/Card";
 import CreateGatheringForm from "../../../../components/Form/CreateGatheringForm";
 import Wrapper from "../../../../components/Wrapper/Wrapper";
+import { server } from "../../../../config";
 
 const NewGathering = () => {
   return (

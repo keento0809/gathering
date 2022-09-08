@@ -1,12 +1,11 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import React from "react";
 import clientPromise from "../../../lib/mongodb";
+import { MONGODB_DB } from "../../../lib/mongodb";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const MONGODB_DB = process.env.DB_NAME;
   const client = await clientPromise;
   const db = client.db(MONGODB_DB);
   switch (req.method) {
