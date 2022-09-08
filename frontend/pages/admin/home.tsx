@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Wrapper from "../../components/Wrapper/Wrapper";
 import MainButton from "../../components/Button/MainButton";
 import { getSession, useSession } from "next-auth/react";
@@ -9,12 +9,10 @@ import Card from "../../components/Card/Card";
 import Link from "next/link";
 import { GetServerSideProps } from "next";
 import { server } from "../../config";
-import { useAdminUserContext } from "../../context/AdminUserContext";
+import { adminUserProps } from "../../models/model";
 
-const AdminHome = ({ currentUser }: any) => {
+const AdminHome = ({ currentUser }: adminUserProps) => {
   const { data: session } = useSession();
-  const { isLoading } = useAdminUserContext();
-  console.log(currentUser);
 
   return (
     <>
@@ -92,7 +90,14 @@ export default AdminHome;
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const session = await getSession(context);
   const res = await fetch(`${server}/api/getUser`);
-  const currentUser = await res.json();
+  const currUser = await res.json();
+
+  const currentUser = {
+    id: currUser._id,
+    username: currUser.name,
+    email: currUser.email,
+    hostGathering: [],
+  };
 
   return {
     props: {

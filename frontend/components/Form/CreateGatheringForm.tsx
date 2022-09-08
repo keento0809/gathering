@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
 import Button from "../Button/Button";
 import { server } from "../../config/index";
-import { GatheringType } from "../../models/model";
-import { useSession } from "next-auth/react";
+import {
+  GatheringType,
+  adminUserProps,
+  adminUserInfoObjType,
+} from "../../models/model";
+import { getSession, useSession } from "next-auth/react";
+import { useAdminUserContext } from "../../context/AdminUserContext";
+import { GetServerSideProps } from "next";
 
-const CreateGatheringForm = () => {
+const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
   const { data: session } = useSession();
-
   const [wordCount, setWordCount] = useState(140);
   const [gatheringInfo, setGatheringInfo] = useState<GatheringType>({
     _id: null,
@@ -48,7 +53,6 @@ const CreateGatheringForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const bodyObj = gatheringInfo;
-    console.log(bodyObj);
 
     const res = await fetch(`${server}/api/gatherings`, {
       method: "POST",
@@ -63,14 +67,11 @@ const CreateGatheringForm = () => {
     console.log({ session });
     setGatheringInfo({
       ...gatheringInfo,
-      organizer: {
-        id: 0,
-        username: session!.user!.name!,
-        email: session!.user!.email!,
-        hostGathering: [],
-      },
+      organizer: currentUser && currentUser,
     });
   }, []);
+
+  console.log(gatheringInfo);
 
   return (
     <>
@@ -108,7 +109,6 @@ const CreateGatheringForm = () => {
               id="image-icon"
               onChange={handleChange}
               accept="image/png,image/jpeg"
-              // className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
               placeholder="Title"
               required={true}
             />
@@ -186,8 +186,8 @@ const CreateGatheringForm = () => {
           <div className="relative">
             <input
               type="number"
-              name="number"
-              id="number"
+              name="capacity"
+              id="capacity"
               onChange={handleChange}
               min={2}
               max={200}

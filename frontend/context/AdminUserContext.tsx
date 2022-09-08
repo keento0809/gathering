@@ -3,7 +3,7 @@ import {
   ChildrenProps,
   adminUserInfoObjType,
 } from "../models/model";
-import { createContext, SetStateAction, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 const userContextValue: userContextType = {
   isLoading: false,

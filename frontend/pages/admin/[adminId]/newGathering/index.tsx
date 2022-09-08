@@ -6,9 +6,10 @@ import MainButton from "../../../../components/Button/MainButton";
 import Card from "../../../../components/Card/Card";
 import CreateGatheringForm from "../../../../components/Form/CreateGatheringForm";
 import Wrapper from "../../../../components/Wrapper/Wrapper";
-import { server } from "../../../../config";
+import { server } from "../../../../config/index";
+import { adminUserProps } from "../../../../models/model";
 
-const NewGathering = () => {
+const NewGathering = ({ currentUser }: adminUserProps) => {
   return (
     <>
       <Head>
@@ -20,7 +21,7 @@ const NewGathering = () => {
             Create Gathering
           </h2>
           <Card>
-            <CreateGatheringForm />
+            <CreateGatheringForm currentUser={currentUser} />
           </Card>
           <div className="text-center pt-6">
             <MainButton text="Back" linkUrl={`/admin/${1}`} />
@@ -35,6 +36,15 @@ export default NewGathering;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const session = await getSession(context);
+  const res = await fetch(`${server}/api/getUser`);
+  const currUser = await res.json();
+
+  const currentUser = {
+    id: currUser._id,
+    username: currUser.name,
+    email: currUser.email,
+    hostGathering: [],
+  };
 
   if (!session) {
     return {
@@ -49,6 +59,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: {
       session,
       data: session ? "Logged In" : "Not logged in",
+      currentUser,
     },
   };
 };
