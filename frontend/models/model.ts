@@ -81,6 +81,15 @@ export interface adminUserInfoObjType {
   hostGathering: [] | never[];
 }
 
+export interface adminUserProps {
+  currentUser: {
+    id: number | null;
+    username: string;
+    email: string;
+    hostGathering: [] | never[];
+  };
+}
+
 export interface userContextType {
   isLoggedIn: boolean;
   isLoading: boolean;
