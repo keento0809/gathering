@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../Button/Button";
 import { server } from "../../config/index";
 import { GatheringType } from "../../models/model";
+import { useSession } from "next-auth/react";
 
 const CreateGatheringForm = () => {
+  const { data: session } = useSession();
+
   const [wordCount, setWordCount] = useState(140);
   const [gatheringInfo, setGatheringInfo] = useState<GatheringType>({
     _id: null,
@@ -30,6 +33,7 @@ const CreateGatheringForm = () => {
       hostGathering: [],
     },
   });
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -53,6 +57,21 @@ const CreateGatheringForm = () => {
     const data = await res.json();
     console.log("submit!", data);
   };
+
+  useEffect(() => {
+    // add a function finding hostGathering
+    console.log({ session });
+    setGatheringInfo({
+      ...gatheringInfo,
+      organizer: {
+        id: 0,
+        username: session!.user!.name!,
+        email: session!.user!.email!,
+        hostGathering: [],
+      },
+    });
+  }, []);
+
   return (
     <>
       <form onSubmit={handleSubmit}>

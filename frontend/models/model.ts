@@ -83,13 +83,26 @@ export interface adminUserInfoObjType {
 
 export interface userContextType {
   isLoggedIn: boolean;
-  userInfo: adminUserInfoObjType;
+  isLoading: boolean;
+  currentUserInfo: adminUserInfoObjType;
   login: () => void;
   logout: () => void;
+  loadingOn: () => void;
+  loadingOff: () => void;
+  setCurrUser: (userObj: adminUserInfoObjType) => void;
+  resetCurrUser: () => void;
 }
 
 export interface MainAlertProps {
   text: string;
   isAlert: boolean;
   setIsAlert: Function;
+}
+
+export interface CurrentUserProps {
+  _id: string;
+  name: string;
+  email: string;
+  image: string;
+  emailVerified: null | string;
 }
