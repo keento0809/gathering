@@ -11,7 +11,7 @@ import { GetServerSideProps } from "next";
 import { server } from "../../config";
 import { adminUserProps } from "../../models/model";
 
-const AdminHome = ({ currentUser }: adminUserProps) => {
+const AdminHome = () => {
   const { data: session } = useSession();
 
   return (
@@ -89,20 +89,10 @@ export default AdminHome;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const session = await getSession(context);
-  const res = await fetch(`${server}/api/getUser`);
-  const currUser = await res.json();
-
-  const currentUser = {
-    id: currUser._id,
-    username: currUser.name,
-    email: currUser.email,
-    hostGathering: [],
-  };
 
   return {
     props: {
       session,
-      currentUser,
     },
   };
 };
