@@ -68,9 +68,6 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
     });
   }, []);
 
-  console.log(mapCtx!.center);
-  // console.log(gatheringInfo, ": 何科かわった");
-
   return (
     <>
       <form onSubmit={handleSubmit}>
