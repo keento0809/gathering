@@ -4,6 +4,7 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Script from "next/script";
 import { SessionProvider } from "next-auth/react";
+import MapContextProvider from "../context/MapContext";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   <Script
@@ -13,9 +14,11 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
     <SessionProvider session={session}>
       <AdminUserProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <MapContextProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </MapContextProvider>
       </AdminUserProvider>
     </SessionProvider>
   );
