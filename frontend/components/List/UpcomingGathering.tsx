@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import GatheringCard from "../Card/GatheringCard";
 import { GatheringsArrayType } from "../../models/model";
 
 const UpcomingGathering = ({ data }: GatheringsArrayType) => {
+  const [maxHeight, setMaxHeight] = useState(590);
   const upcomingList = data.map((gathering) => {
     return (
       <li key={gathering._id}>
@@ -10,10 +11,17 @@ const UpcomingGathering = ({ data }: GatheringsArrayType) => {
       </li>
     );
   });
+
+  useEffect(() => {
+    if (window.innerHeight < 700) {
+      setMaxHeight(360);
+    }
+  }, []);
+
   return (
     <ul
-      className="text-xl mt-3 max-h-590 overflow-scroll"
-      style={{ maxHeight: "590px" }}
+      className="text-xl mt-3 overflow-scroll"
+      style={{ maxHeight: `${maxHeight}px` }}
     >
       {upcomingList}
       {/* <GatheringCard gathering={gathering} /> */}
