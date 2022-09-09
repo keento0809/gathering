@@ -92,7 +92,7 @@ const TestMap = () => {
   };
 
   return (
-    <Wrapper apiKey={`AIzaSyAQCleAc8wEOoO5qkgHBmA3wjq7gvInAwM`} render={render}>
+    <Wrapper apiKey={process.env.GOOGLE_MAP_API_KEY!} render={render}>
       <Map
         onClick={onClick}
         onIdle={onIdle}
