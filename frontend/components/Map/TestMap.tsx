@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
 import { locationObj, MapProps } from "../../models/model";
 import useDeepCompareEffect from "use-deep-compare-effect";
@@ -74,8 +74,6 @@ const TestMap = () => {
     setClicks([...clicks, e.latLng!]);
     const lat = e.latLng!.toJSON().lat;
     const lng = e.latLng!.toJSON().lng;
-    console.log(lat, lng);
-
     mapCtx?.handleSetCenter(lat, lng);
     // setLatLngObj({
     //   lat: e.latLng!.toJSON().lat,
@@ -92,7 +90,10 @@ const TestMap = () => {
   };
 
   return (
-    <Wrapper apiKey={process.env.GOOGLE_MAP_API_KEY!} render={render}>
+    <Wrapper
+      apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY!}
+      render={render}
+    >
       <Map
         onClick={onClick}
         onIdle={onIdle}
@@ -109,3 +110,12 @@ const TestMap = () => {
 };
 
 export default TestMap;
+
+export async function getStaticProps() {
+  console.log(process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY);
+  return {
+    props: {
+      data: process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY,
+    },
+  };
+}
