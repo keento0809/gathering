@@ -74,6 +74,8 @@ const TestMap = () => {
     setClicks([...clicks, e.latLng!]);
     const lat = e.latLng!.toJSON().lat;
     const lng = e.latLng!.toJSON().lng;
+    console.log(lat, lng);
+
     mapCtx?.handleSetCenter(lat, lng);
     // setLatLngObj({
     //   lat: e.latLng!.toJSON().lat,

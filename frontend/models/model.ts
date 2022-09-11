@@ -127,3 +127,10 @@ export interface locationObj {
   lat: number;
   lng: number;
 }
+
+export interface latLngProps {
+  placeLatLng: {
+    lat: number;
+    lng: number;
+  };
+}

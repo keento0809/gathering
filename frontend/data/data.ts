@@ -14,8 +14,8 @@ export const DUMMY_GATHERING_DATA = [
     timeSchedule: "09:00 Start 09:00~10:00 First session",
     placeName: "Waves Coffee - Kingsway -",
     placeLatLng: {
-      lat: 49,
-      lng: 138,
+      lat: 49.26339383290714,
+      lng: -123.13798427581787,
     },
     isFull: false,
     participants: [
@@ -49,8 +49,8 @@ export const DUMMY_GATHERING_DATA = [
     timeSchedule: "09:00 Start 09:00~10:00 First session",
     placeName: "Waves Coffee - Howe -",
     placeLatLng: {
-      lat: 49,
-      lng: 138,
+      lat: 49.278808622251205,
+      lng: -123.1378984451294,
     },
     isFull: false,
     participants: [
@@ -83,8 +83,8 @@ export const DUMMY_GATHERING_DATA = [
     timeSchedule: "09:00 Start 09:00~10:00 First session",
     placeName: "Devil Coffee - Waterfront -",
     placeLatLng: {
-      lat: 49,
-      lng: 138,
+      lat: 49.28608732044985,
+      lng: -123.12296390533447,
     },
     isFull: false,
     participants: [],
