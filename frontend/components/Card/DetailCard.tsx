@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "./Card";
 import { GatheringProps } from "../../models/model";
+import MapWithMarker from "../Map/MapWithMarker";
 
 const DetailCard = ({ gathering }: GatheringProps) => {
   return (
@@ -35,24 +36,15 @@ const DetailCard = ({ gathering }: GatheringProps) => {
         </ul>
       </section>
       {/* temporary */}
-      {/* <section className="schedule py-2">
+      <section className="schedule py-2">
         <h3 className="text-lg font-bold tracking-tight">Schedule</h3>
-        <div className="pt-2">
-          {gathering.timeSchedule}
-        </div>
-      </section> */}
+        <div className="pt-2">{gathering.timeSchedule}</div>
+      </section>
       <section className="google-map py-2">
         <h3 className="text-lg font-bold tracking-tight">Map</h3>
-        <iframe
-          className="pt-3 rounded-md"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2605.3675461750036!2d-123.01187218441837!3d49.231520382315495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x548676f43b1c4d09%3A0x466206b57e209b12!2sWaves%20Coffee%20House%20-%20Kingsway!5e0!3m2!1sen!2sca!4v1661732255709!5m2!1sen!2sca"
-          width="100%"
-          height="200"
-          style={{ border: "0" }}
-          // allowFullScreen=""
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
+        <div className="pt-2">
+          <MapWithMarker placeLatLng={gathering.placeLatLng} />
+        </div>
       </section>
       <section className="specialNotes py-2">
         <h3 className="text-lg font-bold tracking-tight">Notes</h3>
