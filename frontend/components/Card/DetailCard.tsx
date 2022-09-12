@@ -43,7 +43,10 @@ const DetailCard = ({ gathering }: GatheringProps) => {
       <section className="google-map py-2">
         <h3 className="text-lg font-bold tracking-tight">Map</h3>
         <div className="pt-2">
-          <MapWithMarker placeLatLng={gathering.placeLatLng} />
+          <MapWithMarker
+            placeLatLng={gathering.placeLatLng}
+            placeName={gathering.placeName}
+          />
         </div>
       </section>
       <section className="specialNotes py-2">
