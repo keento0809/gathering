@@ -3,6 +3,8 @@ import React from "react";
 import Wrapper from "../../../components/Wrapper/Wrapper";
 import Card from "../../../components/Card/Card";
 import ApplicationForm from "../../../components/Form/ApplicationForm";
+import { GetStaticPaths, GetStaticProps } from "next";
+import { DUMMY_GATHERING_DATA } from "../../../data/data";
 
 const ApplicationPage = () => {
   return (
@@ -28,3 +30,30 @@ const ApplicationPage = () => {
 };
 
 export default ApplicationPage;
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { params } = context;
+  const gatheringId = params!["gatheringId"];
+  const gathering = DUMMY_GATHERING_DATA.find(
+    (data) => data._id.toString() === gatheringId
+  );
+  return {
+    props: {
+      gathering,
+    },
+  };
+};
+
+export const getStaticPath: GetStaticPaths = async () => {
+  const paths = DUMMY_GATHERING_DATA.map((data) => {
+    return {
+      params: {
+        gatheringId: `${data._id}`,
+      },
+    };
+  });
+  return {
+    paths,
+    fallback: false,
+  };
+};

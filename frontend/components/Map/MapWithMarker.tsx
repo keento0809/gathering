@@ -100,7 +100,7 @@ const MapWithMarker = ({ placeLatLng, placeName }: latLngProps) => {
   }, []);
 
   const onMarkerClick = () => {
-    setShowingInfoWindow(true);
+    setShowingInfoWindow(!showingInfoWindow);
   };
   const onInfoWindowClose = () => {
     setShowingInfoWindow(false);
@@ -125,7 +125,7 @@ const MapWithMarker = ({ placeLatLng, placeName }: latLngProps) => {
               zIndex={20}
               onCloseClick={onInfoWindowClose}
             >
-              <div className="" style={{ padding: "none" }}>
+              <div>
                 <h2 className="text-xs">{placeName}</h2>
                 <a
                   target="_blank"

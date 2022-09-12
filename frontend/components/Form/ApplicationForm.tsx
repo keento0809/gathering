@@ -1,10 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../Button/Button";
+import { useRouter } from "next/router";
 
 const ApplicationForm = () => {
+  const [userInfo, setUserInfo] = useState({
+    username: "",
+    email: "",
+    twitterId: "",
+  });
+  const router = useRouter();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUserInfo({
+      ...userInfo,
+      [e.target.name]: e.target.value,
+    });
+  };
+  console.log(userInfo);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log("submit!");
+    router.replace(`/gathering/${1}/completion`);
+  };
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="mb-6">
           <label
             htmlFor="email-address-icon"
@@ -34,6 +55,7 @@ const ApplicationForm = () => {
               id="email-address-icon"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
               placeholder="Your name"
+              onChange={handleChange}
               required={true}
             />
           </div>
@@ -63,6 +85,7 @@ const ApplicationForm = () => {
               id="email-address-icon"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
               placeholder="name@flowbite.com"
+              onChange={handleChange}
               required={true}
             />
           </div>
@@ -83,6 +106,7 @@ const ApplicationForm = () => {
               id="website-admin"
               className="rounded-none rounded-r-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-red-500 focus:border-red-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
               placeholder="Bonnie Green"
+              onChange={handleChange}
               required={true}
             />
           </div>

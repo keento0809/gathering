@@ -5,8 +5,10 @@ import { GatheringType, adminUserProps } from "../../models/model";
 import { getSession, useSession } from "next-auth/react";
 import TestMap from "../Map/TestMap";
 import { useMapContext } from "../../context/MapContext";
+import { useRouter } from "next/router";
 
 const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
+  const router = useRouter();
   const mapCtx = useMapContext();
   const { data: session } = useSession();
   const [wordCount, setWordCount] = useState(140);
@@ -57,6 +59,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
     });
     const data = await res.json();
     console.log("submit!", data);
+    router.replace("/admin/home");
   };
 
   useEffect(() => {
