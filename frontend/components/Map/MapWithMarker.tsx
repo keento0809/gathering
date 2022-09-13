@@ -2,6 +2,7 @@ import React from "react";
 import useDeepCompareEffect from "use-deep-compare-effect";
 import { MapProps, latLngProps } from "../../models/model";
 import { Status, Wrapper } from "@googlemaps/react-wrapper";
+import { Marker, InfoWindow } from "@react-google-maps/api";
 
 const render = (status: Status) => {
   return <h1>{status}</h1>;
@@ -53,7 +54,7 @@ const Map: React.FC<MapProps> = ({
   );
 };
 
-const Marker: React.FC<google.maps.MarkerOptions> = (options) => {
+const MarkerA: React.FC<google.maps.MarkerOptions> = (options) => {
   const [marker, setMarker] = React.useState<google.maps.Marker>();
 
   React.useEffect(() => {
@@ -77,13 +78,14 @@ const Marker: React.FC<google.maps.MarkerOptions> = (options) => {
   return null;
 };
 
-const MapWithMarker = ({ placeLatLng }: latLngProps) => {
+const MapWithMarker = ({ placeLatLng, placeName }: latLngProps) => {
   const [zoom, setZoom] = React.useState(14);
   const [centerPosition, setCenterPosition] =
     React.useState<google.maps.LatLngLiteral>({
       lat: placeLatLng.lat,
       lng: placeLatLng.lng,
     });
+  const [showingInfoWindow, setShowingInfoWindow] = React.useState(false);
 
   const onIdle = (m: google.maps.Map) => {
     setZoom(m.getZoom()!);
@@ -97,6 +99,13 @@ const MapWithMarker = ({ placeLatLng }: latLngProps) => {
     });
   }, []);
 
+  const onMarkerClick = () => {
+    setShowingInfoWindow(!showingInfoWindow);
+  };
+  const onInfoWindowClose = () => {
+    setShowingInfoWindow(false);
+  };
+
   return (
     <Wrapper apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY!}>
       <Map
@@ -105,7 +114,32 @@ const MapWithMarker = ({ placeLatLng }: latLngProps) => {
         onIdle={onIdle}
         style={{ width: "100%", height: "400px", borderRadius: "8px" }}
       >
-        <Marker position={placeLatLng} />
+        {/* <MarkerA position={placeLatLng} /> */}
+        <Marker position={placeLatLng} clickable onClick={onMarkerClick}>
+          {showingInfoWindow && (
+            <InfoWindow
+              position={{
+                lat: placeLatLng.lat,
+                lng: placeLatLng.lng,
+              }}
+              zIndex={20}
+              onCloseClick={onInfoWindowClose}
+            >
+              <div>
+                <h2 className="text-xs">{placeName}</h2>
+                {/* <a
+                  target="_blank"
+                  href={`https://maps.google.com/maps?q=loc:${placeLatLng.lat},${placeLatLng.lng}`}
+                  className="outline-none"
+                >
+                  <span className="text-red-500 pt-1 outline-none">
+                    View on Google Map
+                  </span>
+                </a> */}
+              </div>
+            </InfoWindow>
+          )}
+        </Marker>
       </Map>
     </Wrapper>
   );

@@ -3,8 +3,12 @@ import React from "react";
 import Wrapper from "../../../components/Wrapper/Wrapper";
 import Card from "../../../components/Card/Card";
 import ApplicationForm from "../../../components/Form/ApplicationForm";
+import { useRouter } from "next/router";
 
 const ApplicationPage = () => {
+  const router = useRouter();
+  const { gatheringId } = router.query;
+
   return (
     <>
       <Head>
@@ -20,7 +24,7 @@ const ApplicationPage = () => {
           the confirm button, your booking will be secured immediately.
         </p>
         <Card>
-          <ApplicationForm />
+          <ApplicationForm gatheringId={gatheringId} />
         </Card>
       </Wrapper>
     </>
