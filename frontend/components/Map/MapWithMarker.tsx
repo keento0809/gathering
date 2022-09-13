@@ -127,7 +127,7 @@ const MapWithMarker = ({ placeLatLng, placeName }: latLngProps) => {
             >
               <div>
                 <h2 className="text-xs">{placeName}</h2>
-                <a
+                {/* <a
                   target="_blank"
                   href={`https://maps.google.com/maps?q=loc:${placeLatLng.lat},${placeLatLng.lng}`}
                   className="outline-none"
@@ -135,7 +135,7 @@ const MapWithMarker = ({ placeLatLng, placeName }: latLngProps) => {
                   <span className="text-red-500 pt-1 outline-none">
                     View on Google Map
                   </span>
-                </a>
+                </a> */}
               </div>
             </InfoWindow>
           )}

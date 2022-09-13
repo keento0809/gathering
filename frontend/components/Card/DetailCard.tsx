@@ -51,11 +51,7 @@ const DetailCard = ({ gathering }: GatheringProps) => {
       </section>
       <section className="specialNotes py-2">
         <h3 className="text-lg font-bold tracking-tight">Notes</h3>
-        <p className="text-base py-2">
-          {gathering.specialNotes}
-          {/* Please bring your own PC. Participants have to buy at least one drink
-          at the place. */}
-        </p>
+        <p className="text-base py-2">{gathering.specialNotes}</p>
       </section>
     </Card>
   );
