@@ -8,6 +8,7 @@ import { GatheringProps, GatheringType } from "../../../models/model";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 
 const GatheringDetail: NextPage<GatheringProps> = ({ gathering }) => {
+  console.log(gathering._id);
   return (
     <>
       <Head>
@@ -16,7 +17,6 @@ const GatheringDetail: NextPage<GatheringProps> = ({ gathering }) => {
       <Wrapper>
         <h2 className="text-2xl pl-0.5 font-bold tracking-tighter text-left text-red-500">
           {gathering.title}
-          {/* title of gathering */}
         </h2>
         <DetailCard gathering={gathering} />
         <div className="text-center pt-6">

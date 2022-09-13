@@ -3,10 +3,12 @@ import React from "react";
 import Wrapper from "../../../components/Wrapper/Wrapper";
 import Card from "../../../components/Card/Card";
 import ApplicationForm from "../../../components/Form/ApplicationForm";
-import { GetStaticPaths, GetStaticProps } from "next";
-import { DUMMY_GATHERING_DATA } from "../../../data/data";
+import { useRouter } from "next/router";
 
 const ApplicationPage = () => {
+  const router = useRouter();
+  const { gatheringId } = router.query;
+
   return (
     <>
       <Head>
@@ -22,7 +24,7 @@ const ApplicationPage = () => {
           the confirm button, your booking will be secured immediately.
         </p>
         <Card>
-          <ApplicationForm />
+          <ApplicationForm gatheringId={gatheringId} />
         </Card>
       </Wrapper>
     </>
@@ -30,30 +32,3 @@ const ApplicationPage = () => {
 };
 
 export default ApplicationPage;
-
-export const getStaticProps: GetStaticProps = async (context) => {
-  const { params } = context;
-  const gatheringId = params!["gatheringId"];
-  const gathering = DUMMY_GATHERING_DATA.find(
-    (data) => data._id.toString() === gatheringId
-  );
-  return {
-    props: {
-      gathering,
-    },
-  };
-};
-
-export const getStaticPath: GetStaticPaths = async () => {
-  const paths = DUMMY_GATHERING_DATA.map((data) => {
-    return {
-      params: {
-        gatheringId: `${data._id}`,
-      },
-    };
-  });
-  return {
-    paths,
-    fallback: false,
-  };
-};

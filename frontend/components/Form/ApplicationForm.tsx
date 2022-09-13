@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import Button from "../Button/Button";
 import { useRouter } from "next/router";
+import { server } from "../../config";
 
-const ApplicationForm = () => {
+interface GatheringIdProps {
+  gatheringId: string | string[] | undefined;
+}
+
+const ApplicationForm = ({ gatheringId }: GatheringIdProps) => {
   const [userInfo, setUserInfo] = useState({
     username: "",
     email: "",
@@ -18,9 +23,17 @@ const ApplicationForm = () => {
   };
   console.log(userInfo);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("submit!");
+    const res = await fetch(
+      `${server}/api/gatherings/${gatheringId}/application`,
+      {
+        method: "POST",
+        body: JSON.stringify(userInfo),
+      }
+    );
+    const data = res.json();
+    console.log(data);
     router.replace(`/gathering/${1}/completion`);
   };
   return (
