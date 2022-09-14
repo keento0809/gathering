@@ -3,6 +3,7 @@ import useDeepCompareEffect from "use-deep-compare-effect";
 import { MapProps, latLngProps } from "../../models/model";
 import { Status, Wrapper } from "@googlemaps/react-wrapper";
 import { Marker, InfoWindow } from "@react-google-maps/api";
+import Link from "next/link";
 
 const render = (status: Status) => {
   return <h1>{status}</h1>;
@@ -127,6 +128,15 @@ const MapWithMarker = ({ placeLatLng, placeName }: latLngProps) => {
             >
               <div>
                 <h2 className="text-xs">{placeName}</h2>
+                <Link
+                  href={`https://maps.google.com/maps?q=loc:${placeLatLng.lat},${placeLatLng.lng}`}
+                >
+                  <a target="_blank">
+                    <span className="text-red-500 pt-1 outline-none">
+                      View on Google Map
+                    </span>
+                  </a>
+                </Link>
                 {/* <a
                   target="_blank"
                   href={`https://maps.google.com/maps?q=loc:${placeLatLng.lat},${placeLatLng.lng}`}
