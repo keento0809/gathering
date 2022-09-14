@@ -26,15 +26,21 @@ const ApplicationForm = ({ gatheringId }: GatheringIdProps) => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const res = await fetch(
-      `${server}/api/gatherings/${gatheringId}/application`,
-      {
-        method: "POST",
-        body: JSON.stringify(userInfo),
-      }
+      `${server}/api/gatherings/${gatheringId}/application`
     );
-    const data = res.json();
-    console.log(data);
-    router.replace(`/gathering/${1}/completion`);
+    const updatingGathering = await res.json();
+    updatingGathering.participants.push(userInfo);
+    // const infoObj = { ...userInfo, id: gatheringId };
+    // const res = await fetch(
+    //   `${server}/api/gatherings/${gatheringId}/application`,
+    //   {
+    //     method: "POST",
+    //     body: JSON.stringify(infoObj),
+    //   }
+    // );
+    // const data = res.json();
+    // console.log(data);
+    router.replace(`/gatherings/${gatheringId}/completion`);
   };
   return (
     <>
@@ -65,6 +71,7 @@ const ApplicationForm = ({ gatheringId }: GatheringIdProps) => {
             </div>
             <input
               type="text"
+              name="username"
               id="email-address-icon"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
               placeholder="Your name"
@@ -94,7 +101,8 @@ const ApplicationForm = ({ gatheringId }: GatheringIdProps) => {
               </svg>
             </div>
             <input
-              type="text"
+              type="email"
+              name="email"
               id="email-address-icon"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
               placeholder="name@flowbite.com"
@@ -116,6 +124,7 @@ const ApplicationForm = ({ gatheringId }: GatheringIdProps) => {
             </span>
             <input
               type="text"
+              name="twitterId"
               id="website-admin"
               className="rounded-none rounded-r-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-red-500 focus:border-red-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
               placeholder="Bonnie Green"
