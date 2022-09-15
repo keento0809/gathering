@@ -55,30 +55,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-// export const getStaticPaths: GetStaticPaths = async () => {
-//   const paths = DUMMY_GATHERING_DATA.map((data) => {
-//     return {
-//       params: {
-//         gatheringId: `${data._id}`,
-//       },
-//     };
-//   });
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// };
-
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch(`${server}/api/gatherings`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  const res = await fetch(`${server}/api/gatherings`);
   const allGatherings = await res.json();
-  console.log(allGatherings);
-
   const paths = allGatherings.map((data: GatheringType) => {
     return {
       params: {
