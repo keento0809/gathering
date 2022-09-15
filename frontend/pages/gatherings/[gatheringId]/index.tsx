@@ -56,7 +56,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch(`${server}/api/gatherings`);
+  const res = await fetch(`${server}/api/gatherings`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
   const allGatherings = await res.json();
   const paths = allGatherings.map((data: GatheringType) => {
     return {
