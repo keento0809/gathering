@@ -8,6 +8,8 @@ import { GatheringsArrayType } from "../../models/model";
 import { server } from "../../config/index";
 
 const Home = ({ data }: GatheringsArrayType) => {
+  console.log(data);
+
   return (
     <>
       <Head>
@@ -35,25 +37,17 @@ const Home = ({ data }: GatheringsArrayType) => {
 
 export default Home;
 
-export async function getStaticProps() {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const res = await fetch(`${server}/api/gatherings`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const allGatherings = await res.json();
   return {
     props: {
-      data: DUMMY_GATHERING_DATA,
+      data: allGatherings,
     },
   };
-}
-
-// export const getServerSideProps: GetServerSideProps = async (context) => {
-//   const res = await fetch(`${server}/api/gatherings`, {
-//     method: "GET",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//   });
-//   const allGatherings = await res.json();
-//   return {
-//     props: {
-//       data: allGatherings,
-//     },
-//   };
-// };
+};

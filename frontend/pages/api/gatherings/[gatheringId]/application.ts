@@ -9,8 +9,7 @@ export default async function handler(
 ) {
   const client = await clientPromise;
   const db = client.db(MONGODB_DB);
-  const gatheringId = req.query.id as string;
-  console.log(gatheringId);
+  const gatheringId = req.query.gatheringId as string;
 
   switch (req.method) {
     case "GET": {
@@ -22,6 +21,7 @@ export default async function handler(
       // const gathering = await db.collection("gathering").findOne({ id: id });
       // if (!gathering) throw new Error("Gathering not found.");
       // res.status(200).json(gathering);
+      console.log(gathering);
       res.json(gathering);
     }
     default:

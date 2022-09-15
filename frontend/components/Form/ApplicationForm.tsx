@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "../Button/Button";
 import { useRouter } from "next/router";
 import { server } from "../../config";
+import { DUMMY_GATHERING_DATA } from "../../data/data";
 
 interface GatheringIdProps {
   gatheringId: string | string[] | undefined;
@@ -30,6 +31,7 @@ const ApplicationForm = ({ gatheringId }: GatheringIdProps) => {
     );
     const updatingGathering = await res.json();
     updatingGathering.participants.push(userInfo);
+    console.log(updatingGathering);
     // const infoObj = { ...userInfo, id: gatheringId };
     // const res = await fetch(
     //   `${server}/api/gatherings/${gatheringId}/application`,
