@@ -20,8 +20,6 @@ export default async function handler(
         .collection("gatherings")
         .find({})
         .toArray();
-      console.log(typeof allGatherings);
-
       res.status(200).json(allGatherings);
     }
     default:
