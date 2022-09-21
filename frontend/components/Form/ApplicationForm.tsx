@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "../Button/Button";
 import { useRouter } from "next/router";
 import { server } from "../../config";
+import { DUMMY_GATHERING_DATA } from "../../data/data";
 
 interface GatheringIdProps {
   gatheringId: string | string[] | undefined;
@@ -29,7 +30,21 @@ const ApplicationForm = ({ gatheringId }: GatheringIdProps) => {
       `${server}/api/gatherings/${gatheringId}/application`
     );
     const updatingGathering = await res.json();
+    console.log(updatingGathering.participants);
     updatingGathering.participants.push(userInfo);
+    const newParticipants = updatingGathering.participants;
+    const response = await fetch(
+      `${server}/api/gatherings/${gatheringId}/update`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newParticipants),
+      }
+    );
+    const data = await response.json();
+    console.log(data);
     // const infoObj = { ...userInfo, id: gatheringId };
     // const res = await fetch(
     //   `${server}/api/gatherings/${gatheringId}/application`,

@@ -49,8 +49,6 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // const bodyObj = gatheringInfo;
-    // test
     const bodyObj = { ...gatheringInfo, placeLatLng: mapCtx!.center };
 
     const res = await fetch(`${server}/api/gatherings`, {

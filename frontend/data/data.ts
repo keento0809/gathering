@@ -1,4 +1,4 @@
-export const DUMMY_GATHERING_DATA = [
+export let DUMMY_GATHERING_DATA = [
   {
     _id: 1,
     title: "Moku-Marketing",

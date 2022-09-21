@@ -20,7 +20,7 @@ export default async function handler(
         .collection("gatherings")
         .find({})
         .toArray();
-      res.status(200).json({ data: allGatherings });
+      res.status(200).json(allGatherings);
     }
     default:
       break;

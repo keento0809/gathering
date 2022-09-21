@@ -4,6 +4,8 @@ import { GatheringProps } from "../../models/model";
 import MapWithMarker from "../Map/MapWithMarker";
 
 const DetailCard = ({ gathering }: GatheringProps) => {
+  console.log(gathering.participants.length);
+
   return (
     <Card>
       <section className="image">
