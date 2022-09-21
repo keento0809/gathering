@@ -21,7 +21,7 @@ export default async function handler(
       if (!gathering) throw new Error("Gathering not found.");
       res.status(200).json(gathering);
       console.log(gathering);
-      res.json(gathering);
+      // res.json(gathering);
     }
     default:
       break;

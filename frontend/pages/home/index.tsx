@@ -45,8 +45,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     },
   });
   const allGatherings = await res.json();
-  console.log(allGatherings);
-
   return {
     props: {
       data: allGatherings,
