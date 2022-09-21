@@ -5,7 +5,12 @@ import DetailCard from "../../../components/Card/DetailCard";
 import Wrapper from "../../../components/Wrapper/Wrapper";
 import { DUMMY_GATHERING_DATA } from "../../../data/data";
 import { GatheringProps, GatheringType } from "../../../models/model";
-import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import {
+  GetServerSideProps,
+  GetStaticPaths,
+  GetStaticProps,
+  NextPage,
+} from "next";
 import { server } from "../../../config";
 
 const GatheringDetail: NextPage<GatheringProps> = ({ gathering }) => {
@@ -32,10 +37,9 @@ const GatheringDetail: NextPage<GatheringProps> = ({ gathering }) => {
 
 export default GatheringDetail;
 
-export const getStaticProps: GetStaticProps = async (context) => {
+// test
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const { params } = context;
-  console.log(context);
-
   const gatheringId = params!["gatheringId"];
   const res = await fetch(`${server}/api/gatherings`, {
     method: "GET",
@@ -54,23 +58,48 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch(`${server}/api/gatherings`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  const allGatherings = await res.json();
-  const paths = allGatherings.map((data: GatheringType) => {
-    return {
-      params: {
-        gatheringId: `${data._id}`,
-      },
-    };
-  });
-  return {
-    paths,
-    fallback: false,
-  };
-};
+// export const getStaticProps: GetStaticProps = async (context) => {
+//   const { params } = context;
+//   console.log(context);
+
+//   const gatheringId = params!["gatheringId"];
+//   const res = await fetch(`${server}/api/gatherings`, {
+//     method: "GET",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//   });
+//   const allGatherings = await res.json();
+//   const gathering = allGatherings.find(
+//     (data: GatheringType) => data._id!.toString() === gatheringId
+//   );
+//   return {
+//     props: {
+//       gathering,
+//     },
+//   };
+// };
+
+// export const getStaticPaths: GetStaticPaths = async () => {
+//   const res = await fetch(`${server}/api/gatherings`, {
+//     method: "GET",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//   });
+//   const allGatherings = await res.json();
+//   console.log(typeof [allGatherings]);
+
+//   // const paths = allGatherings.map((data: GatheringType) => {
+//   const paths = allGatherings.map((data: GatheringType) => {
+//     return {
+//       params: {
+//         gatheringId: `${data._id}`,
+//       },
+//     };
+//   });
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// };
