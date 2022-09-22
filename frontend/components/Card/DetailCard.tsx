@@ -46,7 +46,7 @@ const DetailCard = ({ gathering }: GatheringProps) => {
               </div>
             )}
           </li>
-          <li className="pb-1">Organizer: Joe Doe</li>
+          <li className="pb-1">Organizer: {gathering.organizer.username}</li>
         </ul>
       </section>
       {/* temporary */}
