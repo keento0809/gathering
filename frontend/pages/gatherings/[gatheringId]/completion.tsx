@@ -10,7 +10,8 @@ import MapWithMarker from "../../../components/Map/MapWithMarker";
 
 const Completion = ({ gathering }: GatheringProps) => {
   console.log(gathering);
-  const { date, schedule, placeName, placeLatLng } = gathering;
+  const { date, schedule, placeName, placeLatLng, specialNotes, organizer } =
+    gathering;
   return (
     <>
       <Head>
@@ -32,12 +33,19 @@ const Completion = ({ gathering }: GatheringProps) => {
           {/* I'll replace to one UI component later */}
           <div className="py-4">
             <ul className="pt-2 text-base">
-              <li className="pb-1">Date: {date}</li>
-              <li className="pb-1">Time: {schedule}</li>
-              <li className="pb-1">Place: {placeName}</li>
+              <li className="pb-6">Date: {date}</li>
+              <li className="pb-6">Time: {schedule}</li>
+              <li className="pb-6">Place: {placeName}</li>
+              <li className="pb-6">Special Note: {specialNotes}</li>
+              <li className="pb-6">
+                Organizer: <br />
+                <div className="pt-4">
+                  Name: {organizer.username} <br />
+                  Email: {organizer.email}
+                </div>
+              </li>
             </ul>
             <section className="google-map py-2">
-              <h3 className="text-lg font-bold tracking-tight">Map</h3>
               <div className="pt-2">
                 <MapWithMarker
                   placeLatLng={placeLatLng}

@@ -45,16 +45,6 @@ const ApplicationForm = ({ gatheringId }: GatheringIdProps) => {
     );
     const data = await response.json();
     console.log(data);
-    // const infoObj = { ...userInfo, id: gatheringId };
-    // const res = await fetch(
-    //   `${server}/api/gatherings/${gatheringId}/application`,
-    //   {
-    //     method: "POST",
-    //     body: JSON.stringify(infoObj),
-    //   }
-    // );
-    // const data = res.json();
-    // console.log(data);
     router.replace(`/gatherings/${gatheringId}/completion`);
   };
   return (
