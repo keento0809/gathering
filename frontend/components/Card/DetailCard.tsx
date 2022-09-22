@@ -33,9 +33,9 @@ const DetailCard = ({ gathering }: GatheringProps) => {
             coming
             {gathering.participants.length > 0 && (
               <div className="border border-red-500 my-4 py-4 rounded-lg">
-                {gathering.participants.map((participant) => {
+                {gathering.participants.map((participant, index) => {
                   return (
-                    <div className="flex justify-center">
+                    <div className="flex justify-center" key={index}>
                       <p className="min-w-300">
                         Name: {participant.username}
                         <span className="pl-4">({participant.twitterId})</span>
