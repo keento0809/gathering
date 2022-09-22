@@ -1,11 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "./Card";
 import { GatheringProps } from "../../models/model";
 import MapWithMarker from "../Map/MapWithMarker";
 
 const DetailCard = ({ gathering }: GatheringProps) => {
-  console.log(gathering.participants.length);
-
   return (
     <Card>
       <section className="image">
@@ -33,6 +31,20 @@ const DetailCard = ({ gathering }: GatheringProps) => {
               {gathering.participants.length} members
             </span>{" "}
             coming
+            {gathering.participants.length > 0 && (
+              <div className="border border-red-500 my-4 py-4 rounded-lg">
+                {gathering.participants.map((participant, index) => {
+                  return (
+                    <div className="flex justify-center" key={index}>
+                      <p className="min-w-300">
+                        Name: {participant.username}
+                        <span className="pl-4">({participant.twitterId})</span>
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
           </li>
           <li className="pb-1">Organizer: Joe Doe</li>
         </ul>

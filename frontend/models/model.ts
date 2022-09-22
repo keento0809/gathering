@@ -54,7 +54,7 @@ export interface GatheringType {
   placeName: string;
   placeLatLng: placeLatLngObj;
   isFull: boolean;
-  participants: string[];
+  participants: participantInfoObj[];
   specialNotes: string;
   organizer: adminUserInfoObjType;
 }
@@ -68,7 +68,7 @@ export interface GatheringsArrayType {
 }
 
 export interface participantInfoObj {
-  id: number;
+  // id: number;
   username: string;
   email: string;
   twitterId: string;
