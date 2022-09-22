@@ -9,9 +9,14 @@ import Card from "../../components/Card/Card";
 import Link from "next/link";
 import { GetServerSideProps } from "next";
 import { server } from "../../config";
-import { adminUserProps } from "../../models/model";
+import {
+  adminUserProps,
+  GatheringsArrayType,
+  GatheringType,
+} from "../../models/model";
+import HostGathering from "../../components/List/HostGathering";
 
-const AdminHome = () => {
+const AdminHome = ({ data }: GatheringsArrayType) => {
   const { data: session } = useSession();
 
   return (
@@ -55,12 +60,18 @@ const AdminHome = () => {
                 Hello, {session.user?.name}!
               </h3>
               <div className="pt-8 pb-4">
-                <h3 className="text-xl font-bold tracking-tight overflow-y-scroll">
-                  Gathering as Organizer
-                </h3>
+                <div className="">
+                  <h3 className="text-xl font-bold tracking-tight overflow-y-scroll">
+                    Gathering as Organizer
+                  </h3>
+                  <HostGathering data={data} />
+                </div>
                 <div className="py-6">
+                  <h3 className="text-xl pb-4 font-bold tracking-tight overflow-y-scroll">
+                    Host New Gathering
+                  </h3>
                   <MainButton
-                    text="New Gathering"
+                    text="Create"
                     linkUrl={`/admin/${1}/newGathering`}
                   />
                 </div>
@@ -89,10 +100,18 @@ export default AdminHome;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const session = await getSession(context);
-
+  const response = await fetch(`${server}/api/gatherings`, {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  });
+  const allGatherings = await response.json();
+  const hostGatherings = allGatherings.filter(
+    (data: GatheringType) => data.organizer.username === session!.user!.name
+  );
   return {
     props: {
       session,
+      data: hostGatherings,
     },
   };
 };

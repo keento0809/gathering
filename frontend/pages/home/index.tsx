@@ -8,8 +8,6 @@ import { GatheringsArrayType } from "../../models/model";
 import { server } from "../../config/index";
 
 const Home = ({ data }: GatheringsArrayType) => {
-  console.log(data);
-
   return (
     <>
       <Head>
@@ -37,7 +35,7 @@ const Home = ({ data }: GatheringsArrayType) => {
 
 export default Home;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const res = await fetch(`${server}/api/gatherings`, {
     method: "GET",
     headers: {
