@@ -3,7 +3,6 @@ import React from "react";
 import MainButton from "../../../components/Button/MainButton";
 import DetailCard from "../../../components/Card/DetailCard";
 import Wrapper from "../../../components/Wrapper/Wrapper";
-import { DUMMY_GATHERING_DATA } from "../../../data/data";
 import { GatheringProps, GatheringType } from "../../../models/model";
 import {
   GetServerSideProps,
