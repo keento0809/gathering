@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MainButton from "../../../components/Button/MainButton";
 import DetailCard from "../../../components/Card/DetailCard";
 import Wrapper from "../../../components/Wrapper/Wrapper";
@@ -13,6 +13,11 @@ import {
 import { server } from "../../../config";
 
 const GatheringDetail: NextPage<GatheringProps> = ({ gathering }) => {
+  const { title, participants, capacity } = gathering;
+  const [isMaximum, setIsMaximum] = useState(false);
+  useEffect(() => {
+    participants.length > capacity ? setIsMaximum(true) : setIsMaximum(false);
+  }, []);
   return (
     <>
       <Head>
@@ -20,13 +25,17 @@ const GatheringDetail: NextPage<GatheringProps> = ({ gathering }) => {
       </Head>
       <Wrapper>
         <h2 className="text-2xl pl-0.5 font-bold tracking-tighter text-left text-red-500">
-          {gathering.title}
+          {title}
         </h2>
         <DetailCard gathering={gathering} />
         <div className="text-center pt-6">
+          {isMaximum && (
+            <p className="text-red-500 pb-2">Sorry, This gathering is full.</p>
+          )}
           <MainButton
             text="Join"
             linkUrl={`/gatherings/${gathering._id}/application`}
+            isMaximum={isMaximum}
           />
         </div>
       </Wrapper>

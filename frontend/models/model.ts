@@ -22,6 +22,7 @@ export interface AuthButtonProps {
 export interface MainButtonProps {
   text: String;
   linkUrl: Url | string;
+  isMaximum?: boolean;
 }
 
 export interface SingupUserInputObj {
