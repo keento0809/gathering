@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "../Button/Button";
 import { useRouter } from "next/router";
 import { server } from "../../config";
-import { DUMMY_GATHERING_DATA } from "../../data/data";
+import { init, send } from "@emailjs/browser";
 
 interface GatheringIdProps {
   gatheringId: string | string[] | undefined;
@@ -15,14 +15,12 @@ const ApplicationForm = ({ gatheringId }: GatheringIdProps) => {
     twitterId: "",
   });
   const router = useRouter();
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserInfo({
       ...userInfo,
       [e.target.name]: e.target.value,
     });
   };
-  console.log(userInfo);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -44,9 +42,18 @@ const ApplicationForm = ({ gatheringId }: GatheringIdProps) => {
       }
     );
     const data = await response.json();
-    console.log(data);
+    // send email
+    send(
+      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+      data,
+      process.env.NEXT_PUBLIC_EMAILJS_USER_ID!
+    )
+      .then((res) => console.log(res.text))
+      .catch((err) => console.log(err));
     router.replace(`/gatherings/${gatheringId}/completion`);
   };
+
   return (
     <>
       <form onSubmit={handleSubmit}>

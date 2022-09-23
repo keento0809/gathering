@@ -21,7 +21,7 @@ const NavMenu = () => {
         </li>
         <hr />
         <li className="py-3 pl-0.5">
-          <Link href={"/"}>Find Gathering</Link>
+          <Link href={"/search"}>Find Gathering</Link>
         </li>
         <hr />
         <li className="py-3 pl-0.5">

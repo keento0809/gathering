@@ -6,7 +6,7 @@ const UpcomingGathering = ({ data }: GatheringsArrayType) => {
   const [maxHeight, setMaxHeight] = useState(590);
   const upcomingList = data.map((gathering) => {
     return (
-      <li key={gathering._id}>
+      <li key={gathering._id} className="min-w-374 md:min-w-0 md:basis-350">
         <GatheringCard gathering={gathering} />
       </li>
     );
@@ -20,11 +20,10 @@ const UpcomingGathering = ({ data }: GatheringsArrayType) => {
 
   return (
     <ul
-      className="text-xl mt-3 overflow-scroll"
+      className="text-xl mt-3 overflow-scroll md:flex md:justify-between"
       style={{ maxHeight: `${maxHeight}px` }}
     >
       {upcomingList}
-      {/* <GatheringCard gathering={gathering} /> */}
     </ul>
   );
 };
