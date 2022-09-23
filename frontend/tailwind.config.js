@@ -36,6 +36,9 @@ module.exports = {
         550: "550px",
         580: "580px",
       },
+      flexBasis: {
+        350: "350px",
+      },
     },
   },
   plugins: [require("flowbite/plugin")],
