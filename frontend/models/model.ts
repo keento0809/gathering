@@ -42,6 +42,13 @@ export interface placeLatLngObj {
   lng: number;
 }
 
+export interface StaticImageData {
+  src: string;
+  height?: number;
+  width?: number;
+  placeholder?: string;
+}
+
 export interface GatheringType {
   _id: number | null;
   title: string;
