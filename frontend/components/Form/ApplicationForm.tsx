@@ -42,6 +42,12 @@ const ApplicationForm = ({ gatheringId }: GatheringIdProps) => {
       }
     );
     const data = await response.json();
+    const template_params = {
+      ...data,
+      to_name: "",
+      from_name: "",
+      from_email: "",
+    };
     // send email
     send(
       process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
