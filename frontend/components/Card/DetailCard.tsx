@@ -3,6 +3,7 @@ import Card from "./Card";
 import { GatheringProps } from "../../models/model";
 import MapWithMarker from "../Map/MapWithMarker";
 import urlForImage from "../../public/static/bgImage.jpg";
+import Link from "next/link";
 
 const DetailCard = ({ gathering }: GatheringProps) => {
   const [imageUrl, setImageUrl] = useState("");
@@ -11,10 +12,6 @@ const DetailCard = ({ gathering }: GatheringProps) => {
     setImageUrl(urlForImage.src);
     gathering.image = urlForImage.src;
     const test = gathering.timeSchedule.split(/\s+/g);
-    console.log(test);
-    test.forEach((t, index) => {
-      console.log(t, test[index + 1], Number(test[index + 1]?.substring(0, 1)));
-    });
     setSchedule(test);
   }, []);
   return (
@@ -43,11 +40,24 @@ const DetailCard = ({ gathering }: GatheringProps) => {
               <div className="border border-red-500 my-4 py-4 rounded-lg">
                 {gathering.participants.map((participant, index) => {
                   return (
-                    <div className="flex justify-center" key={index}>
-                      <p className="min-w-300">
+                    <div className="pl-4" key={index}>
+                      <span className="inline-block min-w-140">
                         Name: {participant.username}
-                        <span className="pl-4">(@{participant.twitterId})</span>
-                      </p>
+                        {/* original */}
+                        {/* <span className="pl-4">(@{participant.twitterId})</span> */}
+                      </span>
+                      <Link
+                        href={`https://twitter.com/${participant.twitterId}`}
+                        className="pl-4 inline-block hover:text-red-500"
+                        passHref
+                      >
+                        <a
+                          className="hover:text-red-500 cursor-pointer"
+                          target={"_blank"}
+                        >
+                          @{participant.twitterId}
+                        </a>
+                      </Link>
                     </div>
                   );
                 })}

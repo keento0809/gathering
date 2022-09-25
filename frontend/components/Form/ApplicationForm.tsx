@@ -3,61 +3,64 @@ import Button from "../Button/Button";
 import { useRouter } from "next/router";
 import { server } from "../../config";
 import { init, send } from "@emailjs/browser";
+import { GatheringProps } from "../../models/model";
 
-interface GatheringIdProps {
-  gatheringId: string | string[] | undefined;
-}
-
-const ApplicationForm = ({ gatheringId }: GatheringIdProps) => {
+const ApplicationForm = ({ gathering }: GatheringProps) => {
   const [userInfo, setUserInfo] = useState({
     username: "",
     email: "",
     twitterId: "",
   });
+  const gatheringId = gathering._id;
   const router = useRouter();
+  const userID = process.env.NEXT_PUBLIC_USER_ID!;
+  const serviceID = process.env.NEXT_PUBLIC_SERVICE_ID!;
+  const templateID = process.env.NEXT_PUBLIC_TEMPLATE_ID!;
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserInfo({
       ...userInfo,
       [e.target.name]: e.target.value,
     });
   };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const res = await fetch(
       `${server}/api/gatherings/${gatheringId}/application`
     );
     const updatingGathering = await res.json();
-    console.log(updatingGathering.participants);
     updatingGathering.participants.push(userInfo);
     const newParticipants = updatingGathering.participants;
-    const response = await fetch(
-      `${server}/api/gatherings/${gatheringId}/update`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newParticipants),
-      }
-    );
-    const data = await response.json();
-    const template_params = {
-      ...data,
-      to_name: "",
-      from_name: "",
-      from_email: "",
-    };
-    // send email
-    send(
-      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-      data,
-      process.env.NEXT_PUBLIC_EMAILJS_USER_ID!
-    )
-      .then((res) => console.log(res.text))
-      .catch((err) => console.log(err));
-    router.replace(`/gatherings/${gatheringId}/completion`);
+    await fetch(`${server}/api/gatherings/${gatheringId}/update`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newParticipants),
+    });
+    if (userID && serviceID && templateID) {
+      const { username, email, twitterId } = userInfo;
+      const { date, schedule, placeName, specialNotes, organizer } = gathering;
+      const organizerEmail = organizer.email;
+      init(userID);
+      const template_params = {
+        to_email: organizerEmail,
+        from_name: username,
+        from_email: email,
+        gathering_date: date,
+        gathering_time: schedule,
+        gathering_place: placeName,
+        gathering_note: specialNotes,
+      };
+      // send email
+      send(serviceID, templateID, template_params)
+        .then((res) => console.log(res.text))
+        .catch((err) => console.log(err));
+      router.replace(`/gatherings/${gatheringId}/completion`);
+    } else {
+      alert("Failed to send confirmation email...");
+      router.push(`/home`);
+    }
   };
 
   return (

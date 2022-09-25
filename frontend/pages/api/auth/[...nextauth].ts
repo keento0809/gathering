@@ -1,4 +1,3 @@
-import React from "react";
 import NextAuth from "next-auth";
 import GitHubProviders from "next-auth/providers/github";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
