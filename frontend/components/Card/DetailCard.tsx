@@ -67,7 +67,15 @@ const DetailCard = ({ gathering }: GatheringProps) => {
                 <br />
               </Fragment>
             ) : (
-              <span key={index}> {item}</span>
+              <span
+                key={index}
+                className={
+                  Number(item.substring(0, 1)) ? "inline-block min-w-100" : ""
+                }
+              >
+                {" "}
+                {item}
+              </span>
             )
           )}
         </div>
