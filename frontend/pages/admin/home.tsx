@@ -59,10 +59,10 @@ const AdminHome = ({ data }: GatheringsArrayType) => {
               <h3 className="text-3xl text-red-500 font-bold tracking-tight">
                 Hello, {session.user?.name}!
               </h3>
-              <div className="pt-8 pb-4">
+              <div className="pt-8 pb-4 max-h-700 overflow-scroll">
                 <div className="">
                   <h3 className="text-xl font-bold tracking-tight overflow-y-scroll">
-                    Gathering as Organizer
+                    Gatherings as Organizer ({data.length})
                   </h3>
                   <HostGathering data={data} />
                 </div>
@@ -75,7 +75,7 @@ const AdminHome = ({ data }: GatheringsArrayType) => {
                     linkUrl={`/admin/${1}/newGathering`}
                   />
                 </div>
-                <div className="">
+                <div className="pb-6">
                   <Link href={"/admin/home"}>
                     <a
                       onClick={(e) => {

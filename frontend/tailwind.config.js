@@ -21,6 +21,7 @@ module.exports = {
         100: "100px",
       },
       minWidth: {
+        100: "100px",
         200: "200px",
         300: "300px",
         374: "374px",
@@ -35,6 +36,7 @@ module.exports = {
       maxHeight: {
         550: "550px",
         580: "580px",
+        700: "700px",
       },
       flexBasis: {
         350: "350px",
