@@ -11,10 +11,6 @@ const DetailCard = ({ gathering }: GatheringProps) => {
     setImageUrl(urlForImage.src);
     gathering.image = urlForImage.src;
     const test = gathering.timeSchedule.split(/\s+/g);
-    console.log(test);
-    test.forEach((t, index) => {
-      console.log(t, test[index + 1], Number(test[index + 1]?.substring(0, 1)));
-    });
     setSchedule(test);
   }, []);
   return (
@@ -46,7 +42,14 @@ const DetailCard = ({ gathering }: GatheringProps) => {
                     <div className="flex justify-center" key={index}>
                       <p className="min-w-300">
                         Name: {participant.username}
-                        <span className="pl-4">(@{participant.twitterId})</span>
+                        {/* original */}
+                        {/* <span className="pl-4">(@{participant.twitterId})</span> */}
+                        <a
+                          href={`https://twitter.com/${participant.twitterId}`}
+                          className="pl-4"
+                        >
+                          (@{participant.twitterId})
+                        </a>
                       </p>
                     </div>
                   );

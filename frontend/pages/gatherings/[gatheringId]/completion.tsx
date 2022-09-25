@@ -9,7 +9,6 @@ import { GatheringProps, GatheringType } from "../../../models/model";
 import MapWithMarker from "../../../components/Map/MapWithMarker";
 
 const Completion = ({ gathering }: GatheringProps) => {
-  console.log(gathering);
   const { date, schedule, placeName, placeLatLng, specialNotes, organizer } =
     gathering;
   return (
@@ -69,16 +68,13 @@ export default Completion;
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { params } = context;
   const gatheringId = params!["gatheringId"];
-  const response = await fetch(`${server}/api/gatherings`, {
+  const response = await fetch(`${server}/api/gatherings/${gatheringId}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
   });
-  const allGatherings = await response.json();
-  const gathering = allGatherings.find(
-    (data: GatheringType) => data._id!.toString() === gatheringId
-  );
+  const gathering = await response.json();
   return {
     props: {
       gathering,

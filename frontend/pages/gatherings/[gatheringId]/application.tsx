@@ -4,8 +4,11 @@ import Wrapper from "../../../components/Wrapper/Wrapper";
 import Card from "../../../components/Card/Card";
 import ApplicationForm from "../../../components/Form/ApplicationForm";
 import { useRouter } from "next/router";
+import { GetServerSideProps } from "next";
+import { server } from "../../../config";
+import { GatheringProps } from "../../../models/model";
 
-const ApplicationPage = () => {
+const ApplicationPage = ({ gathering }: GatheringProps) => {
   const router = useRouter();
   const { gatheringId } = router.query;
 
@@ -32,3 +35,16 @@ const ApplicationPage = () => {
 };
 
 export default ApplicationPage;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { params } = context;
+  const gatheringId = params!["gatheringId"];
+  const response = await fetch(`${server}/api/gatherings/${gatheringId}`);
+  const gathering = await response.json();
+  console.log(gathering);
+  return {
+    props: {
+      gathering,
+    },
+  };
+};
