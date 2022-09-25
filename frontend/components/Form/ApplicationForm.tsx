@@ -3,17 +3,15 @@ import Button from "../Button/Button";
 import { useRouter } from "next/router";
 import { server } from "../../config";
 import { init, send } from "@emailjs/browser";
+import { GatheringProps } from "../../models/model";
 
-interface GatheringIdProps {
-  gatheringId: string | string[] | undefined;
-}
-
-const ApplicationForm = ({ gatheringId }: GatheringIdProps) => {
+const ApplicationForm = ({ gathering }: GatheringProps) => {
   const [userInfo, setUserInfo] = useState({
     username: "",
     email: "",
     twitterId: "",
   });
+  const gatheringId = gathering._id;
   const router = useRouter();
   const userID = process.env.NEXT_PUBLIC_USER_ID!;
   const serviceID = process.env.NEXT_PUBLIC_SERVICE_ID!;
@@ -31,7 +29,6 @@ const ApplicationForm = ({ gatheringId }: GatheringIdProps) => {
       `${server}/api/gatherings/${gatheringId}/application`
     );
     const updatingGathering = await res.json();
-    console.log(updatingGathering.participants);
     updatingGathering.participants.push(userInfo);
     const newParticipants = updatingGathering.participants;
     await fetch(`${server}/api/gatherings/${gatheringId}/update`, {
@@ -43,11 +40,17 @@ const ApplicationForm = ({ gatheringId }: GatheringIdProps) => {
     });
     if (userID && serviceID && templateID) {
       const { username, email, twitterId } = userInfo;
+      const { date, schedule, placeName, specialNotes, organizer } = gathering;
+      const organizerEmail = organizer.email;
       init(userID);
       const template_params = {
-        to_name: "これはto-name??",
+        to_email: organizerEmail,
         from_name: username,
         from_email: email,
+        gathering_date: date,
+        gathering_time: schedule,
+        gathering_place: placeName,
+        gathering_note: specialNotes,
       };
       // send email
       send(serviceID, templateID, template_params)

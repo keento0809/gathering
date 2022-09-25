@@ -3,6 +3,7 @@ import Card from "./Card";
 import { GatheringProps } from "../../models/model";
 import MapWithMarker from "../Map/MapWithMarker";
 import urlForImage from "../../public/static/bgImage.jpg";
+import Link from "next/link";
 
 const DetailCard = ({ gathering }: GatheringProps) => {
   const [imageUrl, setImageUrl] = useState("");
@@ -39,18 +40,24 @@ const DetailCard = ({ gathering }: GatheringProps) => {
               <div className="border border-red-500 my-4 py-4 rounded-lg">
                 {gathering.participants.map((participant, index) => {
                   return (
-                    <div className="flex justify-center" key={index}>
-                      <p className="min-w-300">
+                    <div className="pl-4" key={index}>
+                      <span className="inline-block min-w-140">
                         Name: {participant.username}
                         {/* original */}
                         {/* <span className="pl-4">(@{participant.twitterId})</span> */}
+                      </span>
+                      <Link
+                        href={`https://twitter.com/${participant.twitterId}`}
+                        className="pl-4 inline-block hover:text-red-500"
+                        passHref
+                      >
                         <a
-                          href={`https://twitter.com/${participant.twitterId}`}
-                          className="pl-4"
+                          className="hover:text-red-500 cursor-pointer"
+                          target={"_blank"}
                         >
-                          (@{participant.twitterId})
+                          @{participant.twitterId}
                         </a>
-                      </p>
+                      </Link>
                     </div>
                   );
                 })}
