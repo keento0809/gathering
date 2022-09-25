@@ -1,4 +1,5 @@
 import React from "react";
+import SearchInput from "../../components/SearchInput/SearchInput";
 import Wrapper from "../../components/Wrapper/Wrapper";
 
 const SearchGathering = () => {
@@ -8,7 +9,8 @@ const SearchGathering = () => {
         Search Gathering
       </h2>
       <div className="explanations py-8">
-        <input type="text" />
+        <SearchInput />
+        <div className=""></div>
       </div>
     </Wrapper>
   );

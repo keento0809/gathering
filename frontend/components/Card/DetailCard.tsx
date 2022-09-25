@@ -1,18 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import { GatheringProps } from "../../models/model";
 import MapWithMarker from "../Map/MapWithMarker";
+import urlForImage from "../../public/static/bgImage.jpg";
 
 const DetailCard = ({ gathering }: GatheringProps) => {
+  const [imageUrl, setImageUrl] = useState("");
+  useEffect(() => {
+    setImageUrl(urlForImage.src);
+    gathering.image = urlForImage.src;
+  }, []);
   return (
     <Card>
       <section className="image">
-        <img
-          src={gathering.image}
-          alt=""
-          width="100%"
-          className="rounded-md mb-2"
-        />
+        <img src={imageUrl} alt="" width="100%" className="rounded-md mb-2" />
       </section>
       <section className="description py-2">
         <h3 className="text-lg font-bold tracking-tight">Description</h3>

@@ -1,14 +1,18 @@
-import React from "react";
-import { GatheringProps, GatheringType } from "../../models/model";
-import ImageSrc from "../../public/static/bgImage.jpg";
-import Button from "../Button/Button";
+import React, { useState, useEffect } from "react";
+import { GatheringProps } from "../../models/model";
 import MainButton from "../Button/MainButton";
+import urlForImage from "../../public/static/bgImage.jpg";
 
 const GatheringCard = ({ gathering }: GatheringProps) => {
+  const [imageUrl, setImageUrl] = useState("");
+  useEffect(() => {
+    setImageUrl(urlForImage.src);
+    gathering.image = urlForImage.src;
+  }, []);
   return (
     <div className="max-w-sm w-full mb-4 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
       <a href="#">
-        <img className="rounded-t-lg" src={gathering.image} alt="" />
+        <img className="rounded-t-lg" src={imageUrl} alt="image" />
       </a>
       <div className="p-5">
         <a href="#">
