@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { GatheringProps } from "../../models/model";
 import MainButton from "../Button/MainButton";
-import selectImage from "../../helper/selectImage";
 import urlForImage from "../../public/static/bgImage.jpg";
 
 const GatheringCard = ({ gathering }: GatheringProps) => {
