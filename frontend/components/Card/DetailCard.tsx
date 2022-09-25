@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import Card from "./Card";
 import { GatheringProps } from "../../models/model";
 import MapWithMarker from "../Map/MapWithMarker";
@@ -6,9 +6,16 @@ import urlForImage from "../../public/static/bgImage.jpg";
 
 const DetailCard = ({ gathering }: GatheringProps) => {
   const [imageUrl, setImageUrl] = useState("");
+  const [schedule, setSchedule] = useState<string[]>();
   useEffect(() => {
     setImageUrl(urlForImage.src);
     gathering.image = urlForImage.src;
+    const test = gathering.timeSchedule.split(/\s+/g);
+    console.log(test);
+    test.forEach((t, index) => {
+      console.log(t, test[index + 1], Number(test[index + 1]?.substring(0, 1)));
+    });
+    setSchedule(test);
   }, []);
   return (
     <Card>
@@ -39,7 +46,7 @@ const DetailCard = ({ gathering }: GatheringProps) => {
                     <div className="flex justify-center" key={index}>
                       <p className="min-w-300">
                         Name: {participant.username}
-                        <span className="pl-4">({participant.twitterId})</span>
+                        <span className="pl-4">(@{participant.twitterId})</span>
                       </p>
                     </div>
                   );
@@ -50,10 +57,20 @@ const DetailCard = ({ gathering }: GatheringProps) => {
           <li className="pb-1">Organizer: {gathering.organizer.username}</li>
         </ul>
       </section>
-      {/* temporary */}
       <section className="schedule py-2">
         <h3 className="text-lg font-bold tracking-tight">Schedule</h3>
-        <div className="pt-2">{gathering.timeSchedule}</div>
+        <div className="pt-2">
+          {schedule?.map((item, index) =>
+            Number(schedule[index + 1]?.substring(0, 1)) ? (
+              <Fragment key={index}>
+                <span> {item}</span>
+                <br />
+              </Fragment>
+            ) : (
+              <span key={index}> {item}</span>
+            )
+          )}
+        </div>
       </section>
       <section className="google-map py-2">
         <h3 className="text-lg font-bold tracking-tight">Map</h3>
