@@ -3,17 +3,8 @@ import React, { useEffect, useState } from "react";
 import MainButton from "../../../components/Button/MainButton";
 import DetailCard from "../../../components/Card/DetailCard";
 import Wrapper from "../../../components/Wrapper/Wrapper";
-import {
-  GatheringProps,
-  GatheringType,
-  adminUserInfoObjType,
-} from "../../../models/model";
-import {
-  GetServerSideProps,
-  GetStaticPaths,
-  GetStaticProps,
-  NextPage,
-} from "next";
+import { GatheringType, adminUserInfoObjType } from "../../../models/model";
+import { GetServerSideProps, NextPage } from "next";
 import { server } from "../../../config";
 import { useSession } from "next-auth/react";
 
@@ -23,12 +14,16 @@ interface DataPropsAtGatheringDetail {
 
 const GatheringDetail: NextPage<DataPropsAtGatheringDetail> = ({ data }) => {
   const { data: session } = useSession();
-  const { _id, title, participants, capacity, organizer } = data.gathering;
+  console.log(session);
+
+  const { _id, title, participants, capacity, organizer, isFull } =
+    data.gathering;
   const currUserId = data.currUser._id;
   const organizerId = organizer.id;
-  const [isMaximum, setIsMaximum] = useState(false);
+  const [isMaximum, setIsMaximum] = useState(isFull);
   useEffect(() => {
-    participants.length > capacity ? setIsMaximum(true) : setIsMaximum(false);
+    console.log(participants.length, Number(capacity));
+    participants.length >= capacity ? setIsMaximum(true) : setIsMaximum(false);
   }, []);
   return (
     <>
@@ -40,21 +35,27 @@ const GatheringDetail: NextPage<DataPropsAtGatheringDetail> = ({ data }) => {
           {title}
         </h2>
         <DetailCard gathering={data.gathering} />
-        <div className="text-center pt-6">
+        <div className="text-center pt-4">
+          {!isMaximum && (
+            <span className="block pb-2 text-sm">
+              {Number(data.gathering.capacity) -
+                Number(data.gathering.participants.length)}{" "}
+              seats remaining
+            </span>
+          )}
           {isMaximum && (
-            <p className="text-red-500 pb-2">Sorry, This gathering is full.</p>
+            <p className="text-red-500 pb-2 text-sm">
+              Sorry, This gathering is full.
+            </p>
           )}
           {session && organizerId === currUserId && (
             <MainButton text="Manage" linkUrl={`/gatherings/${_id}/manage`} />
           )}
-          {!session ||
-            (session && organizerId !== currUserId && (
-              <MainButton
-                text="Join"
-                linkUrl={`/gatherings/${_id}/application`}
-                isMaximum={isMaximum}
-              />
-            ))}
+          <MainButton
+            text="Join"
+            linkUrl={`/gatherings/${_id}/application`}
+            isMaximum={isMaximum}
+          />
         </div>
       </Wrapper>
     </>
