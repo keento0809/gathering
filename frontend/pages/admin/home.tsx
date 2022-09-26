@@ -10,14 +10,21 @@ import Link from "next/link";
 import { GetServerSideProps } from "next";
 import { server } from "../../config";
 import {
+  adminUserInfoObjType,
   adminUserProps,
   GatheringsArrayType,
   GatheringType,
 } from "../../models/model";
 import HostGathering from "../../components/List/HostGathering";
 
-const AdminHome = ({ data }: GatheringsArrayType) => {
+interface DataPropsTs {
+  data: { hostGatherings: GatheringType[]; currUser: adminUserInfoObjType };
+}
+
+const AdminHome = ({ data }: DataPropsTs) => {
   const { data: session } = useSession();
+  const { hostGatherings, currUser } = data;
+  const adminId = currUser._id;
 
   return (
     <>
@@ -62,9 +69,9 @@ const AdminHome = ({ data }: GatheringsArrayType) => {
               <div className="pt-8 pb-4 max-h-700 overflow-scroll">
                 <div className="">
                   <h3 className="text-xl font-bold tracking-tight overflow-y-scroll">
-                    Gatherings as Organizer ({data.length})
+                    Gatherings as Organizer ({hostGatherings.length})
                   </h3>
-                  <HostGathering data={data} />
+                  <HostGathering data={hostGatherings} />
                 </div>
                 <div className="py-6">
                   <h3 className="text-xl pb-4 font-bold tracking-tight overflow-y-scroll">
@@ -72,7 +79,7 @@ const AdminHome = ({ data }: GatheringsArrayType) => {
                   </h3>
                   <MainButton
                     text="Create"
-                    linkUrl={`/admin/${1}/newGathering`}
+                    linkUrl={`/admin/${adminId}/newGathering`}
                   />
                 </div>
                 <div className="pb-6">
@@ -108,10 +115,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const hostGatherings = allGatherings.filter(
     (data: GatheringType) => data.organizer.username === session!.user!.name
   );
+  const res = await fetch(`${server}/api/getUser`);
+  const currUser = await res.json();
   return {
     props: {
       session,
-      data: hostGatherings,
+      // data: hostGatherings,
+      data: { hostGatherings, currUser },
     },
   };
 };

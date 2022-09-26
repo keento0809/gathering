@@ -83,7 +83,7 @@ export interface participantInfoObj {
 }
 
 export interface adminUserInfoObjType {
-  id: number | null;
+  _id: number | null;
   username: string;
   email: string;
   hostGathering: [] | never[];
