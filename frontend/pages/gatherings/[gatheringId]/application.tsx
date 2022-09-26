@@ -36,7 +36,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const gatheringId = params!["gatheringId"];
   const response = await fetch(`${server}/api/gatherings/${gatheringId}`);
   const gathering = await response.json();
-  console.log(gathering);
   return {
     props: {
       gathering,

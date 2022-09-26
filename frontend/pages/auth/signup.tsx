@@ -28,7 +28,6 @@ const Signup = () => {
     axios
       .post("/api/auth/signup", userInfo)
       .then((res) => {
-        console.log(res.data);
         router.replace("/home");
       })
       .catch((error) => {

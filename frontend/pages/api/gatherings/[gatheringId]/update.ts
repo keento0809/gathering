@@ -18,6 +18,5 @@ export default async function handler(
     .collection("gatherings")
     .updateOne({ _id: o_id }, { $set: { participants: req.body } });
   if (!updatingGathering) throw new Error("Failed to update gathering.");
-  console.log(updatingGathering);
   res.status(200).json(updatingGathering);
 }

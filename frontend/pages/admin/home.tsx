@@ -17,11 +17,11 @@ import {
 } from "../../models/model";
 import HostGathering from "../../components/List/HostGathering";
 
-interface DataPropsTs {
+interface DataPropsAtAdminHome {
   data: { hostGatherings: GatheringType[]; currUser: adminUserInfoObjType };
 }
 
-const AdminHome = ({ data }: DataPropsTs) => {
+const AdminHome = ({ data }: DataPropsAtAdminHome) => {
   const { data: session } = useSession();
   const { hostGatherings, currUser } = data;
   const adminId = currUser.id;
@@ -113,14 +113,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   });
   const allGatherings = await response.json();
   const hostGatherings = allGatherings.filter(
-    (data: GatheringType) => data.organizer.username === session!.user!.name
+    (data: GatheringType) => data.organizer.username === session?.user?.name
   );
   const res = await fetch(`${server}/api/getUser`);
   const currUser = await res.json();
   return {
     props: {
       session,
-      // data: hostGatherings,
       data: { hostGatherings, currUser },
     },
   };

@@ -71,24 +71,13 @@ const TestMap = () => {
   const mapCtx = useMapContext();
 
   const onClick = (e: google.maps.MapMouseEvent) => {
-    console.log(clicks);
-
     setClicks([...clicks, e.latLng!]);
     const lat = e.latLng!.toJSON().lat;
     const lng = e.latLng!.toJSON().lng;
-    console.log(lat, lng);
-
     mapCtx?.handleSetCenter(lat, lng);
-    // setLatLngObj({
-    //   lat: e.latLng!.toJSON().lat,
-    //   lng: e.latLng!.toJSON().lng,
-    // });
   };
 
-  // console.log(latLngObj);
-
   const onIdle = (m: google.maps.Map) => {
-    console.log("onIdle");
     setZoom(m.getZoom()!);
     setCenterPosition(m.getCenter()!.toJSON());
   };
@@ -116,7 +105,6 @@ const TestMap = () => {
 export default TestMap;
 
 export async function getStaticProps() {
-  console.log(process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY);
   return {
     props: {
       data: process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY,
