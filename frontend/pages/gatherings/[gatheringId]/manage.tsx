@@ -2,12 +2,8 @@ import React from "react";
 import Head from "next/head";
 import Wrapper from "../../../components/Wrapper/Wrapper";
 import Card from "../../../components/Card/Card";
-import {
-  GetServerSideProps,
-  GetStaticProps,
-  GetStaticPropsContext,
-} from "next";
-import { useSession } from "next-auth/react";
+import { GetServerSideProps } from "next";
+import { getSession } from "next-auth/react";
 
 const Manage = () => {
   return (
@@ -29,10 +25,8 @@ const Manage = () => {
 
 export default Manage;
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const session = await useSession();
-  console.log(session);
-
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const session = await getSession(context);
   if (!session) {
     return {
       redirect: {
@@ -43,6 +37,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 
   return {
-    props: {},
+    props: {
+      session,
+    },
   };
 };

@@ -25,7 +25,6 @@ const AdminHome = ({ data }: DataPropsAtAdminHome) => {
   const { data: session } = useSession();
   const { hostGatherings, currUser } = data;
   const adminId = currUser.id;
-  console.log(currUser);
 
   return (
     <>
