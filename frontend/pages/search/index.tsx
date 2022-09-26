@@ -9,6 +9,10 @@ import { GatheringsArrayType, GatheringType } from "../../models/model";
 import UpcomingGathering from "../../components/List/UpcomingGathering";
 
 const SearchGathering = ({ data }: GatheringsArrayType) => {
+  let yourDate = new Date();
+  const newD = yourDate.toISOString().split("T")[0];
+  console.log(data[0].date);
+
   return (
     <Wrapper>
       <h2 className="text-2xl pl-0.5 font-bold tracking-tighter text-left text-red-500 dark:text-red-400">
