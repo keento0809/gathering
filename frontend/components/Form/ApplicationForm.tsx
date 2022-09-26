@@ -25,9 +25,7 @@ const ApplicationForm = ({ gathering }: GatheringProps) => {
   };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await fetch(
-      `${server}/api/gatherings/${gatheringId}/application`
-    );
+    const res = await fetch(`${server}/api/gatherings/${gatheringId}`);
     const updatingGathering = await res.json();
     updatingGathering.participants.push(userInfo);
     const newParticipants = updatingGathering.participants;
@@ -40,13 +38,15 @@ const ApplicationForm = ({ gathering }: GatheringProps) => {
     });
     if (userID && serviceID && templateID) {
       const { username, email, twitterId } = userInfo;
-      const { date, schedule, placeName, specialNotes, organizer } = gathering;
-      const organizerEmail = organizer.email;
+      const { title, date, schedule, placeName, specialNotes, organizer } =
+        gathering;
       init(userID);
       const template_params = {
-        to_email: organizerEmail,
-        from_name: username,
-        from_email: email,
+        organizer_email: organizer.email,
+        organizer_name: organizer.username,
+        user_name: username,
+        user_email: email,
+        gathering_name: title,
         gathering_date: date,
         gathering_time: schedule,
         gathering_place: placeName,
