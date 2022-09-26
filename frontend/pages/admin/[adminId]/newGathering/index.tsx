@@ -8,8 +8,11 @@ import CreateGatheringForm from "../../../../components/Form/CreateGatheringForm
 import Wrapper from "../../../../components/Wrapper/Wrapper";
 import { server } from "../../../../config/index";
 import { adminUserProps } from "../../../../models/model";
+import { useRouter } from "next/router";
 
 const NewGathering = ({ currentUser }: adminUserProps) => {
+  const router = useRouter();
+  const testQuery = router.query;
   return (
     <>
       <Head>

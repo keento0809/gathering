@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { GatheringProps } from "../../models/model";
 import MainButton from "../Button/MainButton";
 import urlForImage from "../../public/static/bgImage.jpg";
+import { server } from "../../config";
 
 const GatheringCard = ({ gathering }: GatheringProps) => {
   const [imageUrl, setImageUrl] = useState("");

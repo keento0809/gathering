@@ -56,13 +56,11 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
       body: JSON.stringify(bodyObj),
     });
     const data = await res.json();
-    console.log("submit!", data);
     router.replace("/admin/home");
   };
 
   useEffect(() => {
     // add a function finding hostGathering
-    console.log({ session });
     setGatheringInfo({
       ...gatheringInfo,
       organizer: currentUser && currentUser,

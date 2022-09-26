@@ -3,7 +3,11 @@ import React, { useEffect, useState } from "react";
 import MainButton from "../../../components/Button/MainButton";
 import DetailCard from "../../../components/Card/DetailCard";
 import Wrapper from "../../../components/Wrapper/Wrapper";
-import { GatheringProps, GatheringType } from "../../../models/model";
+import {
+  GatheringProps,
+  GatheringType,
+  adminUserInfoObjType,
+} from "../../../models/model";
 import {
   GetServerSideProps,
   GetStaticPaths,
@@ -11,9 +15,17 @@ import {
   NextPage,
 } from "next";
 import { server } from "../../../config";
+import { useSession } from "next-auth/react";
 
-const GatheringDetail: NextPage<GatheringProps> = ({ gathering }) => {
-  const { title, participants, capacity } = gathering;
+interface DataPropsAtGatheringDetail {
+  data: { gathering: GatheringType; currUser: adminUserInfoObjType };
+}
+
+const GatheringDetail: NextPage<DataPropsAtGatheringDetail> = ({ data }) => {
+  const { data: session } = useSession();
+  const { _id, title, participants, capacity, organizer } = data.gathering;
+  const currUserId = data.currUser._id;
+  const organizerId = organizer.id;
   const [isMaximum, setIsMaximum] = useState(false);
   useEffect(() => {
     participants.length > capacity ? setIsMaximum(true) : setIsMaximum(false);
@@ -27,16 +39,22 @@ const GatheringDetail: NextPage<GatheringProps> = ({ gathering }) => {
         <h2 className="text-2xl pl-0.5 font-bold tracking-tighter text-left text-red-500">
           {title}
         </h2>
-        <DetailCard gathering={gathering} />
+        <DetailCard gathering={data.gathering} />
         <div className="text-center pt-6">
           {isMaximum && (
             <p className="text-red-500 pb-2">Sorry, This gathering is full.</p>
           )}
-          <MainButton
-            text="Join"
-            linkUrl={`/gatherings/${gathering._id}/application`}
-            isMaximum={isMaximum}
-          />
+          {session && organizerId === currUserId && (
+            <MainButton text="Manage" linkUrl={`/gatherings/${_id}/manage`} />
+          )}
+          {!session ||
+            (session && organizerId !== currUserId && (
+              <MainButton
+                text="Join"
+                linkUrl={`/gatherings/${_id}/application`}
+                isMaximum={isMaximum}
+              />
+            ))}
         </div>
       </Wrapper>
     </>
@@ -56,9 +74,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     },
   });
   const gathering = await res.json();
+  const response = await fetch(`${server}/api/getUser`);
+  const currUser = await response.json();
   return {
     props: {
-      gathering,
+      data: { gathering, currUser },
     },
   };
 };

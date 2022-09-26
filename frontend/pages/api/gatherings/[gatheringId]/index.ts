@@ -20,7 +20,6 @@ export default async function handler(
         .findOne({ _id: o_id });
       if (!gathering) throw new Error("Gathering not found.");
       res.status(200).json(gathering);
-      console.log(gathering);
     }
     default:
       break;
