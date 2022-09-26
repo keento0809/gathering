@@ -36,6 +36,12 @@ const DetailCard = ({ gathering }: GatheringProps) => {
               {gathering.participants.length} members
             </span>{" "}
             coming
+            <span className="block">
+              (
+              {Number(gathering.capacity) -
+                Number(gathering.participants.length)}{" "}
+              seats remaining)
+            </span>
             {gathering.participants.length > 0 && (
               <div className="border border-red-500 my-4 py-4 rounded-lg">
                 {gathering.participants.map((participant, index) => {
