@@ -24,7 +24,7 @@ interface DataPropsTs {
 const AdminHome = ({ data }: DataPropsTs) => {
   const { data: session } = useSession();
   const { hostGatherings, currUser } = data;
-  const adminId = currUser._id;
+  const adminId = currUser.id;
 
   return (
     <>
