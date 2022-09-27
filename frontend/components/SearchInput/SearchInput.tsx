@@ -93,7 +93,7 @@ const SearchInput = () => {
             />
             <button
               type="submit"
-              className="absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-red-700 rounded-r-lg border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+              className="absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-red-500 rounded-r-lg border border-red-500 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-500 dark:focus:ring-red-800"
             >
               <svg
                 aria-hidden="true"

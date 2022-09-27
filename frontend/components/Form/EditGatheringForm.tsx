@@ -1,73 +1,60 @@
-import React, { useState, useEffect } from "react";
-import Button from "../Button/Button";
-import { server } from "../../config/index";
-import { GatheringType, adminUserProps } from "../../models/model";
-import { getSession, useSession } from "next-auth/react";
+import React, { useState } from "react";
 import TestMap from "../Map/TestMap";
+import Button from "../Button/Button";
+import { GatheringProps, GatheringType } from "../../models/model";
 import { useMapContext } from "../../context/MapContext";
-import { useRouter } from "next/router";
 
-const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
-  const router = useRouter();
+const EditGatheringForm = ({ gathering }: GatheringProps) => {
+  const {
+    _id,
+    title,
+    image,
+    headline,
+    description,
+    capacity,
+    date,
+    schedule,
+    timeSchedule,
+    placeName,
+    placeLatLng,
+    isFull,
+    participants,
+    specialNotes,
+    organizer,
+  } = gathering;
   const mapCtx = useMapContext();
-  const { data: session } = useSession();
   const [wordCount, setWordCount] = useState(140);
   const [gatheringInfo, setGatheringInfo] = useState<GatheringType>({
-    _id: null,
-    title: "",
-    image: "",
-    headline: "",
-    description: "",
-    capacity: 0,
-    date: "",
-    schedule: "",
-    timeSchedule: "",
-    placeName: "",
-    placeLatLng: mapCtx!.center,
-    isFull: false,
-    participants: [],
-    specialNotes: "",
-    organizer: {
-      id: null,
-      username: "",
-      email: "",
-      hostGathering: [],
-    },
+    _id: _id,
+    title,
+    image,
+    headline,
+    description,
+    capacity,
+    date,
+    schedule,
+    timeSchedule,
+    placeName,
+    placeLatLng,
+    isFull,
+    participants,
+    specialNotes,
+    organizer,
   });
-
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     if (e.target.name === "headline") {
       setWordCount(140 - e.target.value.length);
     }
-    // I will add a validation for date
     setGatheringInfo({
       ...gatheringInfo,
       [e.target.name]: e.target.value,
     });
   };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const bodyObj = { ...gatheringInfo, placeLatLng: mapCtx!.center };
-
-    const res = await fetch(`${server}/api/gatherings`, {
-      method: "POST",
-      body: JSON.stringify(bodyObj),
-    });
-    const data = await res.json();
-    router.replace("/admin/home");
+  const handleSubmit = () => {
+    console.log("submit");
   };
-
-  useEffect(() => {
-    // add a function finding hostGathering
-    setGatheringInfo({
-      ...gatheringInfo,
-      organizer: currentUser && currentUser,
-    });
-  }, []);
-
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -85,7 +72,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
               id="title-icon"
               onChange={handleChange}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
-              placeholder="Title"
+              defaultValue={title}
               required={true}
             />
           </div>
@@ -104,7 +91,6 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
               id="image-icon"
               onChange={handleChange}
               accept="image/png,image/jpeg"
-              placeholder="Title"
               required={true}
             />
           </div>
@@ -123,7 +109,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
               id="date-icon"
               onChange={handleChange}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
-              placeholder=""
+              defaultValue={date}
               required={true}
             />
           </div>
@@ -146,7 +132,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
               id="headline-icon"
               onChange={handleChange}
               className="bg-gray-50 border resize-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
-              placeholder=""
+              defaultValue={headline}
               required={true}
             />
           </div>
@@ -166,7 +152,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
               id="description-icon"
               onChange={handleChange}
               className="bg-gray-50 border resize-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
-              placeholder=""
+              defaultValue={description}
               required={true}
             />
           </div>
@@ -187,7 +173,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
               min={2}
               max={200}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
-              placeholder="Enter number from 2 to 200"
+              defaultValue={capacity}
               required={true}
             />
           </div>
@@ -206,7 +192,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
               id="schedule-icon"
               onChange={handleChange}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
-              placeholder="09:00~12:00"
+              defaultValue={schedule}
               required={true}
             />
           </div>
@@ -226,7 +212,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
               id="timeSchedule-icon"
               onChange={handleChange}
               className="bg-gray-50 border resize-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
-              placeholder=""
+              defaultValue={timeSchedule}
               required={true}
             />
           </div>
@@ -245,7 +231,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
               id="placeName-icon"
               onChange={handleChange}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
-              placeholder="Waves Coffee"
+              defaultValue={placeName}
               required={true}
             />
           </div>
@@ -276,26 +262,20 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
               id="specialNotes-icon"
               onChange={handleChange}
               className="bg-gray-50 border resize-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
-              placeholder=""
+              defaultValue={specialNotes}
               required={true}
             />
           </div>
         </div>
         <div className="py-6 text-white text-sm">
-          After filling out all inputs above, please push{" "}
-          <span className="font-bold text-red-500 cursor-pointer">
-            Create
-            {/* <Link href="/auth/signup">Signup</Link>{" "} */}
-          </span>{" "}
-          button, then your new gathering will be created successfully and added
-          to the upcoming gathering list.
+          Please make sure all inputs are filled out before updating gathering.
         </div>
         <div className="pb-6">
-          <Button text="Create" />
+          <Button text="Update" />
         </div>
       </form>
     </>
   );
 };
 
-export default CreateGatheringForm;
+export default EditGatheringForm;

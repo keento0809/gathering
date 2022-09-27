@@ -1,4 +1,4 @@
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, GetStaticProps } from "next";
 import Head from "next/head";
 import React from "react";
 import UpcomingGathering from "../../components/List/UpcomingGathering";
