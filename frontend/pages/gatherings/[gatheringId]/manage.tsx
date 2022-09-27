@@ -4,8 +4,11 @@ import Wrapper from "../../../components/Wrapper/Wrapper";
 import Card from "../../../components/Card/Card";
 import { GetServerSideProps } from "next";
 import { getSession } from "next-auth/react";
+import EditGatheringForm from "../../../components/Form/EditGatheringForm";
+import { server } from "../../../config";
+import { GatheringProps } from "../../../models/model";
 
-const Manage = () => {
+const Manage = ({ gathering }: GatheringProps) => {
   return (
     <>
       <Head>
@@ -16,7 +19,7 @@ const Manage = () => {
           Manage Gathering
         </h2>
         <Card>
-          <p>aaa</p>
+          <EditGatheringForm gathering={gathering} />
         </Card>
       </Wrapper>
     </>
@@ -27,6 +30,11 @@ export default Manage;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const session = await getSession(context);
+  const { params } = context;
+  const gatheringId = params!["gatheringId"];
+  const response = await fetch(`${server}/api/gatherings/${gatheringId}`);
+  const gathering = await response.json();
+
   if (!session) {
     return {
       redirect: {
@@ -39,6 +47,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: {
       session,
+      gathering,
     },
   };
 };

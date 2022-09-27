@@ -6,14 +6,21 @@ import { server } from "../../config";
 
 const GatheringCard = ({ gathering }: GatheringProps) => {
   const [imageUrl, setImageUrl] = useState("");
+  const [isExpired, setIsExpired] = useState(false);
+  let today = new Date();
+  const todayString = today.toISOString().split("T")[0];
+
   useEffect(() => {
+    if (todayString > gathering.date) setIsExpired(true);
     setImageUrl(urlForImage.src);
     gathering.image = urlForImage.src;
   }, []);
   return (
     <div className="relative">
       {/* modal for outdated gathering */}
-      {/* <div className="absolute top-0 right-0 bottom-0 left-0 bg-slate-700 rounded-lg z-40 opacity-80"></div> */}
+      {isExpired && (
+        <div className="absolute top-0 right-0 bottom-0 left-0 bg-slate-700 rounded-lg z-40 opacity-80"></div>
+      )}
       <div className="max-w-sm w-full mb-4 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
         <a href="#">
           <img className="rounded-t-lg" src={imageUrl} alt="image" />
