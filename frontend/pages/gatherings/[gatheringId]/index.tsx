@@ -14,15 +14,12 @@ interface DataPropsAtGatheringDetail {
 
 const GatheringDetail: NextPage<DataPropsAtGatheringDetail> = ({ data }) => {
   const { data: session } = useSession();
-  console.log(session);
-
   const { _id, title, participants, capacity, organizer, isFull } =
     data.gathering;
   const currUserId = data.currUser._id;
   const organizerId = organizer.id;
   const [isMaximum, setIsMaximum] = useState(isFull);
   useEffect(() => {
-    console.log(participants.length, Number(capacity));
     participants.length >= capacity ? setIsMaximum(true) : setIsMaximum(false);
   }, []);
   return (
@@ -51,11 +48,13 @@ const GatheringDetail: NextPage<DataPropsAtGatheringDetail> = ({ data }) => {
           {session && organizerId === currUserId && (
             <MainButton text="Manage" linkUrl={`/gatherings/${_id}/manage`} />
           )}
-          <MainButton
-            text="Join"
-            linkUrl={`/gatherings/${_id}/application`}
-            isMaximum={isMaximum}
-          />
+          {!(session && organizerId === currUserId) && (
+            <MainButton
+              text="Join"
+              linkUrl={`/gatherings/${_id}/application`}
+              isMaximum={isMaximum}
+            />
+          )}
         </div>
       </Wrapper>
     </>
@@ -83,27 +82,3 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     },
   };
 };
-
-// export const getStaticPaths: GetStaticPaths = async () => {
-//   const res = await fetch(`${server}/api/gatherings`, {
-//     method: "GET",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//   });
-//   const allGatherings = await res.json();
-//   console.log(typeof [allGatherings]);
-
-//   // const paths = allGatherings.map((data: GatheringType) => {
-//   const paths = allGatherings.map((data: GatheringType) => {
-//     return {
-//       params: {
-//         gatheringId: `${data._id}`,
-//       },
-//     };
-//   });
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// };

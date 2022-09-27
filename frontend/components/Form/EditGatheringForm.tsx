@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TestMap from "../Map/TestMap";
 import Button from "../Button/Button";
 import { GatheringProps, GatheringType } from "../../models/model";
 import { useMapContext } from "../../context/MapContext";
+import { server } from "../../config";
 
 const EditGatheringForm = ({ gathering }: GatheringProps) => {
   const {
@@ -52,11 +53,66 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
       [e.target.name]: e.target.value,
     });
   };
+  const handleDeleteParticipant = async (username: string, email: string) => {
+    const updatedParticipants = gathering.participants.filter(
+      (participant) =>
+        participant.username !== username && participant.email !== email
+    );
+    try {
+      await fetch(`${server}/api/gatherings/${gathering._id}/update`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedParticipants),
+      });
+      const res = await fetch(`${server}/api/gatherings/${gathering._id}`);
+      const updatedGathering = await res.json();
+      setGatheringInfo(updatedGathering);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const handleSubmit = () => {
     console.log("submit");
   };
   return (
     <>
+      <div className="mb-6">
+        <span className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+          Participants
+        </span>
+        <ul className="border border-red-500 py-4 rounded-lg">
+          {gatheringInfo.participants.map((participant, index) => {
+            const { username, email } = participant;
+            return (
+              <li key={index} className="pb-1 pl-4 list-none">
+                <span className="inline-block min-w-140">
+                  {index + 1}. {username}
+                </span>
+                <button
+                  onClick={() => handleDeleteParticipant(username, email)}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    className="w-4 h-4"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
       <form onSubmit={handleSubmit}>
         <div className="mb-6">
           <label
@@ -178,6 +234,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
             />
           </div>
         </div>
+
         <div className="mb-6">
           <label
             htmlFor="schedule-icon"
