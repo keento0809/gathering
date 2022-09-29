@@ -19,6 +19,7 @@ export default async function handler(
       const allGatherings = await db
         .collection("gatherings")
         .find({})
+        .sort({ date: -1 })
         .toArray();
       res.status(200).json(allGatherings);
     }
