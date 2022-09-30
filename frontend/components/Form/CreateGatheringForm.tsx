@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
   const router = useRouter();
   const mapCtx = useMapContext();
-  const { data: session } = useSession();
+  const [isDateExpired, setIsDateExpired] = useState(false);
   const [wordCount, setWordCount] = useState(140);
   const [gatheringInfo, setGatheringInfo] = useState<GatheringType>({
     _id: null,
@@ -41,6 +41,13 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
     if (e.target.name === "headline") {
       setWordCount(140 - e.target.value.length);
     }
+    if (e.target.name === "date") {
+      let today = new Date();
+      const todayString = today.toISOString().split("T")[0];
+      todayString > e.target.value
+        ? setIsDateExpired(true)
+        : setIsDateExpired(false);
+    }
     // I will add a validation for date
     setGatheringInfo({
       ...gatheringInfo,
@@ -59,7 +66,6 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
     const data = await res.json();
     router.replace("/admin/home");
   };
-
   useEffect(() => {
     // add a function finding hostGathering
     setGatheringInfo({
@@ -122,11 +128,18 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
               name="date"
               id="date-icon"
               onChange={handleChange}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
+              className={`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500 ${
+                isDateExpired && "border-red-500"
+              }`}
               placeholder=""
               required={true}
             />
           </div>
+          {isDateExpired && (
+            <div className="text-sm text-red-500 py-2 pl-3">
+              <span>Invalid date. Date must not be the past.</span>
+            </div>
+          )}
         </div>
         <div className="mb-6">
           <div className="flex flex-row justify-between">
@@ -136,8 +149,15 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
             >
               Headline (in 140 words)
             </label>
-            <span className="text-sm">{wordCount} words left</span>
+            <span className={`text-sm ${wordCount < 0 && "text-red-500"}`}>
+              {wordCount} words left
+            </span>
           </div>
+          {wordCount < 0 && (
+            <div className="text-sm text-red-500 pb-2">
+              <span>Words in headline must be in 140 words.</span>
+            </div>
+          )}
 
           <div className="relative">
             <textarea
