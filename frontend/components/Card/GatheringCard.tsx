@@ -19,7 +19,11 @@ const GatheringCard = ({ gathering }: GatheringProps) => {
     <div className="relative">
       {/* modal for outdated gathering */}
       {isExpired && (
-        <div className="absolute top-0 right-0 bottom-0 left-0 bg-slate-700 rounded-lg z-40 opacity-80"></div>
+        <div className="absolute top-0 right-0 bottom-0 left-0 bg-slate-700 rounded-lg z-40 opacity-80">
+          <div className="modal-container text-red-500 flex justify-center items-center h-full">
+            <p className="text-2xl font-semibold">This gathering is expired.</p>
+          </div>
+        </div>
       )}
       <div className="max-w-sm w-full mb-4 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
         <a href="#">
