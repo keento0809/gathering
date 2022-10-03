@@ -13,17 +13,27 @@ const SearchGathering = ({ data }: GatheringsArrayType) => {
   const handleInputWord: (word: string) => void = (word) => {
     setInputWord(word);
   };
-  console.log(inputWord);
+  const filteredData = data.filter((gathering: GatheringType) =>
+    gathering.title.includes(inputWord)
+  );
   return (
     <Wrapper>
       <h2 className="text-2xl pl-0.5 font-bold tracking-tighter text-left text-red-500 dark:text-red-400">
         Search Gathering
       </h2>
       <div className="explanations py-8">
+        <div className="text-sm pl-0.5 pb-2">
+          <p>
+            <span className="font-semibold">
+              {filteredData.length} gathering
+            </span>{" "}
+            matches
+          </p>
+        </div>
         <div className="pb-1.5">
           <SearchInput handleInputWord={handleInputWord} />
         </div>
-        <UpcomingGathering data={data} />
+        <UpcomingGathering data={filteredData} />
       </div>
     </Wrapper>
   );

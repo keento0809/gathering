@@ -17,10 +17,10 @@ const About = () => {
               </h3>
               <p className="pt-4 font-medium">
                 Gathering is a social media platform for organizing in-person
-                meetup events. You can join the "gathering", which stands for an
-                event on this application, to explore your social network or
-                escape from your comfort zone, and so on. Join our gatherings
-                today to broaden your horizon!
+                meetup events. You can join the &ldquo;gathering&rdquo;, which
+                stands for an event on this application, to explore your social
+                network or escape from your comfort zone, and so on. Join our
+                gatherings today to broaden your horizon!
               </p>
             </section>
             <section className="pb-12">
@@ -29,10 +29,10 @@ const About = () => {
               </h3>
               <p className="pt-4 font-medium">
                 The way to join a gathering is to select a gathering that you
-                want to join by pressing "More" button, and then fill out the
-                information (name, email, and TwitterID). After that, press
-                "Join" button to complete the application for gathering. That's
-                it!
+                want to join by pressing &ldquo;More&rdquo; button, and then
+                fill out the information (name, email, and TwitterID). After
+                that, press &ldquo;Join&rdquo; button to complete the
+                application for gathering. That's it!
               </p>
             </section>
             <section className="pb-12">
