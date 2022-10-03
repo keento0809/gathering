@@ -4,29 +4,24 @@ import { GatheringProps } from "../../models/model";
 import CardModal from "../Modal/CardModal";
 import MainButton from "../Button/MainButton";
 import urlForImage from "/public/static/bgImage.jpg";
+import urlForImageSecond from "../../public/static/heroImg.jpg";
+import urlForImageThird from "../../public/static/meeting.jpg";
 import { server } from "../../config";
 import getTodayString from "../../Helper/getTodayString";
+import updateGatheringImage from "../../Helper/updateGatheringImage";
 
 const GatheringCard = ({ gathering }: GatheringProps) => {
   const [isExpired, setIsExpired] = useState(false);
   const todayString = getTodayString();
 
-  const updateImage = async () => {
-    try {
-      await fetch(`${server}/api/gatherings/${gathering._id}/image`, {
-        method: "POST",
-        body: urlForImage.src,
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   useEffect(() => {
     if (todayString > gathering.date) setIsExpired(true);
-    if (gathering.image !== urlForImage.src) {
-      gathering.image = urlForImage.src;
-      updateImage();
+    if (
+      gathering.image !== urlForImage.src &&
+      gathering.image !== urlForImageSecond.src &&
+      gathering.image !== urlForImageThird.src
+    ) {
+      updateGatheringImage(gathering);
     }
   }, []);
   return (
@@ -34,7 +29,13 @@ const GatheringCard = ({ gathering }: GatheringProps) => {
       {isExpired && <CardModal />}
       <div className="max-w-sm w-full mb-4 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
         <a href="#">
-          <Image className="rounded-t-lg" src={urlForImage} alt="image" />
+          <Image
+            className="rounded-t-lg"
+            width={"372px"}
+            height={"248.2px"}
+            src={gathering.image!}
+            alt="image"
+          />
         </a>
         <div className="p-5">
           <a href="#">

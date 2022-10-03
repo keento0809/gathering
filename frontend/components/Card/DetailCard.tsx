@@ -14,6 +14,7 @@ const DetailCard = ({ gathering }: GatheringProps) => {
     const test = gathering.timeSchedule.split(/\s+/g);
     setSchedule(test);
   }, []);
+
   return (
     <Card>
       <section className="image">

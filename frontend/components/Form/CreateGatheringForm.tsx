@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import Button from "../Button/Button";
 import { server } from "../../config/index";
 import { GatheringType, adminUserProps } from "../../models/model";
-import { getSession, useSession } from "next-auth/react";
 import TestMap from "../Map/TestMap";
 import { useMapContext } from "../../context/MapContext";
 import { useRouter } from "next/router";
 import getTodayString from "../../Helper/getTodayString";
+import { setGatheringImage } from "../../Helper/updateGatheringImage";
 
 const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
   const router = useRouter();
@@ -73,6 +73,8 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
       ...gatheringInfo,
       organizer: currentUser && currentUser,
     });
+    const selectedImage = setGatheringImage();
+    gatheringInfo.image = selectedImage;
   }, []);
 
   return (
@@ -97,7 +99,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
             />
           </div>
         </div>
-        <div className="mb-6">
+        {/* <div className="mb-6">
           <label
             htmlFor="image-icon"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
@@ -115,7 +117,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
               required={true}
             />
           </div>
-        </div>
+        </div> */}
         <div className="mb-6">
           <label
             htmlFor="date-icon"
@@ -247,7 +249,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
               id="timeSchedule-icon"
               onChange={handleChange}
               className="bg-gray-50 border resize-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
-              placeholder=""
+              placeholder="09:00~10:00 Lecture"
               required={true}
             />
           </div>
