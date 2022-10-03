@@ -4,15 +4,30 @@ import { GatheringProps } from "../../models/model";
 import CardModal from "../Modal/CardModal";
 import MainButton from "../Button/MainButton";
 import urlForImage from "/public/static/bgImage.jpg";
+import { server } from "../../config";
+import getTodayString from "../../Helper/getTodayString";
 
 const GatheringCard = ({ gathering }: GatheringProps) => {
   const [isExpired, setIsExpired] = useState(false);
-  let today = new Date();
-  const todayString = today.toISOString().split("T")[0];
+  const todayString = getTodayString();
+
+  const updateImage = async () => {
+    try {
+      await fetch(`${server}/api/gatherings/${gathering._id}/image`, {
+        method: "POST",
+        body: urlForImage.src,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   useEffect(() => {
     if (todayString > gathering.date) setIsExpired(true);
-    gathering.image = urlForImage.src;
+    if (gathering.image !== urlForImage.src) {
+      gathering.image = urlForImage.src;
+      updateImage();
+    }
   }, []);
   return (
     <div className="relative">

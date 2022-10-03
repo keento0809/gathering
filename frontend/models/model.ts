@@ -52,7 +52,7 @@ export interface StaticImageData {
 export interface GatheringType {
   _id: number | null;
   title: string;
-  image: string;
+  image?: string;
   headline: string;
   description: string;
   capacity: number;
