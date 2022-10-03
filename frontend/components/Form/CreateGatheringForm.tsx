@@ -6,6 +6,7 @@ import { getSession, useSession } from "next-auth/react";
 import TestMap from "../Map/TestMap";
 import { useMapContext } from "../../context/MapContext";
 import { useRouter } from "next/router";
+import getTodayString from "../../Helper/getTodayString";
 
 const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
   const router = useRouter();
@@ -43,7 +44,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
     }
     if (e.target.name === "date") {
       let today = new Date();
-      const todayString = today.toISOString().split("T")[0];
+      const todayString = getTodayString();
       todayString > e.target.value
         ? setIsDateExpired(true)
         : setIsDateExpired(false);
