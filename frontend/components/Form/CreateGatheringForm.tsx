@@ -12,7 +12,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
   const router = useRouter();
   const mapCtx = useMapContext();
   const [isDateExpired, setIsDateExpired] = useState(false);
-  const [wordCount, setWordCount] = useState(140);
+  const [wordCount, setWordCount] = useState(100);
   const [gatheringInfo, setGatheringInfo] = useState<GatheringType>({
     _id: null,
     title: "",
@@ -150,7 +150,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
               htmlFor="headline-icon"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >
-              Headline (in 140 words)
+              Headline (in 100 words)
             </label>
             <span className={`text-sm ${wordCount < 0 && "text-red-500"}`}>
               {wordCount} words left
@@ -158,7 +158,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
           </div>
           {wordCount < 0 && (
             <div className="text-sm text-red-500 pb-2">
-              <span>Words in headline must be in 140 words.</span>
+              <span>Words in headline must be in 100 words.</span>
             </div>
           )}
 
