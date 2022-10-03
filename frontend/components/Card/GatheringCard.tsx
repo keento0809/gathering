@@ -27,7 +27,7 @@ const GatheringCard = ({ gathering }: GatheringProps) => {
   return (
     <div className="relative">
       {isExpired && <CardModal />}
-      <div className="max-w-sm w-full mb-4 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+      <div className="max-w-sm w-full min-h-480 mb-4 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
         <a href="#">
           <Image
             className="rounded-t-lg"
@@ -44,7 +44,7 @@ const GatheringCard = ({ gathering }: GatheringProps) => {
             </h5>
           </a>
           <p className="font-semibold text-base">{gathering.date}</p>
-          <p className="mb-4 mt-2 font-normal text-gray-700 dark:text-gray-400 text-base">
+          <p className="mb-4 mt-2 min-h-48 font-normal text-gray-700 dark:text-gray-400 text-base">
             {gathering.headline}
           </p>
           <MainButton text="More" linkUrl={`/gatherings/${gathering._id}`} />
