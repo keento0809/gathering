@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { MONGODB_DB } from "../../../../lib/mongodb";
 import clientPromise from "../../../../lib/mongodb";
-import { DUMMY_GATHERING_DATA } from "../../../../data/data";
 import { ObjectId } from "mongodb";
 
 export default async function handler(
