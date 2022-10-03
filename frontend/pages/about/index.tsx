@@ -32,7 +32,7 @@ const About = () => {
                 want to join by pressing &ldquo;More&rdquo; button, and then
                 fill out the information (name, email, and TwitterID). After
                 that, press &ldquo;Join&rdquo; button to complete the
-                application for gathering. That's it!
+                application for gathering.
               </p>
             </section>
             <section className="pb-12">
