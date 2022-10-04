@@ -8,6 +8,9 @@ const Card = ({ children }: ChildrenProps) => {
     if (window.innerHeight < 700) {
       setMaxHeight(360);
       setMinHeight(300);
+    } else if (window.innerWidth >= 768) {
+      setMaxHeight(500);
+      setMinHeight(300);
     }
   }, []);
   return (
