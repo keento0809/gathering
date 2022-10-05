@@ -10,9 +10,9 @@ const About = () => {
           About
         </h2>
         <Card>
-          <div className="explanations py-2">
+          <div className="explanations py-2 lg:max-w-800 lg:mx-auto">
             <section className="pb-12">
-              <h3 className="section-title text-lg lg:text-center font-extrabold">
+              <h3 className="section-title text-lg font-extrabold">
                 What is Gathering?
               </h3>
               <p className="pt-4 font-medium">
@@ -24,7 +24,7 @@ const About = () => {
               </p>
             </section>
             <section className="pb-12">
-              <h3 className="section-title text-lg lg:text-center font-extrabold">
+              <h3 className="section-title text-lg font-extrabold">
                 How to join Gathering?
               </h3>
               <p className="pt-4 font-medium">
@@ -36,7 +36,7 @@ const About = () => {
               </p>
             </section>
             <section className="pb-12">
-              <h3 className="section-title text-lg lg:text-center font-extrabold">
+              <h3 className="section-title text-lg font-extrabold">
                 How to cancel Gathering?
               </h3>
               <p className="pt-2">

@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import NavMenu from "../NavMenu/NavMenu";
+import { GetServerSideProps } from "next";
+import { getSession, useSession } from "next-auth/react";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const { data: session } = useSession();
   const { query } = useRouter();
 
   const handleToggleMenu = () => {
@@ -25,12 +27,15 @@ const NavBar = () => {
         <div className="header-container px-5 py-4 flex flex-row justify-between items-center">
           <section className="header-left">
             <Link href="/home">
-              <span className="text-red-500 font-bold tracking-tight">
+              <span className="text-red-500 font-bold tracking-tight lg:text-lg">
                 Gathering
               </span>
             </Link>
           </section>
-          <section className="header-right" onClick={handleToggleMenu}>
+          <section
+            className="header-right-mobile lg:hidden"
+            onClick={handleToggleMenu}
+          >
             {!isMenuOpen && (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -64,6 +69,22 @@ const NavBar = () => {
               </svg>
             )}
           </section>
+          <section className="header-right-desktop hidden lg:block">
+            <ul className="flex flex-row">
+              <li className="px-6 text-sm">
+                <Link href={"/about"}>About</Link>
+              </li>
+              <li className="px-6 text-sm">
+                <Link href={"/search"}>Find Gathering</Link>
+              </li>
+              <li className="px-6 text-sm">
+                <Link href={"/admin/home"}>
+                  {session ? "Admin page" : "Login for admin"}
+                </Link>
+              </li>
+              <hr />
+            </ul>
+          </section>
         </div>
       </header>
       {isMenuOpen && <NavMenu />}
@@ -72,3 +93,12 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const session = await getSession(context);
+  return {
+    props: {
+      session,
+    },
+  };
+};
