@@ -63,12 +63,12 @@ const AdminHome = ({ data }: DataPropsAtAdminHome) => {
           )}
           {session && (
             <div>
-              <h3 className="text-3xl text-red-500 font-bold tracking-tight">
+              <h3 className="text-3xl text-red-500 lg:text-center font-bold tracking-tight">
                 Hello, {session.user?.name}!
               </h3>
               <div className="pt-8 pb-4 max-h-700 overflow-scroll">
                 <div className="">
-                  <h3 className="text-xl font-bold tracking-tight overflow-y-scroll">
+                  <h3 className="text-xl lg:text-center font-bold tracking-tight overflow-y-scroll">
                     Gatherings as Organizer ({hostGatherings.length})
                   </h3>
                   <GatheringsList data={hostGatherings} />

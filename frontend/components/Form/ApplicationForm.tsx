@@ -62,7 +62,6 @@ const ApplicationForm = ({ gathering }: GatheringProps) => {
       router.push(`/home`);
     }
   };
-
   return (
     <>
       <form onSubmit={handleSubmit}>

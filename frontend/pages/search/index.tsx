@@ -18,12 +18,12 @@ const SearchGathering = ({ data }: GatheringsArrayType) => {
   );
   return (
     <Wrapper>
-      <h2 className="text-2xl pl-0.5 font-bold tracking-tighter text-left text-red-500 dark:text-red-400">
+      <h2 className="text-2xl pl-0.5 font-bold tracking-tighter text-left lg:text-center text-red-500 dark:text-red-400">
         Search Gathering
       </h2>
       <div className="explanations py-8">
         <div className="text-sm pl-0.5 pb-2">
-          <p>
+          <p className="lg:text-center">
             <span className="font-semibold">
               {filteredData.length} gathering
             </span>{" "}
