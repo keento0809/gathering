@@ -1,7 +1,7 @@
 import { GetServerSideProps, GetStaticProps } from "next";
 import Head from "next/head";
 import React from "react";
-import UpcomingGathering from "../../components/List/UpcomingGathering";
+import GatheringsList from "../../components/List/GatheringsList";
 import Wrapper from "../../components/Wrapper/Wrapper";
 import { GatheringsArrayType } from "../../models/model";
 import { server } from "../../config/index";
@@ -25,7 +25,7 @@ const Home = ({ data }: GatheringsArrayType) => {
           <h3 className="text-2xl font-bold tracking-tight overflow-y-scroll">
             Upcoming
           </h3>
-          <UpcomingGathering data={data} />
+          <GatheringsList data={data} />
         </div>
       </Wrapper>
     </>

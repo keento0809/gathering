@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import GatheringCard from "../Card/GatheringCard";
 import { GatheringsArrayType } from "../../models/model";
 
-const UpcomingGathering = ({ data }: GatheringsArrayType) => {
+const GatheringsList = ({ data }: GatheringsArrayType) => {
   const [maxHeight, setMaxHeight] = useState(590);
   const upcomingList = data.map((gathering) => {
     return (
@@ -20,7 +20,7 @@ const UpcomingGathering = ({ data }: GatheringsArrayType) => {
 
   return (
     <ul
-      className="text-xl mt-3 md:pb-12 overflow-scroll md:flex md:flex-wrap md:justify-evenly"
+      className="text-xl mt-3 md:pb-40 overflow-scroll md:flex md:flex-wrap md:justify-evenly"
       style={{ maxHeight: `${maxHeight}px` }}
     >
       {upcomingList}
@@ -28,4 +28,4 @@ const UpcomingGathering = ({ data }: GatheringsArrayType) => {
   );
 };
 
-export default UpcomingGathering;
+export default GatheringsList;

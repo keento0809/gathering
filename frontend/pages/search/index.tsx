@@ -6,7 +6,7 @@ import SearchInput from "../../components/SearchInput/SearchInput";
 import Wrapper from "../../components/Wrapper/Wrapper";
 import { server } from "../../config";
 import { GatheringsArrayType, GatheringType } from "../../models/model";
-import UpcomingGathering from "../../components/List/UpcomingGathering";
+import GatheringsList from "../../components/List/GatheringsList";
 
 const SearchGathering = ({ data }: GatheringsArrayType) => {
   const [inputWord, setInputWord] = useState("");
@@ -33,7 +33,7 @@ const SearchGathering = ({ data }: GatheringsArrayType) => {
         <div className="pb-1.5">
           <SearchInput handleInputWord={handleInputWord} />
         </div>
-        <UpcomingGathering data={filteredData} />
+        <GatheringsList data={filteredData} />
       </div>
     </Wrapper>
   );
