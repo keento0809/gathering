@@ -14,7 +14,7 @@ const SearchGathering = ({ data }: GatheringsArrayType) => {
     setInputWord(word);
   };
   const filteredData = data.filter((gathering: GatheringType) =>
-    gathering.title.includes(inputWord)
+    gathering.title.toLowerCase().includes(inputWord)
   );
   return (
     <Wrapper>

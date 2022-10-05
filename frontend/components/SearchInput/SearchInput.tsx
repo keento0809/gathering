@@ -6,7 +6,7 @@ interface handleInputWord {
 
 const SearchInput = ({ handleInputWord }: handleInputWord) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    handleInputWord(e.target.value);
+    handleInputWord(e.target.value.toLowerCase());
   };
   return (
     <>
