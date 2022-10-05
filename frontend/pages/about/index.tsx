@@ -6,13 +6,13 @@ const About = () => {
   return (
     <>
       <Wrapper>
-        <h2 className="text-2xl pl-2 font-bold tracking-tighter text-left text-red-500 dark:text-red-400">
+        <h2 className="text-2xl pl-2 font-bold tracking-tighter text-left lg:text-center text-red-500 dark:text-red-400">
           About
         </h2>
         <Card>
           <div className="explanations py-2">
             <section className="pb-12">
-              <h3 className="section-title text-lg font-extrabold">
+              <h3 className="section-title text-lg lg:text-center font-extrabold">
                 What is Gathering?
               </h3>
               <p className="pt-4 font-medium">
@@ -24,7 +24,7 @@ const About = () => {
               </p>
             </section>
             <section className="pb-12">
-              <h3 className="section-title text-lg font-extrabold">
+              <h3 className="section-title text-lg lg:text-center font-extrabold">
                 How to join Gathering?
               </h3>
               <p className="pt-4 font-medium">
@@ -36,7 +36,7 @@ const About = () => {
               </p>
             </section>
             <section className="pb-12">
-              <h3 className="section-title text-lg font-extrabold">
+              <h3 className="section-title text-lg lg:text-center font-extrabold">
                 How to cancel Gathering?
               </h3>
               <p className="pt-2">

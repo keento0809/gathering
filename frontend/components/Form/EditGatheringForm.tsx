@@ -83,34 +83,38 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
           Participants
         </span>
         <ul className="border border-red-500 py-4 rounded-lg">
-          {gatheringInfo.participants.map((participant, index) => {
-            const { username, email } = participant;
-            return (
-              <li key={index} className="pb-1 pl-4 list-none">
-                <span className="inline-block min-w-140">
-                  {index + 1}. {username}
-                </span>
-                <button
-                  onClick={() => handleDeleteParticipant(username, email)}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    className="w-4 h-4"
+          {gatheringInfo.participants.length > 0 &&
+            gatheringInfo.participants.map((participant, index) => {
+              const { username, email } = participant;
+              return (
+                <li key={index} className="pb-1 pl-4 list-none">
+                  <span className="inline-block min-w-140">
+                    {index + 1}. {username}
+                  </span>
+                  <button
+                    onClick={() => handleDeleteParticipant(username, email)}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                </button>
-              </li>
-            );
-          })}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      className="w-4 h-4"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
+                </li>
+              );
+            })}
+          {gatheringInfo.participants.length === 0 && (
+            <p className="pb-1 pl-4">No participants found.</p>
+          )}
         </ul>
       </div>
       <form onSubmit={handleSubmit}>

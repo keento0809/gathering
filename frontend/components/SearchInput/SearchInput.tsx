@@ -11,8 +11,8 @@ const SearchInput = ({ handleInputWord }: handleInputWord) => {
   return (
     <>
       <form>
-        <div className="flex">
-          <div className="relative w-full">
+        <div className="flex lg:justify-center">
+          <div className="relative w-full md:w-1/2">
             <input
               type="search"
               id="search-dropdown"

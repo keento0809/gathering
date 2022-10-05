@@ -15,7 +15,7 @@ import {
   GatheringsArrayType,
   GatheringType,
 } from "../../models/model";
-import HostGathering from "../../components/List/HostGathering";
+import GatheringsList from "../../components/List/GatheringsList";
 
 interface DataPropsAtAdminHome {
   data: { hostGatherings: GatheringType[]; currUser: adminUserInfoObjType };
@@ -63,15 +63,15 @@ const AdminHome = ({ data }: DataPropsAtAdminHome) => {
           )}
           {session && (
             <div>
-              <h3 className="text-3xl text-red-500 font-bold tracking-tight">
+              <h3 className="text-3xl text-red-500 lg:text-center font-bold tracking-tight">
                 Hello, {session.user?.name}!
               </h3>
               <div className="pt-8 pb-4 max-h-700 overflow-scroll">
                 <div className="">
-                  <h3 className="text-xl font-bold tracking-tight overflow-y-scroll">
+                  <h3 className="text-xl lg:text-center font-bold tracking-tight overflow-y-scroll">
                     Gatherings as Organizer ({hostGatherings.length})
                   </h3>
-                  <HostGathering data={hostGatherings} />
+                  <GatheringsList data={hostGatherings} />
                 </div>
                 <div className="py-6">
                   <h3 className="text-xl pb-4 font-bold tracking-tight overflow-y-scroll">
