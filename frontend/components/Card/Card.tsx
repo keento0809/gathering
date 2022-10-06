@@ -10,11 +10,14 @@ const Card = ({ children }: ChildrenProps) => {
     if (window.outerHeight < 790) {
       setMaxHeight(360);
       setMinHeight(300);
-    } else if (window.outerHeight >= 790) {
+    } else if (window.outerHeight >= 790 && window.outerHeight < 850) {
       setMaxHeight(500);
       setMinHeight(300);
-    } else if (window.innerHeight < 896 && window.innerHeight >= 850) {
+    } else if (window.outerHeight < 896 && window.outerHeight >= 850) {
       setMaxHeight(530);
+      setMinHeight(300);
+    } else if (window.innerHeight >= 896) {
+      setMaxHeight(580);
       setMinHeight(300);
     } else if (window.innerWidth >= 768) {
       setMaxHeight(500);

@@ -27,10 +27,10 @@ const GatheringCard = ({ gathering }: GatheringProps) => {
   return (
     <div className="relative">
       {isExpired && <CardModal />}
-      <div className="max-w-sm w-full min-h-490 mb-4 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+      <div className="max-w-sm w-full min-h-490 mb-4 hover:scale-101 transition-transform bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
         <a href="#">
           <Image
-            className="rounded-t-lg"
+            className="rounded-t-lg cursor-default"
             width={"372px"}
             height={"248.2px"}
             src={gathering.image!}
@@ -39,7 +39,7 @@ const GatheringCard = ({ gathering }: GatheringProps) => {
         </a>
         <div className="p-5">
           <a href="#">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white cursor-default">
               {gathering.title}
             </h5>
           </a>

@@ -50,6 +50,10 @@ module.exports = {
       },
       flexBasis: {
         350: "350px",
+        372: "372px",
+      },
+      scale: {
+        101: "1.01",
       },
     },
   },
