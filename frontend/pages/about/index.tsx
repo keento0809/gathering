@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "../../components/Card/Card";
 import Wrapper from "../../components/Wrapper/Wrapper";
+import MainButton from "../../components/Button/MainButton";
 
 const About = () => {
   return (
@@ -47,6 +48,9 @@ const About = () => {
             </section>
           </div>
         </Card>
+        <div className="text-center pt-6">
+          <MainButton text="Back" linkUrl={`/home`} />
+        </div>
       </Wrapper>
     </>
   );

@@ -7,7 +7,7 @@ const Home: NextPage = () => {
   const [isAlert, setIsAlert] = useState(false);
   return (
     <>
-      <div className="fixed top-96 left-0 w-full px-5">
+      <div className="fixed top-96 lg:top-64 lg:text-center left-0 w-full px-5">
         <section className="hero-body pt-6">
           <div className="hero-title">
             <h1 className="text-4xl font-bold tracking-tighter">Gathering</h1>
@@ -15,7 +15,7 @@ const Home: NextPage = () => {
               - Connect Together -
             </h3>
           </div>
-          <div className="hero-description py-8 tracking-tight">
+          <div className="hero-description py-8 lg:py-10 tracking-tight">
             <p className="text-lg">Find and interact with new people</p>
             <p className="text-lg">Explore now to make your life better.</p>
           </div>
