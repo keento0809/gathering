@@ -1,10 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import { GetServerSideProps } from "next";
-import { getSession, useSession } from "next-auth/react";
+import { getSession, useSession, signOut } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const NavMenu = () => {
   const { data: session } = useSession();
+  const router = useRouter();
 
   return (
     <div
@@ -25,9 +27,24 @@ const NavMenu = () => {
         </li>
         <hr />
         <li className="py-3 pl-0.5">
-          <Link href={"/admin/home"}>
-            {session ? "Admin page" : "Login for admin"}
-          </Link>
+          {router.route === `/admin/home` && session !== null && (
+            <Link href={"/admin/home"}>
+              <a
+                onClick={(e) => {
+                  e.preventDefault();
+                  signOut();
+                }}
+                className="inline-block pr-2"
+              >
+                Sign out
+              </a>
+            </Link>
+          )}
+          {!(router.route === `/admin/home` && session !== null) && (
+            <Link href={"/admin/home"}>
+              {session ? "Admin page" : "Login for admin"}
+            </Link>
+          )}
         </li>
         <hr />
       </ul>

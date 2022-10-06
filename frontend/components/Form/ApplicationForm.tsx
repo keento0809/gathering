@@ -64,7 +64,7 @@ const ApplicationForm = ({ gathering }: GatheringProps) => {
   };
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="md:w-7/12">
         <div className="mb-6">
           <label
             htmlFor="email-address-icon"

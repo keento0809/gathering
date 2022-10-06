@@ -9,12 +9,7 @@ import Card from "../../components/Card/Card";
 import Link from "next/link";
 import { GetServerSideProps } from "next";
 import { server } from "../../config";
-import {
-  adminUserInfoObjType,
-  adminUserProps,
-  GatheringsArrayType,
-  GatheringType,
-} from "../../models/model";
+import { adminUserInfoObjType, GatheringType } from "../../models/model";
 import GatheringsList from "../../components/List/GatheringsList";
 
 interface DataPropsAtAdminHome {
@@ -24,7 +19,7 @@ interface DataPropsAtAdminHome {
 const AdminHome = ({ data }: DataPropsAtAdminHome) => {
   const { data: session } = useSession();
   const { hostGatherings, currUser } = data;
-  const adminId = currUser.id;
+  const adminId = currUser._id;
 
   return (
     <>
@@ -63,36 +58,61 @@ const AdminHome = ({ data }: DataPropsAtAdminHome) => {
           )}
           {session && (
             <div>
-              <h3 className="text-3xl text-red-500 lg:text-center font-bold tracking-tight">
-                Hello, {session.user?.name}!
-              </h3>
+              <div className="flex flex-row items-center justify-between lg:justify-center">
+                <h3 className="text-2xl text-red-500 lg:text-center font-bold tracking-tight">
+                  Hello, {session.user?.name}!
+                </h3>
+                <Link href={"/admin/home"}>
+                  <a
+                    onClick={(e) => {
+                      e.preventDefault();
+                      signOut();
+                    }}
+                    className="inline-block pr-2 lg:hidden"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-6 h-6"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
+                      />
+                    </svg>
+                  </a>
+                </Link>
+              </div>
               <div className="pt-8 pb-4 max-h-700 overflow-scroll">
                 <div className="">
-                  <h3 className="text-xl lg:text-center font-bold tracking-tight overflow-y-scroll">
+                  <h3 className="text-xl lg:pb-2 lg:text-center font-bold tracking-tight overflow-y-scroll">
                     Gatherings as Organizer ({hostGatherings.length})
                   </h3>
                   <GatheringsList data={hostGatherings} />
                 </div>
-                <div className="py-6">
-                  <h3 className="text-xl pb-4 font-bold tracking-tight overflow-y-scroll">
-                    Host New Gathering
-                  </h3>
-                  <MainButton
-                    text="Create"
-                    linkUrl={`/admin/${adminId}/newGathering`}
-                  />
-                </div>
                 <div className="pb-6">
-                  <Link href={"/admin/home"}>
-                    <a
-                      onClick={(e) => {
-                        e.preventDefault();
-                        signOut();
-                      }}
-                    >
-                      <GithubAuthButton text="Sign out" />
-                    </a>
-                  </Link>
+                  <div className="fixed z-40 bottom-16 right-10 inline-block p-4 text-white bg-red-500 hover:bg-red-600 hover:scale-105 transition-all cursor-pointer rounded-full">
+                    <Link href={`/admin/${adminId}/newGathering`}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="w-8 h-8"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M12 4.5v15m7.5-7.5h-15"
+                        />
+                      </svg>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -117,6 +137,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   );
   const res = await fetch(`${server}/api/getUser`);
   const currUser = await res.json();
+
   return {
     props: {
       session,
