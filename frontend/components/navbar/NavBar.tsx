@@ -3,17 +3,17 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import NavMenu from "../NavMenu/NavMenu";
 import { GetServerSideProps } from "next";
-import { getSession, useSession } from "next-auth/react";
+import { getSession, useSession, signOut } from "next-auth/react";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { data: session } = useSession();
   const { query } = useRouter();
+  const router = useRouter();
 
   const handleToggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
   useEffect(() => {
     setIsMenuOpen(false);
   }, [query]);
@@ -78,9 +78,24 @@ const NavBar = () => {
                 <Link href={"/search"}>Find Gathering</Link>
               </li>
               <li className="px-6 text-sm">
-                <Link href={"/admin/home"}>
-                  {session ? "Admin page" : "Login for admin"}
-                </Link>
+                {router.route === `/admin/home` && session !== null && (
+                  <Link href={"/admin/home"}>
+                    <a
+                      onClick={(e) => {
+                        e.preventDefault();
+                        signOut();
+                      }}
+                      className="inline-block pr-2"
+                    >
+                      Sign out
+                    </a>
+                  </Link>
+                )}
+                {!(router.route === `/admin/home` && session !== null) && (
+                  <Link href={"/admin/home"}>
+                    {session ? "Admin page" : "Login for admin"}
+                  </Link>
+                )}
               </li>
               <hr />
             </ul>

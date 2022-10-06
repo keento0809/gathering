@@ -21,8 +21,8 @@ const Home = ({ data }: GatheringsArrayType) => {
             Explore new gathering here
           </p>
         </div>
-        <div className="pt-8 pb-4">
-          <h3 className="text-2xl lg:text-center font-bold tracking-tight overflow-y-scroll">
+        <div className="pt-8 lg:pt-4 pb-4">
+          <h3 className="text-2xl lg:pb-2 lg:text-center font-bold tracking-tight overflow-y-scroll">
             Upcoming
           </h3>
           <GatheringsList data={data} />

@@ -20,7 +20,7 @@ const GatheringsList = ({ data }: GatheringsArrayType) => {
 
   return (
     <ul
-      className="text-xl mt-3 md:pb-40 overflow-scroll md:flex md:flex-wrap md:justify-evenly"
+      className="text-xl mt-3 md:pb-24 overflow-scroll md:flex md:flex-wrap md:justify-evenly"
       style={{ maxHeight: `${maxHeight}px` }}
     >
       {upcomingList}
