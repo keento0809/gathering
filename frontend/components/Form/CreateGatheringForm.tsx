@@ -79,7 +79,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="md:max-w-500 md:mx-auto">
         <div className="mb-6">
           <label
             htmlFor="title-icon"
@@ -99,6 +99,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
             />
           </div>
         </div>
+        {/* temporary commented out */}
         {/* <div className="mb-6">
           <label
             htmlFor="image-icon"
@@ -169,7 +170,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
               id="headline-icon"
               onChange={handleChange}
               className="bg-gray-50 border resize-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
-              placeholder=""
+              placeholder="Fill out headline within 100 words"
               required={true}
             />
           </div>
@@ -189,7 +190,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
               id="description-icon"
               onChange={handleChange}
               className="bg-gray-50 border resize-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
-              placeholder=""
+              placeholder="Fill out description here"
               required={true}
             />
           </div>
@@ -299,17 +300,14 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
               id="specialNotes-icon"
               onChange={handleChange}
               className="bg-gray-50 border resize-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
-              placeholder=""
+              placeholder="Fill out special notes here"
               required={true}
             />
           </div>
         </div>
         <div className="py-6 text-white text-sm">
           After filling out all inputs above, please push{" "}
-          <span className="font-bold text-red-500 cursor-pointer">
-            Create
-            {/* <Link href="/auth/signup">Signup</Link>{" "} */}
-          </span>{" "}
+          <span className="font-bold text-red-500 cursor-pointer">Create</span>{" "}
           button, then your new gathering will be created successfully and added
           to the upcoming gathering list.
         </div>

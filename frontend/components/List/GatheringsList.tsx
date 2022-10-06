@@ -6,7 +6,10 @@ const GatheringsList = ({ data }: GatheringsArrayType) => {
   const [maxHeight, setMaxHeight] = useState(590);
   const upcomingList = data.map((gathering) => {
     return (
-      <li key={gathering._id} className="min-w-374 md:min-w-0 md:basis-350">
+      <li
+        key={gathering._id}
+        className="min-w-374 md:min-w-0 md:basis-350 xl:basis-372"
+      >
         <GatheringCard gathering={gathering} />
       </li>
     );

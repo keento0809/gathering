@@ -7,6 +7,7 @@ import { getSession } from "next-auth/react";
 import EditGatheringForm from "../../../components/Form/EditGatheringForm";
 import { server } from "../../../config";
 import { GatheringProps } from "../../../models/model";
+import MainButton from "../../../components/Button/MainButton";
 
 const Manage = ({ gathering }: GatheringProps) => {
   return (
@@ -21,6 +22,9 @@ const Manage = ({ gathering }: GatheringProps) => {
         <Card>
           <EditGatheringForm gathering={gathering} />
         </Card>
+        <div className="text-center pt-6">
+          <MainButton text="Back" linkUrl={`/admin/home`} />
+        </div>
       </Wrapper>
     </>
   );

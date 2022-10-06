@@ -77,7 +77,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
     console.log("submit");
   };
   return (
-    <>
+    <div className="md:max-w-500 md:mx-auto">
       <div className="mb-6">
         <span className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
           Participants
@@ -335,7 +335,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
           <Button text="Update" />
         </div>
       </form>
-    </>
+    </div>
   );
 };
 

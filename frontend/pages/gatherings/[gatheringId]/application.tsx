@@ -17,7 +17,7 @@ const ApplicationPage = ({ gathering }: GatheringProps) => {
         <h2 className="text-2xl font-bold tracking-tighter text-center text-red-500">
           Book gathering
         </h2>
-        <p className="text-sm pt-8 px-2">
+        <p className="text-sm pt-8 px-2 md:max-w-580 md:mx-auto">
           Please fill out your information to join the gathering. After pushing
           the confirm button, your booking will be secured immediately.
         </p>

@@ -28,13 +28,9 @@ const GatheringDetail: NextPage<DataPropsAtGatheringDetail> = ({ data }) => {
         <title>Gathering Detail</title>
       </Head>
       <Wrapper>
-        <h2 className="text-2xl pl-0.5 font-bold tracking-tighter text-left text-red-500">
+        <h2 className="text-2xl pl-0.5 font-bold tracking-tighter text-left lg:text-center text-red-500">
           {title}
         </h2>
-        {/* <p className="text-xs pt-4 px-2">
-          Please fill out your information to join the gathering. After pushing
-          the confirm button, your booking will be secured immediately.
-        </p> */}
         <DetailCard gathering={data.gathering} />
         <div className="text-center pt-4 md:fixed md:bottom-14 md:right-16 md:z-40">
           {!isMaximum && (

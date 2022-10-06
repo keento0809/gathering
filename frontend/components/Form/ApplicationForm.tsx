@@ -64,7 +64,7 @@ const ApplicationForm = ({ gathering }: GatheringProps) => {
   };
   return (
     <>
-      <form onSubmit={handleSubmit} className="md:w-7/12">
+      <form onSubmit={handleSubmit} className="md:max-w-400 mx-auto">
         <div className="mb-6">
           <label
             htmlFor="email-address-icon"
@@ -153,7 +153,7 @@ const ApplicationForm = ({ gathering }: GatheringProps) => {
             />
           </div>
         </div>
-        <div className="my-6">
+        <div className="mt-8 mb-6">
           <Button text="Confirm" />
         </div>
       </form>
