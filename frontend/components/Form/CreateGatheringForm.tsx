@@ -79,7 +79,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="md:max-w-580 md:mx-auto">
         <div className="mb-6">
           <label
             htmlFor="title-icon"
