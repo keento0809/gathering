@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        "light-red": "rgb(254 202 202)",
+      },
       width: {
         180: "180px",
       },
