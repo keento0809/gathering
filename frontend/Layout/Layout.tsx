@@ -4,8 +4,7 @@ import Nav from "../components/navbar/NavBar";
 import { LayoutProps } from "../models/model";
 import Footer from "../components/Footer/Footer";
 import { useRouter } from "next/router";
-import imgUrl from "../public/static/meeting.jpg";
-import { url } from "inspector";
+import LoadingSpinner from "../components/Spinner/LoadingSpinner";
 
 const Layout = ({ children }: LayoutProps) => {
   const [styling, setStyling] = useState({});
@@ -23,15 +22,13 @@ const Layout = ({ children }: LayoutProps) => {
         <section
           // add condition
           style={{ backgroundColor: `rgb(254 202 202)` }}
-          // style={styling}
-          className={`${
-            router.route === "/" && "bg-common"
-          } fixed top-0 left-0 container-wrapper w-full h-96 rounded-b-xl bg-cover bg-center flex justify-center items-center`}
+          className={`fixed top-0 left-0 container-wrapper w-full h-96 rounded-b-xl bg-cover bg-center flex justify-center items-center`}
         >
           {children}
         </section>
       </div>
       <Footer />
+      {/* <LoadingSpinner /> */}
     </>
   );
 };
