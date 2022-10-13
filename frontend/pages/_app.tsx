@@ -1,10 +1,11 @@
 import Layout from "../Layout/Layout";
-import AdminUserProvider from "../context/AdminUserContext";
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Script from "next/script";
 import { SessionProvider } from "next-auth/react";
+import AdminUserProvider from "../context/AdminUserContext";
 import MapContextProvider from "../context/MapContext";
+import LoadingProvider from "../context/LoadingContext";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   <Script
@@ -15,9 +16,11 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     <SessionProvider session={session}>
       <AdminUserProvider>
         <MapContextProvider>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
+          <LoadingProvider>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </LoadingProvider>
         </MapContextProvider>
       </AdminUserProvider>
     </SessionProvider>
