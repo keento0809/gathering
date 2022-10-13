@@ -3,8 +3,9 @@ import Head from "next/head";
 import React from "react";
 import GatheringsList from "../../components/List/GatheringsList";
 import Wrapper from "../../components/Wrapper/Wrapper";
-import { GatheringsArrayType } from "../../models/model";
+import { GatheringsArrayType, GatheringType } from "../../models/model";
 import { server } from "../../config/index";
+import getTodayString from "../../Helper/getTodayString";
 
 const Home = ({ data }: GatheringsArrayType) => {
   return (
@@ -42,6 +43,10 @@ export const getServerSideProps: GetServerSideProps = async () => {
     },
   });
   const allGatherings = await res.json();
+  // const today = getTodayString();
+  // const upcomingGatherings = allGatherings.filter(
+  //   (data: GatheringType) => data.date > today
+  // );
   return {
     props: {
       data: allGatherings,

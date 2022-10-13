@@ -8,7 +8,7 @@ const GatheringsList = ({ data }: GatheringsArrayType) => {
     return (
       <li
         key={gathering._id}
-        className="min-w-374 md:min-w-0 md:basis-350 xl:basis-372"
+        className="min-w-374 md:pr-4 md:min-w-0 md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
       >
         <GatheringCard gathering={gathering} />
       </li>
@@ -23,7 +23,7 @@ const GatheringsList = ({ data }: GatheringsArrayType) => {
 
   return (
     <ul
-      className="text-xl mt-3 md:pb-24 overflow-scroll md:flex md:flex-wrap md:justify-evenly"
+      className="text-xl mt-3 md:pb-24 overflow-scroll md:flex md:flex-wrap md:justify-start"
       style={{ maxHeight: `${maxHeight}px` }}
     >
       {upcomingList}

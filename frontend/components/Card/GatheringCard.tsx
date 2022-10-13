@@ -6,7 +6,6 @@ import MainButton from "../Button/MainButton";
 import urlForImage from "/public/static/bgImage.jpg";
 import urlForImageSecond from "../../public/static/heroImg.jpg";
 import urlForImageThird from "../../public/static/meeting.jpg";
-import { server } from "../../config";
 import getTodayString from "../../Helper/getTodayString";
 import updateGatheringImage from "../../Helper/updateGatheringImage";
 
@@ -25,8 +24,9 @@ const GatheringCard = ({ gathering }: GatheringProps) => {
     }
   }, []);
   return (
-    <div className="relative">
-      {isExpired && <CardModal />}
+    <div className="relative md:max-w-372">
+      {isExpired && <CardModal isExpired={true} />}
+      {!isExpired && gathering.isFull && <CardModal isExpired={false} />}
       <div className="max-w-sm w-full min-h-490 mb-4 hover:scale-101 transition-transform bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
         <a href="#">
           <Image

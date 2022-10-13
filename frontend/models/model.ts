@@ -112,6 +112,11 @@ export interface userContextType {
   resetCurrUser: () => void;
 }
 
+export interface loadingContextType {
+  isLoading: boolean;
+  setIsLoading: (bool: boolean) => void;
+}
+
 export interface MainAlertProps {
   text: string;
   isAlert: boolean;

@@ -40,7 +40,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     if (e.target.name === "headline") {
-      setWordCount(140 - e.target.value.length);
+      setWordCount(100 - e.target.value.length);
     }
     if (e.target.name === "date") {
       let today = new Date();
