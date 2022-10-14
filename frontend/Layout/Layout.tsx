@@ -5,9 +5,11 @@ import { LayoutProps } from "../models/model";
 import Footer from "../components/Footer/Footer";
 import { useRouter } from "next/router";
 import LoadingSpinner from "../components/Spinner/LoadingSpinner";
+import { useLoadingContext } from "../context/LoadingContext";
 
 const Layout = ({ children }: LayoutProps) => {
   const [styling, setStyling] = useState({});
+  const { isLoading } = useLoadingContext();
   const router = useRouter();
   useEffect(() => {
     setStyling(
@@ -28,7 +30,7 @@ const Layout = ({ children }: LayoutProps) => {
         </section>
       </div>
       <Footer />
-      {/* <LoadingSpinner /> */}
+      {isLoading && <LoadingSpinner />}
     </>
   );
 };

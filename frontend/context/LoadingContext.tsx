@@ -23,12 +23,7 @@ const LoadingProvider = ({ children }: ChildrenProps) => {
 };
 
 export const useLoadingContext = () => {
-  const context = useContext(LoadingContext);
-  if (!context) {
-    alert("Invalid context");
-    return;
-  }
-  return context;
+  return useContext(LoadingContext);
 };
 
 export default LoadingProvider;
