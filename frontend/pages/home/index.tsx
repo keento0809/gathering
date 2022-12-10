@@ -1,12 +1,18 @@
 import { GetServerSideProps, GetStaticProps } from "next";
 import Head from "next/head";
-import React from "react";
+import React, { useState } from "react";
 import GatheringsList from "../../components/List/GatheringsList";
 import Wrapper from "../../components/Wrapper/Wrapper";
 import { GatheringsArrayType } from "../../models/model";
 import { server } from "../../config/index";
 
 const Home = ({ data }: GatheringsArrayType) => {
+  const [bool, setBool] = useState<Boolean>(false);
+  const handleToggleContents = (currBool: Boolean, text: string) => {
+    // validation
+    if ((bool && text === "past") || (!bool && text === "upcoming")) return;
+    setBool(!bool);
+  };
   return (
     <>
       <Head>
@@ -22,10 +28,35 @@ const Home = ({ data }: GatheringsArrayType) => {
           </p>
         </div>
         <div className="pt-8 lg:pt-4 pb-4">
-          <h3 className="text-2xl lg:pb-2 lg:text-center font-bold tracking-tight overflow-y-scroll">
-            Upcoming
-          </h3>
-          <GatheringsList data={data} />
+          <div className="flex flex-row justify-start lg:justify-center">
+            <div className="">
+              <h3
+                onClick={() => handleToggleContents(bool, "upcoming")}
+                className={`${
+                  !bool ? "text-red-500 border-b-red-500" : ""
+                } inline-block text-xl cursor-pointer border-b-4 border-transparent pb-0.5 lg:pb-1 lg:text-center font-bold tracking-tight overflow-y-scroll transition-all`}
+              >
+                Upcoming
+              </h3>
+            </div>
+            <div className="pl-4">
+              <h3
+                onClick={() => handleToggleContents(bool, "past")}
+                className={`${
+                  bool ? "text-red-500 border-b-red-500" : ""
+                } inline-block text-xl border-b-4 border-transparent cursor-pointer pb-0.5 lg:pb-1 lg:text-center font-bold tracking-tight overflow-y-scroll transition-all`}
+              >
+                Past
+              </h3>
+            </div>
+          </div>
+          <div className={`${bool ? "hidden" : "block"}`}>
+            <p>aaaaaa</p>
+          </div>
+          <div className={`${!bool ? "hidden" : "block"}`}>
+            <GatheringsList data={data} />
+          </div>
+          {/* temporary */}
         </div>
       </Wrapper>
     </>
