@@ -21,7 +21,7 @@ const NavBar = () => {
   return (
     <>
       <header
-        className="fixed top-0 left-0 w-full z-30"
+        className="fixed top-0 left-0 w-full z-50"
         style={{ backgroundColor: "rgb(254 202 202)" }}
       >
         <div className="header-container px-5 py-4 flex flex-row justify-between items-center">

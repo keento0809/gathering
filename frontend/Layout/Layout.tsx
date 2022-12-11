@@ -20,11 +20,11 @@ const Layout = ({ children }: LayoutProps) => {
     <>
       <Meta />
       <Nav />
-      <div className="container">
+      <div className="containers">
         <section
-          // add condition
-          style={{ backgroundColor: `rgb(254 202 202)` }}
-          className={`fixed top-0 left-0 container-wrapper w-full h-96 rounded-b-xl bg-cover bg-center flex justify-center items-center`}
+          style={{ backgroundColor: `rgb(254 202 202)`, minHeight: "100svh" }}
+          className={`container-wrapper w-full rounded-b-xl bg-cover bg-center`}
+          // className={`container-wrapper w-full rounded-b-xl bg-cover bg-center flex justify-start items-start`}
         >
           {children}
         </section>
