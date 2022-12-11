@@ -19,7 +19,7 @@ const Home = ({ data }: GatheringsArrayType) => {
         <title>Home</title>
       </Head>
       <Wrapper>
-        <div className="home-title lg:text-center">
+        <div className="home-title lg:text-center pt-24">
           <h3 className="text-3xl text-red-500 font-bold tracking-tight">
             Welcome to Gathering!
           </h3>
@@ -27,7 +27,7 @@ const Home = ({ data }: GatheringsArrayType) => {
             Explore new gathering here
           </p>
         </div>
-        <div className="pt-8 lg:pt-4 pb-4">
+        <div className="pt-8 lg:pt-12 pb-4">
           <div className="flex flex-row justify-start lg:justify-center">
             <div className="">
               <h3
@@ -51,12 +51,13 @@ const Home = ({ data }: GatheringsArrayType) => {
             </div>
           </div>
           <div className={`${bool ? "hidden" : "block"}`}>
-            <p>aaaaaa</p>
+            {/* temporary */}
+            {/* <GatheringsList data={data} /> */}
+            <p>Nothing comes</p>
           </div>
           <div className={`${!bool ? "hidden" : "block"}`}>
             <GatheringsList data={data} />
           </div>
-          {/* temporary */}
         </div>
       </Wrapper>
     </>

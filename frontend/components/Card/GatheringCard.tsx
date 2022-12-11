@@ -5,7 +5,7 @@ import CardModal from "../Modal/CardModal";
 import MainButton from "../Button/MainButton";
 import urlForImage from "/public/static/bgImage.jpg";
 import urlForImageSecond from "../../public/static/heroImg.jpg";
-import urlForImageThird from "../../public/static/meeting.jpg";
+import urlForImageThird from "../../public/static/mtg.jpg";
 import getTodayString from "../../Helper/getTodayString";
 import updateGatheringImage from "../../Helper/updateGatheringImage";
 
@@ -27,15 +27,17 @@ const GatheringCard = ({ gathering }: GatheringProps) => {
     <div className="relative md:max-w-372">
       {isExpired && <CardModal isExpired={true} />}
       {!isExpired && gathering.isFull && <CardModal isExpired={false} />}
-      <div className="max-w-sm w-full min-h-490 mb-4 hover:scale-101 transition-transform bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+      <div className="max-w-sm w-full mb-4 hover:scale-101 transition-transform bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        {/* <div className="max-w-sm w-full min-h-490 mb-4 hover:scale-101 transition-transform bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"> */}
         <a href="#">
-          <Image
+          {/* <Image
             className="rounded-t-lg cursor-default"
             width={"372px"}
             height={"248.2px"}
             src={gathering.image!}
             alt="image"
-          />
+          /> */}
+          <img src={gathering.image!} alt="image" className="object-cover" />
         </a>
         <div className="p-5">
           <a href="#">
