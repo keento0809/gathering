@@ -60,10 +60,19 @@ const Home = ({ data }: GatheringsArrayType) => {
           </div>
           <div className={`${bool ? "hidden" : "block"}`}>
             <GatheringsList data={upcomingGatherings} />
-            <p>Nothing comes</p>
+            {upcomingGatherings.length === 0 && (
+              <p className="text-lg font-semibold pt-2">
+                No Upcoming Gatherings Found
+              </p>
+            )}
           </div>
           <div className={`${!bool ? "hidden" : "block"}`}>
             <GatheringsList data={expiredGatherings} />
+            {expiredGatherings.length === 0 && (
+              <p className="text-lg font-semibold pt-2">
+                No Expired Gatherings Found
+              </p>
+            )}
           </div>
         </div>
       </Wrapper>
