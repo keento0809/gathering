@@ -95,7 +95,7 @@ const AdminHome = ({ data }: DataPropsAtAdminHome) => {
                   <GatheringsList data={hostGatherings} />
                 </div>
                 <div className="pb-6">
-                  <div className="fixed z-40 bottom-16 right-10 inline-block p-4 text-white bg-red-500 hover:bg-red-600 hover:scale-105 transition-all cursor-pointer rounded-full">
+                  <div className="fixed z-40 bottom-10 right-6 inline-block p-4 text-white bg-red-500 hover:bg-red-600 hover:scale-105 transition-all cursor-pointer rounded-full">
                     <Link href={`/admin/${adminId}/newGathering`}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

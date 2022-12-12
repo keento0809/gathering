@@ -3,8 +3,9 @@ import Head from "next/head";
 import React, { useState } from "react";
 import GatheringsList from "../../components/List/GatheringsList";
 import Wrapper from "../../components/Wrapper/Wrapper";
-import { GatheringsArrayType } from "../../models/model";
+import { GatheringsArrayType, GatheringType } from "../../models/model";
 import { server } from "../../config/index";
+import isGatheringExpired from "../../Helper/isGatheringExpired";
 
 const Home = ({ data }: GatheringsArrayType) => {
   const [bool, setBool] = useState<Boolean>(false);
@@ -13,13 +14,20 @@ const Home = ({ data }: GatheringsArrayType) => {
     if ((bool && text === "past") || (!bool && text === "upcoming")) return;
     setBool(!bool);
   };
+  const upcomingGatherings: GatheringType[] | null = [];
+  const expiredGatherings: GatheringType[] | null = [];
+  data.forEach((gathering) => {
+    isGatheringExpired(gathering.date)
+      ? expiredGatherings.push(gathering)
+      : upcomingGatherings.push(gathering);
+  });
   return (
     <>
       <Head>
         <title>Home</title>
       </Head>
       <Wrapper>
-        <div className="home-title lg:text-center pt-24">
+        <div className="home-title lg:text-center">
           <h3 className="text-3xl text-red-500 font-bold tracking-tight">
             Welcome to Gathering!
           </h3>
@@ -51,12 +59,11 @@ const Home = ({ data }: GatheringsArrayType) => {
             </div>
           </div>
           <div className={`${bool ? "hidden" : "block"}`}>
-            {/* temporary */}
-            {/* <GatheringsList data={data} /> */}
+            <GatheringsList data={upcomingGatherings} />
             <p>Nothing comes</p>
           </div>
           <div className={`${!bool ? "hidden" : "block"}`}>
-            <GatheringsList data={data} />
+            <GatheringsList data={expiredGatherings} />
           </div>
         </div>
       </Wrapper>
