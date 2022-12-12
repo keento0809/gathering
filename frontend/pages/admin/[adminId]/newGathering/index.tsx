@@ -23,7 +23,7 @@ const NewGathering = ({ currentUser }: adminUserProps) => {
           <Card>
             <CreateGatheringForm currentUser={currentUser} />
           </Card>
-          <div className="text-center pt-6">
+          <div className="text-center pt-6 pb-4">
             <MainButton text="Back" linkUrl={`/admin/home`} />
           </div>
         </div>
