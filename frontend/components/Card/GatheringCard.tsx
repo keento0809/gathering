@@ -8,13 +8,12 @@ import urlForImageSecond from "../../public/static/heroImg.jpg";
 import urlForImageThird from "../../public/static/mtg.jpg";
 import getTodayString from "../../Helper/getTodayString";
 import updateGatheringImage from "../../Helper/updateGatheringImage";
+import isGatheringExpired from "../../Helper/isGatheringExpired";
 
 const GatheringCard = ({ gathering }: GatheringProps) => {
   const [isExpired, setIsExpired] = useState(false);
-  const todayString = getTodayString();
-
   useEffect(() => {
-    if (todayString > gathering.date) setIsExpired(true);
+    setIsExpired(isGatheringExpired(gathering.date));
     if (
       gathering.image !== urlForImage.src &&
       gathering.image !== urlForImageSecond.src &&

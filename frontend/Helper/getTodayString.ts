@@ -1,6 +1,6 @@
 const getTodayString = () => {
   let today = new Date();
-  const todayString = today.toISOString().split("T")[0];
+  const todayString: string = today.toISOString().split("T")[0];
   return todayString;
 };
 
