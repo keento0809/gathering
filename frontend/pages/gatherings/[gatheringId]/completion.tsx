@@ -25,22 +25,31 @@ const Completion = ({ gathering }: GatheringProps) => {
             <p className="text-lg font-bold tracking-tight">
               Your booking has been secured!
             </p>
-            <p className="text-lg font-bold tracking-tight">
+            <p className="text-sm text-gray-700 font-normal tracking-tight pt-1">
               Please check the details below.
             </p>
           </div>
           {/* I'll replace to one UI component later */}
-          <div className="py-4">
+          <div className="pt-14 pb-8">
             <ul className="pt-2 text-base">
-              <li className="pb-6">Date: {date}</li>
-              <li className="pb-6">Time: {schedule}</li>
-              <li className="pb-6">Place: {placeName}</li>
+              <li className="pb-6">
+                Date: <span className="font-semibold">{date}</span>
+              </li>
+              <li className="pb-6">
+                Time: <span className="font-semibold">{schedule}</span>
+              </li>
+              <li className="pb-6">
+                Place: <span className="font-semibold">{placeName}</span>
+              </li>
               <li className="pb-6">Special Note: {specialNotes}</li>
               <li className="pb-6">
                 Organizer: <br />
                 <div className="pt-4">
-                  Name: {organizer.username} <br />
-                  Email: {organizer.email}
+                  Name:{" "}
+                  <span className="font-semibold">{organizer.username}</span>{" "}
+                  <br />
+                  Email:{" "}
+                  <span className="font-semibold">{organizer.email}</span>
                 </div>
               </li>
             </ul>

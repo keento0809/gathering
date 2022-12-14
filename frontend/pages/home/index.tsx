@@ -1,26 +1,19 @@
-import { GetServerSideProps, GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import Head from "next/head";
 import React, { useState } from "react";
 import GatheringsList from "../../components/List/GatheringsList";
 import Wrapper from "../../components/Wrapper/Wrapper";
-import { GatheringsArrayType, GatheringType } from "../../models/model";
+import { GatheringsArrayType } from "../../models/model";
 import { server } from "../../config/index";
-import isGatheringExpired from "../../Helper/isGatheringExpired";
+import sortGatherings from "../../Helper/sortGatherings";
 
 const Home = ({ data }: GatheringsArrayType) => {
   const [bool, setBool] = useState<Boolean>(false);
   const handleToggleContents = (currBool: Boolean, text: string) => {
-    // validation
     if ((bool && text === "past") || (!bool && text === "upcoming")) return;
     setBool(!bool);
   };
-  const upcomingGatherings: GatheringType[] | null = [];
-  const expiredGatherings: GatheringType[] | null = [];
-  data.forEach((gathering) => {
-    isGatheringExpired(gathering.date)
-      ? expiredGatherings.push(gathering)
-      : upcomingGatherings.push(gathering);
-  });
+  const { upcomingGatherings, expiredGatherings } = sortGatherings(data);
   return (
     <>
       <Head>
