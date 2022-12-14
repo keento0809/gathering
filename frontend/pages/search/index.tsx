@@ -7,13 +7,15 @@ import Wrapper from "../../components/Wrapper/Wrapper";
 import { server } from "../../config";
 import { GatheringsArrayType, GatheringType } from "../../models/model";
 import GatheringsList from "../../components/List/GatheringsList";
+import sortGatherings from "../../Helper/sortGatherings";
 
 const SearchGathering = ({ data }: GatheringsArrayType) => {
   const [inputWord, setInputWord] = useState("");
   const handleInputWord: (word: string) => void = (word) => {
     setInputWord(word);
   };
-  const filteredData = data.filter((gathering: GatheringType) =>
+  const { upcomingGatherings } = sortGatherings(data);
+  const filteredData = upcomingGatherings.filter((gathering: GatheringType) =>
     gathering.title.toLowerCase().includes(inputWord)
   );
   return (

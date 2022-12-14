@@ -16,7 +16,7 @@ const About = () => {
               <h3 className="section-title text-lg font-extrabold">
                 What is Gathering?
               </h3>
-              <p className="pt-4 font-medium">
+              <p className="pt-6 font-medium">
                 Gathering is a social media platform for organizing in-person
                 meetup events. You can join the &ldquo;gathering&rdquo;, which
                 stands for an event on this application, to explore your social
@@ -28,7 +28,7 @@ const About = () => {
               <h3 className="section-title text-lg font-extrabold">
                 How to join Gathering?
               </h3>
-              <p className="pt-4 font-medium">
+              <p className="pt-6 font-medium">
                 The way to join a gathering is to select a gathering that you
                 want to join by pressing &ldquo;More&rdquo; button, and then
                 fill out the information (name, email, and TwitterID). After
@@ -40,7 +40,7 @@ const About = () => {
               <h3 className="section-title text-lg font-extrabold">
                 How to cancel Gathering?
               </h3>
-              <p className="pt-2">
+              <p className="pt-6">
                 If you would like to call off a gathering, you need to directly
                 contact to the organizer of gathering that you will join sending
                 a message by email.

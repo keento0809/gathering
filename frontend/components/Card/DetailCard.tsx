@@ -4,6 +4,7 @@ import { GatheringProps } from "../../models/model";
 import MapWithMarker from "../Map/MapWithMarker";
 import urlForImage from "../../public/static/bgImage.jpg";
 import Link from "next/link";
+import Image from "next/image";
 
 const DetailCard = ({ gathering }: GatheringProps) => {
   const [imageUrl, setImageUrl] = useState("");
@@ -19,7 +20,7 @@ const DetailCard = ({ gathering }: GatheringProps) => {
     <Card>
       <div className="lg:max-w-800 lg:mx-auto grid md:grid-cols-2">
         <section className="image bg-red-400 min-h-236">
-          <img src={imageUrl} alt="" width="100%" height={236} className="" />
+          <img src={imageUrl} alt="" width="100%" style={{ height: "236px" }} />
         </section>
         <section className="description p-4 bg-slate-50 min-h-236">
           <h3 className="text-lg font-bold tracking-tight">Description</h3>
