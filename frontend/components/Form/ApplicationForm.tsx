@@ -71,7 +71,7 @@ const ApplicationForm = ({ gathering }: GatheringProps) => {
     }
   };
   return (
-    <>
+    <div>
       <form onSubmit={handleSubmit} className="md:max-w-400 mx-auto">
         <div className="mb-6">
           <label
@@ -165,7 +165,7 @@ const ApplicationForm = ({ gathering }: GatheringProps) => {
           <Button text="Confirm" />
         </div>
       </form>
-    </>
+    </div>
   );
 };
 

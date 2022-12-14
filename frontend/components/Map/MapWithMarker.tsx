@@ -113,7 +113,7 @@ const MapWithMarker = ({ placeLatLng, placeName }: latLngProps) => {
         zoom={zoom}
         center={centerPosition}
         onIdle={onIdle}
-        style={{ width: "100%", height: "400px", borderRadius: "8px" }}
+        style={{ width: "100%", height: "236px" }}
       >
         {/* <MarkerA position={placeLatLng} /> */}
         <Marker position={placeLatLng} clickable onClick={onMarkerClick}>

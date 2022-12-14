@@ -17,109 +17,92 @@ const DetailCard = ({ gathering }: GatheringProps) => {
 
   return (
     <Card>
-      <div className="lg:max-w-800 lg:mx-auto">
-        <div className="md:flex md:pb-4">
-          <section className="image md:w-1/2">
-            <img
-              src={imageUrl}
-              alt=""
-              width="100%"
-              className="rounded-md mb-2"
-            />
-          </section>
-          <section className="description py-2 md:pl-4 lg:pl-12 md:w-1/2">
-            <h3 className="text-lg font-bold tracking-tight">Description</h3>
-            <p className="text-base pt-2">{gathering.description}</p>
-          </section>
-        </div>
-        <div className="md:flex md:pb-4">
-          <section className="info py-2 md:w-1/2">
-            <h3 className="text-lg font-bold tracking-tight">Info</h3>
-            <ul className="pt-2 text-base">
-              <li className="pb-1">Date: {gathering.date}</li>
-              <li className="pb-1">Time: {gathering.schedule}</li>
-              <li className="pb-1">Place: {gathering.placeName}</li>
-              <li className="pb-1">Capacity: {gathering.capacity} members</li>
-              <li className="pb-1">
-                Participants:{" "}
-                <span className="text-red-500">
-                  {gathering.participants.length} members
-                </span>{" "}
-                coming
-                {gathering.participants.length > 0 && (
-                  <div className="border border-red-500 my-4 py-4 rounded-lg">
-                    {gathering.participants.map((participant, index) => {
-                      return (
-                        <div className="pl-4" key={index}>
-                          <span className="inline-block min-w-140">
-                            Name: {participant.username}
-                            {/* original */}
-                            {/* <span className="pl-4">(@{participant.twitterId})</span> */}
-                          </span>
-                          <Link
-                            href={`https://twitter.com/${participant.twitterId}`}
-                            className="pl-4 inline-block hover:text-red-500"
-                            passHref
+      <div className="lg:max-w-800 lg:mx-auto grid md:grid-cols-2">
+        <section className="image bg-red-400 min-h-236">
+          <img src={imageUrl} alt="" width="100%" height={236} className="" />
+        </section>
+        <section className="description p-4 bg-slate-50 min-h-236">
+          <h3 className="text-lg font-bold tracking-tight">Description</h3>
+          <p className="text-base pt-2">{gathering.description}</p>
+        </section>
+        <section className="info p-4 bg-red-400 md:bg-slate-50 min-h-236">
+          <h3 className="text-lg font-bold tracking-tight">Info</h3>
+          <ul className="pt-2 text-base">
+            <li className="pb-1">Date: {gathering.date}</li>
+            <li className="pb-1">Time: {gathering.schedule}</li>
+            <li className="pb-1">Place: {gathering.placeName}</li>
+            <li className="pb-1">Capacity: {gathering.capacity} members</li>
+            <li className="pb-1">
+              Participants:{" "}
+              <span className="text-slate-200 md:text-red-500">
+                {gathering.participants.length} members
+              </span>{" "}
+              coming
+              {gathering.participants.length > 0 && (
+                <div className="border border-red-500 my-4 py-4 rounded-lg">
+                  {gathering.participants.map((participant, index) => {
+                    return (
+                      <div className="pl-4" key={index}>
+                        <span className="inline-block min-w-140">
+                          Name: {participant.username}
+                        </span>
+                        <Link
+                          href={`https://twitter.com/${participant.twitterId}`}
+                          className="pl-4 inline-block hover:text-red-500"
+                          passHref
+                        >
+                          <a
+                            className="hover:text-red-500 cursor-pointer"
+                            target={"_blank"}
                           >
-                            <a
-                              className="hover:text-red-500 cursor-pointer"
-                              target={"_blank"}
-                            >
-                              @{participant.twitterId}
-                            </a>
-                          </Link>
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
-              </li>
-              <li className="pb-1">
-                Organizer: {gathering.organizer.username}
-              </li>
-            </ul>
-          </section>
-          <section className="schedule py-2 md:pl-4 lg:pl-12 md:w-1/2">
-            <h3 className="text-lg font-bold tracking-tight">Schedule</h3>
-            <div className="pt-2">
-              {schedule?.map((item, index) =>
-                Number(schedule[index + 1]?.substring(0, 1)) ? (
-                  <Fragment key={index}>
-                    <span> {item}</span>
-                    <br />
-                  </Fragment>
-                ) : (
-                  <span
-                    key={index}
-                    className={
-                      Number(item.substring(0, 1))
-                        ? "inline-block min-w-100"
-                        : ""
-                    }
-                  >
-                    {" "}
-                    {item}
-                  </span>
-                )
+                            @{participant.twitterId}
+                          </a>
+                        </Link>
+                      </div>
+                    );
+                  })}
+                </div>
               )}
-            </div>
-          </section>
-        </div>
-        <div className="md:flex md:pb-4">
-          <section className="google-map py-2 md:w-1/2">
-            <h3 className="text-lg font-bold tracking-tight">Map</h3>
-            <div className="pt-2">
-              <MapWithMarker
-                placeLatLng={gathering.placeLatLng}
-                placeName={gathering.placeName}
-              />
-            </div>
-          </section>
-          <section className="specialNotes py-2 md:pl-4 lg:pl-12 md:w-1/2">
-            <h3 className="text-lg font-bold tracking-tight">Notes</h3>
-            <p className="text-base py-2">{gathering.specialNotes}</p>
-          </section>
-        </div>
+            </li>
+            <li className="pb-1">Organizer: {gathering.organizer.username}</li>
+          </ul>
+        </section>
+        <section className="schedule p-4 bg-slate-50 md:bg-red-400 min-h-236">
+          <h3 className="text-lg font-bold tracking-tight">Schedule</h3>
+          <div className="pt-2">
+            {schedule?.map((item, index) =>
+              Number(schedule[index + 1]?.substring(0, 1)) ? (
+                <Fragment key={index}>
+                  <span> {item}</span>
+                  <br />
+                </Fragment>
+              ) : (
+                <span
+                  key={index}
+                  className={
+                    Number(item.substring(0, 1)) ? "inline-block min-w-100" : ""
+                  }
+                >
+                  {" "}
+                  {item}
+                </span>
+              )
+            )}
+          </div>
+        </section>
+        <section className="google-map bg-red-400">
+          {/* <h3 className="text-lg font-bold tracking-tight">Map</h3> */}
+          <div className="">
+            <MapWithMarker
+              placeLatLng={gathering.placeLatLng}
+              placeName={gathering.placeName}
+            />
+          </div>
+        </section>
+        <section className="specialNotes p-4 bg-slate-50 min-h-236">
+          <h3 className="text-lg font-bold tracking-tight">Notes</h3>
+          <p className="text-base py-2">{gathering.specialNotes}</p>
+        </section>
       </div>
     </Card>
   );

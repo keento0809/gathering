@@ -32,7 +32,8 @@ const GatheringDetail: NextPage<DataPropsAtGatheringDetail> = ({ data }) => {
           {title}
         </h2>
         <DetailCard gathering={data.gathering} />
-        <div className="text-center pt-4 md:fixed md:bottom-14 md:right-16 md:z-40">
+        <div className="text-center py-5 md:py-4 md:z-40">
+          {/* <div className="text-center pt-4 md:fixed md:bottom-14 md:right-16 md:z-40"> */}
           {!isMaximum && (
             <span className="block pb-2 text-sm">
               {Number(data.gathering.capacity) -
