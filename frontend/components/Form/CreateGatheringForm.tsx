@@ -11,8 +11,9 @@ import { setGatheringImage } from "../../Helper/updateGatheringImage";
 const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
   const router = useRouter();
   const mapCtx = useMapContext();
-  const [isDateExpired, setIsDateExpired] = useState(false);
-  const [wordCount, setWordCount] = useState(100);
+  const [isDateExpired, setIsDateExpired] = useState<Boolean>(false);
+  const [wordCount, setWordCount] = useState<number>(100);
+  const [file, setFile] = useState<File>();
   const [gatheringInfo, setGatheringInfo] = useState<GatheringType>({
     _id: null,
     title: "",
@@ -55,7 +56,18 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
       [e.target.name]: e.target.value,
     });
   };
-
+  const handleSetFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files || e.target.files.length === 0) {
+      console.error("Select a file");
+      return;
+    }
+    console.log(e.target.files[0]);
+    setFile(e.target.files[0]);
+    // setGatheringInfo({
+    //   ...gatheringInfo,
+    //   [e.target.name]: e.target.files[0],
+    // });
+  };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const bodyObj = { ...gatheringInfo, placeLatLng: mapCtx!.center };
@@ -68,7 +80,6 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
     router.replace("/admin/home");
   };
   useEffect(() => {
-    // add a function finding hostGathering
     setGatheringInfo({
       ...gatheringInfo,
       organizer: currentUser && currentUser,
@@ -79,7 +90,10 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="md:max-w-500 md:mx-auto">
+      <form
+        onSubmit={handleSubmit}
+        className="create_gathering md:max-w-500 md:mx-auto"
+      >
         <div className="mb-6">
           <label
             htmlFor="title-icon"
@@ -99,8 +113,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
             />
           </div>
         </div>
-        {/* temporary commented out */}
-        {/* <div className="mb-6">
+        <div className="mb-6">
           <label
             htmlFor="image-icon"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
@@ -112,13 +125,13 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
               type="file"
               name="image"
               id="image-icon"
-              onChange={handleChange}
+              onChange={handleSetFile}
               accept="image/png,image/jpeg"
-              placeholder="Title"
-              required={true}
+              // required={true}
             />
+            <img src={file?.name} alt="thumbnail" width={100} height={100} />
           </div>
-        </div> */}
+        </div>
         <div className="mb-6">
           <label
             htmlFor="date-icon"

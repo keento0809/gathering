@@ -595,6 +595,16 @@
     "@aws-sdk/util-arn-parser" "3.208.0"
     "tslib" "^2.3.1"
 
+"@aws-sdk/middleware-sdk-s3@3.231.0":
+  "integrity" "sha512-UGaSvevd2TanfKgStF46dDSHkh4bxOr1gdUkyHm9i+1pF5lx4KdbnBZv/5SKnn7XifhHRXrs1M3lTzemXREhTA=="
+  "resolved" "https://registry.npmjs.org/@aws-sdk/middleware-sdk-s3/-/middleware-sdk-s3-3.231.0.tgz"
+  "version" "3.231.0"
+  dependencies:
+    "@aws-sdk/protocol-http" "3.226.0"
+    "@aws-sdk/types" "3.226.0"
+    "@aws-sdk/util-arn-parser" "3.208.0"
+    "tslib" "^2.3.1"
+
 "@aws-sdk/middleware-sdk-sts@3.226.0":
   "integrity" "sha512-NN9T/qoSD1kZvAT+VLny3NnlqgylYQcsgV3rvi/8lYzw/G/2s8VS6sm/VTWGGZhx08wZRv20MWzYu3bftcyqUg=="
   "resolved" "https://registry.npmjs.org/@aws-sdk/middleware-sdk-sts/-/middleware-sdk-sts-3.226.0.tgz"
@@ -703,6 +713,21 @@
   "version" "3.226.0"
   dependencies:
     "@aws-sdk/types" "3.226.0"
+    "tslib" "^2.3.1"
+
+"@aws-sdk/s3-request-presigner@^3.231.0":
+  "integrity" "sha512-bbprPHsyl+brcoLsaT0Pbk1er+Yxjfsp6vnJW1Jn0G7O8gYwdnLL8Qbe1FGwEh5M1ddm9KIYO1eyIfSPSoecMQ=="
+  "resolved" "https://registry.npmjs.org/@aws-sdk/s3-request-presigner/-/s3-request-presigner-3.231.0.tgz"
+  "version" "3.231.0"
+  dependencies:
+    "@aws-sdk/middleware-endpoint" "3.226.0"
+    "@aws-sdk/middleware-sdk-s3" "3.231.0"
+    "@aws-sdk/protocol-http" "3.226.0"
+    "@aws-sdk/signature-v4-multi-region" "3.226.0"
+    "@aws-sdk/smithy-client" "3.226.0"
+    "@aws-sdk/types" "3.226.0"
+    "@aws-sdk/util-create-request" "3.226.0"
+    "@aws-sdk/util-format-url" "3.226.0"
     "tslib" "^2.3.1"
 
 "@aws-sdk/service-error-classification@3.229.0":
@@ -821,6 +846,16 @@
   dependencies:
     "tslib" "^2.3.1"
 
+"@aws-sdk/util-create-request@3.226.0":
+  "integrity" "sha512-3WzrpO6Vx/Mh3DBnI3I7ZJ2oU9pDDusWkt7eCDULofamIz6IaZOjicwje0RJsLoFDh9LBdhrlp8m/5d+6aJn2g=="
+  "resolved" "https://registry.npmjs.org/@aws-sdk/util-create-request/-/util-create-request-3.226.0.tgz"
+  "version" "3.226.0"
+  dependencies:
+    "@aws-sdk/middleware-stack" "3.226.0"
+    "@aws-sdk/smithy-client" "3.226.0"
+    "@aws-sdk/types" "3.226.0"
+    "tslib" "^2.3.1"
+
 "@aws-sdk/util-defaults-mode-browser@3.226.0":
   "integrity" "sha512-chLx+6AeMSjuPsCVbI1B4Pg3jftjjcsuTsJucjo0DKBb1VSWqPCitmOILQVvKiA2Km8TSs3VcbUuOCyDExkzAg=="
   "resolved" "https://registry.npmjs.org/@aws-sdk/util-defaults-mode-browser/-/util-defaults-mode-browser-3.226.0.tgz"
@@ -848,6 +883,15 @@
   "resolved" "https://registry.npmjs.org/@aws-sdk/util-endpoints/-/util-endpoints-3.226.0.tgz"
   "version" "3.226.0"
   dependencies:
+    "@aws-sdk/types" "3.226.0"
+    "tslib" "^2.3.1"
+
+"@aws-sdk/util-format-url@3.226.0":
+  "integrity" "sha512-IhuA8iuJL1urWqZZmVzW79mHnwFEEP6rMsSKgAfMmuzowhtgk9p/sT2OVPkXk0LeZL2Ghsnw1W2JfPIs8x1qVg=="
+  "resolved" "https://registry.npmjs.org/@aws-sdk/util-format-url/-/util-format-url-3.226.0.tgz"
+  "version" "3.226.0"
+  dependencies:
+    "@aws-sdk/querystring-builder" "3.226.0"
     "@aws-sdk/types" "3.226.0"
     "tslib" "^2.3.1"
 
