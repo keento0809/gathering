@@ -1,7 +1,6 @@
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import Wrapper from "../../components/Wrapper/Wrapper";
-import MainButton from "../../components/Button/MainButton";
 import { getSession, useSession } from "next-auth/react";
 import GithubAuthButton from "../../components/Button/GithubAuthButton";
 import { signOut, signIn } from "next-auth/react";
