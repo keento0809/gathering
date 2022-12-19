@@ -29,20 +29,12 @@ const ApplicationForm = ({ gathering }: GatheringProps) => {
     const updatingGathering = await res.json();
     updatingGathering.participants.push(userInfo);
     const newParticipants = updatingGathering.participants;
-    // let isFull = false;
-    // if (updatingGathering.participants.length === updatingGathering.capacity)
-    //   isFull = true;
-    // const updatingObj = {
-    //   newParticipants,
-    //   isFull,
-    // };
     await fetch(`${server}/api/gatherings/${gatheringId}/update`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newParticipants),
-      // body: JSON.stringify(updatingObj),
     });
     if (userID && serviceID && templateID) {
       const { username, email, twitterId } = userInfo;
