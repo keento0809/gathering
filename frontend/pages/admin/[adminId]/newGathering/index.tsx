@@ -17,7 +17,7 @@ const NewGathering = ({ currentUser }: adminUserProps) => {
       </Head>
       <Wrapper>
         <div className="">
-          <h2 className="text-2xl font-bold tracking-tighter text-center text-red-500 dark:text-red-400">
+          <h2 className="text-2xl font-bold tracking-tighter text-center text-primary dark:text-red-400">
             Create Gathering
           </h2>
           <Card>

@@ -38,7 +38,7 @@ const Signup = () => {
   return (
     <>
       <Wrapper>
-        <h2 className="text-2xl font-bold text-center tracking-tighter text-red-500 dark:text-red-400">
+        <h2 className="text-2xl font-bold text-center tracking-tighter text-primary dark:text-red-400">
           Sign up
         </h2>
         <section className="auth-form rounded-xl bg-slate-400 min-h-500 p-8 mt-6">
@@ -46,7 +46,7 @@ const Signup = () => {
             <div className="mb-6">
               <label
                 htmlFor="username"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
               >
                 Your name
               </label>
@@ -54,7 +54,7 @@ const Signup = () => {
                 <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-red-500 dark:text-red-400"
+                    className="h-5 w-5 text-primary dark:text-red-400"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
@@ -67,7 +67,7 @@ const Signup = () => {
                   name="username"
                   onChange={handleChange}
                   id="username"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="bg-gray-50 border border-gray-300 text-textPrimary text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Joe Doe"
                   required={true}
                 />
@@ -76,7 +76,7 @@ const Signup = () => {
             <div className="mb-6">
               <label
                 htmlFor="email-address-icon"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
               >
                 Your Email
               </label>
@@ -84,7 +84,7 @@ const Signup = () => {
                 <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-red-500 dark:text-red-400"
+                    className="h-5 w-5 text-primary dark:text-red-400"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
@@ -97,7 +97,7 @@ const Signup = () => {
                   name="email"
                   onChange={handleChange}
                   id="email-address-icon"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="bg-gray-50 border border-gray-300 text-textPrimary text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="name@sample.com"
                   required={true}
                 />
@@ -106,7 +106,7 @@ const Signup = () => {
             <div className="mb-6">
               <label
                 htmlFor="password"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
               >
                 Your Password
               </label>
@@ -114,7 +114,7 @@ const Signup = () => {
                 <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-red-500 dark:text-red-400"
+                    className="h-5 w-5 text-primary dark:text-red-400"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
@@ -130,7 +130,7 @@ const Signup = () => {
                   id="password"
                   name="password"
                   onChange={handleChange}
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="bg-gray-50 border border-gray-300 text-textPrimary text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Password"
                   required={true}
                 />
@@ -139,7 +139,7 @@ const Signup = () => {
             <div className="mb-6">
               <label
                 htmlFor="repeat-password"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
               >
                 Repeat Password
               </label>
@@ -147,7 +147,7 @@ const Signup = () => {
                 <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-red-500 dark:text-red-400"
+                    className="h-5 w-5 text-primary dark:text-red-400"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
@@ -163,7 +163,7 @@ const Signup = () => {
                   id="repeat-password"
                   name="passwordConfirm"
                   onChange={handleChange}
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="bg-gray-50 border border-gray-300 text-textPrimary text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Password"
                   required={true}
                 />
@@ -172,7 +172,7 @@ const Signup = () => {
             <AuthButton text={"register"} />
             <div className="pt-8 text-white">
               Already have account?{" "}
-              <span className="font-bold text-red-500 cursor-pointer">
+              <span className="font-bold text-primary cursor-pointer">
                 <Link href="/auth">Login</Link>{" "}
               </span>
               Here!

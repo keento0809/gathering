@@ -17,7 +17,7 @@ const Completion = ({ gathering }: GatheringProps) => {
         <title>Complete</title>
       </Head>
       <Wrapper>
-        <h2 className="text-2xl text-center font-bold tracking-tighter text-left text-red-500">
+        <h2 className="text-2xl text-center font-bold tracking-tighter text-primary">
           Confirmed!
         </h2>
         <Card>

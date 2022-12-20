@@ -35,7 +35,7 @@ const DetailCard = ({ gathering }: GatheringProps) => {
             <li className="pb-1">Capacity: {gathering.capacity} members</li>
             <li className="pb-1">
               Participants:{" "}
-              <span className="text-slate-200 md:text-red-500">
+              <span className="text-slate-200 md:text-primary">
                 {gathering.participants.length} members
               </span>{" "}
               coming
@@ -49,11 +49,11 @@ const DetailCard = ({ gathering }: GatheringProps) => {
                         </span>
                         <Link
                           href={`https://twitter.com/${participant.twitterId}`}
-                          className="pl-4 inline-block hover:text-red-500"
+                          className="pl-4 inline-block hover:text-primary"
                           passHref
                         >
                           <a
-                            className="hover:text-red-500 cursor-pointer"
+                            className="hover:text-primary cursor-pointer"
                             target={"_blank"}
                           >
                             @{participant.twitterId}

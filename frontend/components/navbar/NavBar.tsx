@@ -21,13 +21,13 @@ const NavBar = () => {
   return (
     <>
       <header
-        className="fixed top-0 left-0 w-full z-50"
-        style={{ backgroundColor: "rgb(254 202 202)" }}
+        className="fixed top-0 left-0 w-full z-50 bg-secondary"
+        // style={{ backgroundColor: "rgb(254 202 202)" }}
       >
         <div className="header-container px-5 py-4 flex flex-row justify-between items-center">
           <section className="header-left">
             <Link href="/home">
-              <span className="text-red-500 font-bold tracking-tight lg:text-lg cursor-pointer">
+              <span className="text-primary font-bold tracking-tight lg:text-lg cursor-pointer">
                 Gathering
               </span>
             </Link>

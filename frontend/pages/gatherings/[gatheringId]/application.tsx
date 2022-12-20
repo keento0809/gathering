@@ -14,7 +14,7 @@ const ApplicationPage = ({ gathering }: GatheringProps) => {
         <title>Application</title>
       </Head>
       <Wrapper>
-        <h2 className="text-2xl font-bold tracking-tighter text-center text-red-500">
+        <h2 className="text-2xl font-bold tracking-tighter text-center text-primary">
           Book gathering
         </h2>
         <p className="text-sm pt-8 px-2 md:max-w-580 md:mx-auto">

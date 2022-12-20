@@ -7,7 +7,7 @@ const About = () => {
   return (
     <>
       <Wrapper>
-        <h2 className="text-2xl pl-2 font-bold tracking-tighter text-left lg:text-center text-red-500 dark:text-red-400">
+        <h2 className="text-2xl pl-2 font-bold tracking-tighter text-left lg:text-center text-primary dark:text-red-400">
           About
         </h2>
         <Card>

@@ -9,7 +9,7 @@ const Login = () => {
   return (
     <>
       <Wrapper>
-        <h2 className="text-2xl font-bold text-center tracking-tight text-red-500 dark:text-red-400">
+        <h2 className="text-2xl font-bold text-center tracking-tight text-primary dark:text-red-400">
           Admin Authentication
         </h2>
         <Card>

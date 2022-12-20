@@ -28,7 +28,7 @@ const GatheringDetail: NextPage<DataPropsAtGatheringDetail> = ({ data }) => {
         <title>Gathering Detail</title>
       </Head>
       <Wrapper>
-        <h2 className="text-2xl pl-0.5 font-bold tracking-tighter text-left lg:text-center text-red-500">
+        <h2 className="text-2xl pl-0.5 font-bold tracking-tighter text-left lg:text-center text-primary">
           {title}
         </h2>
         <DetailCard gathering={data.gathering} />
@@ -42,7 +42,7 @@ const GatheringDetail: NextPage<DataPropsAtGatheringDetail> = ({ data }) => {
             </span>
           )}
           {isMaximum && (
-            <p className="text-red-500 pb-2 text-sm">
+            <p className="text-primary pb-2 text-sm">
               Sorry, This gathering is full.
             </p>
           )}
