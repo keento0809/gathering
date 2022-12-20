@@ -71,13 +71,13 @@ const NavBar = () => {
           </section>
           <section className="header-right-desktop hidden lg:block">
             <ul className="flex flex-row">
-              <li className="px-6 text-sm transition-transform hover:scale-105">
+              <li className="px-6 text-sm tracking-tighter transition-transform hover:scale-105 hover:text-primary">
                 <Link href={"/about"}>About</Link>
               </li>
-              <li className="px-6 text-sm transition-transform hover:scale-105">
+              <li className="px-6 text-sm tracking-tighter transition-transform hover:scale-105 hover:text-primary">
                 <Link href={"/search"}>Find Gathering</Link>
               </li>
-              <li className="px-6 text-sm transition-transform hover:scale-105">
+              <li className="px-6 text-sm tracking-tighter transition-transform hover:scale-105 hover:text-primary">
                 {router.route === `/admin/home` && session !== null && (
                   <Link href={"/admin/home"}>
                     <a

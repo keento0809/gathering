@@ -7,9 +7,9 @@ const Home: NextPage = () => {
   const [isAlert, setIsAlert] = useState(false);
   return (
     <>
-      <div className="pt-16 lg:text-center left-0 w-full px-5">
+      <div className="lg:text-center left-0 w-full px-5">
         {/* <div className="fixed top-96 lg:top-64 lg:text-center left-0 w-full px-5"> */}
-        <section className="hero-body pt-6">
+        <section className="hero-body">
           <div className="hero-title">
             <h1 className="text-4xl font-bold tracking-tighter">Gathering</h1>
             <h3 className="text-2xl font-bold tracking-tighter pt-2">

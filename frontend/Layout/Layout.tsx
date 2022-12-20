@@ -23,9 +23,8 @@ const Layout = ({ children }: LayoutProps) => {
       <Nav />
       <div className="containers">
         <section
+          className={`container-wrapper bg-secondary w-full rounded-b-xl flex items-center`}
           style={{ minHeight: "100svh" }}
-          // style={{ backgroundColor: `rgb(254 202 202)`, minHeight: "100svh" }}
-          className={`container-wrapper bg-secondary w-full rounded-b-xl bg-cover bg-center`}
         >
           {children}
         </section>

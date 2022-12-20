@@ -55,30 +55,6 @@ const Map: React.FC<MapProps> = ({
   );
 };
 
-const MarkerA: React.FC<google.maps.MarkerOptions> = (options) => {
-  const [marker, setMarker] = React.useState<google.maps.Marker>();
-
-  React.useEffect(() => {
-    if (!marker) {
-      setMarker(new google.maps.Marker());
-    }
-    // remove marker from map on unmount
-    return () => {
-      if (marker) {
-        marker.setMap(null);
-      }
-    };
-  }, [marker]);
-
-  React.useEffect(() => {
-    if (marker) {
-      marker.setOptions(options);
-    }
-  }, [marker, options]);
-
-  return null;
-};
-
 const MapWithMarker = ({ placeLatLng, placeName }: latLngProps) => {
   const [zoom, setZoom] = React.useState(14);
   const [centerPosition, setCenterPosition] =
@@ -115,7 +91,6 @@ const MapWithMarker = ({ placeLatLng, placeName }: latLngProps) => {
         onIdle={onIdle}
         style={{ width: "100%", height: "236px" }}
       >
-        {/* <MarkerA position={placeLatLng} /> */}
         <Marker position={placeLatLng} clickable onClick={onMarkerClick}>
           {showingInfoWindow && (
             <InfoWindow

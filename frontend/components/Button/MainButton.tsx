@@ -12,13 +12,12 @@ const MainButton = ({ text, linkUrl, isMaximum }: MainButtonProps) => {
         disabled={isMaximum}
       >
         {!isMaximum && (
-          <span className="relative px-4 py-2 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-            {/* <Link href={linkUrl}>{text}</Link> */}
+          <span className="relative px-4 py-2 transition-all hover:text-white ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
             {text}
           </span>
         )}
         {isMaximum && (
-          <span className="relative px-4 py-2 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+          <span className="relative px-4 py-2 transition-all hover:text-white ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
             {text}
           </span>
         )}

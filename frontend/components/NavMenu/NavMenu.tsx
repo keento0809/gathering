@@ -11,7 +11,6 @@ const NavMenu = () => {
   return (
     <div
       className={`fixed top-14 min-h-200 transition-all px-5 py-4 left-0 z-50 w-full text-sm bg-secondary`}
-      // style={{ backgroundColor: "rgb(254 202 202)" }}
     >
       <ul>
         <li className="pt-0.5 pl-0.5 pb-3">
