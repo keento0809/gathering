@@ -79,7 +79,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
   return (
     <div className="md:max-w-500 md:mx-auto">
       <div className="mb-6">
-        <span className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+        <span className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300">
           Participants
         </span>
         <ul className="border border-red-500 py-4 rounded-lg">
@@ -121,7 +121,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
         <div className="mb-6">
           <label
             htmlFor="title-icon"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
           >
             Title
           </label>
@@ -131,7 +131,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
               name="title"
               id="title-icon"
               onChange={handleChange}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
+              className="bg-gray-50 border border-gray-300 text-textPrimary text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
               defaultValue={title}
               required={true}
             />
@@ -140,7 +140,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
         <div className="mb-6">
           <label
             htmlFor="image-icon"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
           >
             Image
           </label>
@@ -158,7 +158,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
         <div className="mb-6">
           <label
             htmlFor="date-icon"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
           >
             Date
           </label>
@@ -168,7 +168,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
               name="date"
               id="date-icon"
               onChange={handleChange}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
+              className="bg-gray-50 border border-gray-300 text-textPrimary text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
               defaultValue={date}
               required={true}
             />
@@ -178,7 +178,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
           <div className="flex flex-row justify-between">
             <label
               htmlFor="headline-icon"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
             >
               Headline (in 140 words)
             </label>
@@ -191,7 +191,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
               name="headline"
               id="headline-icon"
               onChange={handleChange}
-              className="bg-gray-50 border resize-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
+              className="bg-gray-50 border resize-none border-gray-300 text-textPrimary text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
               defaultValue={headline}
               required={true}
             />
@@ -200,7 +200,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
         <div className="mb-6">
           <label
             htmlFor="description-icon"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
           >
             Description
           </label>
@@ -211,7 +211,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
               name="description"
               id="description-icon"
               onChange={handleChange}
-              className="bg-gray-50 border resize-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
+              className="bg-gray-50 border resize-none border-gray-300 text-textPrimary text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
               defaultValue={description}
               required={true}
             />
@@ -220,7 +220,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
         <div className="mb-6">
           <label
             htmlFor="number"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
           >
             Capacity (2 ~ 200)
           </label>
@@ -232,7 +232,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
               onChange={handleChange}
               min={2}
               max={200}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
+              className="bg-gray-50 border border-gray-300 text-textPrimary text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
               defaultValue={capacity}
               required={true}
             />
@@ -242,7 +242,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
         <div className="mb-6">
           <label
             htmlFor="schedule-icon"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
           >
             Schedule
           </label>
@@ -252,7 +252,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
               name="schedule"
               id="schedule-icon"
               onChange={handleChange}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
+              className="bg-gray-50 border border-gray-300 text-textPrimary text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
               defaultValue={schedule}
               required={true}
             />
@@ -261,7 +261,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
         <div className="mb-6">
           <label
             htmlFor="timeSchedule-icon"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
           >
             Time Schedule
           </label>
@@ -272,7 +272,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
               name="timeSchedule"
               id="timeSchedule-icon"
               onChange={handleChange}
-              className="bg-gray-50 border resize-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
+              className="bg-gray-50 border resize-none border-gray-300 text-textPrimary text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
               defaultValue={timeSchedule}
               required={true}
             />
@@ -281,7 +281,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
         <div className="mb-6">
           <label
             htmlFor="placeName-icon"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
           >
             Place name
           </label>
@@ -291,7 +291,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
               name="placeName"
               id="placeName-icon"
               onChange={handleChange}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
+              className="bg-gray-50 border border-gray-300 text-textPrimary text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
               defaultValue={placeName}
               required={true}
             />
@@ -300,7 +300,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
         <div className="mb-6">
           <label
             htmlFor="placeLatLng-icon"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
           >
             Location (Please click or tap the place in the map)
           </label>
@@ -311,7 +311,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
         <div className="mb-6">
           <label
             htmlFor="specialNotes-icon"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
           >
             Special Notes
           </label>
@@ -322,7 +322,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
               name="specialNotes"
               id="specialNotes-icon"
               onChange={handleChange}
-              className="bg-gray-50 border resize-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
+              className="bg-gray-50 border resize-none border-gray-300 text-textPrimary text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
               defaultValue={specialNotes}
               required={true}
             />

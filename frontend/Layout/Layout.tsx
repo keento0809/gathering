@@ -6,6 +6,7 @@ import Footer from "../components/Footer/Footer";
 import { useRouter } from "next/router";
 import LoadingSpinner from "../components/Spinner/LoadingSpinner";
 import { useLoadingContext } from "../context/LoadingContext";
+import bgImgUrl from "../public/static/bgImage.jpg";
 
 const Layout = ({ children }: LayoutProps) => {
   const [styling, setStyling] = useState({});
@@ -22,9 +23,8 @@ const Layout = ({ children }: LayoutProps) => {
       <Nav />
       <div className="containers">
         <section
-          style={{ backgroundColor: `rgb(254 202 202)`, minHeight: "100svh" }}
-          className={`container-wrapper w-full rounded-b-xl bg-cover bg-center`}
-          // className={`container-wrapper w-full rounded-b-xl bg-cover bg-center flex justify-start items-start`}
+          className={`container-wrapper bg-secondary w-full rounded-b-xl flex items-center`}
+          style={{ minHeight: "100svh" }}
         >
           {children}
         </section>

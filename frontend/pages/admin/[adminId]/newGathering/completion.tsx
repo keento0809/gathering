@@ -11,7 +11,7 @@ const Completion = () => {
         <title>Complete</title>
       </Head>
       <Wrapper>
-        <h2 className="text-2xl text-center font-bold tracking-tighter text-left text-red-500">
+        <h2 className="text-2xl text-center font-bold tracking-tighter text-left text-primary">
           New Gathering Created!
         </h2>
         <Card>

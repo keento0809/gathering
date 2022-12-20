@@ -21,7 +21,7 @@ const Home = ({ data }: GatheringsArrayType) => {
       </Head>
       <Wrapper>
         <div className="home-title lg:text-center">
-          <h3 className="text-3xl text-red-500 font-bold tracking-tight">
+          <h3 className="text-3xl text-primary font-bold tracking-tight">
             Welcome to Gathering!
           </h3>
           <p className="font-normal text-md pt-1 tracking-tight">
@@ -34,7 +34,7 @@ const Home = ({ data }: GatheringsArrayType) => {
               <h3
                 onClick={() => handleToggleContents(bool, "upcoming")}
                 className={`${
-                  !bool ? "text-red-500 border-b-red-500" : ""
+                  !bool ? "text-primary border-b-primary" : ""
                 } inline-block text-xl cursor-pointer border-b-4 border-transparent pb-0.5 lg:pb-1 lg:text-center font-bold tracking-tight overflow-y-scroll transition-all`}
               >
                 Upcoming
@@ -44,7 +44,7 @@ const Home = ({ data }: GatheringsArrayType) => {
               <h3
                 onClick={() => handleToggleContents(bool, "past")}
                 className={`${
-                  bool ? "text-red-500 border-b-red-500" : ""
+                  bool ? "text-primary border-b-primary" : ""
                 } inline-block text-xl border-b-4 border-transparent cursor-pointer pb-0.5 lg:pb-1 lg:text-center font-bold tracking-tight overflow-y-scroll transition-all`}
               >
                 Past

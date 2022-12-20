@@ -16,7 +16,7 @@ const Manage = ({ gathering }: GatheringProps) => {
         <title>Manage</title>
       </Head>
       <Wrapper>
-        <h2 className="text-2xl text-center font-bold tracking-tighter text-left text-red-500">
+        <h2 className="text-2xl text-center font-bold tracking-tighter text-primary">
           Manage Gathering
         </h2>
         <Card>

@@ -68,7 +68,7 @@ const ApplicationForm = ({ gathering }: GatheringProps) => {
         <div className="mb-6">
           <label
             htmlFor="email-address-icon"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
           >
             Username
           </label>
@@ -80,7 +80,7 @@ const ApplicationForm = ({ gathering }: GatheringProps) => {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="w-5 h-5 text-red-500 dark:text-red-400"
+                className="w-5 h-5 text-primary dark:text-red-400"
               >
                 <path
                   strokeLinecap="round"
@@ -93,7 +93,7 @@ const ApplicationForm = ({ gathering }: GatheringProps) => {
               type="text"
               name="username"
               id="email-address-icon"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
+              className="bg-gray-50 border border-gray-300 text-textPrimary text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
               placeholder="Your name"
               onChange={handleChange}
               required={true}
@@ -103,7 +103,7 @@ const ApplicationForm = ({ gathering }: GatheringProps) => {
         <div className="mb-6">
           <label
             htmlFor="email-address-icon"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
           >
             Your Email
           </label>
@@ -111,7 +111,7 @@ const ApplicationForm = ({ gathering }: GatheringProps) => {
             <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
               <svg
                 aria-hidden="true"
-                className="w-5 h-5 text-red-500 dark:text-red-400"
+                className="w-5 h-5 text-primary dark:text-red-400"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -124,7 +124,7 @@ const ApplicationForm = ({ gathering }: GatheringProps) => {
               type="email"
               name="email"
               id="email-address-icon"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
+              className="bg-gray-50 border border-gray-300 text-textPrimary text-sm rounded-lg focus:ring-primary focus:border-red-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
               placeholder="name@flowbite.com"
               onChange={handleChange}
               required={true}
@@ -134,19 +134,19 @@ const ApplicationForm = ({ gathering }: GatheringProps) => {
         <div className="mb-6">
           <label
             htmlFor="website-admin"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
           >
             Twitter Id
           </label>
           <div className="flex">
-            <span className="inline-flex items-center px-3 text-sm bg-gray-200 rounded-l-md border border-r-0 border-gray-300 dark:bg-gray-600 dark:border-gray-600 text-red-500 dark:text-red-400">
+            <span className="inline-flex items-center px-3 text-sm bg-gray-200 rounded-l-md border border-r-0 border-gray-300 dark:bg-gray-600 dark:border-gray-600 text-primary dark:text-red-400">
               @
             </span>
             <input
               type="text"
               name="twitterId"
               id="website-admin"
-              className="rounded-none rounded-r-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-red-500 focus:border-red-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
+              className="rounded-none rounded-r-lg bg-gray-50 border border-gray-300 text-textPrimary focus:ring-red-500 focus:border-red-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
               placeholder="Bonnie Green"
               onChange={handleChange}
               required={true}

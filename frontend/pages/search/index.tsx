@@ -20,7 +20,7 @@ const SearchGathering = ({ data }: GatheringsArrayType) => {
   );
   return (
     <Wrapper>
-      <h2 className="text-2xl pl-0.5 font-bold tracking-tighter text-left lg:text-center text-red-500 dark:text-red-400">
+      <h2 className="text-2xl pl-0.5 font-bold tracking-tighter text-left lg:text-center text-primary dark:text-red-400">
         Search Gathering
       </h2>
       <div className="explanations pt-3 pb-8">

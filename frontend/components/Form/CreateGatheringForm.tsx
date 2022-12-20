@@ -97,7 +97,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
         <div className="mb-6">
           <label
             htmlFor="title-icon"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
           >
             Title
           </label>
@@ -107,7 +107,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
               name="title"
               id="title-icon"
               onChange={handleChange}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
+              className="bg-gray-50 border border-gray-300 text-textPrimary text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
               placeholder="Title"
               required={true}
             />
@@ -116,7 +116,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
         <div className="mb-6">
           <label
             htmlFor="image-icon"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
           >
             Image
           </label>
@@ -135,7 +135,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
         <div className="mb-6">
           <label
             htmlFor="date-icon"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
           >
             Date
           </label>
@@ -145,7 +145,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
               name="date"
               id="date-icon"
               onChange={handleChange}
-              className={`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500 ${
+              className={`bg-gray-50 border border-gray-300 text-textPrimary text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500 ${
                 isDateExpired && "border-red-500"
               }`}
               placeholder=""
@@ -153,7 +153,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
             />
           </div>
           {isDateExpired && (
-            <div className="text-sm text-red-500 py-2 pl-3">
+            <div className="text-sm text-primary py-2 pl-3">
               <span>Invalid date. Date must not be the past.</span>
             </div>
           )}
@@ -162,16 +162,16 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
           <div className="flex flex-row justify-between">
             <label
               htmlFor="headline-icon"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
             >
               Headline (in 100 words)
             </label>
-            <span className={`text-sm ${wordCount < 0 && "text-red-500"}`}>
+            <span className={`text-sm ${wordCount < 0 && "text-primary"}`}>
               {wordCount} words left
             </span>
           </div>
           {wordCount < 0 && (
-            <div className="text-sm text-red-500 pb-2">
+            <div className="text-sm text-primary pb-2">
               <span>Words in headline must be in 100 words.</span>
             </div>
           )}
@@ -182,7 +182,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
               name="headline"
               id="headline-icon"
               onChange={handleChange}
-              className="bg-gray-50 border resize-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
+              className="bg-gray-50 border resize-none border-gray-300 text-textPrimary text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
               placeholder="Fill out headline within 100 words"
               required={true}
             />
@@ -191,7 +191,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
         <div className="mb-6">
           <label
             htmlFor="description-icon"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
           >
             Description
           </label>
@@ -202,7 +202,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
               name="description"
               id="description-icon"
               onChange={handleChange}
-              className="bg-gray-50 border resize-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
+              className="bg-gray-50 border resize-none border-gray-300 text-textPrimary text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
               placeholder="Fill out description here"
               required={true}
             />
@@ -211,7 +211,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
         <div className="mb-6">
           <label
             htmlFor="number"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
           >
             Capacity (2 ~ 200)
           </label>
@@ -223,7 +223,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
               onChange={handleChange}
               min={2}
               max={200}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
+              className="bg-gray-50 border border-gray-300 text-textPrimary text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
               placeholder="Enter number from 2 to 200"
               required={true}
             />
@@ -232,7 +232,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
         <div className="mb-6">
           <label
             htmlFor="schedule-icon"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
           >
             Schedule
           </label>
@@ -242,7 +242,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
               name="schedule"
               id="schedule-icon"
               onChange={handleChange}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
+              className="bg-gray-50 border border-gray-300 text-textPrimary text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
               placeholder="09:00~12:00"
               required={true}
             />
@@ -251,7 +251,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
         <div className="mb-6">
           <label
             htmlFor="timeSchedule-icon"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
           >
             Time Schedule
           </label>
@@ -262,7 +262,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
               name="timeSchedule"
               id="timeSchedule-icon"
               onChange={handleChange}
-              className="bg-gray-50 border resize-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
+              className="bg-gray-50 border resize-none border-gray-300 text-textPrimary text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
               placeholder="09:00~10:00 Lecture"
               required={true}
             />
@@ -271,7 +271,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
         <div className="mb-6">
           <label
             htmlFor="placeName-icon"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
           >
             Place name
           </label>
@@ -281,7 +281,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
               name="placeName"
               id="placeName-icon"
               onChange={handleChange}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
+              className="bg-gray-50 border border-gray-300 text-textPrimary text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
               placeholder="Waves Coffee"
               required={true}
             />
@@ -290,7 +290,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
         <div className="mb-6">
           <label
             htmlFor="placeLatLng-icon"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
           >
             Location (Please click or tap the place in the map)
           </label>
@@ -301,7 +301,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
         <div className="mb-6">
           <label
             htmlFor="specialNotes-icon"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
           >
             Special Notes
           </label>
@@ -312,7 +312,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
               name="specialNotes"
               id="specialNotes-icon"
               onChange={handleChange}
-              className="bg-gray-50 border resize-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
+              className="bg-gray-50 border resize-none border-gray-300 text-textPrimary text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
               placeholder="Fill out special notes here"
               required={true}
             />
@@ -320,7 +320,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
         </div>
         <div className="py-6 text-white text-sm">
           After filling out all inputs above, please push{" "}
-          <span className="font-bold text-red-500 cursor-pointer">Create</span>{" "}
+          <span className="font-bold text-primary cursor-pointer">Create</span>{" "}
           button, then your new gathering will be created successfully and added
           to the upcoming gathering list.
         </div>

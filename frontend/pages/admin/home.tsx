@@ -29,7 +29,7 @@ const AdminHome = ({ data }: DataPropsAtAdminHome) => {
         <div className="home-title">
           {!session && (
             <div>
-              <h2 className="text-2xl font-bold text-center tracking-tight text-red-500 dark:text-red-400">
+              <h2 className="text-2xl font-bold text-center tracking-tight text-primary dark:text-red-400">
                 Admin Authentication
               </h2>
               <Card>
@@ -58,7 +58,7 @@ const AdminHome = ({ data }: DataPropsAtAdminHome) => {
           {session && (
             <div>
               <div className="flex flex-row items-center justify-between lg:justify-center">
-                <h3 className="text-2xl text-red-500 lg:text-center font-bold tracking-tight">
+                <h3 className="text-2xl text-primary lg:text-center font-bold tracking-tight">
                   Hello, {session.user?.name}!
                 </h3>
                 <Link href={"/admin/home"}>

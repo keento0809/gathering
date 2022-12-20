@@ -5,7 +5,7 @@ import { AuthButtonProps } from "../../models/model";
 const GithubAuthButton = ({ text }: AuthButtonProps) => {
   return (
     <Fragment>
-      <button className="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
+      <button className="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-textPrimary rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
         <div className="px-1.5">
           <svg viewBox="0 0 128 128" height={20} width={20}>
             <g fill="#181616">
