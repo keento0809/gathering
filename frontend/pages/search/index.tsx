@@ -26,9 +26,7 @@ const SearchGathering = ({ data }: GatheringsArrayType) => {
       <div className="explanations pt-3 pb-8">
         <div className="text-sm pl-0.5 pb-2">
           <p className="lg:text-center">
-            <span className="font-semibold">
-              {filteredData.length} gathering
-            </span>{" "}
+            <span className="font-bold">{filteredData.length} gathering</span>{" "}
             matches
           </p>
         </div>

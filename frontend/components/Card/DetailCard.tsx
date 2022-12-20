@@ -22,11 +22,11 @@ const DetailCard = ({ gathering }: GatheringProps) => {
         <section className="image bg-red-400 min-h-236">
           <img src={imageUrl} alt="" width="100%" style={{ height: "236px" }} />
         </section>
-        <section className="description p-4 bg-slate-50 min-h-236">
+        <section className="description p-4 bg-white min-h-236">
           <h3 className="text-lg font-bold tracking-tight">Description</h3>
           <p className="text-base pt-2">{gathering.description}</p>
         </section>
-        <section className="info p-4 bg-red-400 md:bg-slate-50 min-h-236">
+        <section className="info p-4 bg-red-400 md:bg-white min-h-236">
           <h3 className="text-lg font-bold tracking-tight">Info</h3>
           <ul className="pt-2 text-base">
             <li className="pb-1">Date: {gathering.date}</li>
@@ -68,7 +68,7 @@ const DetailCard = ({ gathering }: GatheringProps) => {
             <li className="pb-1">Organizer: {gathering.organizer.username}</li>
           </ul>
         </section>
-        <section className="schedule p-4 bg-slate-50 md:bg-red-400 min-h-236">
+        <section className="schedule p-4 bg-white md:bg-red-400 min-h-236">
           <h3 className="text-lg font-bold tracking-tight">Schedule</h3>
           <div className="pt-2">
             {schedule?.map((item, index) =>
@@ -100,7 +100,7 @@ const DetailCard = ({ gathering }: GatheringProps) => {
             />
           </div>
         </section>
-        <section className="specialNotes p-4 bg-slate-50 min-h-236">
+        <section className="specialNotes p-4 bg-white min-h-236">
           <h3 className="text-lg font-bold tracking-tight">Notes</h3>
           <p className="text-base py-2">{gathering.specialNotes}</p>
         </section>

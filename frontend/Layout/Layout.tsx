@@ -9,21 +9,22 @@ import { useLoadingContext } from "../context/LoadingContext";
 import bgImgUrl from "../public/static/bgImage.jpg";
 
 const Layout = ({ children }: LayoutProps) => {
-  const [styling, setStyling] = useState({});
+  const [isHero, setIsHero] = useState(false);
   const { isLoading } = useLoadingContext();
   const router = useRouter();
   useEffect(() => {
-    setStyling(
-      router.route === "/" ? {} : { backgroundColor: `rgb(254 202 202)` }
-    );
-  }, []);
+    console.log(router.route === "/");
+    setIsHero(router.route === "/");
+  }, [router.route]);
   return (
     <>
       <Meta />
       <Nav />
       <div className="containers">
         <section
-          className={`container-wrapper bg-secondary w-full rounded-b-xl flex items-center`}
+          className={`container-wrapper bg-secondary w-full rounded-b-xl flex ${
+            isHero && "items-center"
+          }`}
           style={{ minHeight: "100svh" }}
         >
           {children}
