@@ -41,7 +41,7 @@ const Signup = () => {
         <h2 className="text-2xl font-bold text-center tracking-tighter text-primary dark:text-red-400">
           Sign up
         </h2>
-        <section className="auth-form rounded-xl bg-slate-400 min-h-500 p-8 mt-6">
+        <section className="auth-form rounded-xl bg-bgForCard min-h-500 p-8 mt-6">
           <form onSubmit={handleSubmit}>
             <div className="mb-6">
               <label

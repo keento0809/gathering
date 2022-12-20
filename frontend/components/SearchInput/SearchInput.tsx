@@ -16,19 +16,19 @@ const SearchInput = ({ handleInputWord }: handleInputWord) => {
             <input
               type="search"
               id="search-dropdown"
-              className="block p-2.5 w-full z-20 text-sm text-textPrimary bg-gray-50 rounded-l-lg rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-red-500 focus:border-red-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-red-500"
+              className="block p-2.5 w-full z-20 text-sm text-textPrimary rounded-l-lg rounded-r-lg border-l-2 border border-gray-300 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-primary"
               placeholder="Search"
               onChange={handleChange}
             />
             <button
               type="submit"
-              className="absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-red-500 rounded-r-lg border border-red-500 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-500 dark:focus:ring-red-800"
+              className="absolute top-0 right-0 p-2.5 text-sm font-medium transition-all text-white bg-primary rounded-r-lg border border-primary hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-primary dark:focus:ring-red-600"
             >
               <svg
                 aria-hidden="true"
                 className="w-5 h-5"
                 fill="none"
-                stroke="currentColor"
+                stroke="white"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >

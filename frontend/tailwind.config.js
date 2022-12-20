@@ -13,6 +13,7 @@ module.exports = {
         secondary: "#FCFFE7",
         textPrimary: "#2B3467",
         textSecondary: "#BAD7E9",
+        bgForCard: "#BAD7E9",
       },
       width: {
         180: "180px",
