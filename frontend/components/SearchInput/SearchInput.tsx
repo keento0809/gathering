@@ -16,7 +16,7 @@ const SearchInput = ({ handleInputWord }: handleInputWord) => {
             <input
               type="search"
               id="search-dropdown"
-              className="block p-2.5 w-full z-20 text-sm text-textPrimary rounded-l-lg rounded-r-lg border-l-2 border border-gray-300 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-primary"
+              className="block p-2.5 w-full z-20 text-sm text-textPrimary rounded-l-lg rounded-r-lg border-l-1 border border-gray-300 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-primary"
               placeholder="Search"
               onChange={handleChange}
             />
