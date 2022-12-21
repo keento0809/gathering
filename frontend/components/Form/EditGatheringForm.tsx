@@ -328,7 +328,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
             />
           </div>
         </div>
-        <div className="py-6 text-white text-sm">
+        <div className="py-6 text-textPrimary text-sm">
           Please make sure all inputs are filled out before updating gathering.
         </div>
         <div className="pb-6">

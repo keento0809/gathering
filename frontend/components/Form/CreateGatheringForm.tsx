@@ -113,7 +113,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
             />
           </div>
         </div>
-        <div className="mb-6">
+        {/* <div className="mb-6">
           <label
             htmlFor="image-icon"
             className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
@@ -131,7 +131,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
             />
             <img src={file?.name} alt="thumbnail" width={100} height={100} />
           </div>
-        </div>
+        </div> */}
         <div className="mb-6">
           <label
             htmlFor="date-icon"
@@ -318,7 +318,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
             />
           </div>
         </div>
-        <div className="py-6 text-white text-sm">
+        <div className="py-6 text-textPrimary text-sm">
           After filling out all inputs above, please push{" "}
           <span className="font-bold text-primary cursor-pointer">Create</span>{" "}
           button, then your new gathering will be created successfully and added
