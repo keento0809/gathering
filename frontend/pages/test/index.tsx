@@ -1,15 +1,37 @@
+import axios from "axios";
 import Head from "next/head";
 import React, { useState } from "react";
 import Wrapper from "../../components/Wrapper/Wrapper";
+import { server } from "../../config";
 
 const Test = () => {
-  const [file, setFile] = useState<File>();
+  const [file, setFile] = useState<File | null>();
+  const [isLoading, setIsLoading] = useState<Boolean>(false);
   const handleSetFile = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(event.target.files![0]);
     setFile(event.target.files![0]);
   };
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("submitting!", file);
+    setIsLoading(true);
+    const formData = new FormData();
+    formData.append("image", file!);
+    for (var pair of formData.entries()) {
+      console.log(pair[0] + ", " + pair[1]);
+    }
+    const result = await axios.post(`${server}/api/test`, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    console.log(result);
+    if (result) {
+      console.log("Succeeded to upload image to S3 bucket");
+      setFile(null);
+      setIsLoading(false);
+    } else {
+      throw new Error("Failed to upload image to S3 bucket");
+    }
   };
   return (
     <>
@@ -23,6 +45,7 @@ const Test = () => {
             Submit
           </button>
         </form>
+        {isLoading && <p>Loading...</p>}
       </Wrapper>
     </>
   );

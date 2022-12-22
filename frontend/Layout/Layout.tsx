@@ -6,14 +6,11 @@ import Footer from "../components/Footer/Footer";
 import { useRouter } from "next/router";
 import LoadingSpinner from "../components/Spinner/LoadingSpinner";
 import { useLoadingContext } from "../context/LoadingContext";
-import bgImgUrl from "../public/static/bgImage.jpg";
-
 const Layout = ({ children }: LayoutProps) => {
   const [isHero, setIsHero] = useState(false);
   const { isLoading } = useLoadingContext();
   const router = useRouter();
   useEffect(() => {
-    console.log(router.route === "/");
     setIsHero(router.route === "/");
   }, [router.route]);
   return (
