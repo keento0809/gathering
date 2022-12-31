@@ -76,7 +76,6 @@ const Home = ({ data }: GatheringsArrayType) => {
 export default Home;
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  console.log("鯖", server);
   const res = await fetch(`${server}/api/gatherings`, {
     method: "GET",
     headers: {

@@ -2,10 +2,14 @@ import React from "react";
 import Card from "../../components/Card/Card";
 import Wrapper from "../../components/Wrapper/Wrapper";
 import MainButton from "../../components/Button/MainButton";
+import Head from "next/head";
 
 const About = () => {
   return (
     <>
+      <Head>
+        <title>About Gathering</title>
+      </Head>
       <Wrapper>
         <h2 className="text-2xl pl-2 font-bold tracking-tighter text-left lg:text-center text-primary dark:text-red-400">
           About

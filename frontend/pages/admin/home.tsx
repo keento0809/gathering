@@ -23,7 +23,7 @@ const AdminHome = ({ data }: DataPropsAtAdminHome) => {
   return (
     <>
       <Head>
-        <title>Admin Home</title>
+        <title>Admin {session ? "home" : "login"}</title>
       </Head>
       <Wrapper>
         <div className="home-title">
