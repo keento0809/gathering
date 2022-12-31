@@ -8,6 +8,7 @@ import { server } from "../../config";
 import { GatheringsArrayType, GatheringType } from "../../models/model";
 import GatheringsList from "../../components/List/GatheringsList";
 import sortGatherings from "../../Helper/sortGatherings";
+import Head from "next/head";
 
 const SearchGathering = ({ data }: GatheringsArrayType) => {
   const [inputWord, setInputWord] = useState("");
@@ -19,23 +20,28 @@ const SearchGathering = ({ data }: GatheringsArrayType) => {
     gathering.title.toLowerCase().includes(inputWord)
   );
   return (
-    <Wrapper>
-      <h2 className="text-2xl pl-0.5 font-bold tracking-tighter text-left lg:text-center text-primary dark:text-red-400">
-        Search Gathering
-      </h2>
-      <div className="explanations pt-3 pb-8">
-        <div className="text-sm pl-0.5 pb-2">
-          <p className="lg:text-center">
-            <span className="font-bold">{filteredData.length} gathering</span>{" "}
-            matches
-          </p>
+    <>
+      <Head>
+        <title>Find Gathering</title>
+      </Head>
+      <Wrapper>
+        <h2 className="text-2xl pl-0.5 font-bold tracking-tighter text-left lg:text-center text-primary dark:text-red-400">
+          Search Gathering
+        </h2>
+        <div className="explanations pt-3 pb-8">
+          <div className="text-sm pl-0.5 pb-2">
+            <p className="lg:text-center">
+              <span className="font-bold">{filteredData.length} gathering</span>{" "}
+              matches
+            </p>
+          </div>
+          <div className="pb-1.5">
+            <SearchInput handleInputWord={handleInputWord} />
+          </div>
+          <GatheringsList data={filteredData} />
         </div>
-        <div className="pb-1.5">
-          <SearchInput handleInputWord={handleInputWord} />
-        </div>
-        <GatheringsList data={filteredData} />
-      </div>
-    </Wrapper>
+      </Wrapper>
+    </>
   );
 };
 
