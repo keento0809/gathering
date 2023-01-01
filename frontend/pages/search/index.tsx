@@ -47,7 +47,7 @@ const SearchGathering = ({ data }: GatheringsArrayType) => {
 
 export default SearchGathering;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const response = await fetch(`${server}/api/gatherings`);
   const allGatherings = await response.json();
   return {
