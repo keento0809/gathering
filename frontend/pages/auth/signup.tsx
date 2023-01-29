@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import AuthButton from "../../components/Button/Button";
 import Link from "next/link";
 import { useRouter } from "next/router";

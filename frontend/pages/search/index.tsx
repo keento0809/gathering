@@ -1,7 +1,5 @@
 import { GetServerSideProps } from "next";
-import { getSession } from "next-auth/react";
-import React, { useState } from "react";
-import GatheringCard from "../../components/Card/GatheringCard";
+import { useState } from "react";
 import SearchInput from "../../components/SearchInput/SearchInput";
 import Wrapper from "../../components/Wrapper/Wrapper";
 import { server } from "../../config";

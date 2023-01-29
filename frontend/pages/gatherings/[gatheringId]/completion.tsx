@@ -1,11 +1,10 @@
 import { GetServerSideProps } from "next";
 import Head from "next/head";
-import React from "react";
 import MainButton from "../../../components/Button/MainButton";
 import Card from "../../../components/Card/Card";
 import Wrapper from "../../../components/Wrapper/Wrapper";
 import { server } from "../../../config";
-import { GatheringProps, GatheringType } from "../../../models/model";
+import { GatheringProps } from "../../../models/model";
 import MapWithMarker from "../../../components/Map/MapWithMarker";
 
 const Completion = ({ gathering }: GatheringProps) => {

@@ -1,4 +1,3 @@
-import React from "react";
 import { Url } from "url";
 
 export interface MetaDefaultPropsType {

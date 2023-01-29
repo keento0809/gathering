@@ -1,5 +1,3 @@
-import React from "react";
-
 const LoadingSpinner = () => {
   return (
     <div className="fixed top-0 w-full h-full bg-slate-50 opacity-50 z-50">

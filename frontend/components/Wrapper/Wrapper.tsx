@@ -1,4 +1,3 @@
-import React from "react";
 import { ChildrenProps } from "../../models/model";
 
 const Wrapper = ({ children }: ChildrenProps) => {
