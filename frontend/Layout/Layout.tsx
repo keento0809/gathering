@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Meta from "../meta/Meta";
 import Nav from "../components/navbar/NavBar";
 import { LayoutProps } from "../models/model";

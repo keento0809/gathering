@@ -1,6 +1,6 @@
 import { GetServerSideProps } from "next";
 import Head from "next/head";
-import React, { useState } from "react";
+import { useState } from "react";
 import GatheringsList from "../../components/List/GatheringsList";
 import Wrapper from "../../components/Wrapper/Wrapper";
 import { GatheringsArrayType } from "../../models/model";

@@ -1,5 +1,4 @@
 import Head from "next/head";
-import React from "react";
 import MainButton from "../../../../components/Button/MainButton";
 import Card from "../../../../components/Card/Card";
 import Wrapper from "../../../../components/Wrapper/Wrapper";
@@ -23,7 +22,6 @@ const Completion = () => {
               Manage your gathering as organizer!
             </p>
           </div>
-          {/* CompletionCard */}
         </Card>
         <div className="text-center pt-8">
           <MainButton text="Home" linkUrl="/home" />

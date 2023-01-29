@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import MainButton from "../../../components/Button/MainButton";
 import DetailCard from "../../../components/Card/DetailCard";
 import Wrapper from "../../../components/Wrapper/Wrapper";

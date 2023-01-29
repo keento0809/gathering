@@ -1,5 +1,4 @@
 import Head from "next/head";
-import React, { useEffect, useState } from "react";
 import Wrapper from "../../components/Wrapper/Wrapper";
 import { getSession, useSession } from "next-auth/react";
 import GithubAuthButton from "../../components/Button/GithubAuthButton";

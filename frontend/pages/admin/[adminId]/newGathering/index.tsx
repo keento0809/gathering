@@ -1,7 +1,6 @@
 import { GetServerSideProps } from "next";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
-import React from "react";
 import MainButton from "../../../../components/Button/MainButton";
 import Card from "../../../../components/Card/Card";
 import CreateGatheringForm from "../../../../components/Form/CreateGatheringForm";

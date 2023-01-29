@@ -1,5 +1,4 @@
 import Head from "next/head";
-import React from "react";
 import Wrapper from "../../../components/Wrapper/Wrapper";
 import Card from "../../../components/Card/Card";
 import ApplicationForm from "../../../components/Form/ApplicationForm";
