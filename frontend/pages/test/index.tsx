@@ -17,16 +17,12 @@ const Test = () => {
     setIsLoading(true);
     const formData = new FormData();
     formData.append("image", file!);
-    // for (var pair of formData.entries()) {
-    //   console.log(pair[0] + ", " + pair[1]);
-    // }
     const result = await axios.post(`${server}/api/test`, formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
     });
     if (result) {
-      console.log("Succeeded to upload image to S3 bucket");
       setFile(null);
       setIsLoading(false);
     } else {
