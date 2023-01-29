@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { GatheringProps } from "../../models/model";
 import CardModal from "../Modal/CardModal";
@@ -6,7 +6,6 @@ import MainButton from "../Button/MainButton";
 import urlForImage from "/public/static/bgImage.jpg";
 import urlForImageSecond from "../../public/static/heroImg.jpg";
 import urlForImageThird from "../../public/static/mtg.jpg";
-import getTodayString from "../../Helper/getTodayString";
 import updateGatheringImage from "../../Helper/updateGatheringImage";
 import isGatheringExpired from "../../Helper/isGatheringExpired";
 

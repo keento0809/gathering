@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { ChildrenProps } from "../../models/model";
 
 const Card = ({ children }: ChildrenProps) => {
@@ -6,7 +6,6 @@ const Card = ({ children }: ChildrenProps) => {
   const [maxHeight, setMaxHeight] = useState(580);
 
   useEffect(() => {
-    console.log(window.outerHeight);
     if (window.outerHeight < 790) {
       setMaxHeight(360);
       setMinHeight(300);

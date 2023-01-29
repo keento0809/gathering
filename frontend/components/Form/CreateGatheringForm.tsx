@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Button from "../Button/Button";
 import { server } from "../../config/index";
 import { GatheringType, adminUserProps } from "../../models/model";
@@ -61,12 +61,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
       console.error("Select a file");
       return;
     }
-    console.log(e.target.files[0]);
     setFile(e.target.files[0]);
-    // setGatheringInfo({
-    //   ...gatheringInfo,
-    //   [e.target.name]: e.target.files[0],
-    // });
   };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -113,25 +108,6 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
             />
           </div>
         </div>
-        {/* <div className="mb-6">
-          <label
-            htmlFor="image-icon"
-            className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
-          >
-            Image
-          </label>
-          <div className="relative">
-            <input
-              type="file"
-              name="image"
-              id="image-icon"
-              onChange={handleSetFile}
-              accept="image/png,image/jpeg"
-              // required={true}
-            />
-            <img src={file?.name} alt="thumbnail" width={100} height={100} />
-          </div>
-        </div> */}
         <div className="mb-6">
           <label
             htmlFor="date-icon"

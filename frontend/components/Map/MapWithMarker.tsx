@@ -1,13 +1,9 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import useDeepCompareEffect from "use-deep-compare-effect";
 import { MapProps, latLngProps } from "../../models/model";
-import { Status, Wrapper } from "@googlemaps/react-wrapper";
+import { Wrapper } from "@googlemaps/react-wrapper";
 import { Marker, InfoWindow } from "@react-google-maps/api";
 import Link from "next/link";
-
-const render = (status: Status) => {
-  return <h1>{status}</h1>;
-};
 
 const Map: React.FC<MapProps> = ({
   onClick,
@@ -16,10 +12,10 @@ const Map: React.FC<MapProps> = ({
   style,
   ...options
 }) => {
-  const ref = React.useRef<HTMLDivElement>(null);
-  const [map, setMap] = React.useState<google.maps.Map>();
+  const ref = useRef<HTMLDivElement>(null);
+  const [map, setMap] = useState<google.maps.Map>();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (ref.current && !map) {
       setMap(new window.google.maps.Map(ref.current, {}));
     }
@@ -31,7 +27,7 @@ const Map: React.FC<MapProps> = ({
     }
   }, [map, options]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (map) {
       ["click", "idle"].forEach((eventName) =>
         google.maps.event.clearListeners(map, eventName)
@@ -43,33 +39,31 @@ const Map: React.FC<MapProps> = ({
   }, [map, onClick, onIdle]);
 
   return (
-    <>
-      <div ref={ref} style={style}>
-        {React.Children.map(children, (child) => {
-          if (React.isValidElement(child)) {
-            return React.cloneElement(child, { map });
-          }
-        })}
-      </div>
-    </>
+    <div ref={ref} style={style}>
+      {React.Children.map(children, (child) => {
+        if (React.isValidElement(child)) {
+          return React.cloneElement(child, { map });
+        }
+      })}
+    </div>
   );
 };
 
 const MapWithMarker = ({ placeLatLng, placeName }: latLngProps) => {
-  const [zoom, setZoom] = React.useState(14);
+  const [zoom, setZoom] = useState(14);
   const [centerPosition, setCenterPosition] =
-    React.useState<google.maps.LatLngLiteral>({
+    useState<google.maps.LatLngLiteral>({
       lat: placeLatLng.lat,
       lng: placeLatLng.lng,
     });
-  const [showingInfoWindow, setShowingInfoWindow] = React.useState(false);
+  const [showingInfoWindow, setShowingInfoWindow] = useState(false);
 
   const onIdle = (m: google.maps.Map) => {
     setZoom(m.getZoom()!);
     setCenterPosition(m.getCenter()!.toJSON());
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     setCenterPosition({
       lat: placeLatLng.lat,
       lng: placeLatLng.lng,

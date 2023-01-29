@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Button from "../Button/Button";
 import { useRouter } from "next/router";
 import { server } from "../../config";
@@ -54,7 +54,7 @@ const ApplicationForm = ({ gathering }: GatheringProps) => {
       };
       // send email
       send(serviceID, templateID, template_params)
-        .then((res) => console.log(res.text))
+        .then()
         .catch((err) => console.log(err));
       router.replace(`/gatherings/${gatheringId}/completion`);
     } else {
