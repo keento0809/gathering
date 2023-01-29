@@ -64,7 +64,6 @@ const GatheringDetail: NextPage<DataPropsAtGatheringDetail> = ({ data }) => {
 
 export default GatheringDetail;
 
-// test
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { params } = context;
   const gatheringId = params!["gatheringId"];

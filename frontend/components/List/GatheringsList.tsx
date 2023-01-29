@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import GatheringCard from "../Card/GatheringCard";
 import { GatheringsArrayType } from "../../models/model";
 

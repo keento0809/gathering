@@ -27,7 +27,7 @@ const Signup = () => {
     e.preventDefault();
     axios
       .post("/api/auth/signup", userInfo)
-      .then((res) => {
+      .then(() => {
         router.replace("/home");
       })
       .catch((error) => {

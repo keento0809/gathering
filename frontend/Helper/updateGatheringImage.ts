@@ -14,10 +14,7 @@ export const setGatheringImage = () => {
 };
 
 const updateGatheringImage = async (gathering: GatheringType) => {
-  console.log("ugoieru?");
   const index = selectImageIndex();
-  console.log(index, imagesData[index]);
-
   try {
     gathering.image = imagesData[index];
     await fetch(`${server}/api/gatherings/${gathering._id}/image`, {

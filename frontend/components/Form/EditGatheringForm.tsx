@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import TestMap from "../Map/TestMap";
 import Button from "../Button/Button";
 import { GatheringProps, GatheringType } from "../../models/model";
-import { useMapContext } from "../../context/MapContext";
 import { server } from "../../config";
 
 const EditGatheringForm = ({ gathering }: GatheringProps) => {
@@ -23,7 +22,6 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
     specialNotes,
     organizer,
   } = gathering;
-  const mapCtx = useMapContext();
   const [wordCount, setWordCount] = useState(140);
   const [gatheringInfo, setGatheringInfo] = useState<GatheringType>({
     _id: _id,

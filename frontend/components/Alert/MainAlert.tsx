@@ -1,4 +1,3 @@
-import React from "react";
 import { MainAlertProps } from "../../models/model";
 
 const MainAlert = ({ text, isAlert, setIsAlert }: MainAlertProps) => {

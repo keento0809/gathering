@@ -1,10 +1,9 @@
-import React, { useState, useEffect, Fragment } from "react";
+import { useState, useEffect, Fragment } from "react";
 import Card from "./Card";
 import { GatheringProps } from "../../models/model";
 import MapWithMarker from "../Map/MapWithMarker";
 import urlForImage from "../../public/static/bgImage.jpg";
 import Link from "next/link";
-import Image from "next/image";
 
 const DetailCard = ({ gathering }: GatheringProps) => {
   const [imageUrl, setImageUrl] = useState("");

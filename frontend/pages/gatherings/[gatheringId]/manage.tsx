@@ -1,4 +1,3 @@
-import React from "react";
 import Head from "next/head";
 import Wrapper from "../../../components/Wrapper/Wrapper";
 import Card from "../../../components/Card/Card";

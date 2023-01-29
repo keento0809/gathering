@@ -76,14 +76,12 @@ export interface GatheringsArrayType {
 }
 
 export interface participantInfoObj {
-  // id: number;
   username: string;
   email: string;
   twitterId: string;
 }
 
 export interface adminUserInfoObjType {
-  // test
   _id?: number | null;
   id?: number | null;
   username: string;
