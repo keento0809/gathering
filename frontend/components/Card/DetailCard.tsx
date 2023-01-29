@@ -91,7 +91,6 @@ const DetailCard = ({ gathering }: GatheringProps) => {
           </div>
         </section>
         <section className="google-map bg-red-400">
-          {/* <h3 className="text-lg font-bold tracking-tight">Map</h3> */}
           <div className="">
             <MapWithMarker
               placeLatLng={gathering.placeLatLng}

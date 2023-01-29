@@ -23,12 +23,6 @@ const MainAlert = ({ text, isAlert, setIsAlert }: MainAlertProps) => {
       <span className="sr-only">Info</span>
       <div className="ml-3 text-sm font-medium text-green-700 dark:text-green-800">
         {text}
-        {/* <a
-          href="#"
-          className="font-semibold underline hover:text-green-800 dark:hover:text-green-900"
-        >
-          example link
-        </a> */}
       </div>
       <button
         type="button"
