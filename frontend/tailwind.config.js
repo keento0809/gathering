@@ -6,6 +6,10 @@ module.exports = {
     "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    borderWidth: {
+      0.8: "0.8px",
+      1: "1px",
+    },
     extend: {
       colors: {
         "light-red": "rgb(254 202 202)",
