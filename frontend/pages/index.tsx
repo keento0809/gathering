@@ -2,16 +2,22 @@ import type { NextPage } from "next";
 import { useState } from "react";
 import MainAlert from "../components/Alert/MainAlert";
 import MainButton from "../components/Button/MainButton";
+import ImgPath from "../public/static/meeting.jpg";
 
 const Home: NextPage = () => {
   const [isAlert, setIsAlert] = useState(false);
   return (
     <>
-      <div className="lg:text-center left-0 w-full px-5">
-        <section className="hero-body">
+      <div
+        className="lg:text-center left-0 w-full px-5 md:px-8 flex flex-col-reverse lg:flex-row justify-center lg:items-center"
+        style={{ height: "100svh" }}
+      >
+        <section className="hero-body flex-1 pt-6 lg:pt-0">
           <div className="hero-title">
-            <h1 className="text-4xl font-bold tracking-tighter">Gathering</h1>
-            <h3 className="text-2xl font-bold tracking-tighter pt-2">
+            <h1 className="text-3xl lg:text-4xl font-bold tracking-tighter">
+              Gathering
+            </h1>
+            <h3 className="text-xl lg:text-2xl font-bold tracking-tighter pt-2">
               - Connect Together -
             </h3>
           </div>
@@ -21,6 +27,7 @@ const Home: NextPage = () => {
           </div>
           <MainButton text="Get started" linkUrl="/home" />
         </section>
+        <section className="flex-1 w-auto h-full bg-[url('../public/static/meeting.jpg')] bg-cover bg-center"></section>
         {isAlert && (
           <MainAlert
             text="This is a test alert"
