@@ -1,11 +1,12 @@
 import { GetServerSideProps } from "next";
 import Head from "next/head";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import GatheringsList from "../../components/List/GatheringsList";
 import Wrapper from "../../components/Wrapper/Wrapper";
 import { GatheringsArrayType } from "../../models/model";
 import { server } from "../../config/index";
 import sortGatherings from "../../Helper/sortGatherings";
+import { useLoadingContext } from "../../context/LoadingContext";
 
 const Home = ({ data }: GatheringsArrayType) => {
   const [bool, setBool] = useState<Boolean>(false);
@@ -14,6 +15,10 @@ const Home = ({ data }: GatheringsArrayType) => {
     setBool(!bool);
   };
   const { upcomingGatherings, expiredGatherings } = sortGatherings(data);
+  const { isLoading, setIsLoading } = useLoadingContext();
+  useEffect(() => {
+    isLoading && setIsLoading(false);
+  }, []);
   return (
     <>
       <Head>

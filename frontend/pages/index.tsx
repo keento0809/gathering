@@ -2,8 +2,6 @@ import type { NextPage } from "next";
 import { useState } from "react";
 import MainAlert from "../components/Alert/MainAlert";
 import MainButton from "../components/Button/MainButton";
-import ImgPath from "../public/static/meeting.jpg";
-
 const Home: NextPage = () => {
   const [isAlert, setIsAlert] = useState(false);
   return (

@@ -11,6 +11,7 @@ module.exports = {
         "light-red": "rgb(254 202 202)",
         primary: "#EB455F",
         secondary: "#FCFFE7",
+        loader: "rgba(0,0,0,0.7)",
         textPrimary: "#2B3467",
         textSecondary: "#BAD7E9",
         bgForCard: "#BAD7E9",

@@ -1,7 +1,7 @@
-const LoadingSpinner = () => {
+const Loader = () => {
   return (
-    <div className="fixed top-0 w-full h-full bg-slate-50 opacity-50 z-50">
-      <div className="text-center flex justify-center items-center w-full h-full bg-slate-50">
+    <div className="fixed top-0 w-full h-full bg-loader opacity-50 z-50">
+      <div className="text-center flex justify-center items-center w-full h-full bg-loader color-slate-50">
         <div role="status">
           <svg
             className="inline mr-2 w-10 h-10 text-slate-50 animate-spin dark:text-gray-600 fill-red-500"
@@ -25,4 +25,4 @@ const LoadingSpinner = () => {
   );
 };
 
-export default LoadingSpinner;
+export default Loader;
