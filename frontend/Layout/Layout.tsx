@@ -4,7 +4,7 @@ import Nav from "../components/navbar/NavBar";
 import { LayoutProps } from "../models/model";
 import Footer from "../components/Footer/Footer";
 import { useRouter } from "next/router";
-import LoadingSpinner from "../components/Spinner/LoadingSpinner";
+import Loader from "../components/Loader/Loader";
 import { useLoadingContext } from "../context/LoadingContext";
 const Layout = ({ children }: LayoutProps) => {
   const [isHero, setIsHero] = useState(false);
@@ -28,7 +28,7 @@ const Layout = ({ children }: LayoutProps) => {
         </section>
       </div>
       <Footer />
-      {isLoading && <LoadingSpinner />}
+      {isLoading && <Loader />}
     </>
   );
 };
