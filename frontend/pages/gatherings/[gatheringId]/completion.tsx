@@ -2,7 +2,6 @@ import { GetServerSideProps } from "next";
 import Head from "next/head";
 import MainButton from "../../../components/Button/MainButton";
 import Card from "../../../components/Card/Card";
-import Wrapper from "../../../components/Wrapper/Wrapper";
 import { server } from "../../../config";
 import { GatheringProps } from "../../../models/model";
 import MapWithMarker from "../../../components/Map/MapWithMarker";
@@ -15,7 +14,7 @@ const Completion = ({ gathering }: GatheringProps) => {
       <Head>
         <title>Complete</title>
       </Head>
-      <Wrapper>
+      <div>
         <h2 className="text-2xl text-center font-bold tracking-tighter text-primary">
           Confirmed!
         </h2>
@@ -65,7 +64,7 @@ const Completion = ({ gathering }: GatheringProps) => {
         <div className="text-center pt-8">
           <MainButton text="Home" linkUrl="/home" />
         </div>
-      </Wrapper>
+      </div>
       ;
     </>
   );

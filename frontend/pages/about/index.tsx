@@ -1,5 +1,4 @@
 import Card from "../../components/Card/Card";
-import Wrapper from "../../components/Wrapper/Wrapper";
 import MainButton from "../../components/Button/MainButton";
 import Head from "next/head";
 
@@ -9,7 +8,7 @@ const About = () => {
       <Head>
         <title>About Gathering</title>
       </Head>
-      <Wrapper>
+      <div>
         <h2 className="text-2xl pl-2 font-bold tracking-tighter text-left lg:text-center text-primary dark:text-red-400">
           About
         </h2>
@@ -54,7 +53,7 @@ const About = () => {
         <div className="text-center pt-6">
           <MainButton text="Back" linkUrl={`/home`} />
         </div>
-      </Wrapper>
+      </div>
     </>
   );
 };

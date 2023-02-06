@@ -1,7 +1,6 @@
 import axios from "axios";
 import Head from "next/head";
 import { useState } from "react";
-import Wrapper from "../../components/Wrapper/Wrapper";
 import { server } from "../../config";
 import { useSession } from "next-auth/react";
 
@@ -34,7 +33,7 @@ const Test = () => {
       <Head>
         <title>Admin Test</title>
       </Head>
-      <Wrapper>
+      <div>
         {!session && <div>Not authorized.</div>}
         {session && (
           <form onSubmit={handleSubmit}>
@@ -45,7 +44,7 @@ const Test = () => {
           </form>
         )}
         {isLoading && <p>Loading...</p>}
-      </Wrapper>
+      </div>
     </>
   );
 };

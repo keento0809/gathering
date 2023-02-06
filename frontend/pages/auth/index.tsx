@@ -1,4 +1,3 @@
-import Wrapper from "../../components/Wrapper/Wrapper";
 import Card from "../../components/Card/Card";
 import { signIn, useSession } from "next-auth/react";
 import GithubAuthButton from "../../components/Button/GithubAuthButton";
@@ -6,7 +5,7 @@ import GithubAuthButton from "../../components/Button/GithubAuthButton";
 const Login = () => {
   const { data: session } = useSession();
   return (
-    <Wrapper>
+    <div>
       <h2 className="text-2xl font-bold text-center tracking-tight text-primary dark:text-red-400">
         Admin Authentication
       </h2>
@@ -28,7 +27,7 @@ const Login = () => {
           )}
         </div>
       </Card>
-    </Wrapper>
+    </div>
   );
 };
 

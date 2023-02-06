@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Wrapper from "../../../components/Wrapper/Wrapper";
 import Card from "../../../components/Card/Card";
 import { GetServerSideProps } from "next";
 import { getSession } from "next-auth/react";
@@ -14,7 +13,7 @@ const Manage = ({ gathering }: GatheringProps) => {
       <Head>
         <title>Manage</title>
       </Head>
-      <Wrapper>
+      <div>
         <h2 className="text-2xl text-center font-bold tracking-tighter text-primary">
           Manage Gathering
         </h2>
@@ -24,7 +23,7 @@ const Manage = ({ gathering }: GatheringProps) => {
         <div className="text-center pt-6">
           <MainButton text="Back" linkUrl={`/admin/home`} />
         </div>
-      </Wrapper>
+      </div>
     </>
   );
 };

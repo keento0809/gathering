@@ -6,6 +6,7 @@ import Footer from "../components/Footer/Footer";
 import { useRouter } from "next/router";
 import Loader from "../components/Loader/Loader";
 import { useLoadingContext } from "../context/LoadingContext";
+import Wrapper from "../components/Wrapper/Wrapper";
 const Layout = ({ children }: LayoutProps) => {
   const [isHero, setIsHero] = useState(false);
   const { isLoading } = useLoadingContext();
@@ -24,7 +25,7 @@ const Layout = ({ children }: LayoutProps) => {
           }`}
           style={{ minHeight: "100svh" }}
         >
-          {children}
+          <Wrapper>{children}</Wrapper>
         </section>
       </div>
       <Footer />
