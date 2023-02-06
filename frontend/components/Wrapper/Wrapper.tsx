@@ -5,7 +5,7 @@ const Wrapper = ({ children }: ChildrenProps) => {
   const router = useRouter();
   return (
     <div
-      className={`w-full ${router.asPath === "/" ? "px-0" : "px-5"} ${
+      className={`w-full z-20 ${router.asPath === "/" ? "px-0" : "px-5"} ${
         router.asPath === "/" ? "pt-15" : "pt-24"
       }`}
     >

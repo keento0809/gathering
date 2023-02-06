@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import Loader from "../components/Loader/Loader";
 import { useLoadingContext } from "../context/LoadingContext";
 import Wrapper from "../components/Wrapper/Wrapper";
+import HeroPaper from "../components/Paper/HeroPaper";
 const Layout = ({ children }: LayoutProps) => {
   const [isHero, setIsHero] = useState(false);
   const { isLoading } = useLoadingContext();
@@ -19,6 +20,7 @@ const Layout = ({ children }: LayoutProps) => {
       <Meta />
       <Nav />
       <div className="containers">
+        {router.route !== "/" && <HeroPaper />}
         <section
           className={`container-wrapper bg-secondary w-full rounded-b-xl flex ${
             isHero && "items-center"

@@ -23,7 +23,7 @@ const AdminHome = ({ data }: DataPropsAtAdminHome) => {
       <Head>
         <title>Admin {session ? "home" : "login"}</title>
       </Head>
-      <div className="home-title">
+      <div className="home-title z-20">
         {!session && (
           <div>
             <h2 className="text-2xl font-bold text-center tracking-tight text-primary dark:text-red-400">
