@@ -6,6 +6,7 @@ import { GatheringType, adminUserInfoObjType } from "../../../models/model";
 import { GetServerSideProps, NextPage } from "next";
 import { server } from "../../../config";
 import { useSession } from "next-auth/react";
+import { useLoadingContext } from "../../../context/LoadingContext";
 
 interface DataPropsAtGatheringDetail {
   data: { gathering: GatheringType; currUser: adminUserInfoObjType };
@@ -18,9 +19,13 @@ const GatheringDetail: NextPage<DataPropsAtGatheringDetail> = ({ data }) => {
   const currUserId = data.currUser._id;
   const organizerId = organizer.id;
   const [isMaximum, setIsMaximum] = useState(isFull);
+  const { isLoading, setIsLoading } = useLoadingContext();
+
   useEffect(() => {
+    isLoading && setIsLoading(false);
     participants.length >= capacity ? setIsMaximum(true) : setIsMaximum(false);
   }, []);
+
   return (
     <>
       <Head>

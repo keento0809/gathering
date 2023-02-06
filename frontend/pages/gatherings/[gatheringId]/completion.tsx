@@ -5,10 +5,17 @@ import Card from "../../../components/Card/Card";
 import { server } from "../../../config";
 import { GatheringProps } from "../../../models/model";
 import MapWithMarker from "../../../components/Map/MapWithMarker";
+import { useEffect } from "react";
+import { useLoadingContext } from "../../../context/LoadingContext";
 
 const Completion = ({ gathering }: GatheringProps) => {
   const { date, schedule, placeName, placeLatLng, specialNotes, organizer } =
     gathering;
+  const { isLoading, setIsLoading } = useLoadingContext();
+
+  useEffect(() => {
+    isLoading && setIsLoading(false);
+  }, []);
   return (
     <>
       <Head>

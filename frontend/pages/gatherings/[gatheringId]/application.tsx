@@ -4,8 +4,15 @@ import ApplicationForm from "../../../components/Form/ApplicationForm";
 import { GetServerSideProps } from "next";
 import { server } from "../../../config";
 import { GatheringProps } from "../../../models/model";
+import { useEffect } from "react";
+import { useLoadingContext } from "../../../context/LoadingContext";
 
 const ApplicationPage = ({ gathering }: GatheringProps) => {
+  const { isLoading, setIsLoading } = useLoadingContext();
+
+  useEffect(() => {
+    isLoading && setIsLoading(false);
+  }, []);
   return (
     <>
       <Head>
