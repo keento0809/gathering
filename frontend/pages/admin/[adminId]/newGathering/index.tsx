@@ -4,7 +4,6 @@ import Head from "next/head";
 import MainButton from "../../../../components/Button/MainButton";
 import Card from "../../../../components/Card/Card";
 import CreateGatheringForm from "../../../../components/Form/CreateGatheringForm";
-import Wrapper from "../../../../components/Wrapper/Wrapper";
 import { server } from "../../../../config/index";
 import { adminUserProps } from "../../../../models/model";
 
@@ -14,7 +13,7 @@ const NewGathering = ({ currentUser }: adminUserProps) => {
       <Head>
         <title>Create New Gathering</title>
       </Head>
-      <Wrapper>
+      <div>
         <div className="">
           <h2 className="text-2xl font-bold tracking-tighter text-center text-primary dark:text-red-400">
             Create Gathering
@@ -26,7 +25,7 @@ const NewGathering = ({ currentUser }: adminUserProps) => {
             <MainButton text="Back" linkUrl={`/admin/home`} />
           </div>
         </div>
-      </Wrapper>
+      </div>
     </>
   );
 };

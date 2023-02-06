@@ -2,7 +2,6 @@ import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { useState, useEffect } from "react";
 import GatheringsList from "../../components/List/GatheringsList";
-import Wrapper from "../../components/Wrapper/Wrapper";
 import { GatheringsArrayType } from "../../models/model";
 import { server } from "../../config/index";
 import sortGatherings from "../../Helper/sortGatherings";
@@ -17,16 +16,16 @@ const Home = ({ data }: GatheringsArrayType) => {
   };
   const { upcomingGatherings, expiredGatherings } = sortGatherings(data);
   const { isLoading, setIsLoading } = useLoadingContext();
+
   useEffect(() => {
     isLoading && setIsLoading(false);
-    console.log(bool);
   }, []);
   return (
     <>
       <Head>
         <title>Home</title>
       </Head>
-      <Wrapper>
+      <div>
         <div className="home-title lg:text-center">
           <h3 className="text-3xl text-primary font-bold tracking-tight">
             Welcome to Gathering!
@@ -75,7 +74,7 @@ const Home = ({ data }: GatheringsArrayType) => {
             )}
           </div>
         </div>
-      </Wrapper>
+      </div>
     </>
   );
 };

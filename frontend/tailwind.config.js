@@ -12,6 +12,9 @@ module.exports = {
       4: "4px",
     },
     extend: {
+      padding: {
+        15: "3.75rem",
+      },
       colors: {
         "light-red": "rgb(254 202 202)",
         primary: "#EB455F",

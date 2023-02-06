@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Wrapper from "../../../components/Wrapper/Wrapper";
 import Card from "../../../components/Card/Card";
 import ApplicationForm from "../../../components/Form/ApplicationForm";
 import { GetServerSideProps } from "next";
@@ -12,7 +11,7 @@ const ApplicationPage = ({ gathering }: GatheringProps) => {
       <Head>
         <title>Application</title>
       </Head>
-      <Wrapper>
+      <div>
         <h2 className="text-2xl font-bold tracking-tighter text-center text-primary">
           Book gathering
         </h2>
@@ -23,7 +22,7 @@ const ApplicationPage = ({ gathering }: GatheringProps) => {
         <Card>
           <ApplicationForm gathering={gathering} />
         </Card>
-      </Wrapper>
+      </div>
     </>
   );
 };

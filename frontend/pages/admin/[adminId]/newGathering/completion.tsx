@@ -1,7 +1,6 @@
 import Head from "next/head";
 import MainButton from "../../../../components/Button/MainButton";
 import Card from "../../../../components/Card/Card";
-import Wrapper from "../../../../components/Wrapper/Wrapper";
 
 const Completion = () => {
   return (
@@ -9,7 +8,7 @@ const Completion = () => {
       <Head>
         <title>Complete</title>
       </Head>
-      <Wrapper>
+      <div>
         <h2 className="text-2xl text-center font-bold tracking-tighter text-left text-primary">
           New Gathering Created!
         </h2>
@@ -26,7 +25,7 @@ const Completion = () => {
         <div className="text-center pt-8">
           <MainButton text="Home" linkUrl="/home" />
         </div>
-      </Wrapper>
+      </div>
       ;
     </>
   );

@@ -2,7 +2,6 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import MainButton from "../../../components/Button/MainButton";
 import DetailCard from "../../../components/Card/DetailCard";
-import Wrapper from "../../../components/Wrapper/Wrapper";
 import { GatheringType, adminUserInfoObjType } from "../../../models/model";
 import { GetServerSideProps, NextPage } from "next";
 import { server } from "../../../config";
@@ -27,7 +26,7 @@ const GatheringDetail: NextPage<DataPropsAtGatheringDetail> = ({ data }) => {
       <Head>
         <title>Gathering Detail</title>
       </Head>
-      <Wrapper>
+      <div>
         <h2 className="text-2xl pl-0.5 font-bold tracking-tighter text-left lg:text-center text-primary">
           {title}
         </h2>
@@ -56,7 +55,7 @@ const GatheringDetail: NextPage<DataPropsAtGatheringDetail> = ({ data }) => {
             />
           )}
         </div>
-      </Wrapper>
+      </div>
     </>
   );
 };

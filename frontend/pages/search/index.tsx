@@ -1,7 +1,6 @@
 import { GetServerSideProps } from "next";
 import { useState } from "react";
 import SearchInput from "../../components/SearchInput/SearchInput";
-import Wrapper from "../../components/Wrapper/Wrapper";
 import { server } from "../../config";
 import { GatheringsArrayType, GatheringType } from "../../models/model";
 import GatheringsList from "../../components/List/GatheringsList";
@@ -22,7 +21,7 @@ const SearchGathering = ({ data }: GatheringsArrayType) => {
       <Head>
         <title>Find Gathering</title>
       </Head>
-      <Wrapper>
+      <div>
         <h2 className="text-2xl pl-0.5 font-bold tracking-tighter text-left lg:text-center text-primary dark:text-red-400">
           Search Gathering
         </h2>
@@ -38,7 +37,7 @@ const SearchGathering = ({ data }: GatheringsArrayType) => {
           </div>
           <GatheringsList data={filteredData} />
         </div>
-      </Wrapper>
+      </div>
     </>
   );
 };
