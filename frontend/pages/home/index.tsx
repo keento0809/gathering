@@ -11,13 +11,15 @@ import { useLoadingContext } from "../../context/LoadingContext";
 const Home = ({ data }: GatheringsArrayType) => {
   const [bool, setBool] = useState<Boolean>(false);
   const handleToggleContents = (currBool: Boolean, text: string) => {
-    if ((bool && text === "past") || (!bool && text === "upcoming")) return;
+    if ((currBool && text === "past") || (!currBool && text === "upcoming"))
+      return;
     setBool(!bool);
   };
   const { upcomingGatherings, expiredGatherings } = sortGatherings(data);
   const { isLoading, setIsLoading } = useLoadingContext();
   useEffect(() => {
     isLoading && setIsLoading(false);
+    console.log(bool);
   }, []);
   return (
     <>
@@ -38,9 +40,9 @@ const Home = ({ data }: GatheringsArrayType) => {
             <div className="">
               <h3
                 onClick={() => handleToggleContents(bool, "upcoming")}
-                className={`${
-                  !bool ? "text-primary border-b-primary" : ""
-                } inline-block text-xl cursor-pointer border-b-4 border-transparent pb-0.5 lg:pb-1 lg:text-center font-bold tracking-tight overflow-y-scroll transition-all`}
+                className={`${!bool ? "text-primary border-primary" : ""} ${
+                  bool && "border-transparent"
+                } inline-block text-xl cursor-pointer border-b-4 pb-0.5 lg:pb-1 lg:text-center font-bold tracking-tight overflow-y-scroll transition-all`}
               >
                 Upcoming
               </h3>
@@ -48,9 +50,9 @@ const Home = ({ data }: GatheringsArrayType) => {
             <div className="pl-4">
               <h3
                 onClick={() => handleToggleContents(bool, "past")}
-                className={`${
-                  bool ? "text-primary border-b-primary" : ""
-                } inline-block text-xl border-b-4 border-transparent cursor-pointer pb-0.5 lg:pb-1 lg:text-center font-bold tracking-tight overflow-y-scroll transition-all`}
+                className={`${bool ? "text-primary border-primary" : ""} ${
+                  !bool && "border-transparent"
+                } inline-block text-xl border-b-4 cursor-pointer pb-0.5 lg:pb-1 lg:text-center font-bold tracking-tight overflow-y-scroll transition-all`}
               >
                 Past
               </h3>
