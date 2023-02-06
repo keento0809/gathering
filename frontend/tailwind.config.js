@@ -9,6 +9,7 @@ module.exports = {
     borderWidth: {
       0.8: "0.8px",
       1: "1px",
+      4: "4px",
     },
     extend: {
       colors: {
