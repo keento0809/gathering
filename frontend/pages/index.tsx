@@ -7,10 +7,10 @@ const Home: NextPage = () => {
   return (
     <>
       <div
-        className="lg:text-center left-0 w-full px-5 md:px-8 flex flex-col-reverse lg:flex-row justify-center lg:items-center"
+        className="lg:text-center left-0 w-full flex flex-col-reverse lg:flex-row justify-center lg:items-center"
         style={{ height: "100svh" }}
       >
-        <section className="hero-body flex-1 pt-6 lg:pt-0">
+        <section className="hero-body flex-1 pt-6 px-5 lg:px-0 lg:pt-0">
           <div className="hero-title">
             <h1 className="text-3xl lg:text-4xl font-bold tracking-tighter">
               Gathering
