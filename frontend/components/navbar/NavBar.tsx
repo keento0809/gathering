@@ -25,7 +25,7 @@ const NavBar = () => {
         <div className="header-container px-5 py-4 flex flex-row justify-between items-center">
           <section className="header-left">
             <Link href="/home">
-              <span className="text-primary font-bold tracking-tight lg:text-lg cursor-pointer">
+              <span className="text-primary font-bold lg:pl-6 tracking-tight lg:text-lg cursor-pointer">
                 Gathering
               </span>
             </Link>
