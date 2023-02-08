@@ -7,6 +7,7 @@ import { GetServerSideProps, NextPage } from "next";
 import { server } from "../../../config";
 import { useSession } from "next-auth/react";
 import { useLoadingContext } from "../../../context/LoadingContext";
+import Title from "../../../components/Title/Title";
 
 interface DataPropsAtGatheringDetail {
   data: { gathering: GatheringType; currUser: adminUserInfoObjType };
@@ -32,9 +33,7 @@ const GatheringDetail: NextPage<DataPropsAtGatheringDetail> = ({ data }) => {
         <title>Gathering Detail</title>
       </Head>
       <div>
-        <h2 className="text-2xl pl-0.5 font-bold tracking-tighter text-left lg:text-center text-primary">
-          {title}
-        </h2>
+        <Title title={title} />
         <DetailCard gathering={data.gathering} />
         <div className="text-center py-5 md:py-4 md:z-40">
           {!isMaximum && (

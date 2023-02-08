@@ -25,7 +25,7 @@ const GatheringCard = ({ gathering }: GatheringProps) => {
     <div className="relative md:max-w-372">
       {isExpired && <CardModal isExpired={true} />}
       {!isExpired && gathering.isFull && <CardModal isExpired={false} />}
-      <div className="max-w-sm w-full mb-4 hover:scale-101 transition-transform bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+      <div className="max-w-sm w-full mb-4 hover:scale-101 transition-transform bg-white rounded-lg border border-gray-200 shadow-md hover:shadow-lg dark:bg-gray-800 dark:border-gray-700">
         <a href="#">
           <Image
             src={gathering.image!}
