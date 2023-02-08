@@ -30,7 +30,7 @@ const Home = ({ data }: GatheringsArrayType) => {
           <h3 className="text-3xl text-primary font-bold tracking-tight">
             Welcome to Gathering!
           </h3>
-          <p className="font-normal text-md pt-1 tracking-tight">
+          <p className="font-semibold text-md pt-1 tracking-tight">
             Explore new gathering here
           </p>
         </div>

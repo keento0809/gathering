@@ -6,6 +6,7 @@ import { GatheringsArrayType, GatheringType } from "../../models/model";
 import GatheringsList from "../../components/List/GatheringsList";
 import sortGatherings from "../../Helper/sortGatherings";
 import Head from "next/head";
+import Title from "../../components/Title/Title";
 
 const SearchGathering = ({ data }: GatheringsArrayType) => {
   const [inputWord, setInputWord] = useState("");
@@ -22,9 +23,7 @@ const SearchGathering = ({ data }: GatheringsArrayType) => {
         <title>Find Gathering</title>
       </Head>
       <div>
-        <h2 className="text-2xl pl-0.5 font-bold tracking-tighter text-left lg:text-center text-primary dark:text-red-400">
-          Search Gathering
-        </h2>
+        <Title title={`Search Gathering`} />
         <div className="explanations pt-3 pb-8">
           <div className="text-sm pl-0.5 pb-2">
             <p className="lg:text-center">
