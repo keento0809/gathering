@@ -1,8 +1,16 @@
 import Card from "../../components/Card/Card";
 import MainButton from "../../components/Button/MainButton";
 import Head from "next/head";
+import { useLoadingContext } from "../../context/LoadingContext";
+import { useEffect } from "react";
 
 const About = () => {
+  const { isLoading, setIsLoading } = useLoadingContext();
+
+  useEffect(() => {
+    isLoading && setIsLoading(false);
+  }, []);
+
   return (
     <>
       <Head>

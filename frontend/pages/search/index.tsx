@@ -1,5 +1,5 @@
 import { GetServerSideProps } from "next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SearchInput from "../../components/SearchInput/SearchInput";
 import { server } from "../../config";
 import { GatheringsArrayType, GatheringType } from "../../models/model";
@@ -7,6 +7,7 @@ import GatheringsList from "../../components/List/GatheringsList";
 import sortGatherings from "../../Helper/sortGatherings";
 import Head from "next/head";
 import Title from "../../components/Title/Title";
+import { useLoadingContext } from "../../context/LoadingContext";
 
 const SearchGathering = ({ data }: GatheringsArrayType) => {
   const [inputWord, setInputWord] = useState("");
@@ -14,9 +15,16 @@ const SearchGathering = ({ data }: GatheringsArrayType) => {
     setInputWord(word);
   };
   const { upcomingGatherings } = sortGatherings(data);
+  const { isLoading, setIsLoading } = useLoadingContext();
+
   const filteredData = upcomingGatherings.filter((gathering: GatheringType) =>
     gathering.title.toLowerCase().includes(inputWord)
   );
+
+  useEffect(() => {
+    isLoading && setIsLoading(false);
+  }, []);
+
   return (
     <>
       <Head>

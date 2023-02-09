@@ -4,15 +4,23 @@ import { useRouter } from "next/router";
 import NavMenu from "../NavMenu/NavMenu";
 import { GetServerSideProps } from "next";
 import { getSession, useSession, signOut } from "next-auth/react";
+import { useLoadingContext } from "../../context/LoadingContext";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { data: session } = useSession();
   const { query } = useRouter();
   const router = useRouter();
+  const { setIsLoading } = useLoadingContext();
 
   const handleToggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handlePageTransition = (linkUrl: string) => {
+    if (router.asPath === linkUrl) return;
+    setIsLoading(true);
+    router.push(linkUrl);
   };
 
   useEffect(() => {
@@ -24,11 +32,11 @@ const NavBar = () => {
       <header className="fixed top-0 left-0 w-full z-50 bg-secondary border-b-0.8 border-textPrimary">
         <div className="header-container px-5 py-4 flex flex-row justify-between items-center">
           <section className="header-left">
-            <Link href="/home">
+            <div onClick={() => handlePageTransition("/home")}>
               <span className="text-primary font-bold lg:pl-6 tracking-tight lg:text-lg cursor-pointer">
                 Gathering
               </span>
-            </Link>
+            </div>
           </section>
           <section
             className="header-right-mobile lg:hidden"
@@ -69,13 +77,19 @@ const NavBar = () => {
           </section>
           <section className="header-right-desktop hidden lg:block">
             <ul className="flex flex-row">
-              <li className="px-6 text-sm tracking-tighter transition-transform hover:scale-105 hover:text-primary">
-                <Link href={"/about"}>About</Link>
+              <li
+                className="px-6 text-sm tracking-tighter transition-transform hover:scale-105 hover:text-primary cursor-pointer"
+                onClick={() => handlePageTransition("/about")}
+              >
+                About
               </li>
-              <li className="px-6 text-sm tracking-tighter transition-transform hover:scale-105 hover:text-primary">
-                <Link href={"/search"}>Find Gathering</Link>
+              <li
+                className="px-6 text-sm tracking-tighter transition-transform hover:scale-105 hover:text-primary cursor-pointer"
+                onClick={() => handlePageTransition("/search")}
+              >
+                Find Gathering
               </li>
-              <li className="px-6 text-sm tracking-tighter transition-transform hover:scale-105 hover:text-primary">
+              <li className="px-6 text-sm tracking-tighter transition-transform hover:scale-105 hover:text-primary cursor-pointer">
                 {router.route === `/admin/home` && session !== null && (
                   <Link href={"/admin/home"}>
                     <a

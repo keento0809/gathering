@@ -20,6 +20,7 @@ const Home = ({ data }: GatheringsArrayType) => {
   useEffect(() => {
     isLoading && setIsLoading(false);
   }, []);
+
   return (
     <>
       <Head>
@@ -36,7 +37,7 @@ const Home = ({ data }: GatheringsArrayType) => {
         </div>
         <div className="pt-8 lg:pt-12 pb-4">
           <div className="flex flex-row justify-start lg:justify-center">
-            <div className="">
+            <div>
               <h3
                 onClick={() => handleToggleContents(bool, "upcoming")}
                 className={`${!bool ? "text-primary border-primary" : ""} ${
