@@ -13,6 +13,8 @@ const NavBar = () => {
   const router = useRouter();
   const { setIsLoading } = useLoadingContext();
 
+  const NAV_TAB_STYLE = `px-6 text-sm tracking-tighter transition-transform hover:scale-105 hover:text-primary cursor-pointer`;
+
   const handleToggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -78,37 +80,36 @@ const NavBar = () => {
           <section className="header-right-desktop hidden lg:block">
             <ul className="flex flex-row">
               <li
-                className="px-6 text-sm tracking-tighter transition-transform hover:scale-105 hover:text-primary cursor-pointer"
+                className={NAV_TAB_STYLE}
                 onClick={() => handlePageTransition("/about")}
               >
                 About
               </li>
               <li
-                className="px-6 text-sm tracking-tighter transition-transform hover:scale-105 hover:text-primary cursor-pointer"
+                className={NAV_TAB_STYLE}
                 onClick={() => handlePageTransition("/search")}
               >
                 Find Gathering
               </li>
-              <li className="px-6 text-sm tracking-tighter transition-transform hover:scale-105 hover:text-primary cursor-pointer">
-                {router.route === `/admin/home` && session !== null && (
-                  <Link href={"/admin/home"}>
-                    <a
-                      onClick={(e) => {
-                        e.preventDefault();
-                        signOut();
-                      }}
-                      className="inline-block pr-2"
-                    >
-                      Sign out
-                    </a>
-                  </Link>
-                )}
-                {!(router.route === `/admin/home` && session !== null) && (
-                  <Link href={"/admin/home"}>
-                    {session ? "Admin page" : "Login for admin"}
-                  </Link>
-                )}
-              </li>
+              {router.route === `/admin/home` && session !== null && (
+                <li
+                  className={NAV_TAB_STYLE}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    signOut();
+                  }}
+                >
+                  Sign out
+                </li>
+              )}
+              {!(router.route === `/admin/home` && session !== null) && (
+                <li
+                  className={NAV_TAB_STYLE}
+                  onClick={() => handlePageTransition("/admin/home")}
+                >
+                  {session ? "Admin page" : "Login for admin"}
+                </li>
+              )}
               <hr />
             </ul>
           </section>

@@ -8,6 +8,8 @@ import { GetServerSideProps } from "next";
 import { server } from "../../config";
 import { adminUserInfoObjType, GatheringType } from "../../models/model";
 import GatheringsList from "../../components/List/GatheringsList";
+import { useLoadingContext } from "../../context/LoadingContext";
+import { useEffect } from "react";
 
 interface DataPropsAtAdminHome {
   data: { hostGatherings: GatheringType[]; currUser: adminUserInfoObjType };
@@ -17,6 +19,11 @@ const AdminHome = ({ data }: DataPropsAtAdminHome) => {
   const { data: session } = useSession();
   const { hostGatherings, currUser } = data;
   const adminId = currUser._id;
+  const { isLoading, setIsLoading } = useLoadingContext();
+
+  useEffect(() => {
+    isLoading && setIsLoading(false);
+  }, []);
 
   return (
     <>

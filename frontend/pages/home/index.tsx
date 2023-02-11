@@ -28,10 +28,10 @@ const Home = ({ data }: GatheringsArrayType) => {
       </Head>
       <div>
         <div className="home-title lg:text-center">
-          <h3 className="text-3xl text-primary font-bold tracking-tight">
+          <h3 className="text-3xl text-primary font-bold tracking-tight [text-shadow:_0_2px_2px_rgb(255_255_255_/_70%)]">
             Welcome to Gathering!
           </h3>
-          <p className="font-semibold text-md pt-1 tracking-tight">
+          <p className="font-semibold text-md pt-1 tracking-tight [text-shadow:_0_2px_2px_rgb(255_255_255_/_70%)]">
             Explore new gathering here
           </p>
         </div>
@@ -42,7 +42,7 @@ const Home = ({ data }: GatheringsArrayType) => {
                 onClick={() => handleToggleContents(bool, "upcoming")}
                 className={`${!bool ? "text-primary border-primary" : ""} ${
                   bool && "border-transparent"
-                } inline-block text-xl cursor-pointer border-b-4 pb-0.5 lg:pb-1 lg:text-center font-bold tracking-tight overflow-y-scroll transition-all`}
+                } inline-block text-xl cursor-pointer border-b-4 pb-0.5 lg:pb-1 lg:text-center font-bold tracking-tight overflow-y-scroll transition-all [text-shadow:_0_2px_2px_rgb(255_255_255_/_70%)]`}
               >
                 Upcoming
               </h3>
@@ -52,7 +52,7 @@ const Home = ({ data }: GatheringsArrayType) => {
                 onClick={() => handleToggleContents(bool, "past")}
                 className={`${bool ? "text-primary border-primary" : ""} ${
                   !bool && "border-transparent"
-                } inline-block text-xl border-b-4 cursor-pointer pb-0.5 lg:pb-1 lg:text-center font-bold tracking-tight overflow-y-scroll transition-all`}
+                } inline-block text-xl border-b-4 cursor-pointer pb-0.5 lg:pb-1 lg:text-center font-bold tracking-tight overflow-y-scroll transition-all [text-shadow:_0_2px_2px_rgb(255_255_255_/_70%)]`}
               >
                 Past
               </h3>
