@@ -1,4 +1,4 @@
-import ImgPath from "../../public/static/meeting_1.jpg";
+import ImgPath from "../../public/static/hero_1.jpg";
 
 const HeroPaper = () => {
   return (
