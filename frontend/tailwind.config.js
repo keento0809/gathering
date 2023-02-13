@@ -32,7 +32,7 @@ module.exports = {
         500: "500px",
       },
       backgroundImage: {
-        common: "url('/bgImage.jpg')",
+        common: "url('./public/static/mtg_2.jpg')",
       },
       maxWidth: {
         100: "100px",

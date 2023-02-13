@@ -3,9 +3,9 @@ import Image from "next/image";
 import { GatheringProps } from "../../models/model";
 import CardModal from "../Modal/CardModal";
 import MainButton from "../Button/MainButton";
-import urlForImage from "/public/static/bgImage.jpg";
-import urlForImageSecond from "../../public/static/heroImg.jpg";
-import urlForImageThird from "../../public/static/mtg.jpg";
+import urlForImage from "../../public/static/mtg_1.jpg";
+import urlForImageSecond from "../../public/static/mtg_2.jpg";
+import urlForImageThird from "../../public/static/mtg_3.jpg";
 import updateGatheringImage from "../../Helper/updateGatheringImage";
 import isGatheringExpired from "../../Helper/isGatheringExpired";
 

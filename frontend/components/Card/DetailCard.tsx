@@ -2,7 +2,7 @@ import { useState, useEffect, Fragment } from "react";
 import Card from "./Card";
 import { GatheringProps } from "../../models/model";
 import MapWithMarker from "../Map/MapWithMarker";
-import urlForImage from "../../public/static/bgImage.jpg";
+import urlForImage from "../../public/static/mtg_2.jpg";
 import Link from "next/link";
 
 const DetailCard = ({ gathering }: GatheringProps) => {
