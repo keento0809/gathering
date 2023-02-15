@@ -71,7 +71,6 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
       method: "POST",
       body: JSON.stringify(bodyObj),
     });
-    const data = await res.json();
     router.replace("/admin/home");
   };
   useEffect(() => {

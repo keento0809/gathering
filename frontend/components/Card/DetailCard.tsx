@@ -1,25 +1,22 @@
-import { useState, useEffect, Fragment } from "react";
+import { Fragment } from "react";
 import Card from "./Card";
 import { GatheringProps } from "../../models/model";
 import MapWithMarker from "../Map/MapWithMarker";
-import urlForImage from "../../public/static/mtg_2.jpg";
 import Link from "next/link";
 
 const DetailCard = ({ gathering }: GatheringProps) => {
-  const [imageUrl, setImageUrl] = useState("");
-  const [schedule, setSchedule] = useState<string[]>();
-  useEffect(() => {
-    setImageUrl(urlForImage.src);
-    gathering.image = urlForImage.src;
-    const test = gathering.timeSchedule.split(/\s+/g);
-    setSchedule(test);
-  }, []);
+  const schedule = gathering.timeSchedule.split(/\s+/g);
 
   return (
     <Card>
       <div className="lg:max-w-800 lg:mx-auto grid md:grid-cols-2">
         <section className="image bg-red-400 min-h-236">
-          <img src={imageUrl} alt="" width="100%" style={{ height: "236px" }} />
+          <img
+            src={gathering.image}
+            alt=""
+            width="100%"
+            style={{ height: "236px" }}
+          />
         </section>
         <section className="description p-4 bg-white min-h-236">
           <h3 className="text-lg font-bold tracking-tight">Description</h3>
