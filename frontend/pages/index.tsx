@@ -25,7 +25,7 @@ const Home: NextPage = () => {
           </div>
           <MainButton text="Get started" linkUrl="/home" />
         </section>
-        <section className="flex-1 w-auto h-full bg-[url('../public/static/hero_1.jpg')] bg-cover bg-center"></section>
+        <section className="flex-1 w-auto h-full bg-[url('../public/static/hero_img1.jpg')] bg-cover bg-center"></section>
         {isAlert && (
           <MainAlert
             text="This is a test alert"
