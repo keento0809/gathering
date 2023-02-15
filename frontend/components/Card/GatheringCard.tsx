@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Image from "next/image";
 import { GatheringProps } from "../../models/model";
 import CardModal from "../Modal/CardModal";
@@ -10,9 +10,8 @@ import updateGatheringImage from "../../Helper/updateGatheringImage";
 import isGatheringExpired from "../../Helper/isGatheringExpired";
 
 const GatheringCard = ({ gathering }: GatheringProps) => {
-  const [isExpired, setIsExpired] = useState(false);
+  const isExpired = isGatheringExpired(gathering.date);
   useEffect(() => {
-    setIsExpired(isGatheringExpired(gathering.date));
     if (
       gathering.image !== urlForImage.src &&
       gathering.image !== urlForImageSecond.src &&
