@@ -1,11 +1,9 @@
 import Head from "next/head";
-import Card from "../../../components/Card/Card";
 import { GetServerSideProps } from "next";
 import { getSession } from "next-auth/react";
-import EditGatheringForm from "../../../components/Form/EditGatheringForm";
 import { server } from "../../../config";
 import { GatheringProps } from "../../../models/model";
-import MainButton from "../../../components/Button/MainButton";
+import ManageGathering from "../../../features/gatherings/ManageGathering";
 
 const Manage = ({ gathering }: GatheringProps) => {
   return (
@@ -13,17 +11,7 @@ const Manage = ({ gathering }: GatheringProps) => {
       <Head>
         <title>Manage</title>
       </Head>
-      <div>
-        <h2 className="text-2xl text-center font-bold tracking-tighter text-primary">
-          Manage Gathering
-        </h2>
-        <Card>
-          <EditGatheringForm gathering={gathering} />
-        </Card>
-        <div className="text-center pt-6">
-          <MainButton text="Back" linkUrl={`/admin/home`} />
-        </div>
-      </div>
+      <ManageGathering gathering={gathering} />
     </>
   );
 };

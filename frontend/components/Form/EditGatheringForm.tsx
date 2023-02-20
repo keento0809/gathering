@@ -76,7 +76,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
   };
   return (
     <div className="md:max-w-500 md:mx-auto">
-      <div className="mb-6">
+      <div className="mb-12">
         <span className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300">
           Participants
         </span>
@@ -116,7 +116,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
         </ul>
       </div>
       <form onSubmit={handleSubmit}>
-        <div className="mb-6">
+        <div className="mb-12">
           <label
             htmlFor="title-icon"
             className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
@@ -135,7 +135,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
             />
           </div>
         </div>
-        <div className="mb-6">
+        <div className="mb-12">
           <label
             htmlFor="image-icon"
             className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
@@ -153,7 +153,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
             />
           </div>
         </div>
-        <div className="mb-6">
+        <div className="mb-12">
           <label
             htmlFor="date-icon"
             className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
@@ -172,7 +172,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
             />
           </div>
         </div>
-        <div className="mb-6">
+        <div className="mb-12">
           <div className="flex flex-row justify-between">
             <label
               htmlFor="headline-icon"
@@ -195,7 +195,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
             />
           </div>
         </div>
-        <div className="mb-6">
+        <div className="mb-12">
           <label
             htmlFor="description-icon"
             className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
@@ -215,7 +215,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
             />
           </div>
         </div>
-        <div className="mb-6">
+        <div className="mb-12">
           <label
             htmlFor="number"
             className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
@@ -237,7 +237,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
           </div>
         </div>
 
-        <div className="mb-6">
+        <div className="mb-12">
           <label
             htmlFor="schedule-icon"
             className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
@@ -256,7 +256,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
             />
           </div>
         </div>
-        <div className="mb-6">
+        <div className="mb-12">
           <label
             htmlFor="timeSchedule-icon"
             className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
@@ -276,7 +276,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
             />
           </div>
         </div>
-        <div className="mb-6">
+        <div className="mb-12">
           <label
             htmlFor="placeName-icon"
             className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
@@ -295,7 +295,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
             />
           </div>
         </div>
-        <div className="mb-6">
+        <div className="mb-12">
           <label
             htmlFor="placeLatLng-icon"
             className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
@@ -306,7 +306,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
             <TestMap />
           </div>
         </div>
-        <div className="mb-6">
+        <div className="mb-12">
           <label
             htmlFor="specialNotes-icon"
             className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
