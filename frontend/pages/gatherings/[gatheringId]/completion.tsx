@@ -1,15 +1,13 @@
 import { GetServerSideProps } from "next";
-import Head from "next/head";
 import { server } from "../../../config";
 import { GatheringProps } from "../../../models/model";
 import CompleteBookGathering from "../../../features/gatherings/CompleteBookGathering";
+import Meta from "../../../meta/Meta";
 
 const Completion = ({ gathering }: GatheringProps) => {
   return (
     <>
-      <Head>
-        <title>Complete</title>
-      </Head>
+      <Meta title={"Complete booking"} />
       <CompleteBookGathering gathering={gathering} />
     </>
   );

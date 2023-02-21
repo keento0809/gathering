@@ -1,16 +1,14 @@
 import { GetServerSideProps } from "next";
 import { getSession } from "next-auth/react";
-import Head from "next/head";
 import { server } from "../../../../config/index";
 import NewGatheringContainer from "../../../../features/admin/newGatheringContainer";
+import Meta from "../../../../meta/Meta";
 import { adminUserProps } from "../../../../models/model";
 
 const NewGathering = ({ currentUser }: adminUserProps) => {
   return (
     <>
-      <Head>
-        <title>Create New Gathering</title>
-      </Head>
+      <Meta title={"Create New Gathering"} />
       <NewGatheringContainer currentUser={currentUser} />
     </>
   );

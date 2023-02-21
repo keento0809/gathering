@@ -1,19 +1,13 @@
-import Head from "next/head";
-import Card from "../../../components/Card/Card";
-import ApplicationForm from "../../../components/Form/ApplicationForm";
 import { GetServerSideProps } from "next";
 import { server } from "../../../config";
 import { GatheringProps } from "../../../models/model";
-import { useEffect } from "react";
-import { useLoadingContext } from "../../../context/LoadingContext";
 import ApplicationGathering from "../../../features/gatherings/ApplicationGathering";
+import Meta from "../../../meta/Meta";
 
 const ApplicationPage = ({ gathering }: GatheringProps) => {
   return (
     <>
-      <Head>
-        <title>Application</title>
-      </Head>
+      <Meta title={"Application"} />
       <ApplicationGathering gathering={gathering} />
     </>
   );

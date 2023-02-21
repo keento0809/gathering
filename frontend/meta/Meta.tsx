@@ -1,7 +1,11 @@
 import Head from "next/head";
 import { MetaDefaultPropsType } from "../models/model";
 
-const Meta = ({ title, keywords, description }: MetaDefaultPropsType) => {
+const Meta = ({
+  title = "Gathering",
+  keywords = "social event, meetup",
+  description = "Meetup application",
+}: MetaDefaultPropsType) => {
   return (
     <Head>
       <title>{title}</title>
@@ -9,12 +13,6 @@ const Meta = ({ title, keywords, description }: MetaDefaultPropsType) => {
       <meta name="description" content={description} />
     </Head>
   );
-};
-
-Meta.defaultProps = {
-  title: "Gathering",
-  keywords: "social event, meetup",
-  description: "Meetup application",
 };
 
 export default Meta;

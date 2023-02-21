@@ -1,15 +1,13 @@
 import { GetServerSideProps } from "next";
-import Head from "next/head";
 import { GatheringsArrayType } from "../../models/model";
 import { server } from "../../config/index";
 import HomeContainer from "../../features/home/HomeContainer";
+import Meta from "../../meta/Meta";
 
 const Home = ({ data }: GatheringsArrayType) => {
   return (
     <>
-      <Head>
-        <title>Home</title>
-      </Head>
+      <Meta title={"Home"} />
       <HomeContainer data={data} />
     </>
   );

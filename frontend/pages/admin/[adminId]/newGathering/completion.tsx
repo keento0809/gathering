@@ -1,12 +1,10 @@
-import Head from "next/head";
 import CompleteCreatingGathering from "../../../../features/admin/CompleteCreatingGathering";
+import Meta from "../../../../meta/Meta";
 
 const Completion = () => {
   return (
     <>
-      <Head>
-        <title>Complete</title>
-      </Head>
+      <Meta title={"Complete"} />
       <CompleteCreatingGathering />
     </>
   );

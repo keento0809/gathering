@@ -3,13 +3,12 @@ import { server } from "../../config";
 import { GatheringsArrayType } from "../../models/model";
 import Head from "next/head";
 import SearchGatheringContainer from "../../features/search/SearchContainer";
+import Meta from "../../meta/Meta";
 
 const SearchGathering = ({ data }: GatheringsArrayType) => {
   return (
     <>
-      <Head>
-        <title>Find Gathering</title>
-      </Head>
+      <Meta title={"Find Gathering"} />
       <SearchGatheringContainer data={data} />
     </>
   );
