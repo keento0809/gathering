@@ -1,14 +1,10 @@
-import Card from "../../components/Card/Card";
-import MainButton from "../../components/Button/MainButton";
-import Head from "next/head";
 import AboutContainer from "../../features/about/AboutContainer";
+import Meta from "../../meta/Meta";
 
 const About = () => {
   return (
     <>
-      <Head>
-        <title>About Gathering</title>
-      </Head>
+      <Meta title={"About Gathering"} description={"About Gathering"} />
       <AboutContainer />
     </>
   );

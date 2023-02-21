@@ -1,8 +1,8 @@
-import Head from "next/head";
 import { GatheringType, adminUserInfoObjType } from "../../../models/model";
 import { GetServerSideProps, NextPage } from "next";
 import { server } from "../../../config";
 import GatheringContainer from "../../../features/gatherings/GatheringContainer";
+import Meta from "../../../meta/Meta";
 
 interface DataPropsAtGatheringDetail {
   data: { gathering: GatheringType; currUser: adminUserInfoObjType };
@@ -11,9 +11,7 @@ interface DataPropsAtGatheringDetail {
 const GatheringDetail: NextPage<DataPropsAtGatheringDetail> = ({ data }) => {
   return (
     <>
-      <Head>
-        <title>Gathering Detail</title>
-      </Head>
+      <Meta title={"Gathering Detail"} />
       <GatheringContainer data={data} />
     </>
   );

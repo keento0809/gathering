@@ -1,9 +1,9 @@
 import { Url } from "url";
 
 export interface MetaDefaultPropsType {
-  title: string;
-  keywords: string;
-  description: string;
+  title?: string;
+  keywords?: string;
+  description?: string;
 }
 
 export interface ChildrenProps {

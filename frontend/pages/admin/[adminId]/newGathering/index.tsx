@@ -1,31 +1,15 @@
 import { GetServerSideProps } from "next";
 import { getSession } from "next-auth/react";
-import Head from "next/head";
-import MainButton from "../../../../components/Button/MainButton";
-import Card from "../../../../components/Card/Card";
-import CreateGatheringForm from "../../../../components/Form/CreateGatheringForm";
 import { server } from "../../../../config/index";
+import NewGatheringContainer from "../../../../features/admin/newGatheringContainer";
+import Meta from "../../../../meta/Meta";
 import { adminUserProps } from "../../../../models/model";
 
 const NewGathering = ({ currentUser }: adminUserProps) => {
   return (
     <>
-      <Head>
-        <title>Create New Gathering</title>
-      </Head>
-      <div>
-        <div className="">
-          <h2 className="text-2xl font-bold tracking-tighter text-center text-primary dark:text-red-400">
-            Create Gathering
-          </h2>
-          <Card>
-            <CreateGatheringForm currentUser={currentUser} />
-          </Card>
-          <div className="text-center pt-6 pb-4">
-            <MainButton text="Back" linkUrl={`/admin/home`} />
-          </div>
-        </div>
-      </div>
+      <Meta title={"Create New Gathering"} />
+      <NewGatheringContainer currentUser={currentUser} />
     </>
   );
 };
