@@ -1,8 +1,5 @@
-import {
-  userContextType,
-  ChildrenProps,
-  AdminUserInfoObjType,
-} from "../models/model";
+import { userContextType, AdminUserInfoObjType } from "../models/model";
+import { ChildrenProps } from "../types";
 import { createContext, useContext, useState } from "react";
 
 const userContextValue: userContextType = {
