@@ -1,13 +1,17 @@
 import { createContext, useContext, useState } from "react";
 import { ChildrenProps } from "../types/index";
-import { loadingContextType } from "../models/model";
 
-const loadingContextValue: loadingContextType = {
+type LoadingContext = {
+  isLoading: boolean;
+  setIsLoading: (bool: boolean) => void;
+};
+
+const loadingContextValue: LoadingContext = {
   isLoading: false,
   setIsLoading: (bool: boolean) => {},
 };
 
-const LoadingContext = createContext<loadingContextType>(loadingContextValue);
+const LoadingContext = createContext<LoadingContext>(loadingContextValue);
 
 const LoadingProvider = ({ children }: ChildrenProps) => {
   const [isLoading, setIsLoading] = useState(false);

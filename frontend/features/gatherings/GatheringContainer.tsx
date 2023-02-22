@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import MainButton from "../../components/Button/MainButton";
 import DetailCard from "../../components/Card/DetailCard";
-import { GatheringType, AdminUserInfoObjType } from "../../models/model";
+import { GatheringType } from "../../models/model";
+import { AdminUserInfoObj } from "../../types/admin";
 import { useSession } from "next-auth/react";
 import { useLoadingContext } from "../../context/LoadingContext";
 import Title from "../../components/Title/Title";
 
 type Props = {
-  data: { gathering: GatheringType; currUser: AdminUserInfoObjType };
+  data: { gathering: GatheringType; currUser: AdminUserInfoObj };
 };
 
 const GatheringContainer = ({ data }: Props) => {

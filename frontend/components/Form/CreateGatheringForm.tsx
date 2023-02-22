@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 import Button from "../Button/Button";
 import { server } from "../../config/index";
-import { GatheringType, adminUserProps } from "../../models/model";
+import { GatheringType } from "../../models/model";
+import { AdminUserProps } from "../../types/admin";
 import TestMap from "../Map/TestMap";
 import { useMapContext } from "../../context/MapContext";
 import { useRouter } from "next/router";
 import getTodayString from "../../Helper/getTodayString";
 import { setGatheringImage } from "../../Helper/updateGatheringImage";
 
-const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
+const CreateGatheringForm = ({ currentUser }: AdminUserProps) => {
   const router = useRouter();
   const mapCtx = useMapContext();
   const [isDateExpired, setIsDateExpired] = useState<Boolean>(false);

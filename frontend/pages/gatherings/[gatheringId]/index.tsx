@@ -1,11 +1,12 @@
-import { GatheringType, AdminUserInfoObjType } from "../../../models/model";
+import { GatheringType } from "../../../models/model";
+import { AdminUserInfoObj } from "../../../types/admin";
 import { GetServerSideProps, NextPage } from "next";
 import { server } from "../../../config";
 import GatheringContainer from "../../../features/gatherings/GatheringContainer";
 import Meta from "../../../meta/Meta";
 
 interface DataPropsAtGatheringDetail {
-  data: { gathering: GatheringType; currUser: AdminUserInfoObjType };
+  data: { gathering: GatheringType; currUser: AdminUserInfoObj };
 }
 
 const GatheringDetail: NextPage<DataPropsAtGatheringDetail> = ({ data }) => {

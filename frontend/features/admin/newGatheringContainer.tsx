@@ -1,9 +1,9 @@
 import MainButton from "../../components/Button/MainButton";
 import Card from "../../components/Card/Card";
 import CreateGatheringForm from "../../components/Form/CreateGatheringForm";
-import { adminUserProps } from "../../models/model";
+import { AdminUserProps } from "../../types/admin";
 
-const NewGatheringContainer = ({ currentUser }: adminUserProps) => {
+const NewGatheringContainer = ({ currentUser }: AdminUserProps) => {
   return (
     <>
       <div>

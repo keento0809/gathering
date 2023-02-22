@@ -35,46 +35,6 @@ export interface AdminUserInfoObjType {
   hostGathering: [] | never[];
 }
 
-export interface adminUserProps {
-  currentUser: {
-    _id: number | null;
-    username: string;
-    email: string;
-    hostGathering: [] | never[];
-  };
-}
-
-export interface userContextType {
-  isLoggedIn: boolean;
-  isLoading: boolean;
-  currentUserInfo: AdminUserInfoObjType;
-  login: () => void;
-  logout: () => void;
-  loadingOn: () => void;
-  loadingOff: () => void;
-  setCurrUser: (userObj: AdminUserInfoObjType) => void;
-  resetCurrUser: () => void;
-}
-
-export interface loadingContextType {
-  isLoading: boolean;
-  setIsLoading: (bool: boolean) => void;
-}
-
-export interface MainAlertProps {
-  text: string;
-  isAlert: boolean;
-  setIsAlert: Function;
-}
-
-export interface CurrentUserProps {
-  _id: string;
-  name: string;
-  email: string;
-  image: string;
-  emailVerified: null | string;
-}
-
 export interface MapProps extends google.maps.MapOptions {
   style: { [key: string]: string };
   children?: React.ReactNode;

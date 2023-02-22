@@ -1,8 +1,20 @@
-import { userContextType, AdminUserInfoObjType } from "../models/model";
+import { AdminUserInfoObj } from "../types/admin";
 import { ChildrenProps } from "../types";
 import { createContext, useContext, useState } from "react";
 
-const userContextValue: userContextType = {
+type UserContext = {
+  isLoggedIn: boolean;
+  isLoading: boolean;
+  currentUserInfo: AdminUserInfoObj;
+  login: () => void;
+  logout: () => void;
+  loadingOn: () => void;
+  loadingOff: () => void;
+  setCurrUser: (userObj: AdminUserInfoObj) => void;
+  resetCurrUser: () => void;
+};
+
+const userContextValue: UserContext = {
   isLoading: false,
   isLoggedIn: false,
   currentUserInfo: {
@@ -15,16 +27,16 @@ const userContextValue: userContextType = {
   logout: () => {},
   loadingOn: () => {},
   loadingOff: () => {},
-  setCurrUser: (userObj: AdminUserInfoObjType) => {},
+  setCurrUser: (userObj: AdminUserInfoObj) => {},
   resetCurrUser: () => {},
 };
 
-const UserContext = createContext<userContextType>(userContextValue);
+const UserContext = createContext<UserContext>(userContextValue);
 
 const AdminUserProvider = ({ children }: ChildrenProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [currentUserInfo, setCurrentUserInfo] = useState<AdminUserInfoObjType>({
+  const [currentUserInfo, setCurrentUserInfo] = useState<AdminUserInfoObj>({
     id: null,
     username: "",
     email: "",
@@ -42,7 +54,7 @@ const AdminUserProvider = ({ children }: ChildrenProps) => {
   const loadingOff = () => {
     setIsLoading(false);
   };
-  const setCurrUser = (userObj: AdminUserInfoObjType) => {
+  const setCurrUser = (userObj: AdminUserInfoObj) => {
     setCurrentUserInfo(userObj);
   };
   const resetCurrUser = () => {

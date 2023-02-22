@@ -3,9 +3,9 @@ import { getSession } from "next-auth/react";
 import { server } from "../../../../config/index";
 import NewGatheringContainer from "../../../../features/admin/newGatheringContainer";
 import Meta from "../../../../meta/Meta";
-import { adminUserProps } from "../../../../models/model";
+import { AdminUserProps } from "../../../../types/admin";
 
-const NewGathering = ({ currentUser }: adminUserProps) => {
+const NewGathering = ({ currentUser }: AdminUserProps) => {
   return (
     <>
       <Meta title={"Create New Gathering"} />
