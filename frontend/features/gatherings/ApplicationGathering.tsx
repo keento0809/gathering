@@ -1,6 +1,6 @@
 import Card from "../../components/Card/Card";
 import ApplicationForm from "../../components/Form/ApplicationForm";
-import { GatheringProps } from "../../models/model";
+import { GatheringProps } from "../../types/gathering";
 import { useEffect } from "react";
 import { useLoadingContext } from "../../context/LoadingContext";
 import Title from "../../components/Title/Title";

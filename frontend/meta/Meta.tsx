@@ -1,11 +1,16 @@
 import Head from "next/head";
-import { MetaDefaultPropsType } from "../models/model";
+
+type Props = {
+  title?: string;
+  keywords?: string;
+  description?: string;
+};
 
 const Meta = ({
   title = "Gathering",
   keywords = "social event, meetup",
   description = "Meetup application",
-}: MetaDefaultPropsType) => {
+}: Props) => {
   return (
     <Head>
       <title>{title}</title>

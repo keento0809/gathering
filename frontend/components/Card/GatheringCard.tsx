@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import Image from "next/image";
-import { GatheringProps } from "../../models/model";
+import { GatheringProps } from "../../types/gathering";
 import CardModal from "../Modal/CardModal";
 import MainButton from "../Button/MainButton";
 import urlForImage from "../../public/static/mtg_1.jpg";

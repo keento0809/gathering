@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import Card from "../../components/Card/Card";
 import EditGatheringForm from "../../components/Form/EditGatheringForm";
-import { GatheringProps } from "../../models/model";
+import { GatheringProps } from "../../types/gathering";
 import MainButton from "../../components/Button/MainButton";
 import { useLoadingContext } from "../../context/LoadingContext";
 import Title from "../../components/Title/Title";

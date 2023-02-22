@@ -1,51 +1,6 @@
-import { Url } from "url";
-
-export interface MetaDefaultPropsType {
-  title?: string;
-  keywords?: string;
-  description?: string;
-}
-
-export interface ChildrenProps {
-  children: React.ReactNode;
-}
-
-export interface LayoutProps {
-  children: React.ReactNode;
-}
-
-export interface AuthButtonProps {
-  text: String;
-}
-
-export interface MainButtonProps {
-  text: String;
-  linkUrl: Url | string;
-  isMaximum?: boolean;
-}
-
-export interface SingupUserInputObj {
-  username: String;
-  email: String;
-  password: String;
-  passwordConfirm: String;
-}
-
-export interface LoginUserInputObj {
-  email: String;
-  password: String;
-}
-
-export interface placeLatLngObj {
+interface PlaceLatLngObj {
   lat: number;
   lng: number;
-}
-
-export interface StaticImageData {
-  src: string;
-  height?: number;
-  width?: number;
-  placeholder?: string;
 }
 
 export interface GatheringType {
@@ -59,28 +14,20 @@ export interface GatheringType {
   schedule: string;
   timeSchedule: string;
   placeName: string;
-  placeLatLng: placeLatLngObj;
+  placeLatLng: PlaceLatLngObj;
   isFull: boolean;
-  participants: participantInfoObj[];
+  participants: ParticipantInfoObj[];
   specialNotes: string;
-  organizer: adminUserInfoObjType;
+  organizer: AdminUserInfoObjType;
 }
 
-export interface GatheringProps {
-  gathering: GatheringType;
-}
-
-export interface GatheringsArrayType {
-  data: GatheringType[];
-}
-
-export interface participantInfoObj {
+export interface ParticipantInfoObj {
   username: string;
   email: string;
   twitterId: string;
 }
 
-export interface adminUserInfoObjType {
+export interface AdminUserInfoObjType {
   _id?: number | null;
   id?: number | null;
   username: string;
@@ -100,12 +47,12 @@ export interface adminUserProps {
 export interface userContextType {
   isLoggedIn: boolean;
   isLoading: boolean;
-  currentUserInfo: adminUserInfoObjType;
+  currentUserInfo: AdminUserInfoObjType;
   login: () => void;
   logout: () => void;
   loadingOn: () => void;
   loadingOff: () => void;
-  setCurrUser: (userObj: adminUserInfoObjType) => void;
+  setCurrUser: (userObj: AdminUserInfoObjType) => void;
   resetCurrUser: () => void;
 }
 

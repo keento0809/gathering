@@ -1,5 +1,5 @@
 import { GetServerSideProps } from "next";
-import { GatheringsArrayType } from "../../models/model";
+import { GatheringsArrayType } from "../../types/gathering";
 import { server } from "../../config/index";
 import HomeContainer from "../../features/home/HomeContainer";
 import Meta from "../../meta/Meta";
