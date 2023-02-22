@@ -3,7 +3,7 @@ import Button from "../Button/Button";
 import { useRouter } from "next/router";
 import { server } from "../../config";
 import { init, send } from "@emailjs/browser";
-import { GatheringProps } from "../../models/model";
+import { GatheringProps } from "../../types/gathering";
 
 const ApplicationForm = ({ gathering }: GatheringProps) => {
   const [userInfo, setUserInfo] = useState({

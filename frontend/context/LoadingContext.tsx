@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
-import { ChildrenProps, loadingContextType } from "../models/model";
+import { ChildrenProps } from "../types/index";
+import { loadingContextType } from "../models/model";
 
 const loadingContextValue: loadingContextType = {
   isLoading: false,

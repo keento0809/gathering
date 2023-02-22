@@ -1,12 +1,12 @@
 import { getSession, useSession } from "next-auth/react";
 import { GetServerSideProps } from "next";
 import { server } from "../../config";
-import { adminUserInfoObjType, GatheringType } from "../../models/model";
+import { AdminUserInfoObjType, GatheringType } from "../../models/model";
 import AdminHomeContainer from "../../features/admin/AdminHomeContainer";
 import Meta from "../../meta/Meta";
 
 interface DataPropsAtAdminHome {
-  data: { hostGatherings: GatheringType[]; currUser: adminUserInfoObjType };
+  data: { hostGatherings: GatheringType[]; currUser: AdminUserInfoObjType };
 }
 
 const AdminHome = ({ data }: DataPropsAtAdminHome) => {

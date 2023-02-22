@@ -1,6 +1,6 @@
 import { GetServerSideProps } from "next";
 import { server } from "../../../config";
-import { GatheringProps } from "../../../models/model";
+import { GatheringProps } from "../../../types/gathering";
 import ApplicationGathering from "../../../features/gatherings/ApplicationGathering";
 import Meta from "../../../meta/Meta";
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import SearchInput from "../../components/SearchInput/SearchInput";
-import { GatheringsArrayType, GatheringType } from "../../models/model";
+import { GatheringsArrayType, GatheringType } from "../../types/gathering";
 import GatheringsList from "../../components/List/GatheringsList";
 import sortGatherings from "../../Helper/sortGatherings";
 import Title from "../../components/Title/Title";

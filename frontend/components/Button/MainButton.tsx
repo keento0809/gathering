@@ -1,8 +1,14 @@
 import { useRouter } from "next/router";
 import { useLoadingContext } from "../../context/LoadingContext";
-import { MainButtonProps } from "../../models/model";
+import { Url } from "url";
 
-const MainButton = ({ text, linkUrl, isMaximum }: MainButtonProps) => {
+type Props = {
+  text: string;
+  linkUrl: Url | string;
+  isMaximum?: boolean;
+};
+
+const MainButton = ({ text, linkUrl, isMaximum }: Props) => {
   const router = useRouter();
   const { setIsLoading } = useLoadingContext();
   const handleJumpToLink = () => {

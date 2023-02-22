@@ -1,5 +1,5 @@
 import GatheringCard from "../Card/GatheringCard";
-import { GatheringsArrayType } from "../../models/model";
+import { GatheringsArrayType } from "../../types/gathering";
 
 const GatheringsList = ({ data }: GatheringsArrayType) => {
   const upcomingList = data.map((gathering) => {

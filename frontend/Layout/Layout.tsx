@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import Meta from "../meta/Meta";
 import Nav from "../components/navbar/NavBar";
-import { LayoutProps } from "../models/model";
+import { ChildrenProps } from "../types/index";
 import Footer from "../components/Footer/Footer";
 import { useRouter } from "next/router";
 import Loader from "../components/Loader/Loader";
 import { useLoadingContext } from "../context/LoadingContext";
 import Wrapper from "../components/Wrapper/Wrapper";
 import HeroPaper from "../components/Paper/HeroPaper";
-const Layout = ({ children }: LayoutProps) => {
+
+const Layout = ({ children }: ChildrenProps) => {
   const [isHero, setIsHero] = useState(false);
   const { isLoading } = useLoadingContext();
   const router = useRouter();
