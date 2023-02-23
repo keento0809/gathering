@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
-import { locationObj, MapProps } from "../../models/model";
+import { MapProps } from "../../types/map";
 import useDeepCompareEffect from "use-deep-compare-effect";
 import { useMapContext } from "../../context/MapContext";
 
@@ -8,13 +8,7 @@ const render = (status: Status) => {
   return <h1>{status}</h1>;
 };
 
-const Map: React.FC<MapProps> = ({
-  onClick,
-  onIdle,
-  children,
-  style,
-  ...options
-}) => {
+const Map = ({ onClick, onIdle, children, style, ...options }: MapProps) => {
   const ref = React.useRef<HTMLDivElement>(null);
   const [map, setMap] = React.useState<google.maps.Map>();
 
@@ -59,7 +53,7 @@ const Map: React.FC<MapProps> = ({
   );
 };
 
-const TestMap = () => {
+const BasicMap = () => {
   const [clicks, setClicks] = React.useState<google.maps.LatLng[]>([]);
   const [zoom, setZoom] = React.useState(11);
   const [centerPosition, setCenterPosition] =
@@ -67,7 +61,6 @@ const TestMap = () => {
       lat: 49.2846717,
       lng: -123.1200546,
     });
-  const [latLngObj, setLatLngObj] = useState<locationObj>();
   const mapCtx = useMapContext();
 
   const onClick = (e: google.maps.MapMouseEvent) => {
@@ -102,7 +95,7 @@ const TestMap = () => {
   );
 };
 
-export default TestMap;
+export default BasicMap;
 
 export async function getStaticProps() {
   return {

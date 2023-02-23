@@ -1,6 +1,10 @@
-import { MainAlertProps } from "../../models/model";
+type Props = {
+  text: string;
+  isAlert: boolean;
+  setIsAlert: Function;
+};
 
-const MainAlert = ({ text, isAlert, setIsAlert }: MainAlertProps) => {
+const MainAlert = ({ text, isAlert, setIsAlert }: Props) => {
   return (
     <div
       id="alert-3"

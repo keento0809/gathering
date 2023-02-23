@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 import Button from "../Button/Button";
 import { server } from "../../config/index";
-import { GatheringType, adminUserProps } from "../../models/model";
-import TestMap from "../Map/TestMap";
+import { GatheringType } from "../../models/model";
+import { AdminUserProps } from "../../types/admin";
+import BasicMap from "../Map/BasicMap";
 import { useMapContext } from "../../context/MapContext";
 import { useRouter } from "next/router";
 import getTodayString from "../../Helper/getTodayString";
 import { setGatheringImage } from "../../Helper/updateGatheringImage";
 
-const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
+const CreateGatheringForm = ({ currentUser }: AdminUserProps) => {
   const router = useRouter();
   const mapCtx = useMapContext();
   const [isDateExpired, setIsDateExpired] = useState<Boolean>(false);
@@ -270,7 +271,7 @@ const CreateGatheringForm = ({ currentUser }: adminUserProps) => {
             Location (Please click or tap the place in the map)
           </label>
           <div className="relative">
-            <TestMap />
+            <BasicMap />
           </div>
         </div>
         <div className="mb-6">

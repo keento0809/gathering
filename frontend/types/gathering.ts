@@ -1,3 +1,5 @@
+import { AdminUserInfoObj } from "./admin";
+
 interface PlaceLatLngObj {
   lat: number;
   lng: number;
@@ -7,14 +9,6 @@ interface ParticipantInfoObj {
   username: string;
   email: string;
   twitterId: string;
-}
-
-interface AdminUserInfoObjType {
-  _id?: number | null;
-  id?: number | null;
-  username: string;
-  email: string;
-  hostGathering: [] | never[];
 }
 
 export interface GatheringType {
@@ -32,7 +26,7 @@ export interface GatheringType {
   isFull: boolean;
   participants: ParticipantInfoObj[];
   specialNotes: string;
-  organizer: AdminUserInfoObjType;
+  organizer: AdminUserInfoObj;
 }
 
 export interface GatheringsArrayType {

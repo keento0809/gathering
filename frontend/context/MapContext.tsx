@@ -1,9 +1,13 @@
 import { createContext, useContext, useState } from "react";
-import { locationObj } from "../models/model";
 import { ChildrenProps } from "../types/index";
 
+type LocationObj = {
+  lat: number;
+  lng: number;
+};
+
 export interface MapContextType {
-  center: locationObj;
+  center: LocationObj;
   handleSetCenter: (lat: number, lng: number) => void;
 }
 

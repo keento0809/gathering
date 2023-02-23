@@ -3,13 +3,14 @@ import GithubAuthButton from "../../components/Button/GithubAuthButton";
 import { signOut, signIn } from "next-auth/react";
 import Card from "../../components/Card/Card";
 import Link from "next/link";
-import { AdminUserInfoObjType, GatheringType } from "../../models/model";
+import { GatheringType } from "../../models/model";
+import { AdminUserInfoObj } from "../../types/admin";
 import GatheringsList from "../../components/List/GatheringsList";
 import { useLoadingContext } from "../../context/LoadingContext";
 import { useEffect } from "react";
 
 type Props = {
-  data: { hostGatherings: GatheringType[]; currUser: AdminUserInfoObjType };
+  data: { hostGatherings: GatheringType[]; currUser: AdminUserInfoObj };
 };
 
 const AdminHomeContainer = ({ data }: Props) => {

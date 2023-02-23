@@ -6,6 +6,7 @@ import { useLoadingContext } from "../../context/LoadingContext";
 
 const HomeContainer = ({ data }: GatheringsArrayType) => {
   const [bool, setBool] = useState<Boolean>(false);
+
   const handleToggleContents = (currBool: Boolean, text: string) => {
     if ((currBool && text === "past") || (!currBool && text === "upcoming"))
       return;
@@ -28,12 +29,14 @@ const HomeContainer = ({ data }: GatheringsArrayType) => {
           Explore new gathering here
         </p>
       </div>
-      <div className="pt-8 lg:pt-12 pb-4">
+      <div className="pb-4 mt-8 lg:mt-12">
         <div className="flex flex-row justify-start lg:justify-center">
           <div>
             <h3
               onClick={() => handleToggleContents(bool, "upcoming")}
-              className={`${!bool ? "text-primary border-primary" : ""} ${
+              className={`${
+                !bool ? "text-primary border-b-4 border-primary" : ""
+              } ${
                 bool && "border-transparent"
               } inline-block text-xl cursor-pointer border-b-4 pb-0.5 lg:pb-1 lg:text-center font-bold tracking-tight overflow-y-scroll transition-all [text-shadow:_0_2px_2px_rgb(255_255_255_/_70%)]`}
             >
