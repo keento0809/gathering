@@ -3,7 +3,7 @@ import Button from "../Button/Button";
 import { server } from "../../config/index";
 import { GatheringType } from "../../models/model";
 import { AdminUserProps } from "../../types/admin";
-import TestMap from "../Map/TestMap";
+import BasicMap from "../Map/BasicMap";
 import { useMapContext } from "../../context/MapContext";
 import { useRouter } from "next/router";
 import getTodayString from "../../Helper/getTodayString";
@@ -271,7 +271,7 @@ const CreateGatheringForm = ({ currentUser }: AdminUserProps) => {
             Location (Please click or tap the place in the map)
           </label>
           <div className="relative">
-            <TestMap />
+            <BasicMap />
           </div>
         </div>
         <div className="mb-6">

@@ -1,17 +1,19 @@
 import React, { useRef, useState, useEffect } from "react";
 import useDeepCompareEffect from "use-deep-compare-effect";
-import { MapProps, latLngProps } from "../../models/model";
 import { Wrapper } from "@googlemaps/react-wrapper";
 import { Marker, InfoWindow } from "@react-google-maps/api";
 import Link from "next/link";
+import { MapProps } from "../../types/map";
 
-const Map: React.FC<MapProps> = ({
-  onClick,
-  onIdle,
-  children,
-  style,
-  ...options
-}) => {
+type MarkerProps = {
+  placeLatLng: {
+    lat: number;
+    lng: number;
+  };
+  placeName: string;
+};
+
+const Map = ({ onClick, onIdle, children, style, ...options }: MapProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const [map, setMap] = useState<google.maps.Map>();
 
@@ -49,7 +51,7 @@ const Map: React.FC<MapProps> = ({
   );
 };
 
-const MapWithMarker = ({ placeLatLng, placeName }: latLngProps) => {
+const MapWithMarker = ({ placeLatLng, placeName }: MarkerProps) => {
   const [zoom, setZoom] = useState(14);
   const [centerPosition, setCenterPosition] =
     useState<google.maps.LatLngLiteral>({
