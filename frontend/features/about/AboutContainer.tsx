@@ -17,11 +17,11 @@ const AboutContainer = () => {
       </h2>
       <Card>
         <div className="explanations py-2 lg:max-w-800 lg:mx-auto">
-          <section className="pb-12">
-            <h3 className="section-title text-lg font-extrabold">
+          <section className="mb-12">
+            <h3 className="section-title text-lg font-bold">
               What is Gathering?
             </h3>
-            <p className="pt-6 font-medium">
+            <p className="pt-6">
               Gathering is a social media platform for organizing in-person
               meetup events. You can join the &ldquo;gathering&rdquo;, which
               stands for an event on this application, to explore your social
@@ -29,11 +29,11 @@ const AboutContainer = () => {
               gatherings today to broaden your horizon!
             </p>
           </section>
-          <section className="pb-12">
-            <h3 className="section-title text-lg font-extrabold">
+          <section className="mb-12">
+            <h3 className="section-title text-lg font-bold">
               How to join Gathering?
             </h3>
-            <p className="pt-6 font-medium">
+            <p className="pt-6">
               The way to join a gathering is to select a gathering that you want
               to join by pressing &ldquo;More&rdquo; button, and then fill out
               the information (name, email, and TwitterID). After that, press
@@ -41,8 +41,8 @@ const AboutContainer = () => {
               gathering.
             </p>
           </section>
-          <section className="pb-12">
-            <h3 className="section-title text-lg font-extrabold">
+          <section className="mb-12">
+            <h3 className="section-title text-lg font-bold">
               How to cancel Gathering?
             </h3>
             <p className="pt-6">
