@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import MainButton from "../../components/Button/MainButton";
 import DetailCard from "../../components/Card/DetailCard";
-import { GatheringType } from "../../models/model";
+import { GatheringType } from "../../types/gathering";
 import { AdminUserInfoObj } from "../../types/admin";
 import { useSession } from "next-auth/react";
 import { useLoadingContext } from "../../context/LoadingContext";

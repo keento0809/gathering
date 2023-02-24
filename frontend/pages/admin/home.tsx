@@ -1,7 +1,7 @@
 import { getSession, useSession } from "next-auth/react";
 import { GetServerSideProps } from "next";
 import { server } from "../../config";
-import { GatheringType } from "../../models/model";
+import { GatheringType } from "../../types/gathering";
 import { AdminUserInfoObj } from "../../types/admin";
 import AdminHomeContainer from "../../features/admin/AdminHomeContainer";
 import Meta from "../../meta/Meta";
