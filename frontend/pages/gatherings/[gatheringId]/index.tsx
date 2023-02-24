@@ -1,4 +1,4 @@
-import { GatheringType } from "../../../models/model";
+import { GatheringType } from "../../../types/gathering";
 import { AdminUserInfoObj } from "../../../types/admin";
 import { GetServerSideProps, NextPage } from "next";
 import { server } from "../../../config";

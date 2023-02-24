@@ -3,7 +3,7 @@ import GithubAuthButton from "../../components/Button/GithubAuthButton";
 import { signOut, signIn } from "next-auth/react";
 import Card from "../../components/Card/Card";
 import Link from "next/link";
-import { GatheringType } from "../../models/model";
+import { GatheringType } from "../../types/gathering";
 import { AdminUserInfoObj } from "../../types/admin";
 import GatheringsList from "../../components/List/GatheringsList";
 import { useLoadingContext } from "../../context/LoadingContext";

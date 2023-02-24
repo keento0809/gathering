@@ -1,4 +1,4 @@
-import { GatheringType } from "../models/model";
+import { GatheringType } from "../types/gathering";
 import isGatheringExpired from "./isGatheringExpired";
 
 const sortGatherings = (data: GatheringType[]) => {

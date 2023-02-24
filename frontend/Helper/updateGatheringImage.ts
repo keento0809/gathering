@@ -1,5 +1,5 @@
 import { server } from "../config";
-import { GatheringType } from "../models/model";
+import { GatheringType } from "../types/gathering";
 import { imagesData } from "../data/data";
 
 const selectImageIndex = () => {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Button from "../Button/Button";
 import { server } from "../../config/index";
-import { GatheringType } from "../../models/model";
+import { GatheringType } from "../../types/gathering";
 import { AdminUserProps } from "../../types/admin";
 import BasicMap from "../Map/BasicMap";
 import { useMapContext } from "../../context/MapContext";
