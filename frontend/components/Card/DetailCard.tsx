@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const DetailCard = ({ gathering }: GatheringProps) => {
   const schedule = gathering.timeSchedule.split(/\s+/g);
-
+  console.log(schedule);
   return (
     <Card>
       <div className="lg:max-w-800 lg:mx-auto grid md:grid-cols-2">
@@ -67,24 +67,25 @@ const DetailCard = ({ gathering }: GatheringProps) => {
         <section className="schedule p-4 bg-white md:bg-red-400 min-h-236">
           <h3 className="text-lg font-bold tracking-tight">Schedule</h3>
           <div className="pt-2">
-            {schedule?.map((item, index) =>
-              Number(schedule[index + 1]?.substring(0, 1)) ? (
-                <Fragment key={index}>
-                  <span> {item}</span>
-                  <br />
-                </Fragment>
-              ) : (
-                <span
-                  key={index}
-                  className={
-                    Number(item.substring(0, 1)) ? "inline-block min-w-100" : ""
-                  }
-                >
-                  {" "}
-                  {item}
-                </span>
-              )
-            )}
+            {schedule?.map((item, index) => {
+              console.log(isNaN(parseInt(item[0])));
+              return (
+                <>
+                  <span
+                    key={index}
+                    className={
+                      !isNaN(Number(item.substring(0, 1))) && item.includes(":")
+                        ? "inline-block min-w-100"
+                        : ""
+                    }
+                  >
+                    {" "}
+                    {item}
+                  </span>
+                  {!isNaN(parseInt(schedule[index + 1])) && <br />}
+                </>
+              );
+            })}
           </div>
         </section>
         <section className="google-map bg-red-400">
