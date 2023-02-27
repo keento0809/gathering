@@ -8,6 +8,7 @@ import { AdminUserInfoObj } from "../../types/admin";
 import GatheringsList from "../../components/List/GatheringsList";
 import { useLoadingContext } from "../../context/LoadingContext";
 import { useEffect } from "react";
+import Title from "../../components/Title/Title";
 
 type Props = {
   data: { hostGatherings: GatheringType[]; currUser: AdminUserInfoObj };
@@ -56,9 +57,9 @@ const AdminHomeContainer = ({ data }: Props) => {
       {session && (
         <div>
           <div className="flex flex-row items-center justify-between lg:justify-center">
-            <h3 className="text-2xl text-primary lg:text-center font-bold tracking-tight">
-              Hello, {session.user?.name}!
-            </h3>
+            <div className="mb-6">
+              <Title title={`Hello, ${session.user?.name}!`} />
+            </div>
             <Link href={"/admin/home"}>
               <a
                 onClick={(e) => {
@@ -87,7 +88,7 @@ const AdminHomeContainer = ({ data }: Props) => {
           <div className="pt-8 pb-4">
             <div className="">
               <h3 className="text-xl lg:pb-2 lg:text-center font-bold tracking-tight overflow-y-scroll">
-                Gatherings You Organize ({hostGatherings.length})
+                Gatherings You Organize - ({hostGatherings.length})
               </h3>
               <GatheringsList data={hostGatherings} />
             </div>

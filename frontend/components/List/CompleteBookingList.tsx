@@ -7,7 +7,7 @@ const CompleteBookingList = ({ gathering }: GatheringProps) => {
 
   return (
     <>
-      <ul className="pt-2 text-base">
+      <ul className="pt-2 text-base lg:text-center">
         <li className="pb-6">
           Date: <span className="font-semibold">{date}</span>
         </li>
@@ -28,7 +28,7 @@ const CompleteBookingList = ({ gathering }: GatheringProps) => {
         </li>
       </ul>
       <section className="google-map py-2">
-        <div className="pt-2">
+        <div className="pt-2 lg:w-1/2 lg:mx-auto">
           <MapWithMarker placeLatLng={placeLatLng} placeName={placeName} />
         </div>
       </section>

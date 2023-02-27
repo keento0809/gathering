@@ -17,7 +17,7 @@ const CompleteCreatingGathering = () => {
           </p>
         </div>
       </Card>
-      <div className="text-center pt-8">
+      <div className="text-center mt-8">
         <MainButton text="Home" linkUrl="/home" />
       </div>
     </>
