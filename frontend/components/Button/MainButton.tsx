@@ -13,7 +13,6 @@ const MainButton = ({ text, linkUrl, isMaximum }: Props) => {
   const { setIsLoading } = useLoadingContext();
   const handleJumpToLink = () => {
     setIsLoading(true);
-    console.log(linkUrl);
     router.push(linkUrl && linkUrl);
   };
   return (

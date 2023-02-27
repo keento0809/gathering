@@ -15,7 +15,7 @@ const ApplicationGathering = ({ gathering }: GatheringProps) => {
   return (
     <>
       <Title title={"Book gathering"} />
-      <p className="text-sm pt-8 px-2 md:max-w-580 md:mx-auto">
+      <p className="text-sm text-center mt-8 px-2 md:max-w-580 md:mx-auto">
         Please fill out your information to join the gathering. After pushing
         the confirm button, your booking will be secured immediately.
       </p>

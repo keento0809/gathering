@@ -17,7 +17,7 @@ const CompleteBookGathering = ({ gathering }: GatheringProps) => {
     <>
       <Title title={"Confirmed!"} />
       <Card>
-        <div className="pt-2">
+        <div className="pt-2 lg:text-center">
           <p className="text-lg font-bold tracking-tight">
             Your booking has been secured!
           </p>
@@ -29,7 +29,7 @@ const CompleteBookGathering = ({ gathering }: GatheringProps) => {
           <CompleteBookingList gathering={gathering} />
         </div>
       </Card>
-      <div className="text-center pt-8">
+      <div className="text-center mt-8">
         <MainButton text="Home" linkUrl="/home" />
       </div>
     </>

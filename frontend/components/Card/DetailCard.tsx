@@ -6,7 +6,6 @@ import Link from "next/link";
 
 const DetailCard = ({ gathering }: GatheringProps) => {
   const schedule = gathering.timeSchedule.split(/\s+/g);
-  console.log(schedule);
   return (
     <Card>
       <div className="lg:max-w-800 lg:mx-auto grid md:grid-cols-2">
@@ -68,7 +67,6 @@ const DetailCard = ({ gathering }: GatheringProps) => {
           <h3 className="text-lg font-bold tracking-tight">Schedule</h3>
           <div className="pt-2">
             {schedule?.map((item, index) => {
-              console.log(isNaN(parseInt(item[0])));
               return (
                 <>
                   <span
