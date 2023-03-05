@@ -25,7 +25,7 @@ const Card = ({ children }: ChildrenProps) => {
   }, []);
   return (
     <div
-      className="rounded-xl bg-bgForCard p-6 mt-6 overflow-scroll lg:max-w-1000 lg:mx-auto"
+      className="rounded-xl bg-bgForCard p-6 mt-6 mb-8 overflow-scroll lg:max-w-1000 lg:mx-auto"
       style={{ minHeight: `${minHeight}px`, maxHeight: `${maxHeight}px` }}
     >
       {children}
