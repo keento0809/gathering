@@ -53,7 +53,7 @@ const AboutContainer = () => {
           </section>
         </div>
       </Card>
-      <div className="text-center pt-6">
+      <div className="text-center pt-6 pb-5">
         <MainButton text="Back" linkUrl={`/home`} />
       </div>
     </>
