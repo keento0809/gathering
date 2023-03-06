@@ -20,7 +20,7 @@ const SearchInput = ({ handleInputWord }: handleInputWord) => {
             />
             <button
               type="submit"
-              className="absolute top-0 right-0 p-2.5 text-sm font-medium transition-all text-white bg-primary rounded-r-lg border border-primary hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-primary dark:focus:ring-red-600"
+              className="absolute h-full top-0 right-0 p-2.5 text-sm font-medium transition-all text-white bg-primary rounded-r-lg border border-primary hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-primary dark:focus:ring-red-600"
             >
               <svg
                 aria-hidden="true"
