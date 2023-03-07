@@ -9,7 +9,7 @@ const DetailCard = ({ gathering }: GatheringProps) => {
   return (
     <Card>
       <div className="lg:max-w-800 lg:mx-auto grid md:grid-cols-2">
-        <section className="image bg-red-400 min-h-236">
+        <section className="image bg-red-300 min-h-236">
           <img
             src={gathering.image}
             alt=""
@@ -21,7 +21,7 @@ const DetailCard = ({ gathering }: GatheringProps) => {
           <h3 className="text-lg font-bold tracking-tight">Description</h3>
           <p className="text-base pt-2">{gathering.description}</p>
         </section>
-        <section className="info p-4 bg-red-400 md:bg-white min-h-236">
+        <section className="info p-4 bg-red-300 md:bg-white min-h-236">
           <h3 className="text-lg font-bold tracking-tight">Info</h3>
           <ul className="pt-2 text-base">
             <li className="pb-1">Date: {gathering.date}</li>
@@ -63,7 +63,7 @@ const DetailCard = ({ gathering }: GatheringProps) => {
             <li className="pb-1">Organizer: {gathering.organizer.username}</li>
           </ul>
         </section>
-        <section className="schedule p-4 bg-white md:bg-red-400 min-h-236">
+        <section className="schedule p-4 bg-white md:bg-red-300 min-h-236">
           <h3 className="text-lg font-bold tracking-tight">Schedule</h3>
           <div className="pt-2">
             {schedule?.map((item, index) => {
@@ -86,7 +86,7 @@ const DetailCard = ({ gathering }: GatheringProps) => {
             })}
           </div>
         </section>
-        <section className="google-map bg-red-400">
+        <section className="google-map bg-red-300">
           <div className="">
             <MapWithMarker
               placeLatLng={gathering.placeLatLng}
