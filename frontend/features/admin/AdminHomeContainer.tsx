@@ -56,7 +56,7 @@ const AdminHomeContainer = ({ data }: Props) => {
       )}
       {session && (
         <div>
-          <div className="flex flex-row items-center justify-between lg:justify-center">
+          <div className="flex flex-row items-start justify-between lg:justify-center">
             <div className="mb-6">
               <Title title={`Hello, ${session.user?.name}!`} />
             </div>
@@ -74,7 +74,7 @@ const AdminHomeContainer = ({ data }: Props) => {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-6 h-6"
+                  className="w-7 h-7"
                 >
                   <path
                     strokeLinecap="round"
@@ -88,7 +88,9 @@ const AdminHomeContainer = ({ data }: Props) => {
           <div className="pt-8 pb-4">
             <div className="">
               <h3 className="text-xl lg:pb-2 lg:text-center font-bold tracking-tight overflow-y-scroll">
-                Gatherings You Organize - ({hostGatherings.length})
+                You organize{" "}
+                <span className="text-2xl">{hostGatherings.length}</span>{" "}
+                gatherings
               </h3>
               <GatheringsList data={hostGatherings} />
             </div>
