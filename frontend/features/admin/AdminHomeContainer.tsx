@@ -94,8 +94,17 @@ const AdminHomeContainer = ({ data }: Props) => {
               </h3>
               <GatheringsList data={hostGatherings} />
             </div>
-            <div className="pb-6">
-              <div className="fixed z-40 bottom-10 right-6 inline-block p-4 text-white bg-red-500 hover:bg-red-600 hover:scale-105 transition-all cursor-pointer rounded-full">
+            <div className="mb-6">
+              <div
+                className="fixed z-40 bottom-10 right-6 inline-block text-white bg-red-500 hover:bg-red-600 hover:scale-105 transition-all cursor-pointer rounded-full"
+                style={{
+                  position: "fixed",
+                  bottom: "10%",
+                  right: "6%",
+                  background: "rgb(240 82 82)",
+                  padding: "1.25rem",
+                }}
+              >
                 <Link href={`/admin/${adminId}/newGathering`}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
