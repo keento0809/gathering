@@ -2,14 +2,13 @@ import MainButton from "../../components/Button/MainButton";
 import Card from "../../components/Card/Card";
 import CreateGatheringForm from "../../components/Form/CreateGatheringForm";
 import { AdminUserProps } from "../../types/admin";
+import Title from "../../components/Title/Title";
 
 const NewGatheringContainer = ({ currentUser }: AdminUserProps) => {
   return (
     <>
       <div>
-        <h2 className="text-2xl font-bold tracking-tighter text-center text-primary dark:text-red-400">
-          Create Gathering
-        </h2>
+        <Title title={"Create Gathering"} />
         <Card>
           <CreateGatheringForm currentUser={currentUser} />
         </Card>
