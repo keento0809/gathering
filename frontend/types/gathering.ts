@@ -1,4 +1,4 @@
-import { AdminUserInfoObj } from "./admin";
+import { AdminUser } from "./admin";
 
 interface PlaceLatLngObj {
   lat: number;
@@ -26,7 +26,7 @@ export interface GatheringType {
   isFull: boolean;
   participants: ParticipantInfoObj[];
   specialNotes: string;
-  organizer: AdminUserInfoObj;
+  organizer: AdminUser;
 }
 
 export interface GatheringsArrayType {
