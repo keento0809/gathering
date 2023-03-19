@@ -4,14 +4,14 @@ import { signOut, signIn } from "next-auth/react";
 import Card from "../../components/Card/Card";
 import Link from "next/link";
 import { GatheringType } from "../../types/gathering";
-import { AdminUserInfoObj } from "../../types/admin";
+import { AdminUser } from "../../types/admin";
 import GatheringsList from "../../components/List/GatheringsList";
 import { useLoadingContext } from "../../context/LoadingContext";
 import { useEffect } from "react";
 import Title from "../../components/Title/Title";
 
 type Props = {
-  data: { hostGatherings: GatheringType[]; currUser: AdminUserInfoObj };
+  data: { hostGatherings: GatheringType[]; currUser: AdminUser };
 };
 
 const AdminHomeContainer = ({ data }: Props) => {
