@@ -19,6 +19,7 @@ const Layout = ({ children }: ChildrenProps) => {
   return (
     <>
       <Meta />
+      {isLoading && <Loader />}
       <Nav />
       <div className="containers">
         {router.route !== "/" && <HeroPaper />}
@@ -32,7 +33,6 @@ const Layout = ({ children }: ChildrenProps) => {
         </section>
       </div>
       <Footer />
-      {isLoading && <Loader />}
     </>
   );
 };
