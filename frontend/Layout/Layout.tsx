@@ -13,9 +13,11 @@ const Layout = ({ children }: ChildrenProps) => {
   const [isHero, setIsHero] = useState(false);
   const { isLoading } = useLoadingContext();
   const router = useRouter();
+
   useEffect(() => {
     setIsHero(router.route === "/");
   }, [router.route]);
+
   return (
     <>
       <Meta />
