@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useMemo, useState } from "react";
 import { ChildrenProps } from "../types/index";
 
 type LocationObj = {
@@ -26,10 +26,13 @@ const MapContextProvider = ({ children }: ChildrenProps) => {
     });
   };
 
-  const mapContextValue: MapContextType = {
-    center,
-    handleSetCenter,
-  };
+  const mapContextValue: MapContextType = useMemo(
+    () => ({
+      center,
+      handleSetCenter,
+    }),
+    [center]
+  );
 
   return (
     <MapContext.Provider value={mapContextValue}>

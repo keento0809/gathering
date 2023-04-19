@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useMemo, useState } from "react";
 import { ChildrenProps } from "../types/index";
 
 type LoadingContext = {
@@ -18,10 +18,13 @@ const LoadingProvider = ({ children }: ChildrenProps) => {
   const setLoadingFunc = (bool: boolean) => {
     setIsLoading(bool);
   };
-  const value = {
-    isLoading,
-    setIsLoading: setLoadingFunc,
-  };
+  const value: LoadingContext = useMemo(
+    () => ({
+      isLoading,
+      setIsLoading: setLoadingFunc,
+    }),
+    [isLoading]
+  );
   return (
     <LoadingContext.Provider value={value}>{children}</LoadingContext.Provider>
   );

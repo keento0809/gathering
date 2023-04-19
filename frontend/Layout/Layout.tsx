@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Meta from "../meta/Meta";
-import Nav from "../components/navbar/NavBar";
+import Nav from "../components/Nav/NavBar";
 import { ChildrenProps } from "../types/index";
 import Footer from "../components/Footer/Footer";
 import { useRouter } from "next/router";
