@@ -52,7 +52,7 @@ const ApplicationForm = ({ gathering }: GatheringProps) => {
         gathering_place: placeName,
         gathering_note: specialNotes,
       };
-      // send email
+      // send email by using EmailJS
       send(serviceID, templateID, template_params)
         .then()
         .catch((err) => console.log(err));

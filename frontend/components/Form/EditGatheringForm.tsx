@@ -71,9 +71,12 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
       console.log(error);
     }
   };
+
+  // TODO:Need to enable admin users to edit gatherings
   const handleSubmit = () => {
     console.log("submit");
   };
+
   return (
     <div className="md:max-w-500 md:mx-auto">
       <div className="mb-12">
