@@ -31,7 +31,7 @@ const NavBar = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full z-50 bg-secondary border-b-0.8 border-textPrimary">
+      <header className="fixed top-0 left-0 w-full z-40 bg-secondary border-b-0.8 border-textPrimary">
         <div className="header-container px-5 py-4 flex flex-row justify-between items-center">
           <section className="header-left">
             <div onClick={() => handlePageTransition("/home")}>
