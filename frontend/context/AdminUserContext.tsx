@@ -27,7 +27,7 @@ const userContextValue: UserContext = {
   logout: () => {},
   loadingOn: () => {},
   loadingOff: () => {},
-  setCurrUser: (userObj: AdminUser) => {},
+  setCurrUser: () => {},
   resetCurrUser: () => {},
 };
 
@@ -65,7 +65,7 @@ const AdminUserProvider = ({ children }: ChildrenProps) => {
       hostGathering: [],
     });
   };
-  const value = useMemo(
+  const value: UserContext = useMemo(
     () => ({
       isLoading,
       isLoggedIn,
@@ -79,18 +79,6 @@ const AdminUserProvider = ({ children }: ChildrenProps) => {
     }),
     [isLoading, isLoggedIn, currentUserInfo]
   );
-  // original
-  // const value = {
-  //   isLoading,
-  //   isLoggedIn,
-  //   currentUserInfo,
-  //   login,
-  //   logout,
-  //   loadingOn,
-  //   loadingOff,
-  //   setCurrUser,
-  //   resetCurrUser,
-  // };
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
 
