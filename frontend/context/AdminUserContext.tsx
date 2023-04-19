@@ -1,6 +1,6 @@
 import { AdminUser } from "../types/admin";
 import { ChildrenProps } from "../types";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useMemo, useState } from "react";
 
 type UserContext = {
   isLoggedIn: boolean;
@@ -65,17 +65,32 @@ const AdminUserProvider = ({ children }: ChildrenProps) => {
       hostGathering: [],
     });
   };
-  const value = {
-    isLoading,
-    isLoggedIn,
-    currentUserInfo,
-    login,
-    logout,
-    loadingOn,
-    loadingOff,
-    setCurrUser,
-    resetCurrUser,
-  };
+  const value = useMemo(
+    () => ({
+      isLoading,
+      isLoggedIn,
+      currentUserInfo,
+      login,
+      logout,
+      loadingOn,
+      loadingOff,
+      setCurrUser,
+      resetCurrUser,
+    }),
+    [isLoading, isLoggedIn, currentUserInfo]
+  );
+  // original
+  // const value = {
+  //   isLoading,
+  //   isLoggedIn,
+  //   currentUserInfo,
+  //   login,
+  //   logout,
+  //   loadingOn,
+  //   loadingOff,
+  //   setCurrUser,
+  //   resetCurrUser,
+  // };
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
 
