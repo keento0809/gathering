@@ -44,6 +44,7 @@ const CreateGatheringForm = ({ currentUser }: AdminUserProps) => {
     if (e.target.name === "headline") {
       setWordCount(100 - e.target.value.length);
     }
+    // Validation to prevent admin users to create new gatherings with past dates
     if (e.target.name === "date") {
       let today = new Date();
       const todayString = getTodayString();
@@ -51,7 +52,6 @@ const CreateGatheringForm = ({ currentUser }: AdminUserProps) => {
         ? setIsDateExpired(true)
         : setIsDateExpired(false);
     }
-    // I will add a validation for date
     setGatheringInfo({
       ...gatheringInfo,
       [e.target.name]: e.target.value,
