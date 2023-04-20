@@ -28,7 +28,7 @@ const AdminHomeContainer = ({ data }: Props) => {
     <div className="home-title z-20">
       {!session && (
         <div>
-          <Title title={"Admin Authentication"} />
+          <Title title={"Organizer Authentication"} />
           <Card>
             <div className="text-center pt-4">
               {!session && (

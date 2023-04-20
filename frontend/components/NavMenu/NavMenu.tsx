@@ -41,7 +41,7 @@ const NavMenu = () => {
           )}
           {!(router.route === `/admin/home` && session !== null) && (
             <Link href={"/admin/home"}>
-              {session ? "Admin page" : "Login for admin"}
+              {session ? "Organizer Page" : "Login for Organizer"}
             </Link>
           )}
         </li>
