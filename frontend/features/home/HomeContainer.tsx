@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import GatheringsList from "../../components/List/GatheringsList";
 import { GatheringsArrayType } from "../../types/gathering";
-import sortGatherings from "../../Helper/sortGatherings";
+import sortGatherings from "../../helpers/sortGatherings";
 import { useLoadingContext } from "../../context/LoadingContext";
 
 const HomeContainer = ({ data }: GatheringsArrayType) => {

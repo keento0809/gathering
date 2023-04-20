@@ -1,6 +1,6 @@
 import { server } from "../config";
 import { GatheringType } from "../types/gathering";
-import { imagesData } from "../data/data";
+import { imagesData } from "../constants/images";
 
 const selectImageIndex = () => {
   const randomIndex = Math.floor(Math.random() * 3);
