@@ -1,4 +1,4 @@
-import Layout from "../Layout/Layout";
+import Layout from "../layouts/Layout";
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Script from "next/script";
