@@ -106,7 +106,7 @@ const NavBar = () => {
                   className={NAV_TAB_STYLE}
                   onClick={() => handlePageTransition("/admin/home")}
                 >
-                  {session ? "Admin page" : "Login for admin"}
+                  {session ? "Organizer Page" : "Login for Organizer"}
                 </li>
               )}
               <hr />

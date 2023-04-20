@@ -140,24 +140,6 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
         </div>
         <div className="mb-12">
           <label
-            htmlFor="image-icon"
-            className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
-          >
-            Image
-          </label>
-          <div className="relative">
-            <input
-              type="file"
-              name="image"
-              id="image-icon"
-              onChange={handleChange}
-              accept="image/png,image/jpeg"
-              required={true}
-            />
-          </div>
-        </div>
-        <div className="mb-12">
-          <label
             htmlFor="date-icon"
             className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
           >
@@ -303,7 +285,7 @@ const EditGatheringForm = ({ gathering }: GatheringProps) => {
             htmlFor="placeLatLng-icon"
             className="block mb-2 text-sm font-medium text-textPrimary dark:text-gray-300"
           >
-            Location (Please click or tap the place in the map)
+            Location (Please click or tap the new place in the map)
           </label>
           <div className="relative">
             <BasicMap />
