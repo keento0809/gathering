@@ -1,4 +1,4 @@
-import { GatheringProps } from "../../types/gathering";
+import { GatheringProps } from "../../../types/gathering";
 import MapWithMarker from "../Map/MapWithMarker";
 
 const CompleteBookingList = ({ gathering }: GatheringProps) => {

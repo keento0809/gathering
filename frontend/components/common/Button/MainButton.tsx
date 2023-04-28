@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useLoadingContext } from "../../context/LoadingContext";
+import { useLoadingContext } from "../../../context/LoadingContext";
 import { Url } from "url";
 
 type Props = {

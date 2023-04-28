@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import MainButton from "../../components/Button/MainButton";
-import DetailCard from "../../components/Card/DetailCard";
+import MainButton from "../../components/common/Button/MainButton";
+import DetailCard from "../../components/common/Card/DetailCard";
 import { GatheringType } from "../../types/gathering";
 import { AdminUser } from "../../types/admin";
 import { useSession } from "next-auth/react";
 import { useLoadingContext } from "../../context/LoadingContext";
-import Title from "../../components/Title/Title";
+import Title from "../../components/common/Title/Title";
 
 type Props = {
   data: { gathering: GatheringType; currUser: AdminUser };

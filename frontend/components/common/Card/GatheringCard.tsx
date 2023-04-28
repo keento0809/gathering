@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import Image from "next/image";
-import { GatheringProps } from "../../types/gathering";
+import { GatheringProps } from "../../../types/gathering";
 import CardModal from "../Modal/CardModal";
 import MainButton from "../Button/MainButton";
-import urlForImage from "../../public/static/mtg_1.jpg";
-import urlForImageSecond from "../../public/static/mtg_2.jpg";
-import urlForImageThird from "../../public/static/mtg_3.jpg";
-import updateGatheringImage from "../../helpers/updateGatheringImage";
-import isGatheringExpired from "../../helpers/isGatheringExpired";
+import urlForImage from "../../../public/static/mtg_1.jpg";
+import urlForImageSecond from "../../../public/static/mtg_2.jpg";
+import urlForImageThird from "../../../public/static/mtg_3.jpg";
+import updateGatheringImage from "../../../helpers/updateGatheringImage";
+import isGatheringExpired from "../../../helpers/isGatheringExpired";
 
 const GatheringCard = ({ gathering }: GatheringProps) => {
   const isExpired = isGatheringExpired(gathering.date);

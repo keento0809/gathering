@@ -1,5 +1,5 @@
-import MainButton from "../../components/Button/MainButton";
-import Card from "../../components/Card/Card";
+import MainButton from "../../components/common/Button/MainButton";
+import Card from "../../components/common/Card/Card";
 
 const CompleteCreatingGathering = () => {
   return (

@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import Meta from "../meta/Meta";
-import Nav from "../components/Nav/NavBar";
+import Nav from "../components/common/Nav/NavBar";
 import { ChildrenProps } from "../types/index";
-import Footer from "../components/Footer/Footer";
+import Footer from "../components/common/Footer/Footer";
 import { useRouter } from "next/router";
-import Loader from "../components/Loader/Loader";
+import Loader from "../components/common/Loader/Loader";
 import { useLoadingContext } from "../context/LoadingContext";
-import Wrapper from "../components/Wrapper/Wrapper";
-import HeroPaper from "../components/Paper/HeroPaper";
+import Wrapper from "../components/common/Wrapper/Wrapper";
+import HeroPaper from "../components/common/Paper/HeroPaper";
 
 const Layout = ({ children }: ChildrenProps) => {
   const [isHero, setIsHero] = useState(false);

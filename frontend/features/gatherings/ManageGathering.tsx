@@ -1,10 +1,10 @@
 import { useEffect } from "react";
-import Card from "../../components/Card/Card";
-import EditGatheringForm from "../../components/Form/EditGatheringForm";
+import Card from "../../components/common/Card/Card";
+import EditGatheringForm from "../../components/common/Form/EditGatheringForm";
 import { GatheringProps } from "../../types/gathering";
-import MainButton from "../../components/Button/MainButton";
+import MainButton from "../../components/common/Button/MainButton";
 import { useLoadingContext } from "../../context/LoadingContext";
-import Title from "../../components/Title/Title";
+import Title from "../../components/common/Title/Title";
 
 const ManageGathering = ({ gathering }: GatheringProps) => {
   const { isLoading, setIsLoading } = useLoadingContext();
