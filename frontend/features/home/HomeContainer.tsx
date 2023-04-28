@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import GatheringsList from "../../components/List/GatheringsList";
+import GatheringsList from "../../components/common/List/GatheringsList";
 import { GatheringsArrayType } from "../../types/gathering";
 import sortGatherings from "../../helpers/sortGatherings";
 import { useLoadingContext } from "../../context/LoadingContext";

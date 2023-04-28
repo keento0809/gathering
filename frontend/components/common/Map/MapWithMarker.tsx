@@ -3,7 +3,7 @@ import useDeepCompareEffect from "use-deep-compare-effect";
 import { Wrapper } from "@googlemaps/react-wrapper";
 import { Marker, InfoWindow } from "@react-google-maps/api";
 import Link from "next/link";
-import { MapProps } from "../../types/map";
+import { MapProps } from "../../../types/map";
 
 type MarkerProps = {
   placeLatLng: {

@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { useState } from "react";
-import MainAlert from "../components/Alert/MainAlert";
-import MainButton from "../components/Button/MainButton";
+import MainAlert from "../components/common/Alert/MainAlert";
+import MainButton from "../components/common/Button/MainButton";
 const Home: NextPage = () => {
   const [isAlert, setIsAlert] = useState(false);
   return (

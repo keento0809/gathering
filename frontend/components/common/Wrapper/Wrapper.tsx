@@ -1,4 +1,4 @@
-import { ChildrenProps } from "../../types/index";
+import { ChildrenProps } from "../../../types/index";
 import { useRouter } from "next/router";
 
 const Wrapper = ({ children }: ChildrenProps) => {

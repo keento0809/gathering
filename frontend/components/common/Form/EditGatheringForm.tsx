@@ -1,8 +1,8 @@
 import { useState } from "react";
 import BasicMap from "../Map/BasicMap";
 import Button from "../Button/Button";
-import { GatheringProps, GatheringType } from "../../types/gathering";
-import { server } from "../../config";
+import { GatheringProps, GatheringType } from "../../../types/gathering";
+import { server } from "../../../config";
 
 const EditGatheringForm = ({ gathering }: GatheringProps) => {
   const {

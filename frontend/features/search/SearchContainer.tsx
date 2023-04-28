@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import SearchInput from "../../components/SearchInput/SearchInput";
+import SearchInput from "../../components/common/Input/SearchInput";
 import { GatheringsArrayType, GatheringType } from "../../types/gathering";
-import GatheringsList from "../../components/List/GatheringsList";
+import GatheringsList from "../../components/common/List/GatheringsList";
 import sortGatherings from "../../helpers/sortGatherings";
-import Title from "../../components/Title/Title";
+import Title from "../../components/common/Title/Title";
 import { useLoadingContext } from "../../context/LoadingContext";
 
 const SearchGatheringContainer = ({ data }: GatheringsArrayType) => {

@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import NavMenu from "../NavMenu/NavMenu";
 import { GetServerSideProps } from "next";
 import { getSession, useSession, signOut } from "next-auth/react";
-import { useLoadingContext } from "../../context/LoadingContext";
+import { useLoadingContext } from "../../../context/LoadingContext";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

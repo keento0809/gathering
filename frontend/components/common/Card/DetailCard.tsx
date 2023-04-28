@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import Card from "./Card";
-import { GatheringProps } from "../../types/gathering";
+import { GatheringProps } from "../../../types/gathering";
 import MapWithMarker from "../Map/MapWithMarker";
 import Link from "next/link";
 

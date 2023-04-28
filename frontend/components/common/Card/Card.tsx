@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ChildrenProps } from "../../types/index";
+import { ChildrenProps } from "../../../types/index";
 
 const Card = ({ children }: ChildrenProps) => {
   const [minHeight, setMinHeight] = useState(500);
