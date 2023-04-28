@@ -2,7 +2,7 @@ import MainButton from "../../components/common/Button/MainButton";
 import Card from "../../components/common/Card/Card";
 import { GatheringProps } from "../../types/gathering";
 import { useEffect } from "react";
-import { useLoadingContext } from "../../context/LoadingContext";
+import { useLoadingContext } from "../../components/context/LoadingContext";
 import Title from "../../components/common/Title/Title";
 import CompleteBookingList from "../../components/common/List/CompleteBookingList";
 

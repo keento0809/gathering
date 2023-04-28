@@ -6,7 +6,7 @@ import Link from "next/link";
 import { GatheringType } from "../../types/gathering";
 import { AdminUser } from "../../types/admin";
 import GatheringsList from "../../components/common/List/GatheringsList";
-import { useLoadingContext } from "../../context/LoadingContext";
+import { useLoadingContext } from "../../components/context/LoadingContext";
 import { useEffect } from "react";
 import Title from "../../components/common/Title/Title";
 

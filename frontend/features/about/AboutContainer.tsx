@@ -1,6 +1,6 @@
 import Card from "../../components/common/Card/Card";
 import MainButton from "../../components/common/Button/MainButton";
-import { useLoadingContext } from "../../context/LoadingContext";
+import { useLoadingContext } from "../../components/context/LoadingContext";
 import { useEffect } from "react";
 import { aboutContents } from "../../constants/about";
 

@@ -2,7 +2,7 @@ import Card from "../../components/common/Card/Card";
 import ApplicationForm from "../../components/common/Form/ApplicationForm";
 import { GatheringProps } from "../../types/gathering";
 import { useEffect } from "react";
-import { useLoadingContext } from "../../context/LoadingContext";
+import { useLoadingContext } from "../../components/context/LoadingContext";
 import Title from "../../components/common/Title/Title";
 
 const ApplicationGathering = ({ gathering }: GatheringProps) => {

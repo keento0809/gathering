@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import GatheringsList from "../../components/common/List/GatheringsList";
 import { GatheringsArrayType } from "../../types/gathering";
 import sortGatherings from "../../helpers/sortGatherings";
-import { useLoadingContext } from "../../context/LoadingContext";
+import { useLoadingContext } from "../../components/context/LoadingContext";
 
 const HomeContainer = ({ data }: GatheringsArrayType) => {
   const [bool, setBool] = useState<Boolean>(false);
