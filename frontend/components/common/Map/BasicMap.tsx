@@ -2,7 +2,7 @@ import React from "react";
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
 import { MapProps } from "../../../types/map";
 import useDeepCompareEffect from "use-deep-compare-effect";
-import { useMapContext } from "../../../context/MapContext";
+import { useMapContext } from "../../context/MapContext";
 
 const render = (status: Status) => {
   return <h1>{status}</h1>;

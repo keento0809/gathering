@@ -1,5 +1,5 @@
 import { createContext, useContext, useMemo, useState } from "react";
-import { ChildrenProps } from "../types/index";
+import { ChildrenProps } from "../../types/index";
 
 type LoadingContext = {
   isLoading: boolean;

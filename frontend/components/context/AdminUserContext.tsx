@@ -1,5 +1,5 @@
-import { AdminUser } from "../types/admin";
-import { ChildrenProps } from "../types";
+import { AdminUser } from "../../types/admin";
+import { ChildrenProps } from "../../types";
 import { createContext, useContext, useMemo, useState } from "react";
 
 type UserContext = {

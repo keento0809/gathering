@@ -3,9 +3,9 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Script from "next/script";
 import { SessionProvider } from "next-auth/react";
-import AdminUserProvider from "../context/AdminUserContext";
-import MapContextProvider from "../context/MapContext";
-import LoadingProvider from "../context/LoadingContext";
+import AdminUserProvider from "../components/context/AdminUserContext";
+import MapContextProvider from "../components/context/MapContext";
+import LoadingProvider from "../components/context/LoadingContext";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   <Script

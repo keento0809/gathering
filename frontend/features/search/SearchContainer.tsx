@@ -4,7 +4,7 @@ import { GatheringsArrayType, GatheringType } from "../../types/gathering";
 import GatheringsList from "../../components/common/List/GatheringsList";
 import sortGatherings from "../../helpers/sortGatherings";
 import Title from "../../components/common/Title/Title";
-import { useLoadingContext } from "../../context/LoadingContext";
+import { useLoadingContext } from "../../components/context/LoadingContext";
 
 const SearchGatheringContainer = ({ data }: GatheringsArrayType) => {
   const [inputWord, setInputWord] = useState("");

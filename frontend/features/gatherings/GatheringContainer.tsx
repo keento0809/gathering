@@ -4,7 +4,7 @@ import DetailCard from "../../components/common/Card/DetailCard";
 import { GatheringType } from "../../types/gathering";
 import { AdminUser } from "../../types/admin";
 import { useSession } from "next-auth/react";
-import { useLoadingContext } from "../../context/LoadingContext";
+import { useLoadingContext } from "../../components/context/LoadingContext";
 import Title from "../../components/common/Title/Title";
 
 type Props = {

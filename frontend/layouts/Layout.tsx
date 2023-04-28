@@ -5,7 +5,7 @@ import { ChildrenProps } from "../types/index";
 import Footer from "../components/common/Footer/Footer";
 import { useRouter } from "next/router";
 import Loader from "../components/common/Loader/Loader";
-import { useLoadingContext } from "../context/LoadingContext";
+import { useLoadingContext } from "../components/context/LoadingContext";
 import Wrapper from "../components/common/Wrapper/Wrapper";
 import HeroPaper from "../components/common/Paper/HeroPaper";
 

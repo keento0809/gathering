@@ -4,7 +4,7 @@ import { server } from "../../../config/index";
 import { GatheringType } from "../../../types/gathering";
 import { AdminUserProps } from "../../../types/admin";
 import BasicMap from "../Map/BasicMap";
-import { useMapContext } from "../../../context/MapContext";
+import { useMapContext } from "../../context/MapContext";
 import { useRouter } from "next/router";
 import getTodayString from "../../../helpers/getTodayString";
 import { setGatheringImage } from "../../../helpers/updateGatheringImage";

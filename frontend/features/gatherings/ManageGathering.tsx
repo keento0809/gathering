@@ -3,7 +3,7 @@ import Card from "../../components/common/Card/Card";
 import EditGatheringForm from "../../components/common/Form/EditGatheringForm";
 import { GatheringProps } from "../../types/gathering";
 import MainButton from "../../components/common/Button/MainButton";
-import { useLoadingContext } from "../../context/LoadingContext";
+import { useLoadingContext } from "../../components/context/LoadingContext";
 import Title from "../../components/common/Title/Title";
 
 const ManageGathering = ({ gathering }: GatheringProps) => {
