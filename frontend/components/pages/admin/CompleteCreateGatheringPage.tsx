@@ -4,7 +4,7 @@ import Card from "../../common/Card/Card";
 const CompleteCreateGatheringPage = () => {
   return (
     <>
-      <h2 className="text-2xl text-center font-bold tracking-tighter text-left text-primary">
+      <h2 className="text-2xl text-center font-bold tracking-tighter text-primary">
         New Gathering Created!
       </h2>
       <Card>

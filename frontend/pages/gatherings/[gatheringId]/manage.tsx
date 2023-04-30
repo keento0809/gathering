@@ -2,14 +2,14 @@ import { GetServerSideProps } from "next";
 import { getSession } from "next-auth/react";
 import { server } from "../../../config";
 import { GatheringProps } from "../../../types/gathering";
-import ManageGathering from "../../../components/pages/gatherings/ManageGathering";
+import ManageGatheringPage from "../../../components/pages/gatherings/ManageGatheringPage";
 import Meta from "../../../meta/Meta";
 
 const Manage = ({ gathering }: GatheringProps) => {
   return (
     <>
       <Meta title={"Manage Gathering"} />
-      <ManageGathering gathering={gathering} />
+      <ManageGatheringPage gathering={gathering} />
     </>
   );
 };

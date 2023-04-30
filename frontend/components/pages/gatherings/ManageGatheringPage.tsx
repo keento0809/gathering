@@ -6,7 +6,7 @@ import MainButton from "../../common/Button/MainButton";
 import { useLoadingContext } from "../../context/LoadingContext";
 import Title from "../../common/Title/Title";
 
-const ManageGathering = ({ gathering }: GatheringProps) => {
+const ManageGatheringPage = ({ gathering }: GatheringProps) => {
   const { isLoading, setIsLoading } = useLoadingContext();
 
   useEffect(() => {
@@ -26,4 +26,4 @@ const ManageGathering = ({ gathering }: GatheringProps) => {
   );
 };
 
-export default ManageGathering;
+export default ManageGatheringPage;
