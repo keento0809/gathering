@@ -20,7 +20,7 @@ const AboutPage = () => {
         <div className="explanations py-2 lg:max-w-800 lg:mx-auto">
           {aboutContents.map((content) => {
             return (
-              <section className="mb-12">
+              <section key={content.title} className="mb-12">
                 <h3 className="section-title text-lg font-bold">
                   {content.title}
                 </h3>
