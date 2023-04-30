@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import SearchInput from "../../components/common/Input/SearchInput";
-import { GatheringsArrayType, GatheringType } from "../../types/gathering";
-import GatheringsList from "../../components/common/List/GatheringsList";
-import sortGatherings from "../../helpers/sortGatherings";
-import Title from "../../components/common/Title/Title";
-import { useLoadingContext } from "../../components/context/LoadingContext";
+import SearchInput from "../../common/Input/SearchInput";
+import { GatheringsArrayType, GatheringType } from "../../../types/gathering";
+import GatheringsList from "../../common/List/GatheringsList";
+import sortGatherings from "../../../helpers/sortGatherings";
+import Title from "../../common/Title/Title";
+import { useLoadingContext } from "../../context/LoadingContext";
 
-const SearchGatheringContainer = ({ data }: GatheringsArrayType) => {
+const SearchGatheringPage = ({ data }: GatheringsArrayType) => {
   const [inputWord, setInputWord] = useState("");
   const handleInputWord: (word: string) => void = (word) => {
     setInputWord(word);
@@ -40,4 +40,4 @@ const SearchGatheringContainer = ({ data }: GatheringsArrayType) => {
   );
 };
 
-export default SearchGatheringContainer;
+export default SearchGatheringPage;

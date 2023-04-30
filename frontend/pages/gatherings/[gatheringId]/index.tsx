@@ -2,7 +2,7 @@ import { GatheringType } from "../../../types/gathering";
 import { AdminUser } from "../../../types/admin";
 import { GetServerSideProps, NextPage } from "next";
 import { server } from "../../../config";
-import GatheringContainer from "../../../features/gatherings/GatheringContainer";
+import GatheringPage from "../../../components/pages/gatherings/GatheringPage";
 import Meta from "../../../meta/Meta";
 
 interface DataPropsAtGatheringDetail {
@@ -13,7 +13,7 @@ const GatheringDetail: NextPage<DataPropsAtGatheringDetail> = ({ data }) => {
   return (
     <>
       <Meta title={"Gathering Detail"} />
-      <GatheringContainer data={data} />
+      <GatheringPage data={data} />
     </>
   );
 };

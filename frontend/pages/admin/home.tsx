@@ -3,7 +3,7 @@ import { GetServerSideProps } from "next";
 import { server } from "../../config";
 import { GatheringType } from "../../types/gathering";
 import { AdminUser } from "../../types/admin";
-import AdminHomeContainer from "../../features/admin/AdminHomeContainer";
+import AdminHomePage from "../../components/pages/admin/AdminHomePage";
 import Meta from "../../meta/Meta";
 
 interface DataPropsAtAdminHome {
@@ -16,7 +16,7 @@ const AdminHome = ({ data }: DataPropsAtAdminHome) => {
   return (
     <>
       <Meta title={`Admin ${session ? "home" : "login"}`} />
-      <AdminHomeContainer data={data} />
+      <AdminHomePage data={data} />
     </>
   );
 };

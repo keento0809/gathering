@@ -1,12 +1,12 @@
-import MainButton from "../../components/common/Button/MainButton";
-import Card from "../../components/common/Card/Card";
-import { GatheringProps } from "../../types/gathering";
+import MainButton from "../../common/Button/MainButton";
+import Card from "../../common/Card/Card";
+import { GatheringProps } from "../../../types/gathering";
 import { useEffect } from "react";
-import { useLoadingContext } from "../../components/context/LoadingContext";
-import Title from "../../components/common/Title/Title";
-import CompleteBookingList from "../../components/common/List/CompleteBookingList";
+import { useLoadingContext } from "../../context/LoadingContext";
+import Title from "../../common/Title/Title";
+import CompleteBookingList from "../../common/List/CompleteBookingList";
 
-const CompleteBookGathering = ({ gathering }: GatheringProps) => {
+const CompleteBookGatheringPage = ({ gathering }: GatheringProps) => {
   const { isLoading, setIsLoading } = useLoadingContext();
 
   useEffect(() => {
@@ -36,4 +36,4 @@ const CompleteBookGathering = ({ gathering }: GatheringProps) => {
   );
 };
 
-export default CompleteBookGathering;
+export default CompleteBookGatheringPage;

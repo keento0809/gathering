@@ -1,7 +1,7 @@
 import { GetServerSideProps } from "next";
 import { getSession } from "next-auth/react";
 import { server } from "../../../../config/index";
-import NewGatheringContainer from "../../../../features/admin/newGatheringContainer";
+import NewGatheringPage from "../../../../components/pages/admin/NewGatheringPage";
 import Meta from "../../../../meta/Meta";
 import { AdminUserProps } from "../../../../types/admin";
 
@@ -9,7 +9,7 @@ const NewGathering = ({ currentUser }: AdminUserProps) => {
   return (
     <>
       <Meta title={"Create New Gathering"} />
-      <NewGatheringContainer currentUser={currentUser} />
+      <NewGatheringPage currentUser={currentUser} />
     </>
   );
 };

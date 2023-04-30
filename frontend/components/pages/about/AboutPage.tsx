@@ -1,10 +1,10 @@
-import Card from "../../components/common/Card/Card";
-import MainButton from "../../components/common/Button/MainButton";
-import { useLoadingContext } from "../../components/context/LoadingContext";
+import Card from "../../common/Card/Card";
+import MainButton from "../../common/Button/MainButton";
+import { useLoadingContext } from "../../context/LoadingContext";
 import { useEffect } from "react";
-import { aboutContents } from "../../constants/about";
+import { aboutContents } from "../../../constants/about";
 
-const AboutContainer = () => {
+const AboutPage = () => {
   const { isLoading, setIsLoading } = useLoadingContext();
 
   useEffect(() => {
@@ -37,4 +37,4 @@ const AboutContainer = () => {
   );
 };
 
-export default AboutContainer;
+export default AboutPage;

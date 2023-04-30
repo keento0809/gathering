@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
-import MainButton from "../../components/common/Button/MainButton";
-import DetailCard from "../../components/common/Card/DetailCard";
-import { GatheringType } from "../../types/gathering";
-import { AdminUser } from "../../types/admin";
+import MainButton from "../../common/Button/MainButton";
+import DetailCard from "../../common/Card/DetailCard";
+import { GatheringType } from "../../../types/gathering";
+import { AdminUser } from "../../../types/admin";
 import { useSession } from "next-auth/react";
-import { useLoadingContext } from "../../components/context/LoadingContext";
-import Title from "../../components/common/Title/Title";
+import { useLoadingContext } from "../../context/LoadingContext";
+import Title from "../../common/Title/Title";
 
 type Props = {
   data: { gathering: GatheringType; currUser: AdminUser };
 };
 
-const GatheringContainer = ({ data }: Props) => {
+const GatheringPage = ({ data }: Props) => {
   const { data: session } = useSession();
   const { _id, title, participants, capacity, organizer, isFull } =
     data.gathering;
@@ -57,4 +57,4 @@ const GatheringContainer = ({ data }: Props) => {
   );
 };
 
-export default GatheringContainer;
+export default GatheringPage;
