@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import GatheringsList from "../../components/common/List/GatheringsList";
-import { GatheringsArrayType } from "../../types/gathering";
-import sortGatherings from "../../helpers/sortGatherings";
-import { useLoadingContext } from "../../components/context/LoadingContext";
+import GatheringsList from "../../common/List/GatheringsList";
+import { GatheringsArrayType } from "../../../types/gathering";
+import sortGatherings from "../../../helpers/sortGatherings";
+import { useLoadingContext } from "../../context/LoadingContext";
 
-const HomeContainer = ({ data }: GatheringsArrayType) => {
+const HomePage = ({ data }: GatheringsArrayType) => {
   const [bool, setBool] = useState<Boolean>(false);
 
   const handleToggleContents = (currBool: Boolean, text: string) => {
@@ -75,4 +75,4 @@ const HomeContainer = ({ data }: GatheringsArrayType) => {
   );
 };
 
-export default HomeContainer;
+export default HomePage;

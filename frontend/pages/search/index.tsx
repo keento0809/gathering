@@ -1,15 +1,14 @@
 import { GetServerSideProps } from "next";
 import { server } from "../../config";
 import { GatheringsArrayType } from "../../types/gathering";
-import Head from "next/head";
-import SearchGatheringContainer from "../../features/search/SearchContainer";
+import SearchGatheringPage from "../../components/pages/search/SearchGatheringPage";
 import Meta from "../../meta/Meta";
 
 const SearchGathering = ({ data }: GatheringsArrayType) => {
   return (
     <>
       <Meta title={"Find Gathering"} />
-      <SearchGatheringContainer data={data} />
+      <SearchGatheringPage data={data} />
     </>
   );
 };

@@ -1,20 +1,20 @@
 import { useSession } from "next-auth/react";
-import GithubAuthButton from "../../components/common/Button/GithubAuthButton";
+import GithubAuthButton from "../../common/Button/GithubAuthButton";
 import { signOut, signIn } from "next-auth/react";
-import Card from "../../components/common/Card/Card";
+import Card from "../../common/Card/Card";
 import Link from "next/link";
-import { GatheringType } from "../../types/gathering";
-import { AdminUser } from "../../types/admin";
-import GatheringsList from "../../components/common/List/GatheringsList";
-import { useLoadingContext } from "../../components/context/LoadingContext";
+import { GatheringType } from "../../../types/gathering";
+import { AdminUser } from "../../../types/admin";
+import GatheringsList from "../../common/List/GatheringsList";
+import { useLoadingContext } from "../../context/LoadingContext";
 import { useEffect } from "react";
-import Title from "../../components/common/Title/Title";
+import Title from "../../common/Title/Title";
 
 type Props = {
   data: { hostGatherings: GatheringType[]; currUser: AdminUser };
 };
 
-const AdminHomeContainer = ({ data }: Props) => {
+const AdminHomePage = ({ data }: Props) => {
   const { data: session } = useSession();
   const { hostGatherings, currUser } = data;
   const adminId = currUser._id;
@@ -128,4 +128,4 @@ const AdminHomeContainer = ({ data }: Props) => {
   );
 };
 
-export default AdminHomeContainer;
+export default AdminHomePage;

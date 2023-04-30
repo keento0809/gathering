@@ -1,11 +1,11 @@
-import CompleteCreatingGathering from "../../../../features/admin/CompleteCreatingGathering";
+import CompleteCreateGatheringPage from "../../../../components/pages/admin/CompleteCreateGatheringPage";
 import Meta from "../../../../meta/Meta";
 
 const Completion = () => {
   return (
     <>
       <Meta title={"Complete"} />
-      <CompleteCreatingGathering />
+      <CompleteCreateGatheringPage />
     </>
   );
 };

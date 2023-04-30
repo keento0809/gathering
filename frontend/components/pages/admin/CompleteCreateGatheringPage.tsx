@@ -1,7 +1,7 @@
-import MainButton from "../../components/common/Button/MainButton";
-import Card from "../../components/common/Card/Card";
+import MainButton from "../../common/Button/MainButton";
+import Card from "../../common/Card/Card";
 
-const CompleteCreatingGathering = () => {
+const CompleteCreateGatheringPage = () => {
   return (
     <>
       <h2 className="text-2xl text-center font-bold tracking-tighter text-left text-primary">
@@ -24,4 +24,4 @@ const CompleteCreatingGathering = () => {
   );
 };
 
-export default CompleteCreatingGathering;
+export default CompleteCreateGatheringPage;

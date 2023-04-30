@@ -1,14 +1,14 @@
 import { GetServerSideProps } from "next";
 import { server } from "../../../config";
 import { GatheringProps } from "../../../types/gathering";
-import ApplicationGathering from "../../../features/gatherings/ApplicationGathering";
+import ApplyGatheringPage from "../../../components/pages/gatherings/ApplyGatheringPage";
 import Meta from "../../../meta/Meta";
 
 const ApplicationPage = ({ gathering }: GatheringProps) => {
   return (
     <>
       <Meta title={"Application"} />
-      <ApplicationGathering gathering={gathering} />
+      <ApplyGatheringPage gathering={gathering} />
     </>
   );
 };

@@ -1,11 +1,11 @@
-import Card from "../../components/common/Card/Card";
-import ApplicationForm from "../../components/common/Form/ApplicationForm";
-import { GatheringProps } from "../../types/gathering";
+import Card from "../../common/Card/Card";
+import ApplicationForm from "../../common/Form/ApplicationForm";
+import { GatheringProps } from "../../../types/gathering";
 import { useEffect } from "react";
-import { useLoadingContext } from "../../components/context/LoadingContext";
-import Title from "../../components/common/Title/Title";
+import { useLoadingContext } from "../../context/LoadingContext";
+import Title from "../../common/Title/Title";
 
-const ApplicationGathering = ({ gathering }: GatheringProps) => {
+const ApplyGatheringPage = ({ gathering }: GatheringProps) => {
   const { isLoading, setIsLoading } = useLoadingContext();
 
   useEffect(() => {
@@ -26,4 +26,4 @@ const ApplicationGathering = ({ gathering }: GatheringProps) => {
   );
 };
 
-export default ApplicationGathering;
+export default ApplyGatheringPage;

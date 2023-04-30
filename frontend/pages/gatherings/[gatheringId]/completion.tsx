@@ -1,14 +1,14 @@
 import { GetServerSideProps } from "next";
 import { server } from "../../../config";
 import { GatheringProps } from "../../../types/gathering";
-import CompleteBookGathering from "../../../features/gatherings/CompleteBookGathering";
+import CompleteBookGatheringPage from "../../../components/pages/gatherings/CompleteBookGatheringPage";
 import Meta from "../../../meta/Meta";
 
 const Completion = ({ gathering }: GatheringProps) => {
   return (
     <>
       <Meta title={"Complete booking"} />
-      <CompleteBookGathering gathering={gathering} />
+      <CompleteBookGatheringPage gathering={gathering} />
     </>
   );
 };
