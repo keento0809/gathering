@@ -13,7 +13,7 @@ const GatheringsList = ({ data }: GatheringsArrayType) => {
     );
   });
   return (
-    <ul className="text-xl mt-3 md:pb-24 overflow-scroll md:flex md:flex-wrap md:justify-start">
+    <ul className="text-xl mt-3 md:pb-24 overflow-scroll md:overflow-auto md:flex md:flex-wrap md:justify-start">
       {upcomingList}
     </ul>
   );
