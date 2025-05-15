@@ -17,6 +17,7 @@ const HomePage = ({ data }: GatheringsArrayType) => {
 
   useEffect(() => {
     isLoading && setIsLoading(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -57,7 +58,7 @@ const HomePage = ({ data }: GatheringsArrayType) => {
         <div className={`${bool ? "hidden" : "block"}`}>
           <GatheringsList data={upcomingGatherings} />
           {upcomingGatherings.length === 0 && (
-            <p className="text-lg font-semibold pt-2">
+            <p className="text-lg font-semibold text-center pt-2">
               No Upcoming Gatherings Found
             </p>
           )}
@@ -65,7 +66,7 @@ const HomePage = ({ data }: GatheringsArrayType) => {
         <div className={`${!bool ? "hidden" : "block"}`}>
           <GatheringsList data={expiredGatherings} />
           {expiredGatherings.length === 0 && (
-            <p className="text-lg font-semibold pt-2">
+            <p className="text-lg font-semibold text-center pt-2">
               No Expired Gatherings Found
             </p>
           )}

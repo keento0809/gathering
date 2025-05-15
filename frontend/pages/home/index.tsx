@@ -22,6 +22,13 @@ export const getServerSideProps: GetServerSideProps = async () => {
       "Content-Type": "application/json",
     },
   });
+
+  // Check if response is OK (status in the range 200-299)
+  if (!res.ok) {
+    console.error(`API error: ${res.status} ${res.statusText}`);
+    return { props: { data: [] } };
+  }
+
   const allGatherings = await res.json();
   return {
     props: {
