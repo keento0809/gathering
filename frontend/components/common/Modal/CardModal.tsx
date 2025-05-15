@@ -5,7 +5,7 @@ interface CardProps {
 const CardModal = ({ isExpired }: CardProps) => {
   return (
     <div
-      className="absolute top-0 right-0 bottom-0 left-0 bg-slate-700 rounded-lg z-40 opacity-80"
+      className="absolute top-0 right-0 bottom-0 left-0 bg-slate-700 rounded-lg z-40 opacity-80 cursor-not-allowed"
       style={{ maxWidth: "372px" }}
     >
       <div className="modal-container flex justify-center items-center h-full">
