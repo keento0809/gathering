@@ -25,7 +25,7 @@ export const useGatheringsPage = ({ data }: Props) => {
 
   useEffect(() => {
     isLoading && setIsLoading(false);
-    participants.length >= capacity ? setIsMaximum(true) : setIsMaximum(false);
+    setIsMaximum(participants.length >= capacity);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
