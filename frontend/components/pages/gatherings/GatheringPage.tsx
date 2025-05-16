@@ -1,32 +1,33 @@
-import { useEffect, useState } from "react";
 import MainButton from "../../common/Button/MainButton";
 import DetailCard from "../../common/Card/DetailCard";
 import { GatheringType } from "../../../types/gathering";
 import { AdminUser } from "../../../types/admin";
-import { useSession } from "next-auth/react";
-import { useLoadingContext } from "../../context/LoadingContext";
 import Title from "../../common/Title/Title";
+import { useGatheringsPage } from "./hooks/useGatheringsPage";
 
 type Props = {
   data: { gathering: GatheringType; currUser: AdminUser };
 };
 
 const GatheringPage = ({ data }: Props) => {
-  const { data: session } = useSession();
-  const { _id, title, participants, capacity, organizer, isFull } =
-    data.gathering;
-  const currUserId = data.currUser._id;
-  const organizerId = organizer.id;
-  const [isMaximum, setIsMaximum] = useState(isFull);
-  const { isLoading, setIsLoading } = useLoadingContext();
-
-  useEffect(() => {
-    isLoading && setIsLoading(false);
-    participants.length >= capacity ? setIsMaximum(true) : setIsMaximum(false);
-  }, []);
+  const {
+    isMaximum,
+    session,
+    organizerId,
+    currUserId,
+    title,
+    gatheringId: _id,
+    handleBackToHome,
+  } = useGatheringsPage({ data });
 
   return (
-    <>
+    <div className="relative">
+      <button
+        className="absolute top-1.5 left-20 text-sm cursor-pointer font-semibold border-none background-inherit"
+        onClick={handleBackToHome}
+      >
+        &lt;　Back
+      </button>
       <Title title={title} />
       <DetailCard gathering={data.gathering} />
       <div className="text-center py-5 md:py-4 md:z-40">
@@ -53,7 +54,7 @@ const GatheringPage = ({ data }: Props) => {
           />
         )}
       </div>
-    </>
+    </div>
   );
 };
 
