@@ -22,12 +22,12 @@ const GatheringPage = ({ data }: Props) => {
 
   return (
     <div className="relative">
-      <span
-        className="absolute top-1.5 left-20 text-sm cursor-pointer font-semibold"
+      <button
+        className="absolute top-1.5 left-20 text-sm cursor-pointer font-semibold border-none background-inherit"
         onClick={handleBackToHome}
       >
         &lt;　Back
-      </span>
+      </button>
       <Title title={title} />
       <DetailCard gathering={data.gathering} />
       <div className="text-center py-5 md:py-4 md:z-40">
